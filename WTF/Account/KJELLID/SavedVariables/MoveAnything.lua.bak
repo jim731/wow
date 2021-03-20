@@ -9,23 +9,6 @@ MADB = {
 		["default"] = {
 			["name"] = "default",
 			["frames"] = {
-				["TargetFrame"] = {
-					["orgPos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						250.000015258789, -- [4]
-						-4, -- [5]
-					},
-					["name"] = "TargetFrame",
-					["pos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						843.383728027344, -- [4]
-						-591.061828613281, -- [5]
-					},
-				},
 				["CastingBarFrame"] = {
 					["orgPos"] = {
 						"BOTTOM", -- [1]
@@ -44,38 +27,55 @@ MADB = {
 						159, -- [5]
 					},
 				},
-				["PlayerFrame"] = {
+				["CompactRaidFrameBuffTooltipsMover"] = {
 					["orgPos"] = {
-						"TOPLEFT", -- [1]
+						"CENTER", -- [1]
 						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						-19.0000019073486, -- [4]
-						-4, -- [5]
-					},
-					["name"] = "PlayerFrame",
-					["pos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						461.839538574219, -- [4]
-						-592.481292724609, -- [5]
-					},
-				},
-				["MainMenuBarVehicleLeaveButton"] = {
-					["orgPos"] = {
-						"TOPLEFT", -- [1]
-						"MainMenuBar", -- [2]
-						"TOPLEFT", -- [3]
+						"CENTER", -- [3]
 						0, -- [4]
 						0, -- [5]
 					},
-					["name"] = "MainMenuBarVehicleLeaveButton",
+					["name"] = "CompactRaidFrameBuffTooltipsMover",
 					["pos"] = {
-						"LEFT", -- [1]
-						"StanceButton3", -- [2]
-						"RIGHT", -- [3]
-						112.963381671122, -- [4]
-						15.8029070695241, -- [5]
+						"CENTER", -- [1]
+						"UIParent", -- [2]
+						"CENTER", -- [3]
+						9.15527343750e-05, -- [4]
+						1.525878906250e-05, -- [5]
+					},
+				},
+				["TargetFrame"] = {
+					["orgPos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						201.000015258789, -- [4]
+						162.000015258789, -- [5]
+					},
+					["name"] = "TargetFrame",
+					["pos"] = {
+						"TOPLEFT", -- [1]
+						"UIParent", -- [2]
+						"TOPLEFT", -- [3]
+						843.383728027344, -- [4]
+						-591.061828613281, -- [5]
+					},
+				},
+				["PlayerDebuffsMover2"] = {
+					["orgPos"] = {
+						"TOPRIGHT", -- [1]
+						"BuffFrame", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						0, -- [4]
+						-60, -- [5]
+					},
+					["name"] = "PlayerDebuffsMover2",
+					["pos"] = {
+						"TOPRIGHT", -- [1]
+						"BuffFrame", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						0, -- [4]
+						-59.9999389648438, -- [5]
 					},
 				},
 				["BagItemTooltipMover"] = {
@@ -99,8 +99,8 @@ MADB = {
 						"BOTTOMRIGHT", -- [1]
 						"UIParent", -- [2]
 						"BOTTOMRIGHT", -- [3]
-						-318, -- [4]
-						180.000015258789, -- [5]
+						-347, -- [4]
+						164, -- [5]
 					},
 					["name"] = "TargetFrameToT",
 					["pos"] = {
@@ -144,38 +144,38 @@ MADB = {
 						-418.666702270508, -- [5]
 					},
 				},
-				["PlayerDebuffsMover2"] = {
+				["PlayerFrame"] = {
 					["orgPos"] = {
-						"TOPRIGHT", -- [1]
-						"BuffFrame", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						0, -- [4]
-						-60, -- [5]
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						-181, -- [4]
+						161.000015258789, -- [5]
 					},
-					["name"] = "PlayerDebuffsMover2",
+					["name"] = "PlayerFrame",
 					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"BuffFrame", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						0, -- [4]
-						-59.9999389648438, -- [5]
+						"TOPLEFT", -- [1]
+						"UIParent", -- [2]
+						"TOPLEFT", -- [3]
+						461.839538574219, -- [4]
+						-592.481292724609, -- [5]
 					},
 				},
-				["CompactRaidFrameBuffTooltipsMover"] = {
+				["MainMenuBarVehicleLeaveButton"] = {
 					["orgPos"] = {
-						"CENTER", -- [1]
-						"UIParent", -- [2]
-						"CENTER", -- [3]
+						"TOPLEFT", -- [1]
+						"BT4BarVehicle", -- [2]
+						"TOPLEFT", -- [3]
 						0, -- [4]
 						0, -- [5]
 					},
-					["name"] = "CompactRaidFrameBuffTooltipsMover",
+					["name"] = "MainMenuBarVehicleLeaveButton",
 					["pos"] = {
-						"CENTER", -- [1]
-						"UIParent", -- [2]
-						"CENTER", -- [3]
-						9.15527343750e-05, -- [4]
-						1.525878906250e-05, -- [5]
+						"LEFT", -- [1]
+						"StanceButton3", -- [2]
+						"RIGHT", -- [3]
+						112.963381671122, -- [4]
+						15.8029070695241, -- [5]
 					},
 				},
 				["GuildBankItemTooltipMover"] = {
@@ -197,8 +197,8 @@ MADB = {
 			},
 		},
 	},
-	["frameListRows"] = 18,
-	["playSound"] = false,
-	["noBags"] = true,
 	["closeGUIOnEscape"] = false,
+	["noBags"] = true,
+	["playSound"] = false,
+	["frameListRows"] = 18,
 }

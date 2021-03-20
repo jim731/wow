@@ -9,6 +9,40 @@ MADB = {
 		["default"] = {
 			["name"] = "default",
 			["frames"] = {
+				["TargetFrame"] = {
+					["orgPos"] = {
+						"BOTTOM", -- [1]
+						"UIParent", -- [2]
+						"BOTTOM", -- [3]
+						201.000015258789, -- [4]
+						162.000015258789, -- [5]
+					},
+					["name"] = "TargetFrame",
+					["pos"] = {
+						"TOPLEFT", -- [1]
+						"UIParent", -- [2]
+						"TOPLEFT", -- [3]
+						843.383728027344, -- [4]
+						-591.061828613281, -- [5]
+					},
+				},
+				["MainMenuBarVehicleLeaveButton"] = {
+					["orgPos"] = {
+						"TOPLEFT", -- [1]
+						"BT4BarVehicle", -- [2]
+						"TOPLEFT", -- [3]
+						0, -- [4]
+						0, -- [5]
+					},
+					["name"] = "MainMenuBarVehicleLeaveButton",
+					["pos"] = {
+						"LEFT", -- [1]
+						"StanceButton3", -- [2]
+						"RIGHT", -- [3]
+						112.963381671122, -- [4]
+						15.8029070695241, -- [5]
+					},
+				},
 				["CastingBarFrame"] = {
 					["orgPos"] = {
 						"BOTTOM", -- [1]
@@ -27,55 +61,21 @@ MADB = {
 						159, -- [5]
 					},
 				},
-				["CompactRaidFrameBuffTooltipsMover"] = {
-					["orgPos"] = {
-						"CENTER", -- [1]
-						"UIParent", -- [2]
-						"CENTER", -- [3]
-						0, -- [4]
-						0, -- [5]
-					},
-					["name"] = "CompactRaidFrameBuffTooltipsMover",
-					["pos"] = {
-						"CENTER", -- [1]
-						"UIParent", -- [2]
-						"CENTER", -- [3]
-						9.15527343750e-05, -- [4]
-						1.525878906250e-05, -- [5]
-					},
-				},
-				["TargetFrame"] = {
+				["PlayerFrame"] = {
 					["orgPos"] = {
 						"BOTTOM", -- [1]
 						"UIParent", -- [2]
 						"BOTTOM", -- [3]
-						201.000015258789, -- [4]
-						162.000015258789, -- [5]
+						-181, -- [4]
+						161.000015258789, -- [5]
 					},
-					["name"] = "TargetFrame",
+					["name"] = "PlayerFrame",
 					["pos"] = {
 						"TOPLEFT", -- [1]
 						"UIParent", -- [2]
 						"TOPLEFT", -- [3]
-						843.383728027344, -- [4]
-						-591.061828613281, -- [5]
-					},
-				},
-				["PlayerDebuffsMover2"] = {
-					["orgPos"] = {
-						"TOPRIGHT", -- [1]
-						"BuffFrame", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						0, -- [4]
-						-60, -- [5]
-					},
-					["name"] = "PlayerDebuffsMover2",
-					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"BuffFrame", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						0, -- [4]
-						-59.9999389648438, -- [5]
+						461.839538574219, -- [4]
+						-592.481292724609, -- [5]
 					},
 				},
 				["BagItemTooltipMover"] = {
@@ -144,38 +144,38 @@ MADB = {
 						-418.666702270508, -- [5]
 					},
 				},
-				["PlayerFrame"] = {
+				["PlayerDebuffsMover2"] = {
 					["orgPos"] = {
-						"BOTTOM", -- [1]
-						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						-181, -- [4]
-						161.000015258789, -- [5]
+						"TOPRIGHT", -- [1]
+						"BuffFrame", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						0, -- [4]
+						-60, -- [5]
 					},
-					["name"] = "PlayerFrame",
+					["name"] = "PlayerDebuffsMover2",
 					["pos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						461.839538574219, -- [4]
-						-592.481292724609, -- [5]
+						"TOPRIGHT", -- [1]
+						"BuffFrame", -- [2]
+						"BOTTOMRIGHT", -- [3]
+						0, -- [4]
+						-59.9999389648438, -- [5]
 					},
 				},
-				["MainMenuBarVehicleLeaveButton"] = {
+				["CompactRaidFrameBuffTooltipsMover"] = {
 					["orgPos"] = {
-						"TOPLEFT", -- [1]
-						"BT4BarVehicle", -- [2]
-						"TOPLEFT", -- [3]
+						"CENTER", -- [1]
+						"UIParent", -- [2]
+						"CENTER", -- [3]
 						0, -- [4]
 						0, -- [5]
 					},
-					["name"] = "MainMenuBarVehicleLeaveButton",
+					["name"] = "CompactRaidFrameBuffTooltipsMover",
 					["pos"] = {
-						"LEFT", -- [1]
-						"StanceButton3", -- [2]
-						"RIGHT", -- [3]
-						112.963381671122, -- [4]
-						15.8029070695241, -- [5]
+						"CENTER", -- [1]
+						"UIParent", -- [2]
+						"CENTER", -- [3]
+						9.15527343750e-05, -- [4]
+						1.525878906250e-05, -- [5]
 					},
 				},
 				["GuildBankItemTooltipMover"] = {
@@ -197,8 +197,8 @@ MADB = {
 			},
 		},
 	},
-	["closeGUIOnEscape"] = false,
-	["noBags"] = true,
-	["playSound"] = false,
 	["frameListRows"] = 18,
+	["playSound"] = false,
+	["noBags"] = true,
+	["closeGUIOnEscape"] = false,
 }

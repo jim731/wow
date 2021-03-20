@@ -1,3 +1,17 @@
+VER 3 0000000000000015 " " "132311"
+#showtooltip passive
+/stopcasting
+/stopattacking
+END
+VER 3 0000000000000007 " " "132276"
+#showtooltip bear form
+/cast bear form
+/startattack
+END
+VER 3 0000000000000005 " " "132325"
+#showtooltip attack
+/startattack
+END
 VER 3 0000000000000012 " " "INV_Weapon_Rifle_05."
 #showtooltip shoot gun
 /cast shoot gun
@@ -12,20 +26,6 @@ VER 3 0000000000000019 " " "132157"
 #showtooltip fishing
 /equipslot 16 Blump Family Fishing Pole
 /cast fishing
-END
-VER 3 0000000000000015 " " "132311"
-#showtooltip passive
-/stopcasting
-/stopattacking
-END
-VER 3 0000000000000007 " " "132276"
-#showtooltip bear form
-/cast bear form
-/startattack
-END
-VER 3 0000000000000005 " " "132325"
-#showtooltip attack
-/startattack
 END
 VER 3 000000000000001C "Better Align" "INV_MISC_QUESTIONMARK"
 /betteralign
