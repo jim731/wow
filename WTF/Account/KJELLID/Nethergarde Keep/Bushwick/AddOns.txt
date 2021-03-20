@@ -1,0 +1,5 @@
+OPie_Classic: disabled
+Bagnon: enabled
+Bartender4: enabled
+SexyMap: enabled
+MoveAnything: enabled

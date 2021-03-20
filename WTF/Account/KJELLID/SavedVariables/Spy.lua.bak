@@ -17,6 +17,8 @@ SpyDB = {
 		},
 		["Skullflame"] = {
 			["Horde"] = {
+				["Shapeshifter"] = {
+				},
 				["Ferns"] = {
 				},
 			},
@@ -38,10 +40,12 @@ SpyDB = {
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
+		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
 	},
 	["profiles"] = {
 		["Ferns - Skullflame"] = {
+			["AppendUnitNameCheck"] = true,
 			["Colors"] = {
 				["Bar"] = {
 					["Bar Text"] = {
@@ -49,7 +53,6 @@ SpyDB = {
 					},
 				},
 			},
-			["AppendUnitNameCheck"] = true,
 			["AppendUnitKoSCheck"] = true,
 		},
 		["Consumables - Nethergarde Keep"] = {
@@ -89,7 +92,27 @@ SpyDB = {
 			["AppendUnitKoSCheck"] = true,
 		},
 		["Fermion - Nethergarde Keep"] = {
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["FilteredZones"] = {
+				["Gadgetzan"] = true,
+				["The Salty Sailor Tavern"] = true,
+				["Everlook"] = true,
+				["Ratchet"] = true,
+				["Booty Bay"] = true,
+			},
 			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
+			["AppendUnitKoSCheck"] = true,
+		},
+		["Shapeshifter - Skullflame"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
 			["Colors"] = {
 				["Bar"] = {
 					["Bar Text"] = {
@@ -98,14 +121,6 @@ SpyDB = {
 				},
 			},
 			["AppendUnitKoSCheck"] = true,
-			["FilteredZones"] = {
-				["Gadgetzan"] = true,
-				["The Salty Sailor Tavern"] = true,
-				["Booty Bay"] = true,
-				["Ratchet"] = true,
-				["Everlook"] = true,
-			},
-			["MainWindowVis"] = false,
 		},
 		["Raremats - Nethergarde Keep"] = {
 			["AppendUnitNameCheck"] = true,

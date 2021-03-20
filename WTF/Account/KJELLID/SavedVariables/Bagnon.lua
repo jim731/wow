@@ -28,11 +28,12 @@ Bagnon_Sets = {
 	},
 	["mineColor"] = {
 	},
-	["version"] = "8.3.5",
+	["version"] = "9.0.6",
 	["fridgeColor"] = {
 	},
 	["global"] = {
 		["inventory"] = {
+			["y"] = 132.395126342773,
 			["rules"] = {
 				"all", -- [1]
 				"all/normal", -- [2]
@@ -54,11 +55,15 @@ Bagnon_Sets = {
 				"trade/recipe", -- [18]
 				"quest", -- [19]
 				"misc", -- [20]
+				"all/souls", -- [21]
+				"equip/ammo", -- [22]
 			},
+			["point"] = "BOTTOMRIGHT",
 			["hiddenBags"] = {
 			},
 			["color"] = {
 			},
+			["x"] = -176.420166015625,
 			["hiddenRules"] = {
 			},
 			["borderColor"] = {
@@ -129,6 +134,7 @@ Bagnon_Sets = {
 			},
 		},
 		["bank"] = {
+			["y"] = 357.666656494141,
 			["rules"] = {
 				"all", -- [1]
 				"all/normal", -- [2]
@@ -150,11 +156,15 @@ Bagnon_Sets = {
 				"trade/recipe", -- [18]
 				"quest", -- [19]
 				"misc", -- [20]
+				"all/souls", -- [21]
+				"equip/ammo", -- [22]
 			},
+			["point"] = "BOTTOMLEFT",
 			["hiddenBags"] = {
 			},
 			["color"] = {
 			},
+			["x"] = 95.0000076293945,
 			["hiddenRules"] = {
 			},
 			["borderColor"] = {

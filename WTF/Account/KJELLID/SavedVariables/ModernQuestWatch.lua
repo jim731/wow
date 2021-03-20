@@ -1,6 +1,5 @@
 
 ModernQuestWatchDB = {
-	["userplaced"] = false,
 	["point"] = {
 		"TOPRIGHT", -- [1]
 		"MinimapCluster", -- [2]
@@ -8,5 +7,6 @@ ModernQuestWatchDB = {
 		0, -- [4]
 		0, -- [5]
 	},
+	["userplaced"] = false,
 	["db_version"] = 3,
 }

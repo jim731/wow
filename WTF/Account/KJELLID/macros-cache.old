@@ -34,8 +34,7 @@ VER 3 000000000000001D "chicken" "135996"
 /chicken
 END
 VER 3 0000000000000043 "Decursive" "INV_MISC_QUESTIONMARK"
-/stopcasting
-/cast [@mouseover,nomod,exists] Cure Poison;  [@mouseover,exists,mod:ctrl] Cure Disease; [@mouseover,exists,mod:shift] Purge
+/script DecursiveRootTable.Dcr:Println('No spell available')
 END
 VER 3 000000000000002D "dtls" "INV_MISC_QUESTIONMARK"
 /details toggle
@@ -43,11 +42,8 @@ END
 VER 3 0000000000000016 "HAIL" "136101"
 /hail
 END
-VER 3 000000000000001E "HI" "135929"
+VER 3 000000000000001E "Hello" "INV_MISC_QUESTIONMARK"
 /p hello
-END
-VER 3 0000000000000003 "REC" "INV_MISC_QUESTIONMARK"
-/recount toggle
 END
 VER 3 0000000000000042 "suf" "INV_MISC_QUESTIONMARK"
 /suf

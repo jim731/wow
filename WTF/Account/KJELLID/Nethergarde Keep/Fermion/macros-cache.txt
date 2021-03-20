@@ -1,0 +1,214 @@
+VER 3 0000000001000007 " " "132276"
+#showtooltip bear form
+/cast bear form
+/startattack
+END
+VER 3 0000000001000021 " " "132338"
+#showtooltip cleave
+/cast cleave
+/startattack
+END
+VER 3 0000000001000018 " " "132349"
+#showtooltip Battle Stance
+/equipslot 16 whirlwind axe
+/cast Battle Stance
+END
+VER 3 0000000001000020 " " "132282"
+#showtooltip heroic strike
+/cast heroic strike
+/startattack
+END
+VER 3 000000000100001B " " "132353"
+#showtooltip Revenge
+/cast revenge
+/startattack
+END
+VER 3 0000000001000013 " " "132155"
+#showtooltip rend
+/cast rend
+/startattack
+END
+VER 3 0000000001000022 " " "132337"
+#showtooltip charge
+/cast battle stance
+/cast charge
+/cast mocking blow
+END
+VER 3 0000000001000005 " " "132325"
+#showtooltip attack
+/startattack
+END
+VER 3 0000000001000012 " " "132153"
+#showtooltip shoot gun
+/cast shoot gun
+/startattack
+END
+VER 3 0000000001000019 " " "132157"
+#showtooltip fishing
+/equipslot 16 Blump Family Fishing Pole
+/cast fishing
+END
+VER 3 0000000001000024 " " "132208"
+#showtooltip shoot bow
+/cast shoot bow
+/startattack
+END
+VER 3 0000000001000023 " " "132307"
+#showtooltip intercept
+/cast berserker stance
+/cast intercept
+END
+VER 3 0000000001000015 " " "132311"
+#showtooltip passive
+/stopcasting
+/stopattacking
+END
+VER 3 0000000001000025 " " "132341"
+#showtooltip defensive stance
+/equipslot 16 Sword of Serenity
+/equipslot 17 Salbac Shield
+/cast defensive stance
+END
+VER 3 000000000100002B " " "132355"
+#showtooltip mortal strike
+/cast mortal strike
+/startattack
+END
+VER 3 000000000100002C " " "INV_MISC_QUESTIONMARK"
+#showtooltip pummel
+#show pummel
+/cast berserker stance
+/cast pummel
+END
+VER 3 0000000001000033 " " "132326"
+#showtooltip thunder clap
+/cast battle stance
+/cast thunder clap
+END
+VER 3 0000000001000034 " " "132306"
+#showtooltip sweeping strikes
+/cast battle stance
+/cast sweeping strikes
+END
+VER 3 0000000001000032 " " "132357"
+#showtooltip shield bash
+/equipslot 16 Sword of Serenity
+/equipslot 17 Salbac Shield
+/cast defensive stance
+/cast shield bash
+END
+VER 3 0000000001000031 " " "132350"
+#showtooltip mocking blow
+/cast battle stance
+/cast [@mouseover,harm,nodead] mocking blow; mocking blow
+END
+VER 3 0000000001000030 " " "132336"
+#showtooltip retaliation
+/equipslot 16 whirlwind axe
+/cast battle stance
+/cast retaliation
+END
+VER 3 000000000100002F " " "132362"
+#showtooltip shield wall
+/cast defensive stance
+/equipslot 16 Sword of Serenity
+/equipslot 17 Salbac Shield
+/cast shield wall
+END
+VER 3 000000000100002E " " "136009"
+#showtooltip berserker rage
+/cast berserker stance
+/cast berserker rage
+END
+VER 3 0000000001000035 " " "132343"
+#showtooltip disarm
+/startattack
+/cast defensive stance
+/cast disarm
+END
+VER 3 0000000001000036 " " "132338"
+#showtooltip cleave
+/cast cleave
+/startattack
+END
+VER 3 0000000001000037 " " "132340"
+#showtooltip slam
+/cast slam
+/startattack
+END
+VER 3 0000000001000038 " " "132275"
+#showtooltip berserker stance
+/equipslot 16 whirlwind axe
+/cast berserker stance
+END
+VER 3 000000000100003B " " "132321"
+#showtooltip overpower
+/cast battle stance
+/cast overpower
+END
+VER 3 000000000100003A " " "135893"
+#showtooltip Sword of Serenity
+/equipslot 16 Sword of Serenity
+/equipslot 17 Salbac Shield
+END
+VER 3 0000000001000039 " " "135792"
+#showtooltip whirlwind axe
+/equipslot 16 whirlwind axe
+END
+VER 3 000000000100003C " " "132369"
+#showtooltip whirlwind
+/cast berserker stance
+/cast whirlwind
+END
+VER 3 000000000100003E " " "INV_MISC_QUESTIONMARK"
+#showtooltip intimidating shout
+#show intimidating shout
+/cast intimidating shout
+/cast heavy mageweave bandage
+END
+VER 3 000000000100003D " " "136080"
+#showtooltip taunt
+/cast [@mouseover,harm,nodead] Taunt; Taunt
+END
+VER 3 000000000100001C "Better Align" "INV_MISC_QUESTIONMARK"
+/betteralign
+END
+VER 3 000000000100001D "chicken" "135996"
+/chicken
+END
+VER 3 000000000100002D "DTLS" "INV_MISC_QUESTIONMARK"
+/details toggle
+END
+VER 3 000000000100002A "ecb" "INV_MISC_QUESTIONMARK"
+/ecb
+END
+VER 3 0000000001000016 "HAIL" "136101"
+/hail
+END
+VER 3 000000000100001E "HI" "135929"
+/p hello
+END
+VER 3 0000000001000014 "MARK" "INV_MISC_QUESTIONMARK"
+/p target markers:
+/p skull = first
+/p cross = second
+/p square = freeze trap
+/p moon = polymorph 
+END
+VER 3 000000000100001F "NOTE" "INV_MISC_QUESTIONMARK"
+/tinypad
+END
+VER 3 0000000001000003 "REC" "INV_MISC_QUESTIONMARK"
+/recount toggle
+END
+VER 3 000000000100003F "Spawn Camp" "INV_MISC_QUESTIONMARK"
+/target xxx
+/cast hamstring
+/startattack
+END
+VER 3 0000000001000011 "THX" "135915"
+/thanks
+END
+VER 3 0000000001000029 "wst" "INV_MISC_QUESTIONMARK"
+/wst
+END

@@ -1,8 +1,9 @@
 
 Details_StreamerDB = {
 	["characters"] = {
-		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Ferns - Skullflame"] = "Fermion - Nethergarde Keep",
+		["Shapeshifter - Skullflame"] = "Fermion - Nethergarde Keep",
+		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 	},
 	["profiles"] = {
 		["Fermion - Nethergarde Keep"] = {

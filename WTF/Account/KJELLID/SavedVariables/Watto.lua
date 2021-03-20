@@ -8,19 +8,23 @@ Watto_Options = {
 	},
 	["showtooltipdata"] = true,
 	["usemoneyicons"] = true,
-	["sellbacklimiter"] = false,
+	["Version"] = "1.7.4",
 	["autosellfood"] = true,
 	["fillreagentbank"] = true,
-	["Version"] = "1.7.4",
+	["sellbacklimiter"] = false,
 }
 Watto_ItemList = {
 	["General"] = {
 	},
 	["PerChar"] = {
 		["Skullflame"] = {
+			["Ferns"] = {
+			},
 			["Shapeshifter"] = {
 			},
-			["Ferns"] = {
+		},
+		["Nethergarde Keep"] = {
+			["Fermion"] = {
 			},
 		},
 	},

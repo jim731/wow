@@ -2,13 +2,13 @@
 AUCTIONATOR_SAVEDVARS = {
 	["_50000"] = 500,
 	["_2000"] = 100,
-	["_500"] = 5,
-	["STARTING_DISCOUNT"] = 5,
-	["_1000000"] = 2500,
-	["_10000"] = 200,
-	["LOG_DE_DATA_X"] = true,
 	["_200000"] = 1000,
+	["_10000"] = 200,
+	["_1000000"] = 2500,
 	["_5000000"] = 10000,
+	["STARTING_DISCOUNT"] = 5,
+	["_500"] = 5,
+	["LOG_DE_DATA_X"] = true,
 }
 AUCTIONATOR_PRICING_HISTORY = {
 }
@@ -40,15 +40,20 @@ AUCTIONATOR_PRICE_DATABASE = {
 }
 AUCTIONATOR_LAST_SCAN_TIME = nil
 AUCTIONATOR_TOONS = {
-	["Ferns"] = {
-		["firstSeen"] = 1616226408,
-		["guid"] = "Player-4743-014F7A64",
+	["Shapeshifter"] = {
+		["firstSeen"] = 1616226451,
+		["guid"] = "Player-4743-00C03581",
 		["firstVersion"] = "100.0.9",
 	},
 	["Fermion"] = {
 		["firstSeen"] = 1616091869,
-		["firstVersion"] = "100.0.9",
 		["guid"] = "Player-4456-019041F2",
+		["firstVersion"] = "100.0.9",
+	},
+	["Ferns"] = {
+		["firstSeen"] = 1616226408,
+		["firstVersion"] = "100.0.9",
+		["guid"] = "Player-4743-014F7A64",
 	},
 }
 AUCTIONATOR_STACKING_PREFS = {

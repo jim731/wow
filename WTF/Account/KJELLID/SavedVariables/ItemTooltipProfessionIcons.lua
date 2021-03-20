@@ -7,8 +7,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["showQuests"] = true,
 			["iconSize"] = 16,
+			["showQuests"] = true,
 		},
 		["Parisi"] = {
 			["showProfs"] = true,
@@ -16,8 +16,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["iconSize"] = 16,
 			["showQuests"] = true,
+			["iconSize"] = 16,
 		},
 		["Raremats"] = {
 			["showProfs"] = true,
@@ -25,8 +25,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["showQuests"] = true,
 			["iconSize"] = 16,
+			["showQuests"] = true,
 		},
 		["Various"] = {
 			["showProfs"] = true,
@@ -34,8 +34,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["iconSize"] = 16,
 			["showQuests"] = true,
+			["iconSize"] = 16,
 		},
 		["Fermion"] = {
 			["showProfs"] = true,
@@ -43,12 +43,12 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["showQuests"] = true,
 			["iconSize"] = 16,
+			["showQuests"] = true,
 		},
 	},
 	["Skullflame"] = {
-		["Shapeshifter"] = {
+		["Ferns"] = {
 			["showProfs"] = true,
 			["showDMF"] = true,
 			["profFlags"] = 255,
@@ -57,7 +57,7 @@ ItemTooltipIconsConfig = {
 			["iconSize"] = 16,
 			["showQuests"] = true,
 		},
-		["Ferns"] = {
+		["Shapeshifter"] = {
 			["showProfs"] = true,
 			["showDMF"] = true,
 			["profFlags"] = 255,

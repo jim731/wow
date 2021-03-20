@@ -7,17 +7,12 @@ PawnCommon = {
 	["ShowRelicUpgrades"] = false,
 	["ShowValuesForUpgradesOnly"] = true,
 	["ShowItemLevelUpgrades"] = false,
-	["ShownGettingStarted"] = true,
 	["Debug"] = false,
+	["IgnoreGemsWhileLeveling"] = true,
 	["ColorTooltipBorder"] = true,
 	["ShowTooltipIcons"] = true,
-	["Digits"] = 1,
-	["ShowSocketingAdvisor"] = true,
 	["ShowSpecIcons"] = true,
-	["LastVersion"] = 2.0417,
-	["ButtonPosition"] = 2,
-	["ShowLootUpgradeAdvisor"] = true,
-	["ShowQuestUpgradeAdvisor"] = true,
+	["ShowSocketingAdvisor"] = true,
 	["Scales"] = {
 		["\"Classic\":WARRIOR2"] = {
 			["PerCharacterOptions"] = {
@@ -262,21 +257,21 @@ PawnCommon = {
 			["UnenchantedColor"] = "947451",
 			["SpecID"] = 1,
 		},
-		["\"Classic\":SHAMAN1"] = {
+		["\"Classic\":ROGUE1"] = {
 			["PerCharacterOptions"] = {
-				["Ferns-Skullflame"] = {
+				["Raremats-Nethergarde Keep"] = {
 					["Visible"] = true,
 				},
 			},
-			["Color"] = "f48cba",
-			["LocalizedName"] = "Shaman: Elemental",
-			["ClassID"] = 7,
+			["Color"] = "fff468",
+			["LocalizedName"] = "Rogue: Assassination",
+			["ClassID"] = 4,
 			["DoNotShow1HUpgrades"] = false,
 			["Role"] = "DAMAGER",
 			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = false,
 			["Provider"] = "Classic",
-			["UnenchantedColor"] = "b7698b",
+			["UnenchantedColor"] = "bfb74e",
 			["SpecID"] = 1,
 		},
 		["\"Classic\":SHAMAN3"] = {
@@ -296,67 +291,67 @@ PawnCommon = {
 			["UnenchantedColor"] = "b7698b",
 			["SpecID"] = 3,
 		},
-		["\"Classic\":PALADIN3"] = {
+		["\"Classic\":PALADIN1"] = {
 			["PerCharacterOptions"] = {
 			},
 			["Color"] = "f48cba",
-			["LocalizedName"] = "Paladin: Retribution",
+			["LocalizedName"] = "Paladin: Holy",
 			["ClassID"] = 2,
 			["DoNotShow1HUpgrades"] = false,
-			["Role"] = "DAMAGER",
+			["Role"] = "HEALER",
 			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = false,
 			["Provider"] = "Classic",
 			["UnenchantedColor"] = "b7698b",
-			["SpecID"] = 3,
+			["SpecID"] = 1,
 		},
 		["\"Classic\":ROGUE"] = {
 			["Color"] = "fff468",
-			["LocalizedName"] = "Rogue: Off Hand",
+			["ClassID"] = 4,
 			["PerCharacterOptions"] = {
 				["Raremats-Nethergarde Keep"] = {
 					["Visible"] = true,
 				},
 			},
 			["DoNotShow1HUpgrades"] = false,
-			["ClassID"] = 4,
+			["LocalizedName"] = "Rogue: Off Hand",
 			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = false,
 			["Provider"] = "Classic",
 			["UnenchantedColor"] = "bfb74e",
 		},
-		["\"Classic\":DRUID3"] = {
+		["\"Classic\":ROGUE3"] = {
 			["PerCharacterOptions"] = {
-				["Shapeshifter-Skullflame"] = {
+				["Raremats-Nethergarde Keep"] = {
 					["Visible"] = true,
 				},
 			},
-			["Color"] = "ff7c0a",
-			["LocalizedName"] = "Druid: Feral (Tank)",
-			["ClassID"] = 11,
-			["DoNotShow1HUpgrades"] = false,
-			["Role"] = "TANK",
-			["DoNotShow2HUpgrades"] = false,
-			["UpgradesFollowSpecialization"] = false,
-			["Provider"] = "Classic",
-			["UnenchantedColor"] = "bf5d07",
-			["SpecID"] = 3,
-		},
-		["\"Classic\":DRUID2"] = {
-			["PerCharacterOptions"] = {
-				["Shapeshifter-Skullflame"] = {
-					["Visible"] = true,
-				},
-			},
-			["Color"] = "ff7c0a",
-			["LocalizedName"] = "Druid: Feral (Damage)",
-			["ClassID"] = 11,
+			["Color"] = "fff468",
+			["LocalizedName"] = "Rogue: Subtlety",
+			["ClassID"] = 4,
 			["DoNotShow1HUpgrades"] = false,
 			["Role"] = "DAMAGER",
 			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = false,
 			["Provider"] = "Classic",
-			["UnenchantedColor"] = "bf5d07",
+			["UnenchantedColor"] = "bfb74e",
+			["SpecID"] = 3,
+		},
+		["\"Classic\":ROGUE2"] = {
+			["PerCharacterOptions"] = {
+				["Raremats-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+			},
+			["Color"] = "fff468",
+			["LocalizedName"] = "Rogue: Combat",
+			["ClassID"] = 4,
+			["DoNotShow1HUpgrades"] = false,
+			["Role"] = "DAMAGER",
+			["DoNotShow2HUpgrades"] = false,
+			["UpgradesFollowSpecialization"] = false,
+			["Provider"] = "Classic",
+			["UnenchantedColor"] = "bfb74e",
 			["SpecID"] = 2,
 		},
 		["\"Classic\":WARLOCK1"] = {
@@ -393,38 +388,38 @@ PawnCommon = {
 			["UnenchantedColor"] = "bf5d07",
 			["SpecID"] = 4,
 		},
-		["\"Classic\":ROGUE2"] = {
+		["\"Classic\":DRUID2"] = {
 			["PerCharacterOptions"] = {
-				["Raremats-Nethergarde Keep"] = {
+				["Shapeshifter-Skullflame"] = {
 					["Visible"] = true,
 				},
 			},
-			["Color"] = "fff468",
-			["LocalizedName"] = "Rogue: Combat",
-			["ClassID"] = 4,
+			["Color"] = "ff7c0a",
+			["LocalizedName"] = "Druid: Feral (Damage)",
+			["ClassID"] = 11,
 			["DoNotShow1HUpgrades"] = false,
 			["Role"] = "DAMAGER",
 			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = false,
 			["Provider"] = "Classic",
-			["UnenchantedColor"] = "bfb74e",
+			["UnenchantedColor"] = "bf5d07",
 			["SpecID"] = 2,
 		},
-		["\"Classic\":ROGUE3"] = {
+		["\"Classic\":DRUID3"] = {
 			["PerCharacterOptions"] = {
-				["Raremats-Nethergarde Keep"] = {
+				["Shapeshifter-Skullflame"] = {
 					["Visible"] = true,
 				},
 			},
-			["Color"] = "fff468",
-			["LocalizedName"] = "Rogue: Subtlety",
-			["ClassID"] = 4,
+			["Color"] = "ff7c0a",
+			["LocalizedName"] = "Druid: Feral (Tank)",
+			["ClassID"] = 11,
 			["DoNotShow1HUpgrades"] = false,
-			["Role"] = "DAMAGER",
+			["Role"] = "TANK",
 			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = false,
 			["Provider"] = "Classic",
-			["UnenchantedColor"] = "bfb74e",
+			["UnenchantedColor"] = "bf5d07",
 			["SpecID"] = 3,
 		},
 		["\"Classic\":DRUID1"] = {
@@ -444,35 +439,35 @@ PawnCommon = {
 			["UnenchantedColor"] = "bf5d07",
 			["SpecID"] = 1,
 		},
-		["\"Classic\":PALADIN1"] = {
+		["\"Classic\":PALADIN3"] = {
 			["PerCharacterOptions"] = {
 			},
 			["Color"] = "f48cba",
-			["LocalizedName"] = "Paladin: Holy",
+			["LocalizedName"] = "Paladin: Retribution",
 			["ClassID"] = 2,
-			["DoNotShow1HUpgrades"] = false,
-			["Role"] = "HEALER",
-			["DoNotShow2HUpgrades"] = false,
-			["UpgradesFollowSpecialization"] = false,
-			["Provider"] = "Classic",
-			["UnenchantedColor"] = "b7698b",
-			["SpecID"] = 1,
-		},
-		["\"Classic\":ROGUE1"] = {
-			["PerCharacterOptions"] = {
-				["Raremats-Nethergarde Keep"] = {
-					["Visible"] = true,
-				},
-			},
-			["Color"] = "fff468",
-			["LocalizedName"] = "Rogue: Assassination",
-			["ClassID"] = 4,
 			["DoNotShow1HUpgrades"] = false,
 			["Role"] = "DAMAGER",
 			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = false,
 			["Provider"] = "Classic",
-			["UnenchantedColor"] = "bfb74e",
+			["UnenchantedColor"] = "b7698b",
+			["SpecID"] = 3,
+		},
+		["\"Classic\":SHAMAN1"] = {
+			["PerCharacterOptions"] = {
+				["Ferns-Skullflame"] = {
+					["Visible"] = true,
+				},
+			},
+			["Color"] = "f48cba",
+			["LocalizedName"] = "Shaman: Elemental",
+			["ClassID"] = 7,
+			["DoNotShow1HUpgrades"] = false,
+			["Role"] = "DAMAGER",
+			["DoNotShow2HUpgrades"] = false,
+			["UpgradesFollowSpecialization"] = false,
+			["Provider"] = "Classic",
+			["UnenchantedColor"] = "b7698b",
 			["SpecID"] = 1,
 		},
 		["\"Classic\":PRIEST2"] = {
@@ -493,5 +488,10 @@ PawnCommon = {
 			["SpecID"] = 2,
 		},
 	},
-	["IgnoreGemsWhileLeveling"] = true,
+	["LastVersion"] = 2.0417,
+	["ButtonPosition"] = 2,
+	["ShowLootUpgradeAdvisor"] = true,
+	["ShowQuestUpgradeAdvisor"] = true,
+	["Digits"] = 1,
+	["ShownGettingStarted"] = true,
 }

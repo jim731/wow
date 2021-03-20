@@ -1,9 +1,7 @@
 
 DecursiveDB = {
-	["profileKeys"] = {
-		["Ferns - Skullflame"] = "Default",
-		["Shapeshifter - Skullflame"] = "Default",
-		["Fermion - Nethergarde Keep"] = "Default",
+	["global"] = {
+		["LastVersionAnnounce"] = 1616226416,
 	},
 	["class"] = {
 		["WARRIOR"] = {
@@ -40,8 +38,10 @@ DecursiveDB = {
 			},
 		},
 	},
-	["global"] = {
-		["LastVersionAnnounce"] = 1616226416,
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Default",
+		["Shapeshifter - Skullflame"] = "Default",
+		["Fermion - Nethergarde Keep"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {

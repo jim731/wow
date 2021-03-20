@@ -10,38 +10,20 @@ CliqueDB3 = {
 		},
 	},
 	["profileKeys"] = {
-		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
+		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
+		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 	},
 	["profiles"] = {
-		["Fermion - Nethergarde Keep"] = {
-			["bindings"] = {
-				{
-					["type"] = "target",
-					["sets"] = {
-						["default"] = true,
-					},
-					["key"] = "BUTTON1",
-					["unit"] = "mouseover",
-				}, -- [1]
-				{
-					["type"] = "menu",
-					["key"] = "BUTTON2",
-					["sets"] = {
-						["default"] = true,
-					},
-				}, -- [2]
-			},
-		},
 		["Ferns - Skullflame"] = {
 			["bindings"] = {
 				{
+					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
-					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -57,6 +39,25 @@ CliqueDB3 = {
 		["Raremats - Nethergarde Keep"] = {
 			["bindings"] = {
 				{
+					["type"] = "target",
+					["sets"] = {
+						["default"] = true,
+					},
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Various - Nethergarde Keep"] = {
+			["bindings"] = {
+				{
 					["sets"] = {
 						["default"] = true,
 					},
@@ -73,13 +74,32 @@ CliqueDB3 = {
 				}, -- [2]
 			},
 		},
-		["Various - Nethergarde Keep"] = {
+		["Fermion - Nethergarde Keep"] = {
 			["bindings"] = {
 				{
-					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Shapeshifter - Skullflame"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
