@@ -1,0 +1,15 @@
+## Interface: 11305
+## Title: HandyNotes_WorldMapButton
+## Version: 11305.06-Classic
+## Notes: Adds a Button to the Worldmap to toggle HandyNotes
+## Author: fuba
+## OptionalDeps: Ace3
+## RequiredDeps: HandyNotes
+
+
+# Locale files
+Locale\enUS.lua
+Locale\deDE.lua
+
+# Core files
+HandyNotes_WorldMapButton.lua

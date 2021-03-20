@@ -1,0 +1,9 @@
+## Interface: 11305
+## Title: Kals_ClassicAmmoCount
+## Version: 1.1
+## Notes: Warns on low ammo
+## Author: Kalief
+## DefaultState: enabled
+## SavedVariablesPerCharacter: MinAmmoCountGlobal
+
+Kals_ClassicAmmoCount.lua

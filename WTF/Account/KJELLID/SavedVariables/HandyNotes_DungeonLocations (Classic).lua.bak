@@ -1,0 +1,10 @@
+
+HandyNotes_DungeonLocationsClassicDB = {
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

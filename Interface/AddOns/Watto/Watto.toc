@@ -1,0 +1,13 @@
+## Interface: 11302
+## Title: Watto
+## Author: Kjasi
+## Version: 1.7.4
+## Notes: Buy and Sell massive amounts of items!
+## URL: https://bitbucket.org/Kjasi/kjasis-wow-addons
+## X-URL: https://bitbucket.org/Kjasi/kjasis-wow-addons
+## X-Website: https://bitbucket.org/Kjasi/kjasis-wow-addons
+## X-Feedback: https://bitbucket.org/Kjasi/kjasis-wow-addons
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariables: Watto_Options, Watto_ItemList, Watto_TempSell
+Load.xml

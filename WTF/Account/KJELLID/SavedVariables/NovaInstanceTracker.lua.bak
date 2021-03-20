@@ -1,0 +1,57 @@
+
+NITdatabase = {
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Default",
+	},
+	["global"] = {
+		["resetCharData"] = false,
+		["Skullflame"] = {
+			["trades"] = {
+			},
+			["myChars"] = {
+				["Ferns"] = {
+					["fishingSkill"] = 0,
+					["cookingSkill"] = 0,
+					[17030] = 0,
+					["firstaidSkillMax"] = 0,
+					["prof2"] = "Skinning",
+					["savedInstances"] = {
+					},
+					["maxXP"] = 27300,
+					["gender"] = "Male",
+					["profSkillMax2"] = 150,
+					["restedXP"] = 7276,
+					["totalBagSlots"] = 50,
+					["freeBagSlots"] = 11,
+					[17057] = 0,
+					[17058] = 0,
+					["raceEnglish"] = "Tauren",
+					["profSkillMax1"] = 150,
+					["resting"] = false,
+					["time"] = 1616226411,
+					["gold"] = 7305,
+					["realm"] = "Skullflame",
+					["currentXP"] = 17606,
+					["cookingSkillMax"] = 0,
+					["raceLocalized"] = "Tauren",
+					["fishingSkillMax"] = 0,
+					["firstaidSkill"] = 0,
+					["classEnglish"] = "SHAMAN",
+					["guild"] = "OnePiece",
+					["profSkill1"] = 83,
+					["durabilityAverage"] = 97.5,
+					["race"] = "Tauren",
+					["profSkill2"] = 90,
+					["level"] = 22,
+					["cooldowns"] = {
+					},
+					["prof1"] = "Mining",
+					["classLocalized"] = "Shaman",
+					["guildRankName"] = "Newbie",
+				},
+			},
+			["instances"] = {
+			},
+		},
+	},
+}

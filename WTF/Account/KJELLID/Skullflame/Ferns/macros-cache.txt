@@ -1,0 +1,29 @@
+VER 3 0000000001000001 " " "136026"
+#showtooltip Earth Shock(Rank 3)
+/cast [nomod][@mouseover]Earth Shock(Rank 3)
+/cast [mod:shift][@mouseover]Earth Shock(Rank 1)
+/startattack
+END
+VER 3 0000000001000006 " " "135849"
+#showtooltip Frost Shock(Rank 1)
+/cast Frost Shock(Rank 1)
+/startattack
+END
+VER 3 0000000001000002 " " "135813"
+#showtooltip Flame Shock(Rank 2)
+/cast Flame Shock(Rank 2)
+/startattack
+END
+VER 3 0000000001000005 " " "136048"
+#showtooltip Lightning Bolt(Rank 3)
+/startattack
+/cast Lightning Bolt(Rank 3)
+END
+VER 3 0000000001000003 "1" "136026"
+#showtooltip Earth Shock(Rank 1)
+/cast Earth Shock(Rank 1)
+/startattack
+END
+VER 3 0000000001000007 "TT Cast" "INV_MISC_QUESTIONMARK"
+/castsequence reset=combat/60  Searing Totem, Stoneskin Totem, Healing Stream Totem
+END

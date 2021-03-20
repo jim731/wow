@@ -1,0 +1,25 @@
+
+PallyPowerDB = {
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Other",
+	},
+	["profiles"] = {
+		["Other"] = {
+			["enable"] = true,
+		},
+	},
+}
+PallyPower_Assignments = {
+}
+PallyPower_NormalAssignments = {
+}
+PallyPower_AuraAssignments = {
+}
+PallyPower_SavedPresets = nil
+PallyPower_ChanNames = {
+	[0] = "None",
+}
+LCD_Data = {
+}
+LCD_GUIDAccess = {
+}

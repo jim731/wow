@@ -1,0 +1,19 @@
+
+HandyNotesDB = {
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+	},
+	["profiles"] = {
+		["Ferns - Skullflame"] = {
+		},
+	},
+}
+HandyNotes_HandyNotesDB = {
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+	},
+	["profiles"] = {
+		["Ferns - Skullflame"] = {
+		},
+	},
+}

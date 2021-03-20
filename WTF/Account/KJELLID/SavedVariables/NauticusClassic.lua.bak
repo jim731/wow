@@ -1,0 +1,17 @@
+
+NauticusClassic5DB = {
+	["global"] = {
+		["timestamp"] = 1616226402,
+		["uptime"] = 56010.755,
+	},
+	["profileKeys"] = {
+		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+	},
+	["profiles"] = {
+		["Fermion - Nethergarde Keep"] = {
+		},
+		["Ferns - Skullflame"] = {
+		},
+	},
+}

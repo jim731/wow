@@ -1,0 +1,7 @@
+## Interface: 11305
+## Title: NeatPlates Widgets
+## Notes: Library of Widgets
+## Dependencies: NeatPlates
+## SavedVariables: NeatPlatesWidgetSettings
+
+Widgets.xml

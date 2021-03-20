@@ -1,0 +1,13 @@
+## Interface: 11306
+## Title: HealBot Plugin Threat
+## Author: Strife
+## Notes: HealBot plugin threat uses threat data stored by HealBot to show a threat frame
+## RequiredDeps: HealBot
+## SavedVariablesPerCharacter:  HealBot_Plugin_Threat
+## SavedVariables:  HealBot_Plugin_Threat_Config
+## LoadOnDemand: 1
+## Version: 1.13.6.0
+
+HealBot_Plugin_Threat_Data.lua
+HealBot_Plugin_Threat.lua
+HealBot_Plugin_Options.lua

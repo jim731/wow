@@ -1,0 +1,6 @@
+## Interface: 11302
+## Title: Silver Rare Elites
+## Notes: A cosmetic addon that puts the TBC winged silver dragon frame around a rare elite's portrait.
+## Version: 1.0.0
+
+SilverRareElites.lua

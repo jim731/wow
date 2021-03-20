@@ -1,0 +1,12 @@
+## Interface: 11306
+## Title: Attune
+## Author: Cixi@Remulos
+## Notes: Track your Attunement progression
+## SavedVariables: Attune_DB
+## SavedVariablesPerCharacter: AttuneLastViewed
+## Version: 1.13.6.214
+## X-Website: https://warcraftratings.com
+
+embeds.xml
+Attune.lua
+AttuneData.lua

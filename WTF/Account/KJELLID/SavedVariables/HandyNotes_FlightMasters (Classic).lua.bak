@@ -1,0 +1,10 @@
+
+HandyNotes_FlightMastersClassicDB = {
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

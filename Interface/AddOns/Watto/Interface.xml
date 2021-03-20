@@ -1,0 +1,391 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+ ..\FrameXML\UI.xsd">
+	<Script file="Buying.lua"/>
+	<Script file="Selling.lua"/>
+	<Script file="Interface.lua"/>
+	
+	<Button name="Watto_SellJunkButton" parent="MerchantFrame" frameStrata="HIGH">
+		<Size x="33" y="33" />
+		<Anchors>
+			<Anchor point="TOPRIGHT" x="-8" y="-26"/>
+		</Anchors>
+		<NormalTexture file="Interface\addons\Watto\Images\WattoIcon.tga">
+			<TexCoords left="0" right="0.5" top="0" bottom="0.5"/>
+		</NormalTexture>
+		<PushedTexture file="Interface\addons\Watto\Images\WattoIcon.tga">
+			<TexCoords left="0" right="0.5" top="0.5" bottom="1"/>
+		</PushedTexture>
+		<HighlightTexture file="Interface\addons\Watto\Images\WattoIcon.tga" alphaMode="ADD">
+			<TexCoords left="0.5" right="1" top="0" bottom="0.5"/>
+		</HighlightTexture>
+		<Scripts>
+			<OnClick>
+				Watto_SellJunk()
+			</OnClick>
+			<OnEnter>
+				Watto_Tooltip_Sell(self)
+			</OnEnter>
+			<OnLeave>
+				WattoTooltip:Hide()
+			</OnLeave>
+		</Scripts>
+	</Button>
+
+	<Frame name="Watto_Buy_Frame" frameStrata="HIGH" parent="UIParent" toplevel="true" enableMouse="true" enableKeyboard="true" hidden="true">
+		<Size x="241" y="230"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentTexTopLeft" file="Interface\HelpFrame\HelpFrame-TopLeft">
+					<Size x="142" y="130"/>
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+					</Anchors>
+					<TexCoords left="0" right="0.5546875" top="0" bottom="0.5078125"/>
+				</Texture>
+				<Texture name="$parentTexTopRight" file="Interface\HelpFrame\HelpFrame-TopRight">
+					<Size x="99" y="130"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT"/>
+					</Anchors>
+					<TexCoords left="0" right="0.796875" top="0" bottom="0.5078125"/>
+				</Texture>
+				<Texture name="$parentTexBottomLeft" file="Interface\HelpFrame\HelpFrame-BotLeft">
+					<Size x="142" y="100"/>
+					<Anchors>
+						<Anchor point="BOTTOMLEFT"/>
+					</Anchors>
+					<TexCoords left="0" right="0.5546875" top="0.35546875" bottom="1"/>
+				</Texture>
+				<Texture name="$parentTexBottomRight" file="Interface\HelpFrame\HelpFrame-BotRight">
+					<Size x="99" y="100"/>
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT"/>
+					</Anchors>
+					<TexCoords left="0" right="0.796875" top="0.35546875" bottom="1"/>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture name="$parentMoneyTexCenter" file="Interface\MoneyFrame\UI-MoneyButton-Down">
+					<Size x="140" y="32"/>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset x="-4" y="-55"/>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0.15625" right="0.46875" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="$parentMoneyTexLeft" file="Interface\MoneyFrame\UI-MoneyButton-Down">
+					<Size x="20" y="32"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT" relativeto="$parentMoneyTexCenter" relativepoint="TOPLEFT" />
+					</Anchors>
+					<TexCoords left="0" right="0.15625" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="$parentMoneyTexRight" file="Interface\MoneyFrame\UI-MoneyButton-Down">
+					<Size x="20" y="32"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeto="$parentMoneyTexCenter" relativepoint="TOPRIGHT" />
+					</Anchors>
+					<TexCoords left="0.46875" right="0.6484375" top="0" bottom="1"/>
+				</Texture>
+
+				<FontString name="Watto_Buy_Title" inherits="Watto_Logo_Font" justifyH="RIGHT" text="Watto's Bulk Items">
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset x="-20" y="-18"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+
+				<FontString name="Watto_Buy_ItemName" inherits="GameFontNormal" justifyH="RIGHT" text="Watto's Bulk Items">
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset x="-10" y="-37"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Watto_Buy_Cost_Title" inherits="GameFontHighlight" justifyH="RIGHT" text="Cost:">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT">
+							<Offset x="118" y="56"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Watto_Buy_Cost_Money" inherits="GameFontHighlight" justifyH="RIGHT" text="15g02s33c">
+					<Anchors>
+						<Anchor point="RIGHT">
+							<Offset x="-35" y="-67"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<EditBox name="Watto_Buy_Count" letters="80" numeric="true" ignoreArrows="true" autofocus="false">
+				<Size>
+					<AbsDimension x="140" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset x="-4" y="-55"/>
+					</Anchor>
+				</Anchors>
+				<FontString justifyH="RIGHT" text="15" />
+				<Scripts>
+					<OnChar>Watto_Buy_OnChar(arg1)</OnChar>
+					<OnTextChanged>Watto_Buy_OnChange()</OnTextChanged>
+					<OnEnterPressed>Watto_Buy_Count:ClearFocus()</OnEnterPressed>
+					<OnEscapePressed>Watto_Buy_Count:ClearFocus()</OnEscapePressed>
+				</Scripts>
+			</EditBox>
+			<Button name="$parentCloseSMButton" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-16" y="-4" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						Watto_Merchant_OnHide()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentCloseLGButton" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="60" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="-26" y="10" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						Watto_Merchant_OnHide()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentButton_1" inherits="Watto_BuyButton_Template" text="Button 1">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="20" y="-90" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentButton_2" inherits="Watto_BuyButton_Template" text="Button 2">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parentButton_1" relativepoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentButton_3" inherits="Watto_BuyButton_Template" text="Button 3">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parentButton_1" relativepoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-35" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentButton_4" inherits="Watto_BuyButton_Template" text="Button 4">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parentButton_3" relativepoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+
+			<Button name="$parentButton_Purchase" inherits="Watto_BuyButton_Template" text="Buy">
+				<Size>
+					<AbsDimension x="75" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="32" y="39" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnShow>Watto_Buy_Frame_OnShow()</OnShow>
+		</Scripts>
+	</Frame>
+	
+	<Frame name="Watto_InterfaceOptions" hidden="true">
+		<Anchors>
+			<Anchor point="TOPLEFT">
+				<Offset x="190" y="-42" />
+			</Anchor>
+			<Anchor point="BOTTOMRIGHT" />
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\AddOns\Watto\Images\WattoIcon">
+					<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="10" y="-10" /></Offset></Anchor></Anchors>
+					<Size><AbsDimension x="64" y="64" /></Size>
+					<TexCoords left="0" right="0.5" top="0" bottom="0.5"/>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<FontString name="$parent_Title" inherits="GameFontNormal" justifyH="LEFT" text="Watto">
+					<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="76" y="-11" /></Offset></Anchor></Anchors>
+				</FontString>
+				<FontString name="$parent_Version" inherits="GameFontNormal" justifyH="LEFT" text="Version">
+					<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="76" y="-24" /></Offset></Anchor></Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parent_CheckBox_RandomText" inherits="Watto_Template_CheckBox">
+				<Size><AbsDimension x="150" y="20" /></Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="5" y="-80" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						local L = _G.Watto.Localization
+						Watto_CreateTooltip(self,L.INTERFACE_RANDOMSAYINGS,L.INTERFACE_RANDOMSAYINGS_TOOLTIP)
+					</OnEnter>
+					<OnLeave>
+						WattoTooltip:Hide()
+					</OnLeave>
+				</Scripts>
+			</Frame>
+			<Frame name="$parent_CheckBox_SellNotice" inherits="Watto_Template_CheckBox">
+				<Size><AbsDimension x="150" y="20" /></Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parent_CheckBox_RandomText" relativepoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						local L = _G.Watto.Localization
+						Watto_CreateTooltip(self,L.INTERFACE_SELLNOTICE,L.INTERFACE_SELLNOTICE_TOOLTIP)
+					</OnEnter>
+					<OnLeave>
+						WattoTooltip:Hide()
+					</OnLeave>
+				</Scripts>
+			</Frame>
+			<Frame name="$parent_CheckBox_AutoSellFood" inherits="Watto_Template_CheckBox">
+				<Size><AbsDimension x="150" y="20" /></Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parent_CheckBox_SellNotice" relativepoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						local L = _G.Watto.Localization
+						Watto_CreateTooltip(self,L.INTERFACE_AUTOSELLFOOD,L.INTERFACE_AUTOSELLFOOD_TOOLTIP)
+					</OnEnter>
+					<OnLeave>
+						WattoTooltip:Hide()
+					</OnLeave>
+				</Scripts>
+			</Frame>
+			<Frame name="$parent_CheckBox_ShowTooltipData" inherits="Watto_Template_CheckBox">
+				<Size><AbsDimension x="150" y="20" /></Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parent_CheckBox_AutoSellFood" relativepoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						local L = _G.Watto.Localization
+						Watto_CreateTooltip(self,L.INTERFACE_SHOWDATAINTOOLTIPS,L.INTERFACE_SHOWDATAINTOOLTIPS_TOOLTIP)
+					</OnEnter>
+					<OnLeave>
+						WattoTooltip:Hide()
+					</OnLeave>
+				</Scripts>
+			</Frame>
+			<Frame name="$parent_CheckBox_SellBackLimiter" inherits="Watto_Template_CheckBox">
+				<Size><AbsDimension x="150" y="20" /></Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parent_CheckBox_ShowTooltipData" relativepoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						local L = _G.Watto.Localization
+						Watto_CreateTooltip(self,L.INTERFACE_SELLBACKLIMITER,L.INTERFACE_SELLBACKLIMITER_TOOLTIP)
+					</OnEnter>
+					<OnLeave>
+						WattoTooltip:Hide()
+					</OnLeave>
+				</Scripts>
+			</Frame>
+			<Frame name="$parent_CheckBox_UseMoneyIcons" inherits="Watto_Template_CheckBox">
+				<Size><AbsDimension x="150" y="20" /></Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parent_CheckBox_SellBackLimiter" relativepoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						local L = _G.Watto.Localization
+						Watto_CreateTooltip(self,L.INTERFACE_USEMONEYICONS,L.INTERFACE_USEMONEYICONS_TOOLTIP)
+					</OnEnter>
+					<OnLeave>
+						WattoTooltip:Hide()
+					</OnLeave>
+				</Scripts>
+			</Frame>
+			<Frame name="$parent_CheckBox_SellJunkSoulbound" inherits="Watto_Template_CheckBox">
+				<Size><AbsDimension x="150" y="20" /></Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parent_CheckBox_UseMoneyIcons" relativepoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						local L = _G.Watto.Localization
+						Watto_CreateTooltip(self,L.INTERFACE_SELLJUNKSOULBOUND,L.INTERFACE_SELLJUNKSOULBOUND_TOOLTIP)
+					</OnEnter>
+					<OnLeave>
+						WattoTooltip:Hide()
+					</OnLeave>
+				</Scripts>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnShow function="Watto_InterfaceOptions_onShow" />
+			<OnLoad function="Watto_InterfaceOptions_onLoad" />
+		</Scripts>
+	</Frame>
+</Ui>

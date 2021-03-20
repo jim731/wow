@@ -1,0 +1,56 @@
+
+AucAdvancedConfig = {
+	["profile.Default"] = {
+		["core"] = {
+			["matcher"] = {
+				["matcherlist"] = {
+					"BeanCount", -- [1]
+					"Undercut", -- [2]
+				},
+			},
+		},
+		["configator.left"] = 358.518493652344,
+		["scandata"] = {
+			["tooltip"] = {
+				["display"] = true,
+			},
+		},
+		["util"] = {
+			["automagic"] = {
+				["SavedMailButtons"] = {
+				},
+			},
+			["appraiser"] = {
+				["bidtooltip"] = false,
+			},
+		},
+		["ModTTShow"] = "alt",
+		["stat"] = {
+			["sales"] = {
+				["upgraded32"] = true,
+				["ignoredsigs"] = {
+				},
+			},
+		},
+		["configator.top"] = 651.666687011719,
+	},
+	["users.Nethergarde Keep.Fermion"] = "Default",
+	["version"] = 1,
+}
+AucAdvancedData = {
+	["Stats"] = {
+	},
+}
+AucAdvancedServers = {
+	["Version"] = 1,
+	["KnownServerKeys"] = {
+		["NethergardeKeep"] = 1595443689,
+	},
+	["KnownRealms"] = {
+		["NethergardeKeep"] = "NethergardeKeep",
+	},
+	["Timestamp"] = 1592049259,
+	["ExpandedNames"] = {
+		["NethergardeKeep"] = "Nethergarde Keep",
+	},
+}

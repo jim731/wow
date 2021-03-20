@@ -1,0 +1,10 @@
+## Interface: 11306
+## Title: TwitchEmotes
+## Author: Ren
+## Version: v2
+## SavedVariables: Emoticons_Settings
+## OptionalDeps: LibStub, LibUIDropDownMenu
+
+libs\load_libs.xml
+TwitchEmotes.lua
+TwitchEmotes.xml

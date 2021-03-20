@@ -1,0 +1,9 @@
+VER 3 0000000001000001 "FISH" "132271"
+/equipslot 16 fishing pole
+/cast Fishing
+END
+VER 3 0000000001000002 "SC" "Spell_Nature_StarFall."
+#showtooltip moonfire(rank 1)
+/target xxx
+/cast moonfire(rank 1)
+END

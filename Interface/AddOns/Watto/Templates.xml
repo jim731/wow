@@ -1,0 +1,95 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+ ..\FrameXML\UI.xsd">
+ 
+	<Font name="Watto_Logo_Font" font="Fonts\MORPHEUS.ttf" virtual="true">
+		<Shadow>
+			<Offset>
+				<AbsDimension x="1" y="-1"/>
+			</Offset>
+			<Color r="0.49" g="0.35" b="0.05"/>
+		</Shadow>
+		<FontHeight>
+			<AbsValue val="16"/>
+		</FontHeight>
+	</Font>
+	
+	<Font name="Watto_Count_Font" inherits="NumberFont_Shadow_Med" virtual="true">
+		<Color r="1.0" g="1.0" b="1.0"/>
+	</Font>
+	<Font name="Watto_Count_Font_Red" inherits="NumberFont_Shadow_Med" virtual="true">
+		<Color r="1.0" g="0.1" b="0.1"/>
+	</Font>
+
+	<Button name="Watto_BuyButton_Template" inherits="UIPanelButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="95" y="30" />
+		</Size>
+		<Scripts>
+			<OnClick>
+				Watto_Buy_ButtonOnClick(self)
+			</OnClick>
+		</Scripts>
+	</Button>
+	
+	<Frame name="Watto_Template_CheckBox" virtual="true">
+		<Size>
+			<AbsDimension x="312" y="26"/>
+		</Size>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="24" y="-6"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="$parentCheckBox" inherits="OptionsCheckButtonTemplate">
+				<Size>
+					<AbsDimension x="26" y="26"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<HitRectInsets>
+					<AbsInset left="0" right="0" top="0" bottom="0"/>
+				</HitRectInsets>
+				<Scripts>
+					<OnClick>
+						Watto_InterfaceOptions_CheckBox(self)
+						if ( self:GetChecked() ) then
+							PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
+						else
+							PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF)
+						end
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+		</Frames>
+	</Frame>
+	
+	<Frame name="Watto_Template_ListItem" virtual="true">
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parent_Name" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+	</Frame>
+</Ui>

@@ -1,0 +1,12 @@
+lightweight tag 4eb9e966d39267a91e5780d4718b794d7603ddd9 1.13.5.24
+Author:	Luxocracy <luxor355@gmail.com>
+Date:	Wed Dec 9 17:44:43 2020 +0100
+
+commit 4eb9e966d39267a91e5780d4718b794d7603ddd9
+Author: Luxocracy <luxor355@gmail.com>
+Date:   Wed Dec 9 17:43:59 2020 +0100
+
+    Minor priority fix for additional auras
+    
+    - Minor priority fix for additional auras
+

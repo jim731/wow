@@ -1,0 +1,10 @@
+
+HandyNotes_TravelGuideClassicDB = {
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+	},
+	["profiles"] = {
+		["Ferns - Skullflame"] = {
+		},
+	},
+}

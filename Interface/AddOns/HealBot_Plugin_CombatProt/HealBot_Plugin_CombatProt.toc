@@ -1,0 +1,12 @@
+## Interface: 11306
+## Title: HealBot Plugin CombatProt
+## Author: Strife
+## Notes: Reserve bars for non existed units in groups and raids, protects against random players leaving/joining during combat.
+## RequiredDeps: HealBot
+## SavedVariables:  HealBot_Plugin_CombatProt, HealBot_Plugin_CombatProt_Config
+## LoadOnDemand: 1
+## Version: 1.13.6.8
+
+HealBot_Plugin_CombatProt_Data.lua
+HealBot_Plugin_CombatProt.lua
+HealBot_Plugin_Options.lua

@@ -1,0 +1,12 @@
+## Interface: 11306
+## Title: Peggle (Unofficial)
+## Version: 2.3.2
+## Notes: The popular game Peggle, now back in World of Warcraft Classic!
+## Author: PopCap Games Inc.
+## SavedVariables: PeggleData
+## SavedVariablesPerCharacter: PeggleProfile
+## X-Curse-Project-ID: 338690
+## X-WoWI-ID: 24964
+
+Levels.lua
+Peggle.lua

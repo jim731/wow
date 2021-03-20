@@ -1,0 +1,123 @@
+
+SpyDB = {
+	["kosData"] = {
+		["Nethergarde Keep"] = {
+			["Alliance"] = {
+				["Consumables"] = {
+				},
+				["Parisi"] = {
+				},
+				["Raremats"] = {
+				},
+				["Various"] = {
+				},
+				["Fermion"] = {
+				},
+			},
+		},
+		["Skullflame"] = {
+			["Horde"] = {
+				["Ferns"] = {
+				},
+			},
+		},
+	},
+	["removeKOSData"] = {
+		["Nethergarde Keep"] = {
+			["Alliance"] = {
+			},
+		},
+		["Skullflame"] = {
+			["Horde"] = {
+			},
+		},
+	},
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
+		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
+		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
+		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
+		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
+	},
+	["profiles"] = {
+		["Ferns - Skullflame"] = {
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitNameCheck"] = true,
+			["AppendUnitKoSCheck"] = true,
+		},
+		["Consumables - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitKoSCheck"] = true,
+		},
+		["Parisi - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitKoSCheck"] = true,
+		},
+		["Various - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitKoSCheck"] = true,
+		},
+		["Fermion - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitKoSCheck"] = true,
+			["FilteredZones"] = {
+				["Gadgetzan"] = true,
+				["The Salty Sailor Tavern"] = true,
+				["Booty Bay"] = true,
+				["Ratchet"] = true,
+				["Everlook"] = true,
+			},
+			["MainWindowVis"] = false,
+		},
+		["Raremats - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitKoSCheck"] = true,
+		},
+	},
+}

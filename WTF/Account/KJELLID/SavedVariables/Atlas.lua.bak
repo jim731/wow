@@ -1,0 +1,10 @@
+
+AtlasDB = {
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}
