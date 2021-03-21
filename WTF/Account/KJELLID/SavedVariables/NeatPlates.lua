@@ -13,6 +13,87 @@ NeatPlatesSettings = {
 	},
 }
 NeatPlatesSpellDB = {
+	["Player"] = {
+		["Healing Touch"] = {
+			["castTime"] = 1487,
+		},
+		["Summon Imp"] = {
+			["castTime"] = 9997,
+		},
+		["Arcane Intellect"] = {
+		},
+		["Spotted Yellowtail"] = {
+			["castTime"] = 3076,
+		},
+		["Conjure Water"] = {
+			["castTime"] = 3067,
+		},
+		["Blink"] = {
+		},
+		["Conjure Mana Jade"] = {
+			["castTime"] = 3000,
+		},
+		["Elixir of Fortitude"] = {
+			["castTime"] = 4967,
+		},
+		["Aspect of the Cheetah"] = {
+		},
+		["Summon Voidwalker"] = {
+			["castTime"] = 533,
+		},
+		["Elixir of Agility"] = {
+			["castTime"] = 3000,
+		},
+		["Create Scrying Bowl"] = {
+			["castTime"] = 2514,
+		},
+		["Fel Domination"] = {
+		},
+		["Basic Campfire"] = {
+			["castTime"] = 9992,
+		},
+		["Summon Felsteed"] = {
+			["castTime"] = 2967.0000000298,
+		},
+		["Conjure Food"] = {
+			["castTime"] = 3000,
+		},
+		["Inner Fire"] = {
+		},
+		["Ice Armor"] = {
+		},
+		["Barbaric Bracers"] = {
+			["castTime"] = 9969,
+		},
+		["Battle Stance"] = {
+		},
+		["Retribution Aura"] = {
+		},
+		["Summon Charger"] = {
+			["castTime"] = 2995,
+		},
+		["Elixir of the Mongoose"] = {
+			["castTime"] = 2927,
+		},
+		["Teleport: Moonglade"] = {
+			["castTime"] = 10000,
+		},
+		["Wrath"] = {
+			["castTime"] = 1547,
+		},
+		["Hearthstone"] = {
+			["castTime"] = 9984,
+		},
+		["Power Word: Fortitude"] = {
+		},
+		["Blessing of Might"] = {
+		},
+		["Demon Armor"] = {
+		},
+		["Summon Warhorse"] = {
+			["castTime"] = 2994,
+		},
+	},
 	["default"] = {
 		["Enchant Cloak - Greater Defense"] = {
 			["castTime"] = 5000,
@@ -25211,33 +25292,6 @@ NeatPlatesSpellDB = {
 		},
 		["Improved Enslave Demon"] = {
 			["texture"] = 136154,
-		},
-	},
-	["Player"] = {
-		["Summon Imp"] = {
-			["castTime"] = 9997,
-		},
-		["Barbaric Bracers"] = {
-			["castTime"] = 9969,
-		},
-		["Mark of the Wild"] = {
-		},
-		["Elixir of the Mongoose"] = {
-			["castTime"] = 2927,
-		},
-		["Elixir of Fortitude"] = {
-			["castTime"] = 4967,
-		},
-		["Hearthstone"] = {
-			["castTime"] = 10023,
-		},
-		["Elixir of Agility"] = {
-			["castTime"] = 3000,
-		},
-		["Create Scrying Bowl"] = {
-			["castTime"] = 2514,
-		},
-		["Thorns"] = {
 		},
 	},
 }

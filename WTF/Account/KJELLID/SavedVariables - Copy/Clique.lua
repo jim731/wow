@@ -1,0 +1,189 @@
+
+CliqueDB = nil
+CliqueDB3 = {
+	["char"] = {
+		["Ganado - Nethergarde Keep"] = {
+			["spec1_profileKey"] = "Ganado - Nethergarde Keep",
+			["specswap"] = false,
+			["downclick"] = false,
+			["fastooc"] = false,
+		},
+		["Fermion - Nethergarde Keep"] = {
+			["spec1_profileKey"] = "Fermion - Nethergarde Keep",
+			["specswap"] = false,
+			["downclick"] = false,
+			["fastooc"] = false,
+		},
+		["Bushwick - Nethergarde Keep"] = {
+			["spec1_profileKey"] = "Bushwick - Nethergarde Keep",
+			["specswap"] = false,
+			["downclick"] = false,
+			["fastooc"] = false,
+			["alerthidden"] = true,
+		},
+	},
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
+		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
+		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
+		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
+		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
+		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
+	},
+	["profiles"] = {
+		["Ferns - Skullflame"] = {
+			["bindings"] = {
+				{
+					["type"] = "target",
+					["sets"] = {
+						["default"] = true,
+					},
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Raremats - Nethergarde Keep"] = {
+			["bindings"] = {
+				{
+					["type"] = "target",
+					["sets"] = {
+						["default"] = true,
+					},
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Shapeshifter - Skullflame"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Various - Nethergarde Keep"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Fermion - Nethergarde Keep"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Parisi - Nethergarde Keep"] = {
+			["bindings"] = {
+				{
+					["type"] = "target",
+					["sets"] = {
+						["default"] = true,
+					},
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Ganado - Nethergarde Keep"] = {
+			["bindings"] = {
+				{
+					["type"] = "target",
+					["sets"] = {
+						["default"] = true,
+					},
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Bushwick - Nethergarde Keep"] = {
+			["bindings"] = {
+				{
+					["type"] = "target",
+					["sets"] = {
+						["default"] = true,
+					},
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+	},
+}

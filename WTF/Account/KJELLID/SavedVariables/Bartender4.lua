@@ -3,6 +3,73 @@ Bartender4DB = {
 	["namespaces"] = {
 		["ActionBars"] = {
 			["profiles"] = {
+				["Ganado - Nethergarde Keep"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -205,
+								["x"] = -231.499938964844,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						nil, -- [9]
+						{
+						}, -- [10]
+					},
+				},
 				["WARRIOR"] = {
 					["actionbars"] = {
 						{
@@ -452,6 +519,105 @@ Bartender4DB = {
 						},
 					},
 				},
+				["Default"] = {
+					["actionbars"] = {
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -253,
+								["point"] = "BOTTOM",
+							},
+							["padding"] = 6,
+						}, -- [1]
+						{
+							["buttons"] = 10,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.9999923706055,
+								["x"] = -2.99997091293335,
+								["point"] = "BOTTOMLEFT",
+							},
+						}, -- [2]
+						{
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+							["padding"] = 5,
+						}, -- [3]
+						{
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+							["padding"] = 5,
+						}, -- [4]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 88.8543548583984,
+								["x"] = -231.5,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 125.424728393555,
+								["x"] = -231.5,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -35.7213745117188,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [7]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -74.2130126953125,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+							["visibility"] = {
+								["overridebar"] = false,
+								["vehicleui"] = false,
+								["stance"] = {
+									false, -- [1]
+									false, -- [2]
+									false, -- [3]
+								},
+							},
+						}, -- [8]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -112.348022460938,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [9]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -153.13671875,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [10]
+					},
+				},
 				["Ferns - Skullflame"] = {
 					["actionbars"] = {
 						{
@@ -648,102 +814,70 @@ Bartender4DB = {
 						}, -- [10]
 					},
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["actionbars"] = {
 						{
+							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 41.75,
-								["x"] = -253,
+								["x"] = -510,
 								["point"] = "BOTTOM",
 							},
-							["padding"] = 6,
 						}, -- [1]
 						{
-							["buttons"] = 10,
+							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 41.9999923706055,
-								["x"] = -2.99997091293335,
-								["point"] = "BOTTOMLEFT",
+								["y"] = -205,
+								["x"] = -231.499938964844,
+								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
 							["rows"] = 12,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
-							},
 							["padding"] = 5,
-						}, -- [3]
-						{
-							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
 								["x"] = -82,
 								["point"] = "BOTTOMRIGHT",
 							},
-							["padding"] = 5,
-						}, -- [4]
+						}, -- [3]
 						{
+							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 88.8543548583984,
-								["x"] = -231.5,
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = 3,
 								["point"] = "BOTTOM",
 							},
 						}, -- [5]
 						{
+							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 125.424728393555,
-								["x"] = -231.5,
+								["y"] = 110,
+								["x"] = -510,
 								["point"] = "BOTTOM",
 							},
 						}, -- [6]
 						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -35.7213745117188,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
 						}, -- [7]
 						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -74.2130126953125,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
-							["visibility"] = {
-								["overridebar"] = false,
-								["vehicleui"] = false,
-								["stance"] = {
-									false, -- [1]
-									false, -- [2]
-									false, -- [3]
-								},
-							},
 						}, -- [8]
+						nil, -- [9]
 						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -112.348022460938,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
-						}, -- [9]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -153.13671875,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
 						}, -- [10]
 					},
 				},
@@ -813,36 +947,26 @@ Bartender4DB = {
 						},
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Bushwick - Nethergarde Keep"] = {
 					["actionbars"] = {
 						{
 							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 41.75,
-								["x"] = -510,
+								["x"] = -253,
 								["point"] = "BOTTOM",
 							},
 						}, -- [1]
 						{
-							["enabled"] = false,
+							["buttons"] = 10,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -205,
-								["x"] = -231.499938964844,
-								["point"] = "CENTER",
+								["y"] = 37.2590789794922,
+								["x"] = -4.58021879196167,
+								["point"] = "BOTTOMLEFT",
 							},
 						}, -- [2]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
 						{
 							["rows"] = 12,
 							["padding"] = 5,
@@ -852,31 +976,73 @@ Bartender4DB = {
 								["x"] = -42,
 								["point"] = "BOTTOMRIGHT",
 							},
-						}, -- [4]
+						}, -- [3]
 						{
-							["padding"] = 6,
+							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 110,
-								["x"] = 3,
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 88.8543548583984,
+								["x"] = -231.5,
 								["point"] = "BOTTOM",
 							},
 						}, -- [5]
 						{
-							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 110,
-								["x"] = -510,
+								["y"] = 125.424728393555,
+								["x"] = -231.5,
 								["point"] = "BOTTOM",
 							},
 						}, -- [6]
 						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -35.7213745117188,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
 						}, -- [7]
 						{
+							["version"] = 3,
+							["visibility"] = {
+								["overridebar"] = false,
+								["stance"] = {
+									false, -- [1]
+									false, -- [2]
+									false, -- [3]
+								},
+								["vehicleui"] = false,
+							},
+							["position"] = {
+								["y"] = -74.2130126953125,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
 						}, -- [8]
-						nil, -- [9]
 						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -112.348022460938,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [9]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -153.13671875,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
 						}, -- [10]
 					},
 				},
@@ -1283,6 +1449,16 @@ Bartender4DB = {
 		},
 		["MicroMenu"] = {
 			["profiles"] = {
+				["Ganado - Nethergarde Keep"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 42,
+						["x"] = 33,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
 				["WARRIOR"] = {
 					["padding"] = -2,
 					["version"] = 3,
@@ -1332,28 +1508,6 @@ Bartender4DB = {
 						["y"] = 42,
 					},
 				},
-				["Ferns - Skullflame"] = {
-					["padding"] = -2,
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 1,
-						["x"] = 33,
-						["point"] = "BOTTOM",
-						["y"] = 42,
-					},
-				},
-				["SpartanUI - Fel"] = {
-					["fadeout"] = true,
-					["fadeoutalpha"] = 0.6,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 4,
-						["x"] = 114,
-						["point"] = "TOP",
-						["scale"] = 0.7,
-						["parent"] = "Fel_ActionBarPlate",
-					},
-				},
 				["Default"] = {
 					["version"] = 3,
 					["visibility"] = {
@@ -1367,6 +1521,38 @@ Bartender4DB = {
 						["scale"] = 1,
 					},
 				},
+				["Ferns - Skullflame"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = 33,
+						["point"] = "BOTTOM",
+						["y"] = 42,
+					},
+				},
+				["SpartanUI - Fel"] = {
+					["fadeoutalpha"] = 0.6,
+					["version"] = 3,
+					["fadeout"] = true,
+					["position"] = {
+						["y"] = 4,
+						["x"] = 114,
+						["point"] = "TOP",
+						["scale"] = 0.7,
+						["parent"] = "Fel_ActionBarPlate",
+					},
+				},
+				["Parisi - Nethergarde Keep"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 42,
+						["x"] = 33,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
 				["Various - Nethergarde Keep"] = {
 					["padding"] = -2,
 					["version"] = 3,
@@ -1377,13 +1563,16 @@ Bartender4DB = {
 						["y"] = 42,
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
-					["padding"] = -2,
+				["Bushwick - Nethergarde Keep"] = {
 					["version"] = 3,
+					["visibility"] = {
+						["overridebar"] = false,
+						["vehicleui"] = false,
+					},
 					["position"] = {
-						["y"] = 42,
-						["x"] = 33,
-						["point"] = "BOTTOM",
+						["y"] = 39.9197998046875,
+						["x"] = -275.008056640625,
+						["point"] = "BOTTOMRIGHT",
 						["scale"] = 1,
 					},
 				},
@@ -1566,9 +1755,9 @@ Bartender4DB = {
 								},
 								["CountButton"] = {
 								},
+								["isLocked"] = false,
 								["DragBottomLeft"] = {
 								},
-								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -1592,6 +1781,15 @@ Bartender4DB = {
 		},
 		["XPBar"] = {
 			["profiles"] = {
+				["Ganado - Nethergarde Keep"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 54,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
+				},
 				["WARRIOR"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -1635,6 +1833,16 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Default"] = {
+					["enabled"] = true,
+					["position"] = {
+						["y"] = 48,
+						["x"] = -256,
+						["point"] = "BOTTOM",
+						["scale"] = 0.5,
+					},
+					["version"] = 3,
+				},
 				["Ferns - Skullflame"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -1652,15 +1860,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["enabled"] = true,
-					["position"] = {
-						["y"] = 48,
-						["x"] = -256,
-						["point"] = "BOTTOM",
-						["scale"] = 0.5,
-					},
 					["version"] = 3,
+					["position"] = {
+						["y"] = 54,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
 				},
 				["Various - Nethergarde Keep"] = {
 					["enabled"] = true,
@@ -1671,13 +1878,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Bushwick - Nethergarde Keep"] = {
 					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
-						["y"] = 54,
-						["x"] = -514,
+						["y"] = 48,
+						["x"] = -256,
 						["point"] = "BOTTOM",
+						["scale"] = 0.5,
 					},
 				},
 				["warrior classic"] = {
@@ -1710,6 +1918,15 @@ Bartender4DB = {
 		},
 		["BlizzardArt"] = {
 			["profiles"] = {
+				["Ganado - Nethergarde Keep"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47,
+						["x"] = -512,
+						["point"] = "BOTTOM",
+					},
+				},
 				["WARRIOR"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -1753,6 +1970,16 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Default"] = {
+					["enabled"] = true,
+					["artLayout"] = "ONEBAR",
+					["position"] = {
+						["y"] = 47,
+						["x"] = -256,
+						["point"] = "BOTTOM",
+					},
+					["version"] = 3,
+				},
 				["Ferns - Skullflame"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -1770,15 +1997,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["enabled"] = true,
-					["artLayout"] = "ONEBAR",
+					["version"] = 3,
 					["position"] = {
 						["y"] = 47,
-						["x"] = -256,
+						["x"] = -512,
 						["point"] = "BOTTOM",
 					},
-					["version"] = 3,
 				},
 				["Various - Nethergarde Keep"] = {
 					["enabled"] = true,
@@ -1789,12 +2015,13 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Bushwick - Nethergarde Keep"] = {
 					["enabled"] = true,
+					["artLayout"] = "ONEBAR",
 					["version"] = 3,
 					["position"] = {
 						["y"] = 47,
-						["x"] = -512,
+						["x"] = -256,
 						["point"] = "BOTTOM",
 					},
 				},
@@ -1832,6 +2059,15 @@ Bartender4DB = {
 		},
 		["BagBar"] = {
 			["profiles"] = {
+				["Ganado - Nethergarde Keep"] = {
+					["padding"] = 5,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41,
+						["x"] = 296,
+						["point"] = "BOTTOM",
+					},
+				},
 				["WARRIOR"] = {
 					["padding"] = 5,
 					["version"] = 3,
@@ -1884,6 +2120,15 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Default"] = {
+					["onebag"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.8165168762207,
+						["x"] = -61.48486328125,
+						["point"] = "BOTTOMRIGHT",
+					},
+				},
 				["Ferns - Skullflame"] = {
 					["padding"] = 5,
 					["version"] = 3,
@@ -1907,13 +2152,13 @@ Bartender4DB = {
 					["fadeoutalpha"] = 0.6,
 					["version"] = 3,
 				},
-				["Default"] = {
-					["onebag"] = true,
+				["Parisi - Nethergarde Keep"] = {
+					["padding"] = 5,
 					["version"] = 3,
 					["position"] = {
-						["y"] = 38.8165168762207,
-						["x"] = -61.48486328125,
-						["point"] = "BOTTOMRIGHT",
+						["y"] = 41,
+						["x"] = 296,
+						["point"] = "BOTTOM",
 					},
 				},
 				["Various - Nethergarde Keep"] = {
@@ -1925,13 +2170,13 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
-					["padding"] = 5,
+				["Bushwick - Nethergarde Keep"] = {
+					["onebag"] = true,
 					["version"] = 3,
 					["position"] = {
-						["y"] = 41,
-						["x"] = 296,
-						["point"] = "BOTTOM",
+						["y"] = 38.8165168762207,
+						["x"] = -61.48486328125,
+						["point"] = "BOTTOMRIGHT",
 					},
 				},
 				["warrior classic"] = {
@@ -2112,9 +2357,9 @@ Bartender4DB = {
 								},
 								["CountButton"] = {
 								},
+								["isLocked"] = false,
 								["DragBottomLeft"] = {
 								},
-								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -2139,6 +2384,14 @@ Bartender4DB = {
 		},
 		["StanceBar"] = {
 			["profiles"] = {
+				["Ganado - Nethergarde Keep"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = -15,
+						["x"] = -82.4999389648438,
+						["point"] = "CENTER",
+					},
+				},
 				["WARRIOR"] = {
 					["version"] = 3,
 					["position"] = {
@@ -2189,6 +2442,15 @@ Bartender4DB = {
 						["y"] = 143,
 					},
 				},
+				["Default"] = {
+					["position"] = {
+						["y"] = 170.486511230469,
+						["x"] = -319.993499755859,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+					["version"] = 3,
+				},
 				["Ferns - Skullflame"] = {
 					["version"] = 3,
 					["position"] = {
@@ -2211,14 +2473,13 @@ Bartender4DB = {
 					["fadeoutalpha"] = 0.6,
 					["fadeout"] = true,
 				},
-				["Default"] = {
-					["position"] = {
-						["y"] = 122.543441772461,
-						["x"] = -354.606170654297,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
+				["Parisi - Nethergarde Keep"] = {
 					["version"] = 3,
+					["position"] = {
+						["y"] = -15,
+						["x"] = -82.4999389648438,
+						["point"] = "CENTER",
+					},
 				},
 				["Various - Nethergarde Keep"] = {
 					["version"] = 3,
@@ -2228,12 +2489,13 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Bushwick - Nethergarde Keep"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = -15,
-						["x"] = -82.4999389648438,
-						["point"] = "CENTER",
+						["y"] = 157.054412841797,
+						["x"] = -231.499755859375,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
 					},
 				},
 				["warrior classic"] = {
@@ -2413,9 +2675,9 @@ Bartender4DB = {
 								},
 								["CountButton"] = {
 								},
+								["isLocked"] = false,
 								["DragBottomLeft"] = {
 								},
-								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -2440,6 +2702,14 @@ Bartender4DB = {
 		},
 		["Vehicle"] = {
 			["profiles"] = {
+				["Ganado - Nethergarde Keep"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 42.4999694824219,
+						["x"] = 104.500122070313,
+						["point"] = "CENTER",
+					},
+				},
 				["WARRIOR"] = {
 					["version"] = 3,
 					["position"] = {
@@ -2487,6 +2757,14 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
+				["Default"] = {
+					["position"] = {
+						["y"] = 42.4999694824219,
+						["x"] = 104.500122070313,
+						["point"] = "CENTER",
+					},
+					["version"] = 3,
+				},
 				["Ferns - Skullflame"] = {
 					["version"] = 3,
 					["position"] = {
@@ -2509,13 +2787,13 @@ Bartender4DB = {
 					["fadeoutalpha"] = 0.6,
 					["fadeout"] = true,
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
+					["version"] = 3,
 					["position"] = {
 						["y"] = 42.4999694824219,
 						["x"] = 104.500122070313,
 						["point"] = "CENTER",
 					},
-					["version"] = 3,
 				},
 				["Various - Nethergarde Keep"] = {
 					["version"] = 3,
@@ -2525,12 +2803,12 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Bushwick - Nethergarde Keep"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 42.4999694824219,
-						["x"] = 104.500122070313,
-						["point"] = "CENTER",
+						["y"] = 68.8641967773438,
+						["x"] = -1.87582588195801,
+						["point"] = "BOTTOMLEFT",
 					},
 				},
 				["warrior classic"] = {
@@ -2571,6 +2849,14 @@ Bartender4DB = {
 		},
 		["PetBar"] = {
 			["profiles"] = {
+				["Ganado - Nethergarde Keep"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 143,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+					},
+				},
 				["WARRIOR"] = {
 					["version"] = 3,
 					["position"] = {
@@ -2622,6 +2908,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Default"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 76.0000076293945,
+						["x"] = 57.1690902709961,
+						["point"] = "BOTTOMLEFT",
+					},
+				},
 				["Ferns - Skullflame"] = {
 					["version"] = 3,
 					["position"] = {
@@ -2646,11 +2940,11 @@ Bartender4DB = {
 					["fadeout"] = true,
 					["fadeoutalpha"] = 0.6,
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 158.744430541992,
-						["x"] = -163.499816894531,
+						["y"] = 143,
+						["x"] = -460,
 						["point"] = "BOTTOM",
 					},
 				},
@@ -2662,12 +2956,12 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Bushwick - Nethergarde Keep"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 143,
-						["x"] = -460,
-						["point"] = "BOTTOM",
+						["y"] = 71.2592315673828,
+						["x"] = 54.7987403869629,
+						["point"] = "BOTTOMLEFT",
 					},
 				},
 				["warrior classic"] = {
@@ -2853,9 +3147,9 @@ Bartender4DB = {
 								},
 								["CountButton"] = {
 								},
+								["isLocked"] = false,
 								["DragBottomLeft"] = {
 								},
-								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -2879,6 +3173,15 @@ Bartender4DB = {
 		},
 		["RepBar"] = {
 			["profiles"] = {
+				["Ganado - Nethergarde Keep"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 61,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
+				},
 				["WARRIOR"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -2922,6 +3225,16 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Default"] = {
+					["enabled"] = true,
+					["position"] = {
+						["y"] = 51,
+						["x"] = -256,
+						["point"] = "BOTTOM",
+						["scale"] = 0.5,
+					},
+					["version"] = 3,
+				},
 				["Ferns - Skullflame"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -2939,15 +3252,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["enabled"] = true,
-					["position"] = {
-						["y"] = 51,
-						["x"] = -256,
-						["point"] = "BOTTOM",
-						["scale"] = 0.5,
-					},
 					["version"] = 3,
+					["position"] = {
+						["y"] = 61,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
 				},
 				["Various - Nethergarde Keep"] = {
 					["enabled"] = true,
@@ -2958,13 +3270,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Bushwick - Nethergarde Keep"] = {
 					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
-						["y"] = 61,
-						["x"] = -514,
+						["y"] = 51,
+						["x"] = -256,
 						["point"] = "BOTTOM",
+						["scale"] = 0.5,
 					},
 				},
 				["warrior classic"] = {
@@ -2998,13 +3311,20 @@ Bartender4DB = {
 	},
 	["profileKeys"] = {
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
-		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
-		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
 		["Fermion - Nethergarde Keep"] = "Default",
-		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
+		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
+		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
+		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
+		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 	},
 	["profiles"] = {
+		["Ganado - Nethergarde Keep"] = {
+			["focuscastmodifier"] = false,
+			["blizzardVehicle"] = true,
+			["outofrange"] = "hotkey",
+		},
 		["WARRIOR"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
@@ -3035,6 +3355,12 @@ Bartender4DB = {
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
+		["Default"] = {
+			["focuscastmodifier"] = false,
+			["buttonlock"] = true,
+			["snapping"] = false,
+			["outofrange"] = "hotkey",
+		},
 		["Ferns - Skullflame"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
@@ -3045,9 +3371,9 @@ Bartender4DB = {
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
-		["Default"] = {
+		["Parisi - Nethergarde Keep"] = {
 			["focuscastmodifier"] = false,
-			["buttonlock"] = true,
+			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
 		["Various - Nethergarde Keep"] = {
@@ -3055,9 +3381,13 @@ Bartender4DB = {
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
-		["Parisi - Nethergarde Keep"] = {
+		["Bushwick - Nethergarde Keep"] = {
 			["focuscastmodifier"] = false,
-			["blizzardVehicle"] = true,
+			["minimapIcon"] = {
+				["minimapPos"] = 212.483824628948,
+			},
+			["buttonlock"] = true,
+			["snapping"] = false,
 			["outofrange"] = "hotkey",
 		},
 		["warrior classic"] = {

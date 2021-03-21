@@ -1,0 +1,15 @@
+Version: 1
+Frame: TargetFrameToT
+FrameLevel: 2
+Anchor: BOTTOMRIGHT
+X: -347
+Y: 164
+W: 93
+H: 45
+Frame: AutoCarrotButton
+FrameLevel: 1
+Anchor: CENTER
+X: 0
+Y: 0
+W: 36
+H: 36

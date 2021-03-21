@@ -5,9 +5,9 @@ AutoCarrotDB = {
 	["trinketId"] = 2820,
 	["buttonScale"] = 1,
 	["mithrilSpurs"] = true,
-	["headId"] = 9664,
+	["ridingGloves"] = true,
 	["button"] = false,
 	["beltId"] = 14918,
 	["swimHelm"] = true,
-	["ridingGloves"] = true,
+	["headId"] = 9664,
 }

@@ -2,13 +2,13 @@
 AUCTIONATOR_SAVEDVARS = {
 	["_50000"] = 500,
 	["_2000"] = 100,
-	["LOG_DE_DATA_X"] = true,
-	["_500"] = 5,
-	["_1000000"] = 2500,
 	["_200000"] = 1000,
-	["STARTING_DISCOUNT"] = 5,
-	["_5000000"] = 10000,
 	["_10000"] = 200,
+	["_1000000"] = 2500,
+	["_5000000"] = 10000,
+	["STARTING_DISCOUNT"] = 5,
+	["_500"] = 5,
+	["LOG_DE_DATA_X"] = true,
 }
 AUCTIONATOR_PRICING_HISTORY = {
 }
@@ -40,25 +40,35 @@ AUCTIONATOR_PRICE_DATABASE = {
 }
 AUCTIONATOR_LAST_SCAN_TIME = nil
 AUCTIONATOR_TOONS = {
-	["Parisi"] = {
-		["firstSeen"] = 1616323491,
-		["guid"] = "Player-4456-01C21F39",
+	["Bushwick"] = {
+		["firstSeen"] = 1616350884,
 		["firstVersion"] = "100.0.9",
+		["guid"] = "Player-4456-0308EAB1",
 	},
 	["Ferns"] = {
 		["firstSeen"] = 1616226408,
+		["firstVersion"] = "100.0.9",
 		["guid"] = "Player-4743-014F7A64",
-		["firstVersion"] = "100.0.9",
 	},
-	["Fermion"] = {
-		["firstSeen"] = 1616091869,
+	["Parisi"] = {
+		["firstSeen"] = 1616323491,
 		["firstVersion"] = "100.0.9",
-		["guid"] = "Player-4456-019041F2",
+		["guid"] = "Player-4456-01C21F39",
 	},
 	["Shapeshifter"] = {
 		["firstSeen"] = 1616226451,
-		["firstVersion"] = "100.0.9",
 		["guid"] = "Player-4743-00C03581",
+		["firstVersion"] = "100.0.9",
+	},
+	["Ganado"] = {
+		["firstSeen"] = 1616345995,
+		["firstVersion"] = "100.0.9",
+		["guid"] = "Player-4456-0307E71F",
+	},
+	["Fermion"] = {
+		["firstSeen"] = 1616091869,
+		["guid"] = "Player-4456-019041F2",
+		["firstVersion"] = "100.0.9",
 	},
 }
 AUCTIONATOR_STACKING_PREFS = {

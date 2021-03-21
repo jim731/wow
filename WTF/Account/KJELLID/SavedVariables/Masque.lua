@@ -1,6 +1,8 @@
 
 MasqueDB = {
 	["profileKeys"] = {
+		["Ganado - Nethergarde Keep"] = "Default",
+		["Bushwick - Nethergarde Keep"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
 	},
 	["profiles"] = {
@@ -36,6 +38,9 @@ MasqueDB = {
 				["LoseControl_party1"] = {
 					["Inherit"] = false,
 				},
+				["Bartender4_PetBar"] = {
+					["Inherit"] = false,
+				},
 				["ItemRack"] = {
 					["Inherit"] = false,
 				},
@@ -43,6 +48,9 @@ MasqueDB = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid29"] = {
+					["Inherit"] = false,
+				},
+				["OmniBar_Counterspell"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid39"] = {
@@ -64,6 +72,9 @@ MasqueDB = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid7"] = {
+					["Inherit"] = false,
+				},
+				["LoseControl_partyplayer"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid19"] = {
@@ -114,10 +125,25 @@ MasqueDB = {
 				["LoseControl_raid20"] = {
 					["Inherit"] = false,
 				},
+				["LoseControl_player2"] = {
+					["Inherit"] = false,
+				},
+				["ItemRack_On screen panels"] = {
+					["Inherit"] = false,
+				},
+				["LoseControl_raid34"] = {
+					["Inherit"] = false,
+				},
 				["LoseControl_raid3"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid27"] = {
+					["Inherit"] = false,
+				},
+				["LoseControl_party4"] = {
+					["Inherit"] = false,
+				},
+				["LoseControl_raid13"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid26"] = {
@@ -129,16 +155,19 @@ MasqueDB = {
 				["LoseControl_raid35"] = {
 					["Inherit"] = false,
 				},
-				["Bartender4_StanceBar"] = {
+				["LoseControl"] = {
 					["Inherit"] = false,
 				},
-				["LoseControl_raid31"] = {
+				["LoseControl_player"] = {
+					["Inherit"] = false,
+				},
+				["OmniBar_Shield Bash"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid17"] = {
 					["Inherit"] = false,
 				},
-				["LoseControl_raid13"] = {
+				["Bartender4_6"] = {
 					["Inherit"] = false,
 				},
 				["Bartender4_2"] = {
@@ -147,19 +176,19 @@ MasqueDB = {
 				["LoseControl_raid14"] = {
 					["Inherit"] = false,
 				},
-				["Bartender4_6"] = {
-					["Inherit"] = false,
-				},
-				["Bartender4_BagBar"] = {
+				["OmniBar_Kick"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid21"] = {
 					["Inherit"] = false,
 				},
-				["LoseControl_raid34"] = {
+				["Bartender4_BagBar"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid9"] = {
+					["Inherit"] = false,
+				},
+				["ItemRack_Character info menus"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid6"] = {
@@ -177,25 +206,25 @@ MasqueDB = {
 				["LoseControl_raid22"] = {
 					["Inherit"] = false,
 				},
-				["ItemRack_Character info menus"] = {
+				["OmniBar_Earth Shock"] = {
+					["Inherit"] = false,
+				},
+				["OmniBar_Pummel"] = {
+					["Inherit"] = false,
+				},
+				["Bartender4_StanceBar"] = {
+					["Inherit"] = false,
+				},
+				["OmniBar"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid25"] = {
 					["Inherit"] = false,
 				},
-				["LoseControl_player"] = {
-					["Inherit"] = false,
-				},
-				["LoseControl"] = {
-					["Inherit"] = false,
-				},
-				["LoseControl_party4"] = {
-					["Inherit"] = false,
-				},
 				["LoseControl_raid30"] = {
 					["Inherit"] = false,
 				},
-				["ItemRack_On screen panels"] = {
+				["LoseControl_raid31"] = {
 					["Inherit"] = false,
 				},
 				["LoseControl_raid23"] = {

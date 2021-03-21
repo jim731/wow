@@ -1,8 +1,6 @@
 
 PawnOptions = {
 	["LastVersion"] = 2.0417,
-	["LastPlayerFullName"] = "Fermion-Nethergarde Keep",
-	["AutoSelectScales"] = false,
 	["ItemLevels"] = {
 		{
 			["ID"] = 9664,
@@ -70,22 +68,18 @@ PawnOptions = {
 			["Link"] = "|cff0070dd|Hitem:10776::::::::49:::1::::|h[Silky Spider Cape]|h|r",
 		}, -- [15]
 		{
-			["ID"] = 6829,
-			["Level"] = 44,
-			["AlsoFitsIn"] = 17,
-			["Link"] = "|cff0070dd|Hitem:6829::::::::49:::11::::|h[Sword of Serenity]|h|r",
+			["ID"] = 6975,
+			["Level"] = 40,
+			["Link"] = "|cff0070dd|Hitem:6975:36:::::::49:::11::::|h[Whirlwind Axe]|h|r",
 		}, -- [16]
-		{
-			["ID"] = 4652,
-			["Level"] = 45,
-			["Link"] = "|cff1eff00|Hitem:4652::::::::49:::11::::|h[Salbac Shield]|h|r",
-		}, -- [17]
-		{
+		[18] = {
 			["ID"] = 10508,
 			["Level"] = 41,
 			["Link"] = "|cff1eff00|Hitem:10508::::::::49:::::::|h[Mithril Blunderbuss]|h|r",
-		}, -- [18]
+		},
 	},
+	["AutoSelectScales"] = false,
+	["LastPlayerFullName"] = "Fermion-Nethergarde Keep",
 }
 PawnMrRobotScaleProviderOptions = nil
 PawnClassicScaleProviderOptions = {

@@ -1,18 +1,20 @@
 
 InventorianDB = {
 	["profileKeys"] = {
+		["Ganado - Nethergarde Keep"] = "Default",
 		["Consumables - Nethergarde Keep"] = "Default",
 		["Parisi - Nethergarde Keep"] = "Default",
 		["Various - Nethergarde Keep"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
+		["Bushwick - Nethergarde Keep"] = "Default",
 		["Raremats - Nethergarde Keep"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
 			["bag"] = {
-				["y"] = 59.0616569519043,
-				["x"] = -177.776000976563,
-				["point"] = "BOTTOMRIGHT",
+				["y"] = 37.1357421875,
+				["x"] = 141.434112548828,
+				["point"] = "LEFT",
 				["scale"] = 1,
 				["parent"] = {
 					["variablesLoaded"] = true,
@@ -165,8 +167,7 @@ InventorianDB = {
 						},
 						["ClearButton"] = {
 						},
-						["DragBottomLeft"] = {
-						},
+						["isLocked"] = false,
 						["Title"] = {
 						},
 						["TitleClick"] = {
@@ -179,7 +180,8 @@ InventorianDB = {
 							["Text"] = {
 							},
 						},
-						["isLocked"] = false,
+						["DragBottomLeft"] = {
+						},
 					},
 					["firstTimeLoaded"] = 1,
 				},
@@ -348,8 +350,7 @@ InventorianDB = {
 						},
 						["ClearButton"] = {
 						},
-						["DragBottomLeft"] = {
-						},
+						["isLocked"] = false,
 						["Title"] = {
 						},
 						["TitleClick"] = {
@@ -362,7 +363,8 @@ InventorianDB = {
 							["Text"] = {
 							},
 						},
-						["isLocked"] = false,
+						["DragBottomLeft"] = {
+						},
 					},
 					["firstTimeLoaded"] = 1,
 				},

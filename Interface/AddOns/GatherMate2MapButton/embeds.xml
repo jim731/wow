@@ -1,0 +1,22 @@
+<Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+  <Button name="GatherMate2_Toggle" parent="WorldMapFrame" inherits="UIPanelButtonTemplate" text="Toggle Nodes">
+	<Size>
+		<AbsDimension x="120" y="20"/>
+	</Size>
+	<Anchors>
+		<Anchor point="RIGHT" relativePoint="LEFT" relativeTo="WorldMapContinentDropDown">
+			<Offset>
+				<AbsDimension x="-120" y="2"/>
+			</Offset>
+		</Anchor>
+	</Anchors>
+	<Scripts>
+		<OnLoad>
+			<!-- self:SetFrameLevel(10); -->
+		</OnLoad>
+		<OnClick>
+			ToggleNodes();
+		</OnClick>
+	</Scripts>
+  </Button>
+</Ui>

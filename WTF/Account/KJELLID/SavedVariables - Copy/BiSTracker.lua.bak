@@ -1,0 +1,17 @@
+
+BiSTrackerDB = {
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Default",
+		["Raremats - Nethergarde Keep"] = "Default",
+		["Shapeshifter - Skullflame"] = "Default",
+		["Various - Nethergarde Keep"] = "Default",
+		["Fermion - Nethergarde Keep"] = "Default",
+		["Parisi - Nethergarde Keep"] = "Default",
+		["Ganado - Nethergarde Keep"] = "Default",
+		["Bushwick - Nethergarde Keep"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

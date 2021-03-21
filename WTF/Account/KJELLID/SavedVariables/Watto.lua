@@ -1,29 +1,33 @@
 
 Watto_Options = {
-	["sellnotify"] = true,
+	["sellnotify"] = false,
 	["autosell"] = false,
-	["selljunksoulbound"] = true,
-	["randomselltext"] = true,
+	["selljunksoulbound"] = false,
+	["randomselltext"] = false,
 	["PerChar"] = {
 	},
-	["showtooltipdata"] = true,
-	["usemoneyicons"] = true,
-	["Version"] = "1.7.4",
-	["autosellfood"] = true,
-	["fillreagentbank"] = true,
+	["showtooltipdata"] = false,
+	["usemoneyicons"] = false,
 	["sellbacklimiter"] = false,
+	["autosellfood"] = false,
+	["fillreagentbank"] = true,
+	["Version"] = "1.7.4",
 }
 Watto_ItemList = {
 	["General"] = {
 	},
 	["PerChar"] = {
 		["Skullflame"] = {
-			["Ferns"] = {
-			},
 			["Shapeshifter"] = {
+			},
+			["Ferns"] = {
 			},
 		},
 		["Nethergarde Keep"] = {
+			["Bushwick"] = {
+			},
+			["Ganado"] = {
+			},
 			["Fermion"] = {
 			},
 		},

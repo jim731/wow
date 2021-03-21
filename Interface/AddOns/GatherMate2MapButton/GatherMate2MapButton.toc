@@ -1,0 +1,11 @@
+## Interface: 11302
+## Title: GatherMate2 Map Button
+## Author: FinalSolarFlare
+## Notes: Adds map button for GatherMate2
+## Version: 1.1
+## Dependencies: GatherMate2
+
+embeds.xml
+
+#Main
+GM2MB.lua
