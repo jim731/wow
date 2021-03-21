@@ -1,0 +1,41 @@
+Guidelime.registerGuide(
+[[
+[D Macey Guide to 60 Horde Classic.\\ |cFFFF0000Chapter 28: Desolace East|r\\ Route based on Guild ONSLAUGHT Thanks to Fei#4554.] 
+  
+[GA Horde]
+[N Chapter 28]
+[NXChapter 29]
+
+Take Flight [FDesolace]	[G51.5, 30.3Thunder Bluff]
+START COLLECT		Dread Swoop: Buzzard Wing x4	[G60.0, 25.5Desolace]
+[QA5501]	[G62.2, 38.8Desolace]
+[QS5821]	[G60.4, 38.0Desolace]
+[QT5361]	[G55.4, 55.8Desolace]
+[QS5386]	[G55.4, 55.8Desolace]
+[QT1432]	[G52.6, 54.2Desolace]
+[QA1433]	[G52.6, 54.2Desolace]
+[QA1434]	[G52.6, 54.2Desolace]
+[QT1433]	[G52.2, 53.6Desolace]
+[QA1435]	[G52.2, 53.6Desolace]
+[QT1362]	[G56.2, 59.4Desolace]
+[QA1365]	[G56.2, 59.4Desolace]
+[QA1368]	[G56.2, 59.6Desolace]
+[QS1367]	[G56.2, 59.6Desolace]
+[QA5561]	[G60.8, 61.8Desolace]
+[QC1365]	[G73.4, 41.6Desolace]
+[QT1365]	[G56.2, 59.4Desolace]
+[QA1366]	[G56.2, 59.4Desolace]
+[QC5501]	[G52.0, 59.0Desolace]
+Start PROGRESS		Kodo Roundup	[G52.0, 59.0Desolace]
+[QC1366]	[G71.0, 73.0Desolace]
+[QC1368]	[G71.0, 73.0Desolace]
+[QT1368]	[G36.2, 79.2Desolace]
+[QA1370]	[G36.2, 79.2Desolace]
+[QA5763]	[G25.0, 72.2Desolace]
+[QA5381]	[G25.8, 68.2Desolace]
+[QA6142]	[G22.6, 72.0Desolace]
+[O]Consider skipping Clam Bait if you are not Undead or a Shaman/Warlock.	
+[QA6143]	[G23.2, 72.8Desolace]
+Activate Flight Path [PShadowprey Village]	[G21.6, 74.1Desolace]
+
+]], "Macey")

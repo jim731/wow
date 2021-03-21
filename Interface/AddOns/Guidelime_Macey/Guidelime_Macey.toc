@@ -1,0 +1,75 @@
+## Title: Guidelime_Macey
+## Author: Macey
+## Version: 0.6.3
+## Interface: 11302
+## Dependencies: Guidelime
+## Notes: Macey 1-60 Leveling Guide (1-20 Complete)
+
+1-5 Chapter 1.lua
+Chapter 2.lua
+Chapter 3.lua
+Chapter 4.lua
+Chapter 5.lua
+Chapter 6 - All Horde.lua
+Chapter 7.lua
+Chapter 8.lua
+Chapter 9.lua
+Chapter 10.lua
+Chapter 11.lua
+Chapter 12.lua
+Chapter 13.lua
+Chapter 14.lua
+Chapter 15.lua
+Chapter 16.lua
+Chapter 17.lua
+Chapter 18.lua
+Chapter 19.lua
+Chapter 20.lua
+Chapter 21.lua
+Chapter 22.lua
+Chapter 23.lua
+Chapter 24.lua
+Chapter 25.lua
+Chapter 26.lua
+Chapter 27.lua
+Chapter 28.lua
+Chapter 29.lua
+Chapter 30.lua
+Chapter 31.lua
+Chapter 32.lua
+Chapter 33.lua
+Chapter 34.lua
+Chapter 35.lua
+Chapter 36.lua
+Chapter 37.lua
+Chapter 38.lua
+Chapter 39.lua
+Chapter 40.lua
+Chapter 41.lua
+Chapter 42.lua
+Chapter 43.lua
+Chapter 44.lua
+Chapter 45.lua
+Chapter 46.lua
+Chapter 47.lua
+Chapter 48.lua
+Chapter 49.lua
+Chapter 50.lua
+Chapter 51.lua
+Chapter 52.lua
+Chapter 53.lua
+Chapter 54.lua
+Chapter 55.lua
+Chapter 56.lua
+Chapter 57.lua
+Chapter 58.lua
+Chapter 59.lua
+Chapter 60.lua
+Chapter 61.lua
+Chapter 62.lua
+Chapter 63.lua
+Chapter 64.lua
+Chapter 65.lua
+Chapter 66.lua
+Chapter 67.lua
+Chapter 68.lua

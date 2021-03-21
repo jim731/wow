@@ -654,7 +654,7 @@ Bartender4DB = {
 							["version"] = 3,
 							["position"] = {
 								["y"] = 41.75,
-								["x"] = -256,
+								["x"] = -253,
 								["point"] = "BOTTOM",
 							},
 							["padding"] = 6,
@@ -691,21 +691,20 @@ Bartender4DB = {
 						{
 							["version"] = 3,
 							["position"] = {
-								["y"] = 94,
-								["x"] = -232,
+								["y"] = 88.8543548583984,
+								["x"] = -231.5,
 								["point"] = "BOTTOM",
 							},
 						}, -- [5]
 						{
 							["version"] = 3,
 							["position"] = {
-								["y"] = 132,
-								["x"] = -232,
+								["y"] = 125.424728393555,
+								["x"] = -231.5,
 								["point"] = "BOTTOM",
 							},
 						}, -- [6]
 						{
-							["enabled"] = true,
 							["version"] = 3,
 							["position"] = {
 								["y"] = -35.7213745117188,
@@ -714,16 +713,23 @@ Bartender4DB = {
 							},
 						}, -- [7]
 						{
-							["enabled"] = true,
 							["version"] = 3,
 							["position"] = {
 								["y"] = -74.2130126953125,
 								["x"] = -2.99997091293335,
 								["point"] = "TOPLEFT",
 							},
+							["visibility"] = {
+								["overridebar"] = false,
+								["vehicleui"] = false,
+								["stance"] = {
+									false, -- [1]
+									false, -- [2]
+									false, -- [3]
+								},
+							},
 						}, -- [8]
 						{
-							["enabled"] = true,
 							["version"] = 3,
 							["position"] = {
 								["y"] = -112.348022460938,
@@ -732,10 +738,9 @@ Bartender4DB = {
 							},
 						}, -- [9]
 						{
-							["enabled"] = true,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 2.9998779296875,
+								["y"] = -153.13671875,
 								["x"] = -2.99997091293335,
 								["point"] = "TOPLEFT",
 							},
@@ -829,8 +834,8 @@ Bartender4DB = {
 							},
 						}, -- [2]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -839,8 +844,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["padding"] = 5,
 							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -870,8 +875,9 @@ Bartender4DB = {
 						}, -- [7]
 						{
 						}, -- [8]
-						[10] = {
-						},
+						nil, -- [9]
+						{
+						}, -- [10]
 					},
 				},
 				["warrior classic"] = {
@@ -1375,10 +1381,10 @@ Bartender4DB = {
 					["padding"] = -2,
 					["version"] = 3,
 					["position"] = {
-						["scale"] = 1,
+						["y"] = 42,
 						["x"] = 33,
 						["point"] = "BOTTOM",
-						["y"] = 42,
+						["scale"] = 1,
 					},
 				},
 				["warrior classic"] = {
@@ -1560,9 +1566,9 @@ Bartender4DB = {
 								},
 								["CountButton"] = {
 								},
-								["isLocked"] = false,
 								["DragBottomLeft"] = {
 								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -2106,9 +2112,9 @@ Bartender4DB = {
 								},
 								["CountButton"] = {
 								},
-								["isLocked"] = false,
 								["DragBottomLeft"] = {
 								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -2206,11 +2212,11 @@ Bartender4DB = {
 					["fadeout"] = true,
 				},
 				["Default"] = {
-					["enabled"] = false,
 					["position"] = {
-						["y"] = 14.2500457763672,
-						["x"] = -159.74991607666,
-						["point"] = "CENTER",
+						["y"] = 122.543441772461,
+						["x"] = -354.606170654297,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
 					},
 					["version"] = 3,
 				},
@@ -2407,9 +2413,9 @@ Bartender4DB = {
 								},
 								["CountButton"] = {
 								},
-								["isLocked"] = false,
 								["DragBottomLeft"] = {
 								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -2643,8 +2649,8 @@ Bartender4DB = {
 				["Default"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 164,
-						["x"] = -164,
+						["y"] = 158.744430541992,
+						["x"] = -163.499816894531,
 						["point"] = "BOTTOM",
 					},
 				},
@@ -2847,9 +2853,9 @@ Bartender4DB = {
 								},
 								["CountButton"] = {
 								},
-								["isLocked"] = false,
 								["DragBottomLeft"] = {
 								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {

@@ -1,0 +1,34 @@
+
+## Title: Guidelime_RussianHorde1-60
+## Author: Dreamcast1991
+## Version: 0.32 beta
+## Interface: 11302
+## Dependencies: Guidelime
+## Notes: Перевод гайда Joana's World от Dreamcast1991
+
+Shaman_Tauren_1-12.lua
+Warrior_Tauren_1-12.lua
+Hunter_Tauren_1-12.lua
+Druid_Tauren_1-12.lua
+Warlock_OrcTroll_1-12.lua
+Priest_OrcTroll_1-12.lua
+Rogue_OrcTroll_1-12.lua
+Hunter_OrcTroll_1-12.lua
+Warrior_OrcTroll_1-12.lua
+Mage_OrcTroll_1-12.lua
+Shaman_OrcTroll_1-12.lua
+Warrior_Undead_1-15.lua
+Warlock_Undead_1-15.lua
+Rogue_Undead_1-15.lua
+Priest_Undead_1-15.lua
+Mage_Undead_1-15.lua
+Horde_12-20.lua
+Horde_20-26.lua
+Horde_26-30.lua
+Horde_30-36.lua
+Horde_36-40.lua
+Horde_40-45.lua
+Horde_45-47.lua
+Horde_47-50.lua
+Horde_50-55.lua
+Horde_55-60.lua

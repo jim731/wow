@@ -2,17 +2,17 @@ BINDINGMODE 0
 bind UP NONE
 bind A STRAFELEFT
 bind D STRAFERIGHT
-bind Q CLICK BT4Button13:LeftButton
-bind E CLICK BT4Button14:LeftButton
+bind Q NONE
+bind E NONE
 bind NUMPAD0 NONE
 bind NUMLOCK NONE
 bind PAGEUP TOGGLEAUTORUN
-bind R CLICK BT4Button15:LeftButton
-bind SHIFT-R ACTIONBUTTON3
-bind 1 CLICK BT4Button18:LeftButton
-bind 2 CLICK BT4Button19:LeftButton
-bind 3 CLICK BT4Button20:LeftButton
-bind 4 CLICK BT4Button21:LeftButton
+bind R NONE
+bind SHIFT-R NONE
+bind 1 NONE
+bind 2 NONE
+bind 3 NONE
+bind 4 NONE
 bind 5 NONE
 bind 6 NONE
 bind 7 NONE
@@ -20,6 +20,7 @@ bind 8 NONE
 bind 9 NONE
 bind 0 NONE
 bind - NONE
+bind = NONE
 bind CTRL-F1 NONE
 bind CTRL-F2 NONE
 bind CTRL-F3 NONE
@@ -56,10 +57,10 @@ bind F2 NONE
 bind F3 NONE
 bind F4 NONE
 bind F5 NONE
-bind F CLICK BT4Button16:LeftButton
+bind F NONE
 bind V TOGGLEBACKPACK
-bind T CLICK BT4Button17:LeftButton
-bind SHIFT-T ACTIONBUTTON5
+bind T NONE
+bind SHIFT-T NONE
 bind F8 NONE
 bind F9 NONE
 bind F10 NONE
@@ -75,7 +76,7 @@ bind CTRL-Q NONE
 bind CTRL-E NONE
 bind CTRL-T NONE
 bind SHIFT-C STOPCASTING
-bind NUMPAD4 ACTIONBUTTON10
+bind NUMPAD4 NONE
 bind NUMPAD6 TURNRIGHT
 bind SHIFT-W NONE
 bind ALT-1 NONE
@@ -105,9 +106,9 @@ bind ALT-CTRL-+ NONE
 bind ALT-DELETE NONE
 bind ALT-J SCRAP_SELL
 bind § NONE
-bind SHIFT-Q ACTIONBUTTON1
-bind SHIFT-E ACTIONBUTTON2
-bind SHIFT-F ACTIONBUTTON4
+bind SHIFT-Q NONE
+bind SHIFT-E NONE
+bind SHIFT-F NONE
 bind ALT-§ NONE
 bind ALT-SHIFT-Q NONE
 bind ALT-SHIFT-E NONE

@@ -1,0 +1,10 @@
+lightweight tag aefecff088f86c4271bcf780af4823bd3cec696e Release0.14.2
+Author:	JanRK <jk@itmatic.dk>
+Date:	Mon Nov 11 22:10:21 2019 +0100
+
+commit aefecff088f86c4271bcf780af4823bd3cec696e
+Author: JanRK <jk@itmatic.dk>
+Date:   Mon Nov 11 22:10:21 2019 +0100
+
+    Fix quest prereq
+

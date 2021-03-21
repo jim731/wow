@@ -1,0 +1,24 @@
+## Title: Guidelime_Freezy3
+## Author: Freezy3
+## Version: 2.0
+## Interface: 11302
+## Dependencies: Guidelime
+## Notes: Freezy3s 1-44 Undead starter + Horde Leveling Guide
+
+1-6 Freezy3 Undead Starter.lua
+6-12 Freezy3.lua
+12-14 Freezy3.lua
+12-18 Freezy3.lua
+18-23 Freezy3.lua
+23-26 Freezy3.lua
+26-30 Freezy3.lua
+30-34 Freezy3.lua
+34-37 Freezy3.lua
+37-39 Freezy3.lua
+39-41 Freezy3.lua
+41-44 Freezy3.lua
+
+Ettern 1-6 Durotar.lua
+Ettern 6-12 Durotar.lua
+
+1-12 Tauren Starter.lua

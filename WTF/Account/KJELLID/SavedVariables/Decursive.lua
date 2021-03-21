@@ -1,9 +1,23 @@
 
 DecursiveDB = {
-	["global"] = {
-		["LastVersionAnnounce"] = 1616226416,
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Default",
+		["Shapeshifter - Skullflame"] = "Default",
+		["Parisi - Nethergarde Keep"] = "Default",
+		["Fermion - Nethergarde Keep"] = "Default",
 	},
 	["class"] = {
+		["MAGE"] = {
+			["CureOrder"] = {
+				-12, -- [1]
+				-16, -- [2]
+				nil, -- [3]
+				-13, -- [4]
+				[8] = -14,
+				[16] = -15,
+				[32] = 1,
+			},
+		},
 		["WARRIOR"] = {
 			["CureOrder"] = {
 				-11, -- [1]
@@ -38,17 +52,27 @@ DecursiveDB = {
 			},
 		},
 	},
-	["profileKeys"] = {
-		["Ferns - Skullflame"] = "Default",
-		["Shapeshifter - Skullflame"] = "Default",
-		["Fermion - Nethergarde Keep"] = "Default",
+	["global"] = {
+		["NoStartMessages"] = true,
+		["LastVersionAnnounce"] = 1616226416,
 	},
 	["profiles"] = {
 		["Default"] = {
-			["DebuffsFrameContainer_y"] = 494.933343822337,
+			["AutoHideMUFs"] = 2,
+			["DebuffsFrameContainer_y"] = 177.833312854944,
+			["DebuffsFrameGrowToTop"] = true,
+			["DebuffsFrameVerticalDisplay"] = true,
 			["MainBarX"] = 682.666681134258,
 			["MainBarY"] = -96.0000020345051,
-			["DebuffsFrameContainer_x"] = 1024.00002170139,
+			["ShowDebuffsFrame"] = false,
+			["MiniMapIcon"] = {
+				["hide"] = false,
+			},
+			["DebuffsFramePerline"] = 5,
+			["DebuffsFrameElemAlpha"] = 0.5,
+			["DebuffsFrameContainer_x"] = 7.5431517510109,
+			["DebuffsFrameElemBorderAlpha"] = 0.25,
+			["DebuffsFrameMaxCount"] = 40,
 		},
 	},
 }

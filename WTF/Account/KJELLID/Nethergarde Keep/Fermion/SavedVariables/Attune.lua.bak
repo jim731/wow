@@ -1,2 +1,2 @@
 
-AttuneLastViewed = "World of Warcraft2"
+AttuneLastViewed = "The Burning Crusade200"

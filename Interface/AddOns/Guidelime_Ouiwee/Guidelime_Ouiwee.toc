@@ -1,0 +1,17 @@
+﻿
+## Title: Guide|cFF40ff00lime|r Guides by |cFF69CCF0Ouiwee|r
+## Author: Ouiwee
+## Version: 0.001-Beta
+## Interface: 11302
+## Dependencies: Guidelime
+## Notes: Guide|cFF40ff00lime|r Guides by |cFF69CCF0Ouiwee|r
+## www.twitch.tv/Fishfinnatic
+## Follow and Subscribe!
+
+Guidelime_Ouiwee_1-12_Tauren_Horde.lua
+Guidelime_Ouiwee_12-20_Horde.lua
+Guidelime_Ouiwee_20-25_Horde.lua
+Guidelime_Ouiwee_25-30_Horde.lua
+Guidelime_Ouiwee_30-36_Horde.lua
+Guidelime_Ouiwee_36-40_Horde.lua
+Guidelime_Ouiwee_40-45_Horde.lua

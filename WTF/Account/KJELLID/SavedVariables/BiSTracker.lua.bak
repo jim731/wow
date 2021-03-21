@@ -6,6 +6,7 @@ BiSTrackerDB = {
 		["Various - Nethergarde Keep"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
 		["Shapeshifter - Skullflame"] = "Default",
+		["Parisi - Nethergarde Keep"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {

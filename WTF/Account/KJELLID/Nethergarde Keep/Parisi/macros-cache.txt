@@ -1,0 +1,19 @@
+VER 3 0000000001000004 "FISH" "136109"
+/equipslot 16 Fishing Pole
+/cast Fishing
+END
+VER 3 0000000001000002 "IB" "INV_MISC_QUESTIONMARK"
+#showtooltip ice block
+/stopcasting
+/cast ice block
+/cancelaura [mod:shift] ice block
+END
+VER 3 0000000001000003 "S" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/castsequence [@player] reset=4 ice barrier, mana shield
+END
+VER 3 0000000001000001 "SC" "INV_MISC_QUESTIONMARK"
+¤showtooltip counterspell
+/stopcasting
+/cast counterspell
+END

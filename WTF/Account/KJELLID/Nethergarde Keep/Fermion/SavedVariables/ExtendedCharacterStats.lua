@@ -28,13 +28,13 @@ ExtendedCharacterStats = {
 					["text"] = "MISS_BOSS",
 					["refName"] = "RangedHitBossLevel",
 				},
+				["isSubGroup"] = true,
 				["display"] = true,
 				["sameLevel"] = {
 					["display"] = true,
 					["text"] = "MISS",
 					["refName"] = "RangedHitSameLevel",
 				},
-				["isSubGroup"] = true,
 				["text"] = "HIT",
 				["refName"] = "RangedHitHeader",
 				["bonus"] = {
@@ -104,13 +104,13 @@ ExtendedCharacterStats = {
 					["text"] = "MISS_BOSS",
 					["refName"] = "SpellHitBossLevel",
 				},
+				["isSubGroup"] = true,
 				["display"] = true,
 				["sameLevel"] = {
 					["display"] = true,
 					["text"] = "MISS",
 					["refName"] = "SpellHitSameLevel",
 				},
-				["isSubGroup"] = true,
 				["text"] = "HIT",
 				["refName"] = "SpellHitHeader",
 				["bonus"] = {
@@ -245,15 +245,15 @@ ExtendedCharacterStats = {
 					["text"] = "ATTACK_SPEED_OFF_HAND",
 					["refName"] = "MeleeAttackSpeedOffHand",
 				},
-				["display"] = true,
 				["isSubGroup"] = true,
-				["text"] = "ATTACK_SPEED",
-				["refName"] = "MeleeAttackSpeedHeader",
 				["mainHand"] = {
 					["display"] = true,
 					["text"] = "ATTACK_SPEED_MAIN_HAND",
 					["refName"] = "MeleeAttackSpeedMainHand",
 				},
+				["text"] = "ATTACK_SPEED",
+				["refName"] = "MeleeAttackSpeedHeader",
+				["display"] = true,
 			},
 			["hit"] = {
 				["bossLevel"] = {
@@ -261,13 +261,13 @@ ExtendedCharacterStats = {
 					["text"] = "MISS_BOSS",
 					["refName"] = "MeleeHitBossLevel",
 				},
+				["isSubGroup"] = true,
 				["display"] = true,
 				["sameLevel"] = {
 					["display"] = true,
 					["text"] = "MISS",
 					["refName"] = "MeleeHitSameLevel",
 				},
-				["isSubGroup"] = true,
 				["text"] = "HIT",
 				["refName"] = "MeleeHitHeader",
 				["bonus"] = {

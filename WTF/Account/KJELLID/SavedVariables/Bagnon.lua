@@ -31,7 +31,6 @@ Bagnon_Sets = {
 	["version"] = "9.0.6",
 	["global"] = {
 		["inventory"] = {
-			["y"] = 132.395126342773,
 			["rules"] = {
 				"all", -- [1]
 				"all/normal", -- [2]
@@ -58,14 +57,16 @@ Bagnon_Sets = {
 			},
 			["point"] = "BOTTOMRIGHT",
 			["hiddenBags"] = {
+				[0] = false,
 			},
 			["color"] = {
 			},
-			["borderColor"] = {
-			},
 			["hiddenRules"] = {
 			},
+			["y"] = 132.395126342773,
 			["x"] = -176.420166015625,
+			["borderColor"] = {
+			},
 		},
 		["vault"] = {
 			["rules"] = {

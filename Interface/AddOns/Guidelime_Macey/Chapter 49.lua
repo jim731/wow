@@ -1,0 +1,36 @@
+Guidelime.registerGuide(
+[[
+[D Macey Guide to 60 Horde Classic.\\ |cFFFF0000Chapter 49: Feralas West|r\\ Route based on Guild ONSLAUGHT Thanks to Fei#4554.] 
+  
+[GA Horde]
+[N Chapter 49]
+[NXChapter 50]
+
+[QC2974]	[G67.0, 46.0Feralas]
+[QA7003]	[G44.8, 43.4Feralas]
+[QA7721]	[G44.8, 43.4Feralas]
+[QC7721]	[G47.0, 50.0Feralas]
+[QC3520]	[G47.0, 50.0Feralas]
+[QC7733]	[G53.0, 32.0Feralas]
+[QC7738]	[G53.0, 32.0Feralas]
+[QC7003]	[G40.0, 24.0Feralas]
+[QC3127]	[G40.0, 24.0Feralas]
+[QC3063]	[G40.0, 10.0Feralas]
+[QC3062]	[G40.0, 10.0Feralas]
+[QT7003]	[G44.8, 43.4Feralas]
+[QT7721]	[G44.8, 43.4Feralas]
+[QS7725]	[G44.8, 43.4Feralas]
+[QS7726]	[G44.8, 43.4Feralas]
+[H] Use your Hearthstone	[G44.8, 43.4Feralas]
+[QT3127]	[G74.4, 43.4Feralas]
+[QA3129]	[G74.4, 43.4Feralas]
+[QT7733]	[G74.4, 42.9Feralas]
+[QT7738]	[G74.4, 42.9Feralas]
+[QT3063]	[G76.2, 43.8Feralas]
+[QT3062]	[G76.2, 43.8Feralas]
+[QT2974]	[G75.9, 42.7Feralas]
+[QA2976]	[G75.9, 42.7Feralas]
+[QT3129]	[G74.4, 43.4Feralas]
+Take Flight [FGadgetzan]	[G75.4, 44.4Feralas]
+
+]], "Macey")

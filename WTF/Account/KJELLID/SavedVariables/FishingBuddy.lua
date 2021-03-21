@@ -9,13 +9,16 @@ FishingBuddy_Info = {
 	["DataFish"] = 0,
 	["FishingHoles"] = {
 	},
+	["Settings"] = {
+		["TownsfolkTracker"] = true,
+	},
 	["Version"] = 19500,
-	["FishInfo2"] = 0,
+	["KnownZones"] = {
+	},
 	["SubZones"] = {
 	},
 	["ImppDBLoaded"] = 0,
 	["Fishies"] = {
 	},
-	["KnownZones"] = {
-	},
+	["FishInfo2"] = 0,
 }

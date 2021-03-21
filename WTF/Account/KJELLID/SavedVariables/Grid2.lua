@@ -1,15 +1,31 @@
 
 Grid2DB = {
 	["namespaces"] = {
-		["Grid2Layout"] = {
-		},
 		["Grid2AoeHeals"] = {
 		},
+		["Grid2Layout"] = {
+			["profiles"] = {
+				["Fermion - Nethergarde Keep"] = {
+					["ScaleSize"] = 0.8,
+					["FrameDisplay"] = "Raid",
+					["BorderTexture"] = "Blizzard Dialog",
+					["PosY"] = 0,
+					["PosX"] = 0,
+				},
+			},
+		},
 		["LibDualSpec-1.0"] = {
+		},
+		["Grid2Options"] = {
 		},
 		["Grid2RaidDebuffs"] = {
 		},
 		["Grid2Frame"] = {
+			["profiles"] = {
+				["Fermion - Nethergarde Keep"] = {
+					["iconSize"] = 13,
+				},
+			},
 		},
 	},
 	["profileKeys"] = {
@@ -1084,6 +1100,10 @@ Grid2DB = {
 					},
 				},
 			},
+			["versions"] = {
+				["Grid2"] = 8,
+				["Grid2RaidDebuffs"] = 4,
+			},
 			["statusMap"] = {
 				["health-color"] = {
 					["classcolor"] = 99,
@@ -1141,9 +1161,11 @@ Grid2DB = {
 					["buff-BattleShout"] = 89,
 				},
 			},
-			["versions"] = {
-				["Grid2"] = 8,
-				["Grid2RaidDebuffs"] = 4,
+			["themes"] = {
+				["indicators"] = {
+					[0] = {
+					},
+				},
 			},
 		},
 		["Shapeshifter - Skullflame"] = {

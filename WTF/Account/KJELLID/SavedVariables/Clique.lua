@@ -14,6 +14,7 @@ CliqueDB3 = {
 		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
+		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 	},
 	["profiles"] = {
@@ -81,6 +82,25 @@ CliqueDB3 = {
 					["sets"] = {
 						["default"] = true,
 					},
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Parisi - Nethergarde Keep"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]

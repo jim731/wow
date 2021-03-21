@@ -1,3 +1,17 @@
+VER 3 0000000000000005 " " "132325"
+#showtooltip attack
+/startattack
+END
+VER 3 0000000000000012 " " "INV_Weapon_Rifle_05."
+#showtooltip shoot gun
+/cast shoot gun
+/startattack
+END
+VER 3 0000000000000024 " " "INV_Weapon_Bow_05."
+#showtooltip shoot bow
+/cast shoot bow
+/startattack
+END
 VER 3 0000000000000019 " " "132157"
 #showtooltip fishing
 /equipslot 16 Blump Family Fishing Pole
@@ -8,35 +22,19 @@ VER 3 0000000000000015 " " "132311"
 /stopcasting
 /stopattacking
 END
-VER 3 0000000000000007 " " "132276"
-#showtooltip bear form
-/cast bear form
-/startattack
-END
-VER 3 0000000000000005 " " "132325"
-#showtooltip attack
-/startattack
-END
-VER 3 0000000000000012 " " "INV_Weapon_Rifle_05."
-#showtooltip shoot gun
-/cast shoot gun
-/startattack
-END
-VER 3 0000000000000024 " " "132208"
-#showtooltip shoot bow
-/cast shoot bow
-/startattack
-END
 VER 3 000000000000001C "Better Align" "INV_MISC_QUESTIONMARK"
 /betteralign
+END
+VER 3 0000000000000044 "castbars" "INV_MISC_QUESTIONMARK"
+/castbars
 END
 VER 3 000000000000001D "chicken" "135996"
 /chicken
 END
-VER 3 0000000000000043 "Decursive" "INV_MISC_QUESTIONMARK"
+VER 3 0000000000000045 "Decursive" "INV_MISC_QUESTIONMARK"
 /script DecursiveRootTable.Dcr:Println('No spell available')
 END
-VER 3 000000000000002D "dtls" "INV_MISC_QUESTIONMARK"
+VER 3 000000000000002D "details" "INV_MISC_QUESTIONMARK"
 /details toggle
 END
 VER 3 0000000000000016 "HAIL" "136101"
@@ -45,12 +43,9 @@ END
 VER 3 000000000000001E "Hello" "INV_MISC_QUESTIONMARK"
 /p hello
 END
-VER 3 0000000000000042 "suf" "INV_MISC_QUESTIONMARK"
-/suf
-END
 VER 3 0000000000000011 "THX" "135915"
 /thanks
 END
-VER 3 0000000000000029 "wst" "INV_MISC_QUESTIONMARK"
+VER 3 0000000000000029 "WST" "INV_MISC_QUESTIONMARK"
 /wst
 END

@@ -1,0 +1,57 @@
+
+## Title: Guidelime_Milksmuggler
+## Author: Tactics_lol
+## Version: 0.15-Beta
+## Interface: 11302
+## Dependencies: Guidelime
+## Notes: Created by Tactics_lol and revamped by Milksmuggler
+
+1-6_Northshire.lua
+6-8_Goldshire.lua
+8-11_DunMorogh.lua
+11-13_ElwynnForest.lua
+13-14_Westfall.lua
+14-15_LochModan.lua
+15-17_Westfall.lua
+17-17_Darkshorerun.lua
+17-20_Darkshore.lua
+20-21_LochModan.lua
+21-22_Westfall_Redridge.lua
+22-24_Darkshore_Ashenvale_STM.lua
+
+H_1-6_Valley_of_Trials1.lua
+H_1-6_Valley_of_Trials2.lua
+H_1-12_Mulgore1.lua
+H_1-12_Mulgore2.lua
+H_1-12_Tirisfal_Glades.lua
+H_6-12_Durotar1.lua
+H_6-12_Durotar2.lua
+H_12-12_Barrens_Warrior_Shaman_Tauren.lua
+H_12-18_Barrens.lua
+H_12-15_Silverpine_Forest.lua
+H_12-15_Silverpine_Forest2.lua
+H_15-18_Barrens.lua
+H_15-18_Barrens2.lua
+H_18-19_Stonetalon.lua
+H_19-21_South_Barrens.lua
+H_21-21_Stonetalon.lua
+H_21-22_Ashenvale.lua
+H_22-22_Silverpine.lua
+H_22-24_Hillsbrad_Foothills.lua
+H_24-25_Barrens.lua
+H_25-26_Stonetalon.lua
+H_26-28_Ashenvale.lua
+H_28-30_Thousand_Needles.lua
+H_30-31_Hillsbrad_Foothills.lua
+H_31-32_Arathi_Highlands.lua
+H_32-34_Thousand_Needles.lua
+H_34-35_Desolace.lua
+H_35-37_STV.lua
+H_37-37_Dustwallow.lua
+H_37-38_Alterac.lua
+H_38-38_Arathi_Highlands.lua
+H_38-39_Badlands.lua
+H_39-41_STV.lua
+H_41-42_Desolace.lua
+H_42-43_Dustwallow.lua
+H_43-44_Tanaris.lua

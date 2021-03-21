@@ -10,6 +10,7 @@ FishingBuddy_Info = {
 	["FishingHoles"] = {
 	},
 	["Version"] = 19500,
+	["FishInfo2"] = 0,
 	["KnownZones"] = {
 	},
 	["SubZones"] = {
@@ -17,5 +18,7 @@ FishingBuddy_Info = {
 	["ImppDBLoaded"] = 0,
 	["Fishies"] = {
 	},
-	["FishInfo2"] = 0,
+	["Settings"] = {
+		["TownsfolkTracker"] = true,
+	},
 }

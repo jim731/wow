@@ -1,5 +1,5 @@
 --[[
-Copyright 2011-2021 João Cardoso
+Copyright 2011-2017 João Cardoso
 BagBrother is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -18,27 +18,31 @@ This file is part of BagBrother.
 
 local Brother = CreateFrame('Frame', 'BagBrother')
 Brother:SetScript('OnEvent', function(self, event, ...) self[event](self, ...) end)
+Brother:RegisterEvent('ADDON_LOADED')
 Brother:RegisterEvent('PLAYER_LOGIN')
 
 
---[[ Server Ready ]]--
+--[[ Cache Loaded ]]--
 
-function Brother:PLAYER_LOGIN()
-	self:RemoveEvent('PLAYER_LOGIN')
+function Brother:ADDON_LOADED()
+	self:RemoveEvent('ADDON_LOADED')
 	self:StartupCache()
-	self:SetupEvents()
-	self:UpdateData()
+	self:SetupCharacter()
 end
 
 function Brother:StartupCache()
-	local player, realm = UnitFullName('player')
+	local Player = UnitName('player')
+	local Realm = GetRealmName()
+
 	BrotherBags = BrotherBags or {}
-	BrotherBags[realm] = BrotherBags[realm] or {}
+	BrotherBags[Realm] = BrotherBags[Realm] or {}
 
-	self.Realm = BrotherBags[realm]
-	self.Realm[player] = self.Realm[player] or {equip = {}}
-	self.Player = self.Realm[player]
+	self.Realm = BrotherBags[Realm]
+	self.Realm[Player] = self.Realm[Player] or {equip = {}}
+	self.Player = self.Realm[Player]
+end
 
+function Brother:SetupCharacter()
 	local player = self.Player
 	player.faction = UnitFactionGroup('player') == 'Alliance'
 	player.class = select(2, UnitClass('player'))
@@ -46,24 +50,22 @@ function Brother:StartupCache()
 	player.sex = UnitSex('player')
 end
 
+
+--[[ Server Ready ]]--
+
+function Brother:PLAYER_LOGIN()
+	self:RemoveEvent('PLAYER_LOGIN')
+	self:SetupEvents()
+	self:UpdateData()
+end
+
 function Brother:SetupEvents()
-	self:RegisterEvent('BAG_UPDATE')
+	self:RegisterEvent('UNIT_INVENTORY_CHANGED')
 	self:RegisterEvent('PLAYER_MONEY')
-	self:RegisterEvent('GUILD_ROSTER_UPDATE')
-	self:RegisterEvent('PLAYER_EQUIPMENT_CHANGED')
+	self:RegisterEvent('BAG_UPDATE')
+
 	self:RegisterEvent('BANKFRAME_OPENED')
 	self:RegisterEvent('BANKFRAME_CLOSED')
-
-	if CanUseVoidStorage then
-		self:RegisterEvent('VOID_STORAGE_OPEN')
-		self:RegisterEvent('VOID_STORAGE_CLOSE')
-	end
-
-	if CanGuildBankRepair then
-		self:RegisterEvent('GUILDBANKFRAME_OPENED')
-		self:RegisterEvent('GUILDBANKFRAME_CLOSED')
-		self:RegisterEvent('GUILDBANKBAGSLOTS_CHANGED')
-	end
 end
 
 function Brother:UpdateData()
@@ -71,20 +73,9 @@ function Brother:UpdateData()
 		self:BAG_UPDATE(i)
 	end
 
-	for i = 1, INVSLOT_LAST_EQUIPPED do
-		self:PLAYER_EQUIPMENT_CHANGED(i)
-	end
-
-	if HasKey and HasKey() then
-		self:BAG_UPDATE(KEYRING_CONTAINER)
-	end
-
-	self:GUILD_ROSTER_UPDATE()
+	self:UNIT_INVENTORY_CHANGED('player')
 	self:PLAYER_MONEY()
 end
-
-
---[[ API ]]--
 
 function Brother:RemoveEvent(event)
 	self:UnregisterEvent(event)

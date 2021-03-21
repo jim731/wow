@@ -1,5 +1,5 @@
 --[[
-Copyright 2011-2021 João Cardoso
+Copyright 2011-2017 João Cardoso
 BagBrother is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -16,7 +16,7 @@ This file is part of BagBrother.
 --]]
 
 
-function BagBrother:SaveBag(bag, onlyItems, saveSize)
+function BagBrother:SaveBag(bag, onlyItems)
 	local size = GetContainerNumSlots(bag)
 	if size > 0 then
 		local items = {}
@@ -27,8 +27,6 @@ function BagBrother:SaveBag(bag, onlyItems, saveSize)
 
 		if not onlyItems then
 			self:SaveEquip(ContainerIDToInventoryID(bag), size)
-		elseif saveSize then
-			items.size = size
 		end
 
 		self.Player[bag] = items
@@ -50,7 +48,7 @@ function BagBrother:ParseItem(link, count)
 		if id == 0 and TradeSkillFrame then
 			local focus = GetMouseFocus():GetName()
 
-			if focus == 'TradeSkillSkillIcon' then
+			if focus == 'TradeSkillSkillIcon' then 
 				link = GetTradeSkillItemLink(TradeSkillFrame.selectedSkill)
 			else
 				local i = focus:match('TradeSkillReagent(%d+)')
@@ -65,7 +63,7 @@ function BagBrother:ParseItem(link, count)
 		else
 			link = link:match('|H%l+:([%d:]+)')
 		end
-
+		
 		if count and count > 1 then
 			link = link .. ';' .. count
 		end

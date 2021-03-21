@@ -40,6 +40,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 }
 AUCTIONATOR_LAST_SCAN_TIME = nil
 AUCTIONATOR_TOONS = {
+	["Parisi"] = {
+		["firstSeen"] = 1616323491,
+		["guid"] = "Player-4456-01C21F39",
+		["firstVersion"] = "100.0.9",
+	},
 	["Ferns"] = {
 		["firstSeen"] = 1616226408,
 		["guid"] = "Player-4743-014F7A64",

@@ -1,0 +1,10 @@
+## Interface: 11306
+## Title: Auto Loot Assist
+## Author: Atair
+## Version: 1.1.2
+## Notes: enables auto loot for Pick Pocket, Disenchant and Fishing
+## Notes-deDE: ermöglicht Schnellplündern für Taschendiebstahl, Entzaubern und Angeln
+## DefaultState: Enabled
+## LoadOnDemand: 0
+
+AutoLootAssist.xml

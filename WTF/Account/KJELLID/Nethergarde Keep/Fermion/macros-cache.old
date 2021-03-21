@@ -1,55 +1,7 @@
-VER 3 0000000001000021 " " "132338"
-#showtooltip cleave
-/cast cleave
-/startattack
-END
-VER 3 0000000001000018 " " "132349"
-#showtooltip Battle Stance
-/equipslot 16 whirlwind axe
-/cast Battle Stance
-END
-VER 3 0000000001000020 " " "132282"
-#showtooltip heroic strike
-/cast heroic strike
-/startattack
-END
-VER 3 000000000100001B " " "132353"
-#showtooltip Revenge
-/cast revenge
-/startattack
-END
-VER 3 0000000001000013 " " "132155"
-#showtooltip rend
-/cast rend
-/startattack
-END
-VER 3 0000000001000022 " " "132337"
-#showtooltip charge
-/cast battle stance
-/cast charge
-/cast mocking blow
-END
-VER 3 0000000001000023 " " "132307"
-#showtooltip intercept
-/cast berserker stance
-/cast intercept
-END
-VER 3 0000000001000025 " " "132341"
-#showtooltip defensive stance
-/equipslot 16 Sword of Serenity
-/equipslot 17 Salbac Shield
-/cast defensive stance
-END
 VER 3 000000000100002B " " "132355"
 #showtooltip mortal strike
 /cast mortal strike
 /startattack
-END
-VER 3 000000000100002C " " "INV_MISC_QUESTIONMARK"
-#showtooltip pummel
-#show pummel
-/cast berserker stance
-/cast pummel
 END
 VER 3 0000000001000033 " " "132326"
 #showtooltip thunder clap
@@ -61,6 +13,22 @@ VER 3 0000000001000034 " " "132306"
 /cast battle stance
 /cast sweeping strikes
 END
+VER 3 0000000001000022 " " "132337"
+#showtooltip charge
+/cast battle stance
+/cast charge
+/cast mocking blow
+END
+VER 3 0000000001000031 " " "132350"
+#showtooltip mocking blow
+/cast battle stance
+/cast mocking blow
+END
+VER 3 000000000100003B " " "132321"
+#showtooltip overpower
+/cast battle stance
+/cast overpower
+END
 VER 3 0000000001000032 " " "132357"
 #showtooltip shield bash
 /equipslot 16 Sword of Serenity
@@ -68,10 +36,26 @@ VER 3 0000000001000032 " " "132357"
 /cast defensive stance
 /cast shield bash
 END
-VER 3 0000000001000031 " " "132350"
-#showtooltip mocking blow
-/cast battle stance
-/cast [@mouseover,harm,nodead] mocking blow; mocking blow
+VER 3 0000000001000035 " " "132343"
+#showtooltip disarm
+/startattack
+/cast defensive stance
+/cast disarm
+END
+VER 3 0000000001000023 " " "132307"
+#showtooltip intercept
+/cast berserker stance
+/cast intercept
+END
+VER 3 000000000100002C " " "INV_GAUNTLETS_04"
+#showtooltip pummel
+/cast berserker stance
+/cast pummel
+END
+VER 3 000000000100003C " " "132369"
+#showtooltip whirlwind
+/cast berserker stance
+/cast whirlwind
 END
 VER 3 0000000001000030 " " "132336"
 #showtooltip retaliation
@@ -91,50 +75,19 @@ VER 3 000000000100002E " " "136009"
 /cast berserker stance
 /cast berserker rage
 END
-VER 3 0000000001000035 " " "132343"
-#showtooltip disarm
-/startattack
-/cast defensive stance
-/cast disarm
-END
-VER 3 0000000001000036 " " "132338"
-#showtooltip cleave
-/cast cleave
-/startattack
-END
-VER 3 0000000001000037 " " "132340"
-#showtooltip slam
-/cast slam
-/startattack
-END
-VER 3 0000000001000038 " " "132275"
-#showtooltip berserker stance
-/equipslot 16 whirlwind axe
-/cast berserker stance
-END
-VER 3 000000000100003B " " "132321"
-#showtooltip overpower
-/cast battle stance
-/cast overpower
-END
-VER 3 000000000100003A " " "135893"
-#showtooltip Sword of Serenity
-/equipslot 16 Sword of Serenity
-/equipslot 17 Salbac Shield
-END
-VER 3 000000000100003C " " "132369"
-#showtooltip whirlwind
-/cast berserker stance
-/cast whirlwind
-END
-VER 3 000000000100003E " " "INV_MISC_QUESTIONMARK"
+VER 3 000000000100003E "FHEAL" "INV_MISC_QUESTIONMARK"
 #showtooltip intimidating shout
 #show intimidating shout
 /cast intimidating shout
 /cast heavy mageweave bandage
 END
-VER 3 000000000100003F "Spawn Camp" "INV_MISC_QUESTIONMARK"
+VER 3 000000000100003F "SCAMP" "INV_MISC_QUESTIONMARK"
 /target xxx
 /cast hamstring
 /startattack
+END
+VER 3 000000000100003A " " "135893"
+#showtooltip Sword of Serenity
+/equipslot 16 Sword of Serenity
+/equipslot 17 Salbac Shield
 END

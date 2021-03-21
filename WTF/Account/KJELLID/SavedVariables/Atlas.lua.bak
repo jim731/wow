@@ -2,8 +2,9 @@
 AtlasDB = {
 	["profileKeys"] = {
 		["Ferns - Skullflame"] = "Default",
-		["Shapeshifter - Skullflame"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
+		["Parisi - Nethergarde Keep"] = "Default",
+		["Shapeshifter - Skullflame"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
