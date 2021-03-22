@@ -59,7 +59,7 @@ _detalhes_database = {
 			["author"] = "Details! Team",
 		},
 	},
-	["last_day"] = "21",
+	["last_day"] = "22",
 	["cached_talents"] = {
 		["Player-4456-019041F2"] = {
 			{
@@ -549,7 +549,7 @@ _detalhes_database = {
 		["enabled"] = true,
 		["channel"] = "SELF",
 	},
-	["combat_counter"] = 10,
+	["combat_counter"] = 34,
 	["announce_deaths"] = {
 		["enabled"] = false,
 		["last_hits"] = 1,
@@ -679,6 +679,10 @@ _detalhes_database = {
 		{
 			["segment"] = 0,
 			["sub_attribute"] = 1,
+			["horizontalSnap"] = false,
+			["verticalSnap"] = false,
+			["is_open"] = false,
+			["isLocked"] = false,
 			["sub_atributo_last"] = {
 				1, -- [1]
 				1, -- [2]
@@ -686,18 +690,16 @@ _detalhes_database = {
 				1, -- [4]
 				1, -- [5]
 			},
-			["is_open"] = true,
-			["isLocked"] = false,
 			["snap"] = {
 			},
 			["mode"] = 2,
 			["attribute"] = 1,
 			["pos"] = {
 				["normal"] = {
-					["y"] = -300.246849060059,
-					["x"] = 591.80322265625,
+					["y"] = -305.777709960938,
+					["x"] = 598.126586914063,
 					["w"] = 310.000061035156,
-					["h"] = 157.999984741211,
+					["h"] = 157.999969482422,
 				},
 				["solo"] = {
 					["y"] = 2,
@@ -707,9 +709,43 @@ _detalhes_database = {
 				},
 			},
 		}, -- [1]
+		{
+			["segment"] = 0,
+			["sub_attribute"] = 1,
+			["horizontalSnap"] = false,
+			["verticalSnap"] = false,
+			["last_raid_plugin"] = "DETAILS_PLUGIN_TINY_THREAT",
+			["is_open"] = false,
+			["isLocked"] = false,
+			["sub_atributo_last"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+				1, -- [5]
+			},
+			["snap"] = {
+			},
+			["mode"] = 4,
+			["attribute"] = 1,
+			["pos"] = {
+				["normal"] = {
+					["y"] = -127.777740478516,
+					["x"] = 598.126586914063,
+					["w"] = 310.000061035156,
+					["h"] = 157.999969482422,
+				},
+				["solo"] = {
+					["y"] = 2,
+					["x"] = 1,
+					["w"] = 300,
+					["h"] = 200,
+				},
+			},
+		}, -- [2]
 	},
 	["character_data"] = {
-		["logons"] = 5,
+		["logons"] = 17,
 	},
 	["announce_cooldowns"] = {
 		["enabled"] = false,

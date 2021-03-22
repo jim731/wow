@@ -1488,6 +1488,16 @@ Grid2DB = {
 					["blinkThreshold"] = 3,
 					["spellName"] = 27827,
 				},
+				["debuff-WeakenedSoul"] = {
+					["type"] = "debuff",
+					["color1"] = {
+						["a"] = 1,
+						["b"] = 0.9,
+						["g"] = 0.2,
+						["r"] = 0,
+					},
+					["spellName"] = 6788,
+				},
 				["buff-Renew-mine"] = {
 					["color1"] = {
 						["a"] = 1,
@@ -1508,16 +1518,6 @@ Grid2DB = {
 						["r"] = 0,
 					},
 					["spellName"] = 10901,
-				},
-				["debuff-WeakenedSoul"] = {
-					["type"] = "debuff",
-					["color1"] = {
-						["a"] = 1,
-						["b"] = 0.9,
-						["g"] = 0.2,
-						["r"] = 0,
-					},
-					["spellName"] = 6788,
 				},
 			},
 			["versions"] = {

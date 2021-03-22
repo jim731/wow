@@ -6,8 +6,8 @@ NauticusClassic5DB = {
 		},
 	},
 	["global"] = {
-		["timestamp"] = 1616363272,
-		["uptime"] = 192881.053,
+		["timestamp"] = 1616435813,
+		["uptime"] = 287.322,
 	},
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",

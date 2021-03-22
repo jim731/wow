@@ -1,0 +1,16 @@
+0.4.6 Release Notes
+Contributions made by Crieve:
+* Beast Training now appears in the Profession Minilist. (someone from non-enUS locale please test this for me!)
+* Fixed a number of other issues with Beast Training.
+* You no longer get invalid collection credit for pet spell ranks.
+* Mature Blue Dragon Sinew should now show in the mini list for Hunters in Winterspring.
+* Frozen Rune is no longer listed as a Common Boss Drop, the information on WoWHead is inaccurate.
+* Assigned the Mount filter type to items that are mounts, rather than Invalid/Ignored.
+* Assigned the Relic Filter ID to Idols, Librams, and Totems.
+* Rearranged the Filters section to account for a couple of different loot types.
+* You can now filter for Consumable, Miscellaneous, and Recipe items. (or turn them off)
+* You can now use this command to search for specific item filters in the ATT Hierarchy:    /script ATTC:GetWindow("ItemFilter"):Toggle()
+* Fixed the issue involving recipes not appearing in the mini list. Blizzard sucks at maintaining APIS.
+* You can now hide all of the loot you aren't filtering for. (It's faaancy!)
+* Temporarily disabling 'Expert Cook' until I have a fix for it.
+

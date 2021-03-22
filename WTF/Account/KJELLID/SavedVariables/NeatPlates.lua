@@ -13,87 +13,6 @@ NeatPlatesSettings = {
 	},
 }
 NeatPlatesSpellDB = {
-	["Player"] = {
-		["Healing Touch"] = {
-			["castTime"] = 1487,
-		},
-		["Summon Imp"] = {
-			["castTime"] = 9997,
-		},
-		["Arcane Intellect"] = {
-		},
-		["Spotted Yellowtail"] = {
-			["castTime"] = 3076,
-		},
-		["Conjure Water"] = {
-			["castTime"] = 3067,
-		},
-		["Blink"] = {
-		},
-		["Conjure Mana Jade"] = {
-			["castTime"] = 3000,
-		},
-		["Elixir of Fortitude"] = {
-			["castTime"] = 4967,
-		},
-		["Aspect of the Cheetah"] = {
-		},
-		["Summon Voidwalker"] = {
-			["castTime"] = 533,
-		},
-		["Elixir of Agility"] = {
-			["castTime"] = 3000,
-		},
-		["Create Scrying Bowl"] = {
-			["castTime"] = 2514,
-		},
-		["Fel Domination"] = {
-		},
-		["Basic Campfire"] = {
-			["castTime"] = 9992,
-		},
-		["Summon Felsteed"] = {
-			["castTime"] = 2967.0000000298,
-		},
-		["Conjure Food"] = {
-			["castTime"] = 3000,
-		},
-		["Inner Fire"] = {
-		},
-		["Ice Armor"] = {
-		},
-		["Barbaric Bracers"] = {
-			["castTime"] = 9969,
-		},
-		["Battle Stance"] = {
-		},
-		["Retribution Aura"] = {
-		},
-		["Summon Charger"] = {
-			["castTime"] = 2995,
-		},
-		["Elixir of the Mongoose"] = {
-			["castTime"] = 2927,
-		},
-		["Teleport: Moonglade"] = {
-			["castTime"] = 10000,
-		},
-		["Wrath"] = {
-			["castTime"] = 1547,
-		},
-		["Hearthstone"] = {
-			["castTime"] = 9984,
-		},
-		["Power Word: Fortitude"] = {
-		},
-		["Blessing of Might"] = {
-		},
-		["Demon Armor"] = {
-		},
-		["Summon Warhorse"] = {
-			["castTime"] = 2994,
-		},
-	},
 	["default"] = {
 		["Enchant Cloak - Greater Defense"] = {
 			["castTime"] = 5000,
@@ -25292,6 +25211,94 @@ NeatPlatesSpellDB = {
 		},
 		["Improved Enslave Demon"] = {
 			["texture"] = 136154,
+		},
+	},
+	["Player"] = {
+		["Healing Touch"] = {
+			["castTime"] = 1487,
+		},
+		["Summon Imp"] = {
+			["castTime"] = 9997,
+		},
+		["Spotted Yellowtail"] = {
+			["castTime"] = 3003.9999999702,
+		},
+		["Conjure Water"] = {
+			["castTime"] = 3067,
+		},
+		["Conjure Mana Jade"] = {
+			["castTime"] = 3000,
+		},
+		["Elixir of Fortitude"] = {
+			["castTime"] = 4967,
+		},
+		["Teleport: Stormwind"] = {
+			["castTime"] = 10049,
+		},
+		["Summon Felsteed"] = {
+			["castTime"] = 3000,
+		},
+		["Elixir of Agility"] = {
+			["castTime"] = 3000,
+		},
+		["Create Scrying Bowl"] = {
+			["castTime"] = 2514,
+		},
+		["Create Healthstone"] = {
+			["castTime"] = 3004.0000000298,
+		},
+		["Summon Warhorse"] = {
+			["castTime"] = 3010,
+		},
+		["Armor +32"] = {
+			["castTime"] = 3002,
+		},
+		["Berserker Stance"] = {
+		},
+		["Elixir of the Mongoose"] = {
+			["castTime"] = 2927,
+		},
+		["Summon Dreadsteed"] = {
+			["castTime"] = 3012,
+		},
+		["Barbaric Bracers"] = {
+			["castTime"] = 9969,
+		},
+		["Summon Charger"] = {
+			["castTime"] = 2922.0000000298,
+		},
+		["Aspect of the Pack"] = {
+		},
+		["Summon Voidwalker"] = {
+			["castTime"] = 533,
+		},
+		["Conjure Food"] = {
+			["castTime"] = 3000,
+		},
+		["Teleport: Moonglade"] = {
+			["castTime"] = 10000,
+		},
+		["Wrath"] = {
+			["castTime"] = 1547,
+		},
+		["Hearthstone"] = {
+			["castTime"] = 9967.00000000006,
+		},
+		["Bolt of Runecloth"] = {
+			["castTime"] = 4996,
+		},
+		["Teleport: Ironforge"] = {
+			["castTime"] = 10000,
+		},
+		["Summon Succubus"] = {
+			["castTime"] = 9997.9999999702,
+		},
+		["Basic Campfire"] = {
+			["castTime"] = 10099.0000000298,
+		},
+	},
+	["Creature"] = {
+		["Rallying Cry of the Dragonslayer"] = {
 		},
 	},
 }

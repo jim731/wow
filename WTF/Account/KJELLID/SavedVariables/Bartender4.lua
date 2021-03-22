@@ -534,35 +534,42 @@ Bartender4DB = {
 							["buttons"] = 10,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 41.9999923706055,
+								["y"] = 39,
 								["x"] = -2.99997091293335,
 								["point"] = "BOTTOMLEFT",
 							},
 						}, -- [2]
 						{
-							["rows"] = 12,
+							["buttons"] = 9,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
+								["y"] = 39,
+								["x"] = 352,
+								["point"] = "BOTTOM",
 							},
 							["padding"] = 5,
 						}, -- [3]
 						{
-							["rows"] = 12,
+							["rows"] = 10,
+							["fadeout"] = true,
+							["fadeoutdelay"] = 0,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 610,
+								["y"] = -144,
 								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
+								["point"] = "RIGHT",
 							},
+							["fadeoutalpha"] = 0,
 							["padding"] = 5,
+							["visibility"] = {
+								["always"] = false,
+								["overridebar"] = false,
+							},
 						}, -- [4]
 						{
 							["version"] = 3,
 							["position"] = {
-								["y"] = 88.8543548583984,
+								["y"] = 89,
 								["x"] = -231.5,
 								["point"] = "BOTTOM",
 							},
@@ -570,7 +577,7 @@ Bartender4DB = {
 						{
 							["version"] = 3,
 							["position"] = {
-								["y"] = 125.424728393555,
+								["y"] = 127,
 								["x"] = -231.5,
 								["point"] = "BOTTOM",
 							},
@@ -1509,15 +1516,16 @@ Bartender4DB = {
 					},
 				},
 				["Default"] = {
+					["enabled"] = false,
 					["version"] = 3,
 					["visibility"] = {
 						["overridebar"] = false,
 						["vehicleui"] = false,
 					},
 					["position"] = {
-						["y"] = 39.9197998046875,
-						["x"] = -275.008056640625,
-						["point"] = "BOTTOMRIGHT",
+						["y"] = 5.49993896484375,
+						["x"] = -110.5,
+						["point"] = "TOP",
 						["scale"] = 1,
 					},
 				},
@@ -2121,11 +2129,12 @@ Bartender4DB = {
 					},
 				},
 				["Default"] = {
+					["keyring"] = false,
 					["onebag"] = true,
 					["version"] = 3,
 					["position"] = {
-						["y"] = 38.8165168762207,
-						["x"] = -61.48486328125,
+						["y"] = 39,
+						["x"] = -40,
 						["point"] = "BOTTOMRIGHT",
 					},
 				},
@@ -2444,9 +2453,9 @@ Bartender4DB = {
 				},
 				["Default"] = {
 					["position"] = {
-						["y"] = 170.486511230469,
-						["x"] = -319.993499755859,
-						["point"] = "BOTTOM",
+						["y"] = -200,
+						["x"] = -232,
+						["point"] = "CENTER",
 						["scale"] = 1,
 					},
 					["version"] = 3,
@@ -2759,9 +2768,9 @@ Bartender4DB = {
 				},
 				["Default"] = {
 					["position"] = {
-						["y"] = 42.4999694824219,
-						["x"] = 104.500122070313,
-						["point"] = "CENTER",
+						["y"] = 181.06169128418,
+						["x"] = -256.586273193359,
+						["point"] = "BOTTOM",
 					},
 					["version"] = 3,
 				},
@@ -2911,9 +2920,9 @@ Bartender4DB = {
 				["Default"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 76.0000076293945,
-						["x"] = 57.1690902709961,
-						["point"] = "BOTTOMLEFT",
+						["y"] = -171.598625183105,
+						["x"] = 54.7987251281738,
+						["point"] = "LEFT",
 					},
 				},
 				["Ferns - Skullflame"] = {
@@ -3358,7 +3367,6 @@ Bartender4DB = {
 		["Default"] = {
 			["focuscastmodifier"] = false,
 			["buttonlock"] = true,
-			["snapping"] = false,
 			["outofrange"] = "hotkey",
 		},
 		["Ferns - Skullflame"] = {

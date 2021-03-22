@@ -119,16 +119,8 @@ WeakAurasSaved = {
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["stagger"] = 0,
+			["internalVersion"] = 44,
 			["animate"] = true,
-			["gridType"] = "RD",
-			["scale"] = 1,
-			["fullCircle"] = true,
-			["border"] = false,
-			["borderEdge"] = "Square Full White",
-			["regionType"] = "dynamicgroup",
-			["borderSize"] = 2,
-			["sort"] = "none",
 			["animation"] = {
 				["start"] = {
 					["duration_type"] = "seconds",
@@ -149,8 +141,15 @@ WeakAurasSaved = {
 					["easeType"] = "none",
 				},
 			},
-			["authorOptions"] = {
-			},
+			["scale"] = 1,
+			["useLimit"] = false,
+			["border"] = false,
+			["borderEdge"] = "Square Full White",
+			["regionType"] = "dynamicgroup",
+			["borderSize"] = 2,
+			["sort"] = "none",
+			["stagger"] = 0,
+			["fullCircle"] = true,
 			["constantFactor"] = "RADIUS",
 			["config"] = {
 			},
@@ -163,14 +162,15 @@ WeakAurasSaved = {
 			["anchorFrameType"] = "SCREEN",
 			["limit"] = 5,
 			["borderInset"] = 0,
-			["internalVersion"] = 44,
-			["arcLength"] = 360,
+			["gridType"] = "RD",
+			["authorOptions"] = {
+			},
 			["conditions"] = {
 			},
 			["information"] = {
 				["ignoreOptionsEventErrors"] = true,
 			},
-			["useLimit"] = false,
+			["arcLength"] = 360,
 		},
 		["Details! Aura Group"] = {
 			["grow"] = "RIGHT",
@@ -288,31 +288,6 @@ WeakAurasSaved = {
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["stagger"] = 0,
-			["animate"] = true,
-			["gridType"] = "RD",
-			["scale"] = 1,
-			["fullCircle"] = true,
-			["border"] = false,
-			["borderEdge"] = "Square Full White",
-			["regionType"] = "dynamicgroup",
-			["borderSize"] = 2,
-			["sort"] = "none",
-			["internalVersion"] = 44,
-			["authorOptions"] = {
-			},
-			["constantFactor"] = "RADIUS",
-			["config"] = {
-			},
-			["borderOffset"] = 16,
-			["rowSpace"] = 1,
-			["width"] = 199.999969482422,
-			["id"] = "Details! Aura Group",
-			["frameStrata"] = 1,
-			["gridWidth"] = 5,
-			["anchorFrameType"] = "SCREEN",
-			["limit"] = 5,
-			["borderInset"] = 0,
 			["animation"] = {
 				["start"] = {
 					["type"] = "none",
@@ -333,13 +308,38 @@ WeakAurasSaved = {
 					["easeType"] = "none",
 				},
 			},
-			["arcLength"] = 360,
+			["animate"] = true,
+			["internalVersion"] = 44,
+			["scale"] = 1,
+			["useLimit"] = false,
+			["border"] = false,
+			["borderEdge"] = "Square Full White",
+			["regionType"] = "dynamicgroup",
+			["borderSize"] = 2,
+			["sort"] = "none",
+			["stagger"] = 0,
+			["fullCircle"] = true,
+			["constantFactor"] = "RADIUS",
+			["config"] = {
+			},
+			["borderOffset"] = 16,
+			["rowSpace"] = 1,
+			["width"] = 199.999969482422,
+			["id"] = "Details! Aura Group",
+			["frameStrata"] = 1,
+			["gridWidth"] = 5,
+			["anchorFrameType"] = "SCREEN",
+			["limit"] = 5,
+			["borderInset"] = 0,
+			["gridType"] = "RD",
+			["authorOptions"] = {
+			},
 			["conditions"] = {
 			},
 			["information"] = {
 				["ignoreOptionsEventErrors"] = true,
 			},
-			["useLimit"] = false,
+			["arcLength"] = 360,
 		},
 		["New"] = {
 			["arcLength"] = 360,

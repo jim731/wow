@@ -20,8 +20,17 @@ Quartz3DB = {
 		["Player"] = {
 			["profiles"] = {
 				["Default"] = {
-					["y"] = 125.481491088867,
-					["x"] = 633.5185546875,
+					["h"] = 15,
+					["nametextx"] = 0,
+					["w"] = 225,
+					["y"] = 191,
+					["font"] = "FORCED SQUARE",
+					["border"] = "Details BarBorder 3",
+					["fontsize"] = 20,
+					["nametextposition"] = "center",
+					["texture"] = "Flat",
+					["x"] = 634,
+					["hidetimetext"] = true,
 					["hideicon"] = true,
 				},
 			},
@@ -57,7 +66,9 @@ Quartz3DB = {
 			["modules"] = {
 				["GCD"] = false,
 				["Buff"] = false,
+				["Timer"] = false,
 				["Target"] = false,
+				["Pet"] = false,
 				["Latency"] = false,
 			},
 			["hidesamwise"] = false,
