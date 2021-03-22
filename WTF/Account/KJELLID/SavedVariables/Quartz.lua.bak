@@ -27,10 +27,10 @@ Quartz3DB = {
 					["font"] = "FORCED SQUARE",
 					["border"] = "Details BarBorder 3",
 					["fontsize"] = 20,
-					["hidetimetext"] = true,
-					["x"] = 634,
 					["nametextposition"] = "center",
 					["texture"] = "Flat",
+					["x"] = 634,
+					["hidetimetext"] = true,
 					["hideicon"] = true,
 				},
 			},
@@ -54,16 +54,16 @@ Quartz3DB = {
 	},
 	["profileKeys"] = {
 		["Ferns - Skullflame"] = "Default",
+		["Fermion - Nethergarde Keep"] = "Default",
 		["Raremats - Nethergarde Keep"] = "Default",
 		["Various - Nethergarde Keep"] = "Default",
-		["Fermion - Nethergarde Keep"] = "Default",
-		["Ganado - Nethergarde Keep"] = "Default",
-		["Shapeshifter - Skullflame"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Default",
+		["Shapeshifter - Skullflame"] = "Default",
+		["Ganado - Nethergarde Keep"] = "Default",
+		["Parisi - Nethergarde Keep"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
-			["hidesamwise"] = false,
 			["modules"] = {
 				["GCD"] = false,
 				["Buff"] = false,
@@ -72,6 +72,7 @@ Quartz3DB = {
 				["Pet"] = false,
 				["Latency"] = false,
 			},
+			["hidesamwise"] = false,
 			["castingcolor"] = {
 				0.254901960784314, -- [1]
 				0.333333333333333, -- [2]

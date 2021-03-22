@@ -1,6 +1,0 @@
-
-BlizzMoveDB = {
-	["points"] = {
-	},
-	["savePosStrategy"] = "session",
-}

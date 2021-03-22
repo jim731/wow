@@ -6,18 +6,16 @@ MSBTProfiles_SavedVars = {
 			["soundsDisabled"] = true,
 			["enableBlizzardDamage"] = true,
 			["scrollAreas"] = {
-				["Static"] = {
-					["offsetX"] = -10,
-					["offsetY"] = -45,
-				},
 				["Notification"] = {
 					["offsetX"] = -165,
 					["offsetY"] = 114,
 				},
+				["Static"] = {
+					["offsetX"] = -10,
+					["offsetY"] = -45,
+				},
 			},
-			["qualityExclusions"] = {
-				true, -- [1]
-			},
+			["creationVersion"] = "5.7.152",
 			["events"] = {
 				["NOTIFICATION_COMBAT_ENTER"] = {
 					["disabled"] = true,
@@ -35,7 +33,9 @@ MSBTProfiles_SavedVars = {
 					["disabled"] = true,
 				},
 			},
-			["creationVersion"] = "5.7.152",
+			["qualityExclusions"] = {
+				true, -- [1]
+			},
 		},
 	},
 }

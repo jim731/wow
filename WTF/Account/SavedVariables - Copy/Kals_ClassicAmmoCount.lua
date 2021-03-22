@@ -1,2 +1,0 @@
-
-MinAmmoCountGlobal = 200

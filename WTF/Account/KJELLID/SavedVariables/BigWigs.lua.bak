@@ -15,11 +15,11 @@ BigWigsClassicDB = {
 		},
 		["BigWigs_Plugins_Sounds"] = {
 		},
-		["BigWigs_Plugins_Wipe"] = {
-		},
-		["BigWigs_Plugins_Statistics"] = {
+		["BigWigs_Plugins_InfoBox"] = {
 		},
 		["BigWigs_Plugins_AutoReply"] = {
+		},
+		["BigWigs_Plugins_Statistics"] = {
 		},
 		["BigWigs_Plugins_Messages"] = {
 		},
@@ -27,13 +27,13 @@ BigWigsClassicDB = {
 		},
 		["BigWigs_Plugins_Pull"] = {
 		},
-		["BigWigs_Plugins_InfoBox"] = {
+		["BigWigs_Plugins_Wipe"] = {
 		},
 	},
+	["discord"] = 15,
 	["profileKeys"] = {
 		["Fermion - Nethergarde Keep"] = "Default",
 	},
-	["discord"] = 15,
 	["profiles"] = {
 		["Default"] = {
 		},

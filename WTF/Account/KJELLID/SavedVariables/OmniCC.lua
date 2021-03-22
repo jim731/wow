@@ -1,9 +1,5 @@
 
 OmniCCDB = {
-	["global"] = {
-		["dbVersion"] = 6,
-		["addonVersion"] = "9.0.8",
-	},
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Default",
 		["Raremats - Nethergarde Keep"] = "Default",
@@ -15,14 +11,18 @@ OmniCCDB = {
 		["Bushwick - Nethergarde Keep"] = "Default",
 		["Shapeshifter - Skullflame"] = "Default",
 	},
+	["global"] = {
+		["dbVersion"] = 6,
+		["addonVersion"] = "9.0.8",
+	},
 	["profiles"] = {
 		["Default"] = {
 			["themes"] = {
 				["Default"] = {
 					["textStyles"] = {
-						["minutes"] = {
-						},
 						["seconds"] = {
+						},
+						["minutes"] = {
 						},
 						["soon"] = {
 						},

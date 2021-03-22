@@ -5,16 +5,17 @@ NauticusClassic5DB = {
 			["activeTransit"] = 7,
 		},
 	},
+	["global"] = {
+		["timestamp"] = 1616436581,
+		["uptime"] = 1057.499,
+	},
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
-		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
-	},
-	["global"] = {
-		["timestamp"] = 1616435730,
-		["uptime"] = 204.185,
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -24,9 +25,11 @@ NauticusClassic5DB = {
 		["Fermion - Nethergarde Keep"] = {
 			["worldIconSize"] = 1.07,
 		},
+		["Bushwick - Nethergarde Keep"] = {
+		},
 		["Ferns - Skullflame"] = {
 		},
-		["Bushwick - Nethergarde Keep"] = {
+		["Parisi - Nethergarde Keep"] = {
 		},
 	},
 }

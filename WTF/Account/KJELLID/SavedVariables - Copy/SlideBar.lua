@@ -1,4 +1,0 @@
-
-SlideBarConfig = {
-	["enabled"] = true,
-}

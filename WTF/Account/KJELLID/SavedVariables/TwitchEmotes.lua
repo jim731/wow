@@ -11,8 +11,8 @@ Emoticons_Settings = {
 	["CHAT_MSG_PARTY"] = true,
 	["CHAT_MSG_INSTANCE_CHAT_LEADER"] = true,
 	["CHAT_MSG_RAID"] = true,
-	["MinimapPos"] = 38.8807285901846,
-	["LARGEEMOTES"] = false,
+	["CHAT_MSG_SAY"] = true,
+	["CHAT_MSG_WHISPER_INFORM"] = true,
 	["CHAT_MSG_RAID_LEADER"] = true,
 	["CHAT_MSG_YELL"] = true,
 	["MINIMAPBUTTON"] = false,
@@ -45,10 +45,10 @@ Emoticons_Settings = {
 		true, -- [26]
 		true, -- [27]
 	},
-	["MAIL"] = true,
-	["CHAT_MSG_BN_CONVERSATION"] = true,
 	["CHAT_MSG_BN_WHISPER"] = true,
+	["CHAT_MSG_BN_CONVERSATION"] = true,
+	["MAIL"] = true,
 	["CHAT_MSG_BN_WHISPER_INFORM"] = true,
-	["CHAT_MSG_WHISPER_INFORM"] = true,
-	["CHAT_MSG_SAY"] = true,
+	["LARGEEMOTES"] = false,
+	["MinimapPos"] = 38.8807285901846,
 }
