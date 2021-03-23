@@ -2,6 +2,12 @@
 Quartz3DB = {
 	["namespaces"] = {
 		["Swing"] = {
+			["profiles"] = {
+				["Default"] = {
+					["remainingtext"] = false,
+					["durationtext"] = false,
+				},
+			},
 		},
 		["Buff"] = {
 		},
@@ -20,17 +26,17 @@ Quartz3DB = {
 		["Player"] = {
 			["profiles"] = {
 				["Default"] = {
-					["h"] = 15,
+					["h"] = 20,
 					["nametextx"] = 0,
-					["w"] = 225,
-					["y"] = 191,
-					["x"] = 634,
-					["border"] = "Details BarBorder 3",
-					["fontsize"] = 20,
-					["hidetimetext"] = true,
+					["w"] = 453,
+					["y"] = 125,
 					["font"] = "FORCED SQUARE",
-					["texture"] = "Flat",
+					["border"] = "None",
+					["fontsize"] = 20,
 					["nametextposition"] = "center",
+					["texture"] = "Flat",
+					["x"] = 527,
+					["hidetimetext"] = true,
 					["hideicon"] = true,
 				},
 			},
@@ -54,25 +60,27 @@ Quartz3DB = {
 	},
 	["profileKeys"] = {
 		["Ferns - Skullflame"] = "Default",
-		["Parisi - Nethergarde Keep"] = "Default",
+		["Fermion - Nethergarde Keep"] = "Default",
 		["Raremats - Nethergarde Keep"] = "Default",
 		["Various - Nethergarde Keep"] = "Default",
-		["Fermion - Nethergarde Keep"] = "Default",
-		["Ganado - Nethergarde Keep"] = "Default",
-		["Shapeshifter - Skullflame"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Default",
+		["Shapeshifter - Skullflame"] = "Default",
+		["Ganado - Nethergarde Keep"] = "Default",
+		["Parisi - Nethergarde Keep"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
-			["hidesamwise"] = false,
 			["modules"] = {
-				["GCD"] = false,
+				["Swing"] = false,
 				["Buff"] = false,
-				["Timer"] = false,
-				["Target"] = false,
 				["Pet"] = false,
+				["GCD"] = false,
+				["Target"] = false,
+				["Mirror"] = false,
+				["Timer"] = false,
 				["Latency"] = false,
 			},
+			["hidesamwise"] = false,
 			["castingcolor"] = {
 				0.254901960784314, -- [1]
 				0.333333333333333, -- [2]

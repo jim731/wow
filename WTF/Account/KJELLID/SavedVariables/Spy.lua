@@ -21,9 +21,9 @@ SpyDB = {
 		},
 		["Skullflame"] = {
 			["Horde"] = {
-				["Shapeshifter"] = {
-				},
 				["Ferns"] = {
+				},
+				["Shapeshifter"] = {
 				},
 			},
 		},
@@ -87,7 +87,6 @@ SpyDB = {
 			["AppendUnitKoSCheck"] = true,
 		},
 		["Fermion - Nethergarde Keep"] = {
-			["AppendUnitNameCheck"] = true,
 			["Colors"] = {
 				["Bar"] = {
 					["Bar Text"] = {
@@ -95,15 +94,16 @@ SpyDB = {
 					},
 				},
 			},
-			["AppendUnitKoSCheck"] = true,
 			["FilteredZones"] = {
 				["Gadgetzan"] = true,
 				["The Salty Sailor Tavern"] = true,
-				["Everlook"] = true,
-				["Ratchet"] = true,
 				["Booty Bay"] = true,
+				["Ratchet"] = true,
+				["Everlook"] = true,
 			},
+			["AppendUnitNameCheck"] = true,
 			["MainWindowVis"] = false,
+			["AppendUnitKoSCheck"] = true,
 		},
 		["Ferns - Skullflame"] = {
 			["AppendUnitNameCheck"] = true,
@@ -129,6 +129,8 @@ SpyDB = {
 			["AppendUnitKoSCheck"] = true,
 		},
 		["Parisi - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
 			["Colors"] = {
 				["Bar"] = {
 					["Bar Text"] = {
@@ -136,8 +138,6 @@ SpyDB = {
 					},
 				},
 			},
-			["AppendUnitNameCheck"] = true,
-			["MainWindowVis"] = false,
 			["AppendUnitKoSCheck"] = true,
 		},
 		["Bushwick - Nethergarde Keep"] = {

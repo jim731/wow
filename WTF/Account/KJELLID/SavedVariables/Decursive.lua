@@ -1,8 +1,12 @@
 
 DecursiveDB = {
-	["global"] = {
-		["NoStartMessages"] = true,
-		["LastVersionAnnounce"] = 1616436306,
+	["profileKeys"] = {
+		["Ferns - Skullflame"] = "Default",
+		["Shapeshifter - Skullflame"] = "Default",
+		["Fermion - Nethergarde Keep"] = "Default",
+		["Bushwick - Nethergarde Keep"] = "Default",
+		["Ganado - Nethergarde Keep"] = "Default",
+		["Parisi - Nethergarde Keep"] = "Default",
 	},
 	["class"] = {
 		["WARRIOR"] = {
@@ -61,13 +65,9 @@ DecursiveDB = {
 			},
 		},
 	},
-	["profileKeys"] = {
-		["Ferns - Skullflame"] = "Default",
-		["Shapeshifter - Skullflame"] = "Default",
-		["Fermion - Nethergarde Keep"] = "Default",
-		["Parisi - Nethergarde Keep"] = "Default",
-		["Ganado - Nethergarde Keep"] = "Default",
-		["Bushwick - Nethergarde Keep"] = "Default",
+	["global"] = {
+		["NoStartMessages"] = true,
+		["LastVersionAnnounce"] = 1616436306,
 	},
 	["profiles"] = {
 		["Default"] = {

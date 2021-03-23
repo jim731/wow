@@ -18,6 +18,11 @@ VER 3 0000000000000019 " " "trade_fishing"
 /equipslot 16 Blump Family Fishing Pole
 /cast fishing
 END
+VER 3 000000000000004E " " "132316"
+#showtooltip hamstring
+/cast battle stance
+/cast hamstring
+END
 VER 3 000000000000004C "ATT" "INV_MISC_QUESTIONMARK"
 /att
 END
@@ -25,8 +30,7 @@ VER 3 000000000000001D "chicken" "135996"
 /chicken
 END
 VER 3 0000000000000049 "Decursive" "INV_MISC_QUESTIONMARK"
-/stopcasting
-/cast [@mouseover,nomod,exists] Polymorph;  [@mouseover,exists,mod:ctrl] Polymorph; [@mouseover,exists,mod:shift] Polymorph
+/script DecursiveRootTable.Dcr:Println('No spell available')
 END
 VER 3 000000000000002D "details" "INV_MISC_QUESTIONMARK"
 /details toggle

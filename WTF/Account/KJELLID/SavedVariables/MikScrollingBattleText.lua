@@ -2,20 +2,10 @@
 MSBTProfiles_SavedVars = {
 	["profiles"] = {
 		["Default"] = {
-			["alwaysShowQuestItems"] = false,
-			["soundsDisabled"] = true,
-			["enableBlizzardDamage"] = true,
-			["scrollAreas"] = {
-				["Notification"] = {
-					["offsetX"] = -165,
-					["offsetY"] = 114,
-				},
-				["Static"] = {
-					["offsetX"] = -10,
-					["offsetY"] = -45,
-				},
-			},
+			["critFontName"] = "2002 Bold",
+			["enableBlizzardDamage"] = false,
 			["creationVersion"] = "5.7.152",
+			["alwaysShowQuestItems"] = false,
 			["events"] = {
 				["NOTIFICATION_COMBAT_ENTER"] = {
 					["disabled"] = true,
@@ -33,6 +23,29 @@ MSBTProfiles_SavedVars = {
 					["disabled"] = true,
 				},
 			},
+			["scrollAreas"] = {
+				["Incoming"] = {
+					["offsetY"] = -205,
+					["offsetX"] = -95,
+				},
+				["Notification"] = {
+					["scrollHeight"] = 50,
+					["offsetX"] = -57,
+					["offsetY"] = -50,
+					["scrollWidth"] = 110,
+				},
+				["Outgoing"] = {
+					["offsetY"] = -205,
+					["offsetX"] = 50,
+				},
+				["Static"] = {
+					["offsetY"] = -190,
+					["disabled"] = true,
+					["offsetX"] = -21,
+				},
+			},
+			["normalFontName"] = "2002 Bold",
+			["soundsDisabled"] = true,
 			["qualityExclusions"] = {
 				true, -- [1]
 			},

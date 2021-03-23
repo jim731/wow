@@ -3,7 +3,7 @@ VER 3 000000000100002B " " "132355"
 /cast mortal strike
 /startattack
 END
-VER 3 0000000001000033 " " "132326"
+VER 3 0000000001000033 " " "136105"
 #showtooltip thunder clap
 /cast battle stance
 /cast thunder clap
@@ -12,12 +12,6 @@ VER 3 0000000001000034 " " "132306"
 #showtooltip sweeping strikes
 /cast battle stance
 /cast sweeping strikes
-END
-VER 3 0000000001000022 " " "132337"
-#showtooltip charge
-/cast battle stance
-/cast charge
-/cast mocking blow
 END
 VER 3 0000000001000031 " " "132350"
 #showtooltip mocking blow
@@ -75,19 +69,27 @@ VER 3 000000000100002E " " "136009"
 /cast berserker stance
 /cast berserker rage
 END
-VER 3 000000000100003E "FHEAL" "INV_MISC_QUESTIONMARK"
-#showtooltip intimidating shout
-#show intimidating shout
-/cast intimidating shout
-/cast heavy mageweave bandage
-END
-VER 3 000000000100003F "SCAMP" "INV_MISC_QUESTIONMARK"
-/target xxx
-/cast hamstring
-/startattack
-END
 VER 3 000000000100003A " " "135893"
 #showtooltip Sword of Serenity
 /equipslot 16 Sword of Serenity
 /equipslot 17 Salbac Shield
+END
+VER 3 0000000001000040 " " "135792"
+#showtooltip whirlwind axe
+/equipslot 16 whirlwind axe
+END
+VER 3 0000000001000041 " " "132337"
+#showtooltip charge
+/cast battle stance
+/cast charge
+END
+VER 3 000000000100003E "fheal" "132154"
+#showtooltip intimidating shout
+/cast intimidating shout
+/cast heavy mageweave bandage
+END
+VER 3 000000000100003F "scamp" "132316"
+/target xxx
+/cast hamstring
+/startattack
 END

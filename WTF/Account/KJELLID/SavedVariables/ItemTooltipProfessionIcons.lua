@@ -7,8 +7,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["iconSize"] = 16,
 			["showQuests"] = true,
+			["iconSize"] = 16,
 		},
 		["Bushwick"] = {
 			["showProfs"] = true,
@@ -16,8 +16,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["showQuests"] = true,
 			["iconSize"] = 16,
+			["showQuests"] = true,
 		},
 		["Various"] = {
 			["showProfs"] = true,
@@ -25,8 +25,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["showQuests"] = true,
 			["iconSize"] = 16,
+			["showQuests"] = true,
 		},
 		["Parisi"] = {
 			["showProfs"] = true,
@@ -34,8 +34,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["showQuests"] = true,
 			["iconSize"] = 16,
+			["showQuests"] = true,
 		},
 		["Raremats"] = {
 			["showProfs"] = true,
@@ -43,8 +43,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["iconSize"] = 16,
 			["showQuests"] = true,
+			["iconSize"] = 16,
 		},
 		["Ganado"] = {
 			["showProfs"] = true,
@@ -52,8 +52,8 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["showQuests"] = true,
 			["iconSize"] = 16,
+			["showQuests"] = true,
 		},
 		["Fermion"] = {
 			["showProfs"] = true,
@@ -61,12 +61,12 @@ ItemTooltipIconsConfig = {
 			["profFlags"] = 255,
 			["includeVendor"] = false,
 			["questFlags"] = 1048575,
-			["iconSize"] = 16,
 			["showQuests"] = true,
+			["iconSize"] = 16,
 		},
 	},
 	["Skullflame"] = {
-		["Ferns"] = {
+		["Shapeshifter"] = {
 			["showProfs"] = true,
 			["showDMF"] = true,
 			["profFlags"] = 255,
@@ -75,7 +75,7 @@ ItemTooltipIconsConfig = {
 			["iconSize"] = 16,
 			["showQuests"] = true,
 		},
-		["Shapeshifter"] = {
+		["Ferns"] = {
 			["showProfs"] = true,
 			["showDMF"] = true,
 			["profFlags"] = 255,
