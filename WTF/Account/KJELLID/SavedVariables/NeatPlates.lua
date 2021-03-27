@@ -2,9 +2,9 @@
 NeatPlatesSettings = {
 	["GlobalEmphasizedAuraList"] = "",
 	["DefaultProfile"] = "Default",
-	["GlobalAuraLookup"] = {
-	},
 	["GlobalEmphasizedAuraPriority"] = {
+	},
+	["GlobalAuraLookup"] = {
 	},
 	["GlobalEmphasizedAuraLookup"] = {
 	},
@@ -13,317 +13,145 @@ NeatPlatesSettings = {
 	},
 }
 NeatPlatesSpellDB = {
-	[""] = {
-		["Spirit of Zandalar"] = {
-		},
-	},
 	["Player"] = {
 		["Battle Shout"] = {
-		},
-		["Call Pet"] = {
-		},
-		["Bloodrage"] = {
-		},
-		["Mage Armor"] = {
-		},
-		["Mark of the Wild"] = {
-		},
-		["Arcane Elixir"] = {
-		},
-		["Teleport: Stormwind"] = {
-			["castTime"] = 10049,
-		},
-		["Mithril Shield Spike"] = {
-		},
-		["Heroic Strike"] = {
-		},
-		["Armor +32"] = {
-			["castTime"] = 3083.9999999851,
-		},
-		["Conjure Mana Ruby"] = {
-			["castTime"] = 3027,
-		},
-		["Arcane Intellect"] = {
-		},
-		["Runed Arcanite Rod"] = {
-			["castTime"] = 30009,
-		},
-		["Thick Armor Kit"] = {
-			["castTime"] = 3012.0000000149,
-		},
-		["Mechanical Squirrel"] = {
-			["castTime"] = 5207,
-		},
-		["Abolish Disease"] = {
-		},
-		["Regeneration"] = {
-		},
-		["Speed"] = {
-		},
-		["Berserker Stance"] = {
-		},
-		["Schematic: Gnomish Universal Remote"] = {
-		},
-		["Greater Armor"] = {
-		},
-		["Greater Blessing of Kings"] = {
-		},
-		["Greater Agility"] = {
-		},
-		["Summon Voidwalker"] = {
-			["castTime"] = 533,
-		},
-		["Summon Succubus"] = {
-			["castTime"] = 9997.9999999702,
-		},
-		["Charge Stun"] = {
-		},
-		["Bolt of Linen Cloth"] = {
-			["castTime"] = 3082,
-		},
-		["Stamina"] = {
-		},
-		["Distilled Wisdom"] = {
 		},
 		["Summon Imp"] = {
 			["castTime"] = 9997,
 		},
-		["Earthstrike"] = {
+		["Smelt Thorium"] = {
+			["castTime"] = 3077.9999999702,
 		},
-		["Aspect of the Hawk"] = {
-		},
-		["Bolt of Mageweave"] = {
-			["castTime"] = 4067,
-		},
-		["Agility"] = {
-		},
-		["Spirit of Zanza"] = {
-		},
-		["Challenging Shout"] = {
-		},
-		["Shadow Protection"] = {
-		},
-		["Demon Skin"] = {
-		},
-		["Summon Felsteed"] = {
-			["castTime"] = 3000,
-		},
-		["Summon Dreadsteed"] = {
-			["castTime"] = 2991.9999999851,
-		},
-		["Barbaric Bracers"] = {
-			["castTime"] = 9969,
-		},
-		["Sense Demons"] = {
-		},
-		["Powerful Anti-Venom"] = {
-			["castTime"] = 3000,
-		},
-		["Hearthstone"] = {
-			["castTime"] = 10015,
-		},
-		["Fire Resistance Aura"] = {
-		},
-		["Travel Form"] = {
-		},
-		["Sprint"] = {
-		},
-		["Intimidating Shout"] = {
-		},
-		["Shadow Power"] = {
-		},
-		["Touch of Weakness"] = {
-		},
-		["Track Beasts"] = {
-		},
-		["Seal of Command"] = {
-		},
-		["Divine Spirit"] = {
-		},
-		["Retribution Aura"] = {
-		},
-		["Summon Charger"] = {
-			["castTime"] = 3026,
-		},
-		["Summon Warhorse"] = {
-			["castTime"] = 3000,
-		},
-		["Demon Armor"] = {
-		},
-		["Sanctity Aura"] = {
-		},
-		["Renew"] = {
-		},
-		["Charge"] = {
-		},
-		["Blizzard"] = {
-		},
-		["Greater Blessing of Might"] = {
-		},
-		["Wool Bandage"] = {
-			["castTime"] = 3019,
-		},
-		["Runecloth Bag"] = {
-			["castTime"] = 60000,
-		},
-		["Elixir of Agility"] = {
-			["castTime"] = 3000,
-		},
-		["Overpower"] = {
-		},
-		["Nature Protection "] = {
-		},
-		["Omen of Clarity"] = {
-		},
-		["Shadow Resistance Aura"] = {
-		},
-		["Conjure Food"] = {
-			["castTime"] = 2978.0000000149,
-		},
-		["Blink"] = {
-		},
-		["Heavy Wool Bandage"] = {
-			["castTime"] = 3029,
-		},
-		["Power Word: Fortitude"] = {
-		},
-		["Greater Firepower"] = {
-		},
-		["Fear Ward"] = {
-		},
-		["Regrowth"] = {
-			["castTime"] = 2000,
-		},
-		["Arcane Brilliance"] = {
-		},
-		["Conjure Water"] = {
-			["castTime"] = 3001,
-		},
-		["Greater Arcane Elixir"] = {
-		},
-		["Handful of Copper Bolts"] = {
-		},
-		["Health II"] = {
-		},
-		["Revive Pet"] = {
-			["castTime"] = 10000,
-		},
-		["Leader of the Pack"] = {
-		},
-		["Black Stallion"] = {
-		},
-		["Prayer of Fortitude"] = {
-		},
-		["Heavy Linen Bandage"] = {
-			["castTime"] = 2917.9999999851,
-		},
-		["Prayer of Shadow Protection"] = {
-		},
-		["Teleport: Moonglade"] = {
-			["castTime"] = 10000,
-		},
-		["Wrath"] = {
-			["castTime"] = 1547,
-		},
-		["Sunder Armor"] = {
-		},
-		["Thorns"] = {
-		},
-		["Power of the Guardian"] = {
-		},
-		["Whirlwind"] = {
-		},
-		["Ghost Wolf"] = {
-		},
-		["Smelt Tin"] = {
-			["castTime"] = 2993,
-		},
-		["Smelt Gold"] = {
-			["castTime"] = 2962,
-		},
-		["Fiery Blaze"] = {
-		},
-		["Thorium Shield Spike"] = {
-		},
-		["Mortal Strike"] = {
-		},
-		["Flash Heal"] = {
-			["castTime"] = 1505,
-		},
-		["Deep Wound"] = {
-		},
-		["Combustion"] = {
-		},
-		["Intercept Stun"] = {
-		},
-		["Intercept"] = {
-		},
-		["Heavy Copper Maul"] = {
-			["castTime"] = 5723,
-		},
-		["Winterfall Firewater"] = {
+		["Bloodrage"] = {
 		},
 		["Conjure Mana Jade"] = {
 			["castTime"] = 3000,
 		},
-		["Berserker Rage"] = {
+		["Solid Sharpening Stone"] = {
+			["castTime"] = 2950,
 		},
-		["Mana Shield"] = {
+		["Runecloth Bag"] = {
+			["castTime"] = 60000,
 		},
-		["Greater Blessing of Light"] = {
+		["Teleport: Stormwind"] = {
+			["castTime"] = 10049,
 		},
-		["Greater Blessing of Wisdom"] = {
+		["Smelt Mithril"] = {
+			["castTime"] = 2985,
 		},
-		["Gift of the Wild"] = {
+		["Armor +32"] = {
+			["castTime"] = 3083.9999999851,
+		},
+		["Elixir of Greater Agility"] = {
+			["castTime"] = 2902,
+		},
+		["Conjure Mana Ruby"] = {
+			["castTime"] = 3027,
+		},
+		["Summon Dreadsteed"] = {
+			["castTime"] = 3000,
+		},
+		["Barbaric Bracers"] = {
+			["castTime"] = 9969,
+		},
+		["Wool Bandage"] = {
+			["castTime"] = 3019,
+		},
+		["Bolt of Mageweave"] = {
+			["castTime"] = 4067,
+		},
+		["Summon Felsteed"] = {
+			["castTime"] = 3101,
+		},
+		["Heavy Copper Maul"] = {
+			["castTime"] = 5723,
+		},
+		["Smelt Gold"] = {
+			["castTime"] = 2962,
+		},
+		["Powerful Anti-Venom"] = {
+			["castTime"] = 3000,
+		},
+		["Basic Campfire"] = {
+			["castTime"] = 10099.0000000298,
+		},
+		["Thick Armor Kit"] = {
+			["castTime"] = 3012.0000000149,
+		},
+		["Nature Protection Potion"] = {
+			["castTime"] = 2980,
+		},
+		["Bolt of Linen Cloth"] = {
+			["castTime"] = 3082,
+		},
+		["Teleport: Moonglade"] = {
+			["castTime"] = 10000,
 		},
 		["Healing Touch"] = {
 			["castTime"] = 1732.9999999851,
 		},
-		["Rejuvenation"] = {
-			["castTime"] = 3466,
+		["Summon Succubus"] = {
+			["castTime"] = 9997.9999999702,
 		},
-		["Supreme Power"] = {
+		["Heavy Linen Bandage"] = {
+			["castTime"] = 3059,
 		},
-		["Blessed Sunfruit"] = {
+		["Regrowth"] = {
+			["castTime"] = 1982,
 		},
-		["Execute"] = {
-		},
-		["Create Scrying Bowl"] = {
-			["castTime"] = 2514,
-		},
-		["Flask of the Titans"] = {
-		},
-		["Arcane Explosion"] = {
+		["Runed Arcanite Rod"] = {
+			["castTime"] = 30009,
 		},
 		["Spotted Yellowtail"] = {
 			["castTime"] = 3003.9999999702,
 		},
+		["Conjure Water"] = {
+			["castTime"] = 3001,
+		},
+		["Mechanical Squirrel"] = {
+			["castTime"] = 5207,
+		},
 		["Elixir of Fortitude"] = {
 			["castTime"] = 4967,
 		},
-		["Trueshot Aura"] = {
+		["Heavy Wool Bandage"] = {
+			["castTime"] = 3029,
 		},
-		["Defensive Stance"] = {
+		["Hearthstone"] = {
+			["castTime"] = 10000,
 		},
-		["Armor"] = {
+		["Flash Heal"] = {
+			["castTime"] = 1505,
 		},
-		["Battle Stance"] = {
+		["Smelt Copper"] = {
+			["castTime"] = 2996,
 		},
-		["Blessing of Wisdom"] = {
+		["Advanced Target Dummy"] = {
+			["castTime"] = 4996,
 		},
-		["Inner Fire"] = {
-		},
-		["Devotion Aura"] = {
+		["Elixir of Agility"] = {
+			["castTime"] = 3000,
 		},
 		["Nightscape Tunic"] = {
 			["castTime"] = 36568,
 		},
-		["Frost Armor"] = {
+		["Revive Pet"] = {
+			["castTime"] = 10000,
 		},
 		["Bolt of Runecloth"] = {
 			["castTime"] = 4935.0000000149,
 		},
-		["Cat Form"] = {
+		["Create Scrying Bowl"] = {
+			["castTime"] = 2514,
+		},
+		["Teleport: Ironforge"] = {
+			["castTime"] = 9963.0000000298,
+		},
+		["Summon Charger"] = {
+			["castTime"] = 3026,
+		},
+		["Summon Voidwalker"] = {
+			["castTime"] = 6012,
 		},
 		["Elixir of the Mongoose"] = {
 			["castTime"] = 2927,
@@ -331,25 +159,23 @@ NeatPlatesSpellDB = {
 		["Create Healthstone"] = {
 			["castTime"] = 3004.0000000298,
 		},
-		["Greater Blessing of Salvation"] = {
+		["Wrath"] = {
+			["castTime"] = 1547,
 		},
-		["Prayer of Spirit"] = {
+		["Summon Warhorse"] = {
+			["castTime"] = 3014.9999999702,
 		},
-		["Aspect of the Cheetah"] = {
+		["Conjure Food"] = {
+			["castTime"] = 2978.0000000149,
 		},
-		["Touch of Shadow"] = {
+		["Rejuvenation"] = {
+			["castTime"] = 3466,
 		},
-		["Demoralizing Shout"] = {
+		["Smelt Iron"] = {
+			["castTime"] = 2978.9999999702,
 		},
-		["Ice Armor"] = {
-		},
-		["Cultivate Packet of Seeds"] = {
-		},
-		["Basic Campfire"] = {
-			["castTime"] = 10099.0000000298,
-		},
-		["Teleport: Ironforge"] = {
-			["castTime"] = 10000,
+		["Smelt Tin"] = {
+			["castTime"] = 3000.9999999702,
 		},
 	},
 	["default"] = {
@@ -25553,46 +25379,9 @@ NeatPlatesSpellDB = {
 		},
 	},
 	["Creature"] = {
-		["Withering Poison"] = {
-			["4140"] = {
-			},
-		},
 		["Healing Wave"] = {
 			["4467"] = {
 				["castTime"] = 2994,
-			},
-		},
-		["Mol'dar's Moxie"] = {
-			["14326"] = {
-			},
-		},
-		["Lightning Bolt"] = {
-			["4467"] = {
-				["castTime"] = 3005.0000000149,
-			},
-		},
-		["Rallying Cry of the Dragonslayer"] = {
-			["173754"] = {
-			},
-			["173758"] = {
-			},
-		},
-		["Curse of Blood"] = {
-			["4542"] = {
-			},
-		},
-		["Lunar Fortune"] = {
-			["15918"] = {
-			},
-		},
-		["Slip'kik's Savvy"] = {
-			["14323"] = {
-			},
-		},
-		["Sneak"] = {
-			["1040"] = {
-			},
-			["2926"] = {
 			},
 		},
 		["Shadow Bolt"] = {
@@ -25603,27 +25392,12 @@ NeatPlatesSpellDB = {
 				["castTime"] = 3011,
 			},
 		},
-		["Warchief's Blessing"] = {
-			["4949"] = {
+		["Lightning Bolt"] = {
+			["4467"] = {
+				["castTime"] = 3035,
 			},
 		},
-	},
-	["Pet"] = {
-		["Growl"] = {
-			["3475"] = {
-			},
-		},
-		["Lesser Invisibility"] = {
-			["1863"] = {
-			},
-		},
-		["Blood Pact"] = {
-			["416"] = {
-			},
-		},
-		["Phase Shift"] = {
-			["416"] = {
-			},
+		["Demon Skin"] = {
 		},
 	},
 }

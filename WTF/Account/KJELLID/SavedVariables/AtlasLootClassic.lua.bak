@@ -1,8 +1,5 @@
 
 AtlasLootClassicDB = {
-	["global"] = {
-		["__addonrevision"] = 1050009,
-	},
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
@@ -13,6 +10,9 @@ AtlasLootClassicDB = {
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
+	},
+	["global"] = {
+		["__addonrevision"] = 1050009,
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {

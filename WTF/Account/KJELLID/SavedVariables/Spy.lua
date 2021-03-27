@@ -21,9 +21,9 @@ SpyDB = {
 		},
 		["Skullflame"] = {
 			["Horde"] = {
-				["Ferns"] = {
-				},
 				["Shapeshifter"] = {
+				},
+				["Ferns"] = {
 				},
 			},
 		},
@@ -97,9 +97,9 @@ SpyDB = {
 			["FilteredZones"] = {
 				["Gadgetzan"] = true,
 				["The Salty Sailor Tavern"] = true,
-				["Booty Bay"] = true,
-				["Ratchet"] = true,
 				["Everlook"] = true,
+				["Ratchet"] = true,
+				["Booty Bay"] = true,
 			},
 			["AppendUnitNameCheck"] = true,
 			["MainWindowVis"] = false,

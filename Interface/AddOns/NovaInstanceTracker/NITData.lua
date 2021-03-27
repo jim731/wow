@@ -353,7 +353,7 @@ function NIT:combatLogEventUnfiltered(...)
 		end
 	elseif (subEvent == "UNIT_DIED" and UnitLevel("player") == NIT.maxLevel and string.match(destGUID, "Creature")) then
 		--If max level player then count mobs via death instead of xp.
-		local _, _, _, _, zoneID, npcID = strsplit("-", sourceGUID);
+		local _, _, _, _, zoneID, npcID = strsplit("-", destGUID);
 		if (NIT.critterCreatures[npcID]) then
 			return;
 		end
@@ -790,8 +790,8 @@ function NIT:parseGUID(unit, GUID, source)
 			--Oirignal version
 			--if (NIT.data.instances[2] and NIT.data.instances[2]["zoneID"] and NIT.data.instances[2]["zoneID"] == zoneID) then
 				if (NIT.db.global.detectSameInstance) then
-					NIT:debug("OldGUID:", NIT.data.instances[2].GUID, "NewGUID:", GUID, source);
-					NIT:debug("OldZoneID:", NIT.data.instances[2]["zoneID"], "NewZoneID:", zoneID, source);
+					--NIT:debug("OldGUID:", NIT.data.instances[2].GUID, "NewGUID:", GUID, source);
+					--NIT:debug("OldZoneID:", NIT.data.instances[2]["zoneID"], "NewZoneID:", zoneID, source);
 					--Merge instances data and then delete last.
 					NIT:mergeLastInstances(GUID, source);
 					local texture = "|TInterface\\AddOns\\NovaInstanceTracker\\Media\\redX2:12:12:0:0|t";
@@ -1119,7 +1119,7 @@ function NIT:recordCharacterData()
 			end]]
 			if (isHeader and skillName == TRADE_SKILLS) then
 				section = 2;
-			elseif (isHeader and skillName == SECONDARY_SKILLS) then
+			elseif (isHeader and skillName == string.gsub(SECONDARY_SKILLS, ":", "")) then
 				section = 3;
 			elseif (isHeader and string.find(skillName, COMBAT_RATING_NAME1)) then
 				section = 4;
@@ -1142,7 +1142,7 @@ function NIT:recordCharacterData()
 					profSkill2 = skillRank;
 					profSkillMax2 = skillMaxRank;
 				end
-			elseif (not isHeader and section == 3) then
+			elseif (not isHeader and (section == 3 or section == 2)) then
 				--Secondary professions.
 				secondaryCount = secondaryCount + 1;
 				if (skillName == PROFESSIONS_FISHING) then
@@ -1441,7 +1441,7 @@ function NIT:recordSkillUpData(...)
 			local skillName, isHeader, _, skillRank, _, _, skillMaxRank = GetSkillLineInfo(i)
 			if (isHeader and skillName == TRADE_SKILLS) then
 				section = 2;
-			elseif (isHeader and skillName == SECONDARY_SKILLS) then
+			elseif (isHeader and skillName == string.gsub(SECONDARY_SKILLS, ":", "")) then
 				section = 3;
 			elseif (isHeader and string.find(skillName, COMBAT_RATING_NAME1)) then
 				section = 4;
@@ -1855,7 +1855,6 @@ f:RegisterEvent("TRADE_ACCEPT_UPDATE");
 f:RegisterEvent("TRADE_REQUEST_CANCEL");
 f:RegisterEvent("UI_INFO_MESSAGE");
 f:RegisterEvent("UI_ERROR_MESSAGE");
-f:RegisterEvent("TRADE_REQUEST_CANCEL");
 local playerMoney, targetMoney, tradeWho, tradeWhoClass = 0, 0, "", "";
 local doTrade;
 f:SetScript("OnEvent", function(self, event, ...)

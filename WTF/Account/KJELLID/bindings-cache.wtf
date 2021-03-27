@@ -156,4 +156,6 @@ bind CTRL-C TOGGLEAUTORUN
 bind ALT-5 CLICK BT4Button70:LeftButton
 bind ALT-< CLICK BT4Button71:LeftButton
 bind CTRL-SPACE CLICK BT4Button33:LeftButton
+bind ALT-- CLICK ItemRackFermionNethergarde KeepTank:LeftButton
+bind ALT-+ CLICK ItemRackFermionNethergarde KeepDPS:LeftButton
 modifiedclick NONE SELFCAST

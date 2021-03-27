@@ -6,12 +6,14 @@ OneRing_Config = {
 	["_OPieVersion"] = "Ancient Xe 2a (3.104)",
 	["ProfileStorage"] = {
 		["default"] = {
+			["RingAtMouse"] = true,
 			["Bindings"] = {
 				["RaidSymbols"] = "CTRL-E",
 				["TrinketSlots"] = "CTRL-R",
 				["CommonTrades"] = "CTRL-W",
 				["OPieAutoQuest"] = "CTRL-Q",
 			},
+			["NoClose"] = true,
 		},
 	},
 	["PersistentStorage"] = {

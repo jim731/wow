@@ -6,6 +6,6 @@ AutoCarrotDB = {
 	["mithrilSpurs"] = true,
 	["button"] = false,
 	["beltId"] = 5458,
-	["swimHelm"] = true,
 	["swimBelt"] = true,
+	["swimHelm"] = true,
 }

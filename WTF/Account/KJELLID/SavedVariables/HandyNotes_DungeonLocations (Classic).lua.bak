@@ -10,6 +10,10 @@ HandyNotes_DungeonLocationsClassicDB = {
 	},
 	["profiles"] = {
 		["Default"] = {
+			["show"] = {
+				["Mixed"] = false,
+				["Raid"] = false,
+			},
 		},
 	},
 }

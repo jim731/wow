@@ -63,8 +63,10 @@ app.L = {
 	["LIMITED_QUANTITY"] = "This has a limited quantity and may not always be present on the vendor.";
 	
 	-- Filter Text
+	["ART_ID"] = "Art ID";
 	["CREATURE_ID"] = "Creature ID";
 	["CURRENCY_ID"] = "Currency ID";
+	["EXPLORATION_ID"] = "Exploration ID";
 	["FILTER_ID"] = "Filter ID";
 	["ITEM_ID"] = "Item ID";
 	["FACTION_ID"] = "Faction ID";
@@ -194,6 +196,7 @@ app.L = {
 		[-12] = "Interface\\Icons\\Spell_Shadow_SummonImp", 								-- East entrance demons
 		[-13] = "Interface\\Icons\\inv_axe_10", 											-- North entrance ogres
 		[-14] = "Interface\\Icons\\INV_Misc_Head_Elf_02", 									-- West entrace elves
+		[-15] = "Interface\\Addons\\ATT-Classic\\assets\\INV_Misc_Map02",					-- Exploration
 		[-16] = "Interface\\Icons\\Spell_Shadow_DeathScream",								-- Rare
 		[-17] = "Interface\\Icons\\inv_misc_book_07", 										-- Quests
 		[-18] = "Interface\\Icons\\INV_Misc_Bag_13", 										-- Rewards
@@ -263,6 +266,7 @@ app.L = {
 		[-12] = DUNGEON_FLOOR_DIREMAUL5.." (East)",								-- Warpwood Quarter
 		[-13] = DUNGEON_FLOOR_DIREMAUL1.." (North)",							-- Gordok Commons
 		[-14] = DUNGEON_FLOOR_DIREMAUL2.." (West)",								-- Capital Gardens
+		[-15] = "Exploration",													-- Exploration
 		[-16] = BATTLE_PET_BREED_QUALITY4, 										-- Rares
 		[-17] = TRACKER_HEADER_QUESTS, 											-- Quests
 		[-18] = QUEST_REWARDS, 													-- Rewards

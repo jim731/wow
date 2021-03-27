@@ -68,6 +68,7 @@ bind F9 NONE
 bind F10 NONE
 bind F11 NONE
 bind F12 NONE
+bind SHIFT-SPACE CLICK BT4Button32:LeftButton
 bind NUMPADMINUS NONE
 bind CTRL-S NONE
 bind ALT-Z NONE
@@ -154,4 +155,5 @@ bind SHIFT-< CLICK BT4Button59:LeftButton
 bind CTRL-C TOGGLEAUTORUN
 bind ALT-5 CLICK BT4Button70:LeftButton
 bind ALT-< CLICK BT4Button71:LeftButton
+bind CTRL-SPACE CLICK BT4Button33:LeftButton
 modifiedclick NONE SELFCAST

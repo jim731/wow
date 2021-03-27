@@ -1,4 +1,10 @@
 
 ClassicQuestLogSettings = {
-	["Height"] = 496.000122070313,
+	["ShowTooltips"] = false,
+	["LockWindow"] = true,
+	["UndockWindow"] = true,
+	["Height"] = 700.000061035156,
+	["ShowResizeGrip"] = true,
+	["SolidBackground"] = false,
+	["ShowLevels"] = true,
 }

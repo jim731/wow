@@ -4,9 +4,9 @@ HandyNotesDB = {
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
-		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
-		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -15,11 +15,11 @@ HandyNotesDB = {
 		},
 		["Fermion - Nethergarde Keep"] = {
 		},
-		["Bushwick - Nethergarde Keep"] = {
+		["Parisi - Nethergarde Keep"] = {
 		},
 		["Ferns - Skullflame"] = {
 		},
-		["Parisi - Nethergarde Keep"] = {
+		["Bushwick - Nethergarde Keep"] = {
 		},
 	},
 }
@@ -28,9 +28,9 @@ HandyNotes_HandyNotesDB = {
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
-		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
-		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -39,11 +39,11 @@ HandyNotes_HandyNotesDB = {
 		},
 		["Fermion - Nethergarde Keep"] = {
 		},
-		["Bushwick - Nethergarde Keep"] = {
+		["Parisi - Nethergarde Keep"] = {
 		},
 		["Ferns - Skullflame"] = {
 		},
-		["Parisi - Nethergarde Keep"] = {
+		["Bushwick - Nethergarde Keep"] = {
 		},
 	},
 }

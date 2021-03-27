@@ -24,24 +24,24 @@ MSBTProfiles_SavedVars = {
 				},
 			},
 			["scrollAreas"] = {
-				["Incoming"] = {
-					["offsetY"] = -205,
-					["offsetX"] = -95,
-				},
 				["Notification"] = {
-					["scrollHeight"] = 50,
-					["offsetX"] = -57,
 					["offsetY"] = -50,
 					["scrollWidth"] = 110,
-				},
-				["Outgoing"] = {
-					["offsetY"] = -205,
-					["offsetX"] = 50,
+					["offsetX"] = -57,
+					["scrollHeight"] = 50,
 				},
 				["Static"] = {
 					["offsetY"] = -190,
 					["disabled"] = true,
 					["offsetX"] = -21,
+				},
+				["Outgoing"] = {
+					["offsetX"] = 50,
+					["offsetY"] = -205,
+				},
+				["Incoming"] = {
+					["offsetX"] = -95,
+					["offsetY"] = -205,
 				},
 			},
 			["normalFontName"] = "2002 Bold",

@@ -127,7 +127,7 @@ PallyPower: disabled
 Pawn: enabled
 Peggle: disabled
 PixelPerfectAlign: disabled
-Quartz: enabled
+Quartz: disabled
 QuestCompletist: enabled
 SexyMap: enabled
 SilverRareElites: enabled
@@ -139,7 +139,7 @@ tullaRange_Config: enabled
 TwitchEmotes: enabled
 VuhDo: disabled
 VuhDoOptions: disabled
-Watto: enabled
+Watto: disabled
 WeakAuras: enabled
 WeakAurasModelPaths: enabled
 WeakAurasOptions: enabled

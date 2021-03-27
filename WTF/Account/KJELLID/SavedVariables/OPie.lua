@@ -7,13 +7,13 @@ OneRing_Config = {
 	["ProfileStorage"] = {
 		["default"] = {
 			["RingAtMouse"] = true,
-			["NoClose"] = true,
 			["Bindings"] = {
 				["RaidSymbols"] = "CTRL-E",
 				["TrinketSlots"] = "CTRL-R",
 				["CommonTrades"] = "CTRL-W",
 				["OPieAutoQuest"] = "CTRL-Q",
 			},
+			["NoClose"] = true,
 		},
 	},
 	["PersistentStorage"] = {

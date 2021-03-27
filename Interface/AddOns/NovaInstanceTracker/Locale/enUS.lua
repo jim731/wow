@@ -204,6 +204,7 @@ L["received"] = "Received";
 L["to"] = "to";
 L["from"] = "from";
 L["playersStillInside"] = "has been reset (Players still inside old instance can zone out and enter new).";
+L["Gold"] = "Gold";
 L["gold"] = "gold";
 L["silver"] = "silver";
 L["copper"] = "copper";

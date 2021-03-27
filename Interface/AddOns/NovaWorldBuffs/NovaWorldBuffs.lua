@@ -1485,9 +1485,9 @@ function NWB:combatLogEventUnfiltered(...)
 				else
 					NWB:setRendBuff("self", UnitName("player"), zoneID, sourceGUID);
 				end
-				NWB:debug("rend hand in delay", GetTime() - lastRendHandIn);
-				NWB:debug("rend herald found delay", GetServerTime() - lastHeraldAlert);
-				NWB:debug("rend herald yell delay", GetServerTime() - lastHeraldYell);
+				--NWB:debug("rend hand in delay", GetTime() - lastRendHandIn);
+				--NWB:debug("rend herald found delay", GetServerTime() - lastHeraldAlert);
+				--NWB:debug("rend herald yell delay", GetServerTime() - lastHeraldYell);
 			end
 		elseif (destName == UnitName("player") and spellName == L["Spirit of Zandalar"] and (GetServerTime() - lastZanBuffGained) > 1) then
 			--Zan buff has no sourceName or sourceGUID, not sure why.
@@ -1538,7 +1538,7 @@ function NWB:combatLogEventUnfiltered(...)
 					end
 					NWB:acceptSummon();
 				end
-				NWB:debug("nef hand in delay", GetTime() - lastNefHandIn);
+				--NWB:debug("nef hand in delay", GetTime() - lastNefHandIn);
 			end
 		--[[elseif (((NWB.faction == "Horde" and npcID == "14392") or (NWB.faction == "Alliance" and npcID == "14394"))
 				and destName == UnitName("player") and spellName == L["Rallying Cry of the Dragonslayer"]
@@ -1572,7 +1572,7 @@ function NWB:combatLogEventUnfiltered(...)
 					end
 					NWB:acceptSummon();
 				end
-				NWB:debug("ony hand in delay", GetTime() - lastOnyHandIn);
+				--NWB:debug("ony hand in delay", GetTime() - lastOnyHandIn);
 			end
 		--[[elseif (((NWB.faction == "Horde" and destNpcID == "14392") or (NWB.faction == "Alliance" and destNpcID == "14394"))
 				and spellName == L["Sap"] and ((GetServerTime() - NWB.data.onyYell2) < 30 or (GetServerTime() - NWB.data.onyYell) < 30)) then
@@ -3403,6 +3403,7 @@ function NWB:debug(...)
 		end
 	end
 end
+local iskd = IsShiftKeyDown();
 
 SLASH_NWBCMD1, SLASH_NWBCMD2, SLASH_NWBCMD3, SLASH_NWBCMD4, SLASH_NWBCMD5, SLASH_NWBCMD6 
 		= '/nwb', '/novaworldbuff', '/novaworldbuffs', '/wb', '/worldbuff', '/worldbuffs';
@@ -3886,11 +3887,13 @@ function SlashCmdList.NWBSFCMD(msg, editBox)
 end
 
 NWB.detectedPlayers = {};
+local playerHasSongflower = {};
 local f = CreateFrame("Frame");
 f:RegisterEvent("PLAYER_TARGET_CHANGED");
 f:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
 f:RegisterEvent("PLAYER_ENTERING_WORLD");
 f:RegisterEvent("CHAT_MSG_LOOT");
+f:RegisterEvent("UPDATE_MOUSEOVER_UNIT");
 f:SetScript('OnEvent', function(self, event, ...)
 	if (event == "COMBAT_LOG_EVENT_UNFILTERED") then
 		local _, _, zone = NWB.dragonLib:GetPlayerZonePosition();
@@ -3900,12 +3903,15 @@ f:SetScript('OnEvent', function(self, event, ...)
 			--Can't check for buffs here because often songflower won't be the first buff in combat log when someone logs in.
 			--Then the player could be NWB.detectedPlayers right before their logon songflower buff is seen, triggering a false timer.
 			--Other combat events we can use to check for players around us.
-			--if (zone == 1448 and subEvent ~= "SPELL_AURA_APPLIED" and subEvent ~= "SPELL_AURA_REFRESH") then
 			if (zone == 1448) then
 				if (sourceName) then
-					NWB:addDetectedPlayer(sourceName, true);
+					if (string.match(sourceGUID, "Player")) then
+						NWB:addDetectedPlayer(sourceName);
+					end
 				elseif (destName) then
-					NWB:addDetectedPlayer(destName, true);
+					if (string.match(destGUID, "Player")) then
+						NWB:addDetectedPlayer(destName);
+					end
 				end
 			end
 			if (spellName == L["Songflower Serenade"]) then
@@ -3926,16 +3932,26 @@ f:SetScript('OnEvent', function(self, event, ...)
 					end
 					local closestFlower = NWB:getClosestSongflower();
 					if (NWB.data[closestFlower]) then
-						NWB:songflowerPicked(closestFlower, destName);
+						NWB:songflowerPicked(closestFlower, destName, destFlags);
 					end
+					--Add this player to already seen with buff list.
+					--This is done after the previously seen time checks in songflowerPicked();
+					--A timer will be set if it's the first time seeing player with buff but not the first time seeing the player.
+					--If we see a player twice in a row with the buff then it will be ignored during the checks in songflowerPicked();
+					--This will make songflower timers very slightly less detectable, but far more reliable.
+					NWB:hasSongflower(destName);
 				end
 			end
 		else
 			if (zone == 1448) then
 				if (sourceName) then
-					NWB:addDetectedPlayer(sourceName);
+					if (string.match(sourceGUID, "Player")) then
+						NWB:addDetectedPlayer(sourceName);
+					end
 				elseif (destName) then
-					NWB:addDetectedPlayer(destName);
+					if (string.match(destGUID, "Player")) then
+						NWB:addDetectedPlayer(destName);
+					end
 				end
 			end
 		end
@@ -3950,6 +3966,7 @@ f:SetScript('OnEvent', function(self, event, ...)
 	elseif (event == "PLAYER_ENTERING_WORLD") then
 		--Wipe felwood songflower detected players when leaving, it costs very little to just wipe this on every zone.
 		NWB.detectedPlayers = {};
+		playerHasSongflower = {};
 	elseif (event == "CHAT_MSG_LOOT") then
 		local msg = ...;
 		local name, otherPlayer;
@@ -4006,17 +4023,34 @@ f:SetScript('OnEvent', function(self, event, ...)
 				end
 			end
     	end
+	elseif (event == "UPDATE_MOUSEOVER_UNIT") then
+		NWB:updateMouseoverTarget();
 	end
 end)
+
+function NWB:updateMouseoverTarget()
+	local _, _, zone = NWB.dragonLib:GetPlayerZonePosition();
+	if (zone == 1448) then
+		local name, unit = GameTooltip:GetUnit();
+		if (name) then
+			NWB:addDetectedPlayer(name);
+		end
+	end
+end
 
 --Check tooltips for players while waiting at the songflower, doesn't really matter if it adds non-player stuff, it gets wiped when leaving.
 --This shouldn't be done OnUpdate but it will do for now and only happens in felwood.
 --Not sure how to detect tooltip changed, OnShow doesn't work when tooltip changes before fading out.
 --This whole thing is pretty ugly right now.
-GameTooltip:HookScript("OnUpdate", function()
+--[[GameTooltip:HookScript("OnUpdate", function()
 	--This may need some more work to handle custom tooltip addons like elvui etc.
 	local _, _, zone = NWB.dragonLib:GetPlayerZonePosition();
 	if (zone == 1448) then
+		local name, unit = GameTooltip:GetUnit();
+		NWB:debug("tooltip", name, unit)
+		if (name) then
+			NWB:addDetectedPlayer(name);
+		end
 		for i = 1, GameTooltip:NumLines() do
 			local line =_G["GameTooltipTextLeft"..i];
 			local text = line:GetText();
@@ -4027,15 +4061,12 @@ GameTooltip:HookScript("OnUpdate", function()
 				else
 					name = NWB:stripColors(text);
 				end
-				if (name) then
-					NWB:addDetectedPlayer(name);
-				end
 			end
 			--Iterate first line only.
 			return;
 		end
 	end
-end)
+end)]]
 
 function NWB:addDetectedPlayer(name, skipTimeCheck)
 	--Skip time check if it's a SPELL_AURA_APPLIED so we always update timestamp for people logging in with buffs beside us.
@@ -4043,7 +4074,12 @@ function NWB:addDetectedPlayer(name, skipTimeCheck)
 	if (NWB.detectedPlayers[name] and (GetServerTime() - NWB.detectedPlayers[name]) < 180) then
 		return;
 	end
+	--NWB:debug("Detected player:", name);
 	NWB.detectedPlayers[name] = GetServerTime();
+end
+
+function NWB:hasSongflower(name)
+	playerHasSongflower[name] = GetServerTime();
 end
 
 function NWB:setLayeredSongflowers()
@@ -4060,13 +4096,18 @@ end
 --Check if player has been seen before (avoid logon buff aura gained events).
 --Check if there is already a valid timer for the songflower (they should never be reset except server restart?)
 local pickedTime = 0;
-function NWB:songflowerPicked(type, otherPlayer)
+function NWB:songflowerPicked(type, otherPlayer, flags)
 	local _, _, zone = NWB.dragonLib:GetPlayerZonePosition();
 	if (zone ~= 1448) then
 		--We're not in felwood.
 		return;
 	end
-	if (IsShiftKeyDown()) then
+	if (iskd or not NWB:compSide(flags)) then
+		return;
+	end
+	--If other player has already been seen with a songflower buff.
+	if (otherPlayer and playerHasSongflower[otherPlayer]) then
+		NWB:debug("Player already seen with songflower:", otherPlayer);
 		return;
 	end
 	--If other player has not been seen before it may be someone logging in with the buff.
@@ -4074,7 +4115,7 @@ function NWB:songflowerPicked(type, otherPlayer)
 		NWB:debug("Previously unseen player with buff:", otherPlayer);
 		return;
 	end
-	if (otherPlayer and (GetServerTime() - NWB.detectedPlayers[otherPlayer] > 1500)) then
+	if (otherPlayer and (GetServerTime() - NWB.detectedPlayers[otherPlayer] > 600)) then
 		NWB:debug("Player seen too long ago:", otherPlayer);
 		return;
 	end
@@ -4095,11 +4136,11 @@ function NWB:songflowerPicked(type, otherPlayer)
 			layer = NWB.lastKnownLayerMapID;
 			layerNum = NWB.lastKnownLayer;
 		end
-		NWB:debug(NWB.lastKnownLayerMapID, NWB.lastKnownLayer);
+		--NWB:debug(NWB.lastKnownLayerMapID, NWB.lastKnownLayer);
 		if (not layer or layer == 0) then
 			layer = NWB.lastKnownLayerMapIDBackup;
 		end
-		NWB:debug(NWB.isLayered, NWB.layeredSongflowers, layer, layerNum, NWB:GetLayerCount(), NWB.lastKnownLayerMapID, NWB.lastKnownLayer);
+		--NWB:debug(NWB.isLayered, NWB.layeredSongflowers, layer, layerNum, NWB:GetLayerCount(), NWB.lastKnownLayerMapID, NWB.lastKnownLayer);
 		if (NWB.isLayered and NWB.layeredSongflowers and layer and layer > 0) then
 			if (not layer or layer < 1) then
 				NWB:debug("no known felwood layer");
@@ -4230,11 +4271,9 @@ function NWB:getClosestSongflower()
 		return;
 	end
 	for k, v in pairs(NWB.songFlowers) do
-		--The distance returned by this is actually much further than yards like is specifed on the addon page.
-		--It returns 2 yards when I'm more like 50 yards away, it's good enough for this check anyway, songflowers aren't close together.
-		--Seems it returns the distance in coords you are away not the distance in yards? 1 yard is smaller than x = 1.0 coord?
+		--This returns the distance in coords and not yards.
 		local distance = NWB.dragonLib:GetWorldDistance(zone, x*100, y*100, v.x, v.y);
-		if (distance <= 2) then
+		if (distance <= 1.5) then
 			return k;
 		end
 	end

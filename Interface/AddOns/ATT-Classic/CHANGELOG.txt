@@ -1,16 +1,63 @@
-0.4.6 Release Notes
+0.4.7 Release Notes
 Contributions made by Crieve:
-* Beast Training now appears in the Profession Minilist. (someone from non-enUS locale please test this for me!)
-* Fixed a number of other issues with Beast Training.
-* You no longer get invalid collection credit for pet spell ranks.
-* Mature Blue Dragon Sinew should now show in the mini list for Hunters in Winterspring.
-* Frozen Rune is no longer listed as a Common Boss Drop, the information on WoWHead is inaccurate.
-* Assigned the Mount filter type to items that are mounts, rather than Invalid/Ignored.
-* Assigned the Relic Filter ID to Idols, Librams, and Totems.
-* Rearranged the Filters section to account for a couple of different loot types.
-* You can now filter for Consumable, Miscellaneous, and Recipe items. (or turn them off)
-* You can now use this command to search for specific item filters in the ATT Hierarchy:    /script ATTC:GetWindow("ItemFilter"):Toggle()
-* Fixed the issue involving recipes not appearing in the mini list. Blizzard sucks at maintaining APIS.
-* You can now hide all of the loot you aren't filtering for. (It's faaancy!)
-* Temporarily disabling 'Expert Cook' until I have a fix for it.
+* Initial Commit
+* Some extra logging. (Also note that you can't add exploration for major cities, I tried it and wiped out my other changes after I determined it couldn't be done using our current tech.)
+* Some minor fixes.
+* Fixed the Maul spell for Druids.
+* No longer scanning the "General" Spellbook information as that broke professions. (Might be something to look into future, however.)
+* Tusks and Fetishes...
+* Added a number of quests for Arathi Basin.
+* The quest "Goldleaf's Discovery" is now a breadcrumb quest.
+* Fixed a missing quest item.
+* Fixed a quest chain in Feralas.
+* Merge branch 'exploration' into master
+* Exploration! Note that the assignments for each location are not correct.
+* Some minor improvements to the existing (unchanged) version of the Map Data.
+* Added Art ID to Tooltips as an option.
+* Added the setting to disable Exploration, should that not interest you.
+* Merge pull request #105 from rafalszczykno/breadcrumbs
+* Removed a pointless description.
+* You can now turn off Account Wide Deaths. Also fixed a bug with the Deaths tracker that prevented you from reaching 100% with it active.
+* Modified some boiler plate code for Map Exploration.
+* Working on remapping the Exploration Module.
+* Finished remapping Durotar.
+* Finished exploration for Dustwallow Marsh.
+* Finished exploration for Felwood.
+* Finished exploration for Feralas.
+* Finished exploration for Moonglade.
+* Finished exploration for Mulgore.
+* Finished exploration for Silithus.
+* Finished exploration for Stonetalon Mountains and Tanaris.
+* Finished exploration for The Barrens.
+* Finished exploration for Thousand Needles.
+* Finished exploration for Un'Goro Crater and Winterspring.
+* Implemented boiler plate code for Eastern Kingdoms and Alterac Valley.
+* Finished exploration for Alterac Mountains.
+* Finished exploration for Arathi Highlands.
+* Finished exploration for the Badlands.
+* Finished exploration for the Blasted Lands.
+* Finished exploration for the Burning Steppes.
+* Finished exploration for Dun Morogh.
+* Finished exploration for Duskwood.
+* Finished exploration for the Eastern Plaguelands.
+* Finished exploration for Elwynn Forest.
+* Finished exploration for Hillsbrad Forest.
+* Finished exploration for Loch Modan.
+* Finished exploration for Redridge Mountains.
+* Finished exploration for the Searing Gorge.
+* Finished exploration for Silverpine Forest.
+* Finished exploration for Stranglethorn Vale.
+* Finished exploration for Swamp of Sorrows.
+* Finished exploration for The Hinterlands.
+* Finished exploration for Tirisfal Glades.
+* Finished exploration for Western Plaguelands.
+* Finished exploration for Westfall.
+* Finished exploration for the Wetlands. And also finished the Exploration Module!
+
+Contributions made by Rafa┼é Szczykno:
+* Added missing breadcrumbs
+
+Contributions made by Kalle Sommer Nielsen:
+* Exploration data for every map
+* Implemented subzone names for exploration
 

@@ -1,8 +1,6 @@
 
 PawnOptions = {
 	["LastVersion"] = 2.0417,
-	["LastPlayerFullName"] = "Fermion-Nethergarde Keep",
-	["AutoSelectScales"] = false,
 	["ItemLevels"] = {
 		{
 			["ID"] = 9664,
@@ -21,9 +19,9 @@ PawnOptions = {
 		}, -- [3]
 		nil, -- [4]
 		{
-			["ID"] = 4074,
-			["Level"] = 36,
-			["Link"] = "|cff1eff00|Hitem:4074::::::::49:::1::::|h[Mail Combat Armor]|h|r",
+			["ID"] = 6411,
+			["Level"] = 41,
+			["Link"] = "|cff1eff00|Hitem:6411::::::::49:::::::|h[Chief Brigadier Armor]|h|r",
 		}, -- [5]
 		{
 			["ID"] = 14918,
@@ -70,16 +68,24 @@ PawnOptions = {
 			["Link"] = "|cff0070dd|Hitem:10776::::::::49:::1::::|h[Silky Spider Cape]|h|r",
 		}, -- [15]
 		{
-			["ID"] = 6975,
-			["Level"] = 40,
-			["Link"] = "|cff0070dd|Hitem:6975:36:::::::49:::11::::|h[Whirlwind Axe]|h|r",
+			["ID"] = 6829,
+			["Level"] = 44,
+			["AlsoFitsIn"] = 17,
+			["Link"] = "|cff0070dd|Hitem:6829::::::::49:::11::::|h[Sword of Serenity]|h|r",
 		}, -- [16]
-		[18] = {
+		{
+			["ID"] = 4652,
+			["Level"] = 45,
+			["Link"] = "|cff1eff00|Hitem:4652::::::::49:::11::::|h[Salbac Shield]|h|r",
+		}, -- [17]
+		{
 			["ID"] = 10508,
 			["Level"] = 41,
 			["Link"] = "|cff1eff00|Hitem:10508::::::::49:::::::|h[Mithril Blunderbuss]|h|r",
-		},
+		}, -- [18]
 	},
+	["AutoSelectScales"] = false,
+	["LastPlayerFullName"] = "Fermion-Nethergarde Keep",
 }
 PawnMrRobotScaleProviderOptions = nil
 PawnClassicScaleProviderOptions = {

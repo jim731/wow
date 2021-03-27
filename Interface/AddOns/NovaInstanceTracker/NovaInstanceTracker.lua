@@ -2822,7 +2822,7 @@ function NIT:recalcAltsLineFramesTooltip(obj)
 				text = text .. "\n" .. color1 .. L["bagSlots"] .. ":|r " .. displayFreeSlots .. color1 .. "/" .. color2 .. data.totalBagSlots;
 			end
 			if (data.gold) then
-				text = text .. "\n" .. color1 .. L["gold"] .. ":|r " .. color2 .. GetCoinTextureString(data.gold, 10);
+				text = text .. "\n" .. color1 .. L["Gold"] .. ":|r " .. color2 .. GetCoinTextureString(data.gold, 10);
 			end
 			local durabilityAverage = data.durabilityAverage or 100;
 			local displayDurability;
