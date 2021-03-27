@@ -809,70 +809,108 @@ Bartender4DB = {
 						}, -- [10]
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Default"] = {
 					["actionbars"] = {
 						{
-							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 41.75,
-								["x"] = -510,
+								["x"] = -253,
 								["point"] = "BOTTOM",
 							},
+							["padding"] = 6,
 						}, -- [1]
 						{
-							["enabled"] = false,
+							["buttons"] = 4,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -205,
-								["x"] = -231.499938964844,
-								["point"] = "CENTER",
+								["y"] = 39,
+								["x"] = -2.99997091293335,
+								["point"] = "BOTTOMLEFT",
 							},
 						}, -- [2]
 						{
-							["padding"] = 5,
-							["rows"] = 12,
+							["buttons"] = 9,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
+								["y"] = 38.9999351501465,
+								["x"] = 375.703857421875,
+								["point"] = "BOTTOM",
 							},
 						}, -- [3]
 						{
-							["padding"] = 5,
-							["rows"] = 12,
+							["rows"] = 10,
+							["fadeout"] = true,
+							["fadeoutdelay"] = 0,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
+								["y"] = -154,
+								["x"] = -79,
+								["point"] = "RIGHT",
+							},
+							["fadeoutalpha"] = 0,
+							["padding"] = 3,
+							["visibility"] = {
+								["always"] = false,
+								["overridebar"] = false,
 							},
 						}, -- [4]
 						{
-							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 110,
-								["x"] = 3,
+								["y"] = 89,
+								["x"] = -231.5,
 								["point"] = "BOTTOM",
 							},
 						}, -- [5]
 						{
-							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 110,
-								["x"] = -510,
+								["y"] = 127,
+								["x"] = -231.5,
 								["point"] = "BOTTOM",
 							},
 						}, -- [6]
 						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -35.7213745117188,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
 						}, -- [7]
 						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -74.2130126953125,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+							["visibility"] = {
+								["overridebar"] = false,
+								["stance"] = {
+									false, -- [1]
+									false, -- [2]
+									false, -- [3]
+								},
+								["vehicleui"] = false,
+							},
 						}, -- [8]
-						nil, -- [9]
 						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -112.348022460938,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [9]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -153.13671875,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
 						}, -- [10]
 					},
 				},
@@ -1208,108 +1246,70 @@ Bartender4DB = {
 						},
 					},
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["actionbars"] = {
 						{
+							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 41.75,
-								["x"] = -253,
+								["x"] = -510,
 								["point"] = "BOTTOM",
 							},
-							["padding"] = 6,
 						}, -- [1]
 						{
-							["buttons"] = 4,
+							["enabled"] = false,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 39,
-								["x"] = -2.99997091293335,
-								["point"] = "BOTTOMLEFT",
+								["y"] = -205,
+								["x"] = -231.499938964844,
+								["point"] = "CENTER",
 							},
 						}, -- [2]
 						{
-							["buttons"] = 9,
+							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 38.9999351501465,
-								["x"] = 375.703857421875,
-								["point"] = "BOTTOM",
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
 							},
 						}, -- [3]
 						{
-							["rows"] = 10,
-							["fadeout"] = true,
-							["fadeoutdelay"] = 0,
+							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
-								["y"] = -154,
-								["x"] = -79,
-								["point"] = "RIGHT",
-							},
-							["fadeoutalpha"] = 0,
-							["padding"] = 3,
-							["visibility"] = {
-								["always"] = false,
-								["overridebar"] = false,
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
 							},
 						}, -- [4]
 						{
+							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 89,
-								["x"] = -231.5,
+								["y"] = 110,
+								["x"] = 3,
 								["point"] = "BOTTOM",
 							},
 						}, -- [5]
 						{
+							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 127,
-								["x"] = -231.5,
+								["y"] = 110,
+								["x"] = -510,
 								["point"] = "BOTTOM",
 							},
 						}, -- [6]
 						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -35.7213745117188,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
 						}, -- [7]
 						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -74.2130126953125,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
-							["visibility"] = {
-								["overridebar"] = false,
-								["stance"] = {
-									false, -- [1]
-									false, -- [2]
-									false, -- [3]
-								},
-								["vehicleui"] = false,
-							},
 						}, -- [8]
+						nil, -- [9]
 						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -112.348022460938,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
-						}, -- [9]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -153.13671875,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
 						}, -- [10]
 					},
 				},
@@ -1538,9 +1538,9 @@ Bartender4DB = {
 					},
 				},
 				["SpartanUI - Fel"] = {
+					["fadeoutalpha"] = 0.6,
 					["version"] = 3,
 					["fadeout"] = true,
-					["fadeoutalpha"] = 0.6,
 					["position"] = {
 						["y"] = 4,
 						["x"] = 114,
@@ -1549,13 +1549,17 @@ Bartender4DB = {
 						["parent"] = "Fel_ActionBarPlate",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
-					["padding"] = -2,
+				["Default"] = {
+					["enabled"] = false,
 					["version"] = 3,
+					["visibility"] = {
+						["overridebar"] = false,
+						["vehicleui"] = false,
+					},
 					["position"] = {
-						["y"] = 42,
-						["x"] = 33,
-						["point"] = "BOTTOM",
+						["y"] = 5.49993896484375,
+						["x"] = -110.5,
+						["point"] = "TOP",
 						["scale"] = 1,
 					},
 				},
@@ -1592,17 +1596,13 @@ Bartender4DB = {
 						["y"] = 42,
 					},
 				},
-				["Default"] = {
-					["enabled"] = false,
+				["Parisi - Nethergarde Keep"] = {
+					["padding"] = -2,
 					["version"] = 3,
-					["visibility"] = {
-						["overridebar"] = false,
-						["vehicleui"] = false,
-					},
 					["position"] = {
-						["y"] = 5.49993896484375,
-						["x"] = -110.5,
-						["point"] = "TOP",
+						["y"] = 42,
+						["x"] = 33,
+						["point"] = "BOTTOM",
 						["scale"] = 1,
 					},
 				},
@@ -1764,8 +1764,7 @@ Bartender4DB = {
 								},
 								["ClearButton"] = {
 								},
-								["DragBottomLeft"] = {
-								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -1778,7 +1777,8 @@ Bartender4DB = {
 									["Text"] = {
 									},
 								},
-								["isLocked"] = false,
+								["DragBottomLeft"] = {
+								},
 							},
 							["firstTimeLoaded"] = 1,
 						},
@@ -1867,14 +1867,15 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Default"] = {
 					["enabled"] = true,
-					["version"] = 3,
 					["position"] = {
-						["y"] = 54,
-						["x"] = -514,
+						["y"] = 48,
+						["x"] = -256,
 						["point"] = "BOTTOM",
+						["scale"] = 0.5,
 					},
+					["version"] = 3,
 				},
 				["warrior classic"] = {
 					["version"] = 3,
@@ -1903,15 +1904,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["enabled"] = true,
-					["position"] = {
-						["y"] = 48,
-						["x"] = -256,
-						["point"] = "BOTTOM",
-						["scale"] = 0.5,
-					},
 					["version"] = 3,
+					["position"] = {
+						["y"] = 54,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
 				},
 				["SpartanUI - War"] = {
 					["version"] = 3,
@@ -2004,14 +2004,15 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Default"] = {
 					["enabled"] = true,
-					["version"] = 3,
+					["artLayout"] = "ONEBAR",
 					["position"] = {
 						["y"] = 47,
-						["x"] = -512,
+						["x"] = -256,
 						["point"] = "BOTTOM",
 					},
+					["version"] = 3,
 				},
 				["warrior classic"] = {
 					["enabled"] = true,
@@ -2044,15 +2045,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["enabled"] = true,
-					["artLayout"] = "ONEBAR",
+					["version"] = 3,
 					["position"] = {
 						["y"] = 47,
-						["x"] = -256,
+						["x"] = -512,
 						["point"] = "BOTTOM",
 					},
-					["version"] = 3,
 				},
 				["SpartanUI - War"] = {
 					["version"] = 3,
@@ -2159,13 +2159,14 @@ Bartender4DB = {
 					["version"] = 3,
 					["fadeoutalpha"] = 0.6,
 				},
-				["Parisi - Nethergarde Keep"] = {
-					["padding"] = 5,
+				["Default"] = {
+					["keyring"] = false,
+					["onebag"] = true,
 					["version"] = 3,
 					["position"] = {
-						["y"] = 41,
-						["x"] = 296,
-						["point"] = "BOTTOM",
+						["y"] = 39,
+						["x"] = -40,
+						["point"] = "BOTTOMRIGHT",
 					},
 				},
 				["warrior classic"] = {
@@ -2198,14 +2199,13 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Default"] = {
-					["keyring"] = false,
-					["onebag"] = true,
+				["Parisi - Nethergarde Keep"] = {
+					["padding"] = 5,
 					["version"] = 3,
 					["position"] = {
-						["y"] = 39,
-						["x"] = -40,
-						["point"] = "BOTTOMRIGHT",
+						["y"] = 41,
+						["x"] = 296,
+						["point"] = "BOTTOM",
 					},
 				},
 				["SpartanUI - War"] = {
@@ -2368,8 +2368,7 @@ Bartender4DB = {
 								},
 								["ClearButton"] = {
 								},
-								["DragBottomLeft"] = {
-								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -2382,7 +2381,8 @@ Bartender4DB = {
 									["Text"] = {
 									},
 								},
-								["isLocked"] = false,
+								["DragBottomLeft"] = {
+								},
 							},
 							["firstTimeLoaded"] = 1,
 						},
@@ -2477,13 +2477,14 @@ Bartender4DB = {
 					["fadeout"] = true,
 					["fadeoutalpha"] = 0.6,
 				},
-				["Parisi - Nethergarde Keep"] = {
-					["version"] = 3,
+				["Default"] = {
 					["position"] = {
-						["y"] = 42.4999694824219,
-						["x"] = 104.500122070313,
-						["point"] = "CENTER",
+						["y"] = -2,
+						["x"] = -20.8000049591065,
+						["point"] = "TOP",
+						["scale"] = 1.3,
 					},
+					["version"] = 3,
 				},
 				["warrior classic"] = {
 					["enabled"] = false,
@@ -2513,14 +2514,13 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["Default"] = {
-					["position"] = {
-						["y"] = -2,
-						["x"] = -20.8000049591065,
-						["point"] = "TOP",
-						["scale"] = 1.3,
-					},
+				["Parisi - Nethergarde Keep"] = {
 					["version"] = 3,
+					["position"] = {
+						["y"] = 42.4999694824219,
+						["x"] = 104.500122070313,
+						["point"] = "CENTER",
+					},
 				},
 				["SpartanUI - War"] = {
 					["enabled"] = false,
@@ -2629,13 +2629,14 @@ Bartender4DB = {
 					["fadeout"] = true,
 					["fadeoutalpha"] = 0.6,
 				},
-				["Parisi - Nethergarde Keep"] = {
-					["version"] = 3,
+				["Default"] = {
 					["position"] = {
-						["y"] = -15,
-						["x"] = -82.4999389648438,
-						["point"] = "CENTER",
+						["y"] = 38.5,
+						["x"] = 148,
+						["point"] = "BOTTOMLEFT",
+						["scale"] = 1.185,
 					},
+					["version"] = 3,
 				},
 				["warrior classic"] = {
 					["padding"] = 1,
@@ -2665,14 +2666,13 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["Default"] = {
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 148,
-						["point"] = "BOTTOMLEFT",
-						["scale"] = 1.185,
-					},
+				["Parisi - Nethergarde Keep"] = {
 					["version"] = 3,
+					["position"] = {
+						["y"] = -15,
+						["x"] = -82.4999389648438,
+						["point"] = "CENTER",
+					},
 				},
 				["SpartanUI - War"] = {
 					["padding"] = 1,
@@ -2834,8 +2834,7 @@ Bartender4DB = {
 								},
 								["ClearButton"] = {
 								},
-								["DragBottomLeft"] = {
-								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -2848,7 +2847,8 @@ Bartender4DB = {
 									["Text"] = {
 									},
 								},
-								["isLocked"] = false,
+								["DragBottomLeft"] = {
+								},
 							},
 							["firstTimeLoaded"] = 1,
 						},
@@ -2949,12 +2949,12 @@ Bartender4DB = {
 						["parent"] = "Fel_ActionBarPlate",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Default"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 143,
-						["x"] = -460,
-						["point"] = "BOTTOM",
+						["y"] = -171.598625183105,
+						["x"] = 54.7987251281738,
+						["point"] = "LEFT",
 					},
 				},
 				["warrior classic"] = {
@@ -2988,12 +2988,12 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = -171.598625183105,
-						["x"] = 54.7987251281738,
-						["point"] = "LEFT",
+						["y"] = 143,
+						["x"] = -460,
+						["point"] = "BOTTOM",
 					},
 				},
 				["SpartanUI - War"] = {
@@ -3153,8 +3153,7 @@ Bartender4DB = {
 								},
 								["ClearButton"] = {
 								},
-								["DragBottomLeft"] = {
-								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -3167,7 +3166,8 @@ Bartender4DB = {
 									["Text"] = {
 									},
 								},
-								["isLocked"] = false,
+								["DragBottomLeft"] = {
+								},
 							},
 							["firstTimeLoaded"] = 1,
 						},
@@ -3261,14 +3261,15 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Parisi - Nethergarde Keep"] = {
+				["Default"] = {
 					["enabled"] = true,
-					["version"] = 3,
 					["position"] = {
-						["y"] = 61,
-						["x"] = -514,
+						["y"] = 51,
+						["x"] = -256,
 						["point"] = "BOTTOM",
+						["scale"] = 0.5,
 					},
+					["version"] = 3,
 				},
 				["warrior classic"] = {
 					["version"] = 3,
@@ -3297,15 +3298,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Default"] = {
+				["Parisi - Nethergarde Keep"] = {
 					["enabled"] = true,
-					["position"] = {
-						["y"] = 51,
-						["x"] = -256,
-						["point"] = "BOTTOM",
-						["scale"] = 0.5,
-					},
 					["version"] = 3,
+					["position"] = {
+						["y"] = 61,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
 				},
 				["SpartanUI - War"] = {
 					["version"] = 3,
@@ -3320,13 +3320,13 @@ Bartender4DB = {
 	},
 	["profileKeys"] = {
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
-		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
+		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
-		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
+		["Fermion - Nethergarde Keep"] = "Default",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
-		["Fermion - Nethergarde Keep"] = "Default",
+		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -3378,10 +3378,17 @@ Bartender4DB = {
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
-		["Parisi - Nethergarde Keep"] = {
+		["Default"] = {
 			["focuscastmodifier"] = false,
-			["blizzardVehicle"] = true,
-			["outofrange"] = "hotkey",
+			["colors"] = {
+				["range"] = {
+					["b"] = 0.133333333333333,
+					["g"] = 0.149019607843137,
+					["r"] = 0.145098039215686,
+				},
+			},
+			["buttonlock"] = true,
+			["snapping"] = false,
 		},
 		["warrior classic"] = {
 			["focuscastmodifier"] = false,
@@ -3407,17 +3414,10 @@ Bartender4DB = {
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
-		["Default"] = {
+		["Parisi - Nethergarde Keep"] = {
 			["focuscastmodifier"] = false,
-			["colors"] = {
-				["range"] = {
-					["b"] = 0.133333333333333,
-					["g"] = 0.149019607843137,
-					["r"] = 0.145098039215686,
-				},
-			},
-			["buttonlock"] = true,
-			["snapping"] = false,
+			["blizzardVehicle"] = true,
+			["outofrange"] = "hotkey",
 		},
 		["SpartanUI - War"] = {
 			["focuscastmodifier"] = false,

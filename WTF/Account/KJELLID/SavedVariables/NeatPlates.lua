@@ -13,171 +13,6 @@ NeatPlatesSettings = {
 	},
 }
 NeatPlatesSpellDB = {
-	["Player"] = {
-		["Battle Shout"] = {
-		},
-		["Summon Imp"] = {
-			["castTime"] = 9997,
-		},
-		["Smelt Thorium"] = {
-			["castTime"] = 3077.9999999702,
-		},
-		["Bloodrage"] = {
-		},
-		["Conjure Mana Jade"] = {
-			["castTime"] = 3000,
-		},
-		["Solid Sharpening Stone"] = {
-			["castTime"] = 2950,
-		},
-		["Runecloth Bag"] = {
-			["castTime"] = 60000,
-		},
-		["Teleport: Stormwind"] = {
-			["castTime"] = 10049,
-		},
-		["Smelt Mithril"] = {
-			["castTime"] = 2985,
-		},
-		["Armor +32"] = {
-			["castTime"] = 3083.9999999851,
-		},
-		["Elixir of Greater Agility"] = {
-			["castTime"] = 2902,
-		},
-		["Conjure Mana Ruby"] = {
-			["castTime"] = 3027,
-		},
-		["Summon Dreadsteed"] = {
-			["castTime"] = 3000,
-		},
-		["Barbaric Bracers"] = {
-			["castTime"] = 9969,
-		},
-		["Wool Bandage"] = {
-			["castTime"] = 3019,
-		},
-		["Bolt of Mageweave"] = {
-			["castTime"] = 4067,
-		},
-		["Summon Felsteed"] = {
-			["castTime"] = 3101,
-		},
-		["Heavy Copper Maul"] = {
-			["castTime"] = 5723,
-		},
-		["Smelt Gold"] = {
-			["castTime"] = 2962,
-		},
-		["Powerful Anti-Venom"] = {
-			["castTime"] = 3000,
-		},
-		["Basic Campfire"] = {
-			["castTime"] = 10099.0000000298,
-		},
-		["Thick Armor Kit"] = {
-			["castTime"] = 3012.0000000149,
-		},
-		["Nature Protection Potion"] = {
-			["castTime"] = 2980,
-		},
-		["Bolt of Linen Cloth"] = {
-			["castTime"] = 3082,
-		},
-		["Teleport: Moonglade"] = {
-			["castTime"] = 10000,
-		},
-		["Healing Touch"] = {
-			["castTime"] = 1732.9999999851,
-		},
-		["Summon Succubus"] = {
-			["castTime"] = 9997.9999999702,
-		},
-		["Heavy Linen Bandage"] = {
-			["castTime"] = 3059,
-		},
-		["Regrowth"] = {
-			["castTime"] = 1982,
-		},
-		["Runed Arcanite Rod"] = {
-			["castTime"] = 30009,
-		},
-		["Spotted Yellowtail"] = {
-			["castTime"] = 3003.9999999702,
-		},
-		["Conjure Water"] = {
-			["castTime"] = 3001,
-		},
-		["Mechanical Squirrel"] = {
-			["castTime"] = 5207,
-		},
-		["Elixir of Fortitude"] = {
-			["castTime"] = 4967,
-		},
-		["Heavy Wool Bandage"] = {
-			["castTime"] = 3029,
-		},
-		["Hearthstone"] = {
-			["castTime"] = 10000,
-		},
-		["Flash Heal"] = {
-			["castTime"] = 1505,
-		},
-		["Smelt Copper"] = {
-			["castTime"] = 2996,
-		},
-		["Advanced Target Dummy"] = {
-			["castTime"] = 4996,
-		},
-		["Elixir of Agility"] = {
-			["castTime"] = 3000,
-		},
-		["Nightscape Tunic"] = {
-			["castTime"] = 36568,
-		},
-		["Revive Pet"] = {
-			["castTime"] = 10000,
-		},
-		["Bolt of Runecloth"] = {
-			["castTime"] = 4935.0000000149,
-		},
-		["Create Scrying Bowl"] = {
-			["castTime"] = 2514,
-		},
-		["Teleport: Ironforge"] = {
-			["castTime"] = 9963.0000000298,
-		},
-		["Summon Charger"] = {
-			["castTime"] = 3026,
-		},
-		["Summon Voidwalker"] = {
-			["castTime"] = 6012,
-		},
-		["Elixir of the Mongoose"] = {
-			["castTime"] = 2927,
-		},
-		["Create Healthstone"] = {
-			["castTime"] = 3004.0000000298,
-		},
-		["Wrath"] = {
-			["castTime"] = 1547,
-		},
-		["Summon Warhorse"] = {
-			["castTime"] = 3014.9999999702,
-		},
-		["Conjure Food"] = {
-			["castTime"] = 2978.0000000149,
-		},
-		["Rejuvenation"] = {
-			["castTime"] = 3466,
-		},
-		["Smelt Iron"] = {
-			["castTime"] = 2978.9999999702,
-		},
-		["Smelt Tin"] = {
-			["castTime"] = 3000.9999999702,
-		},
-	},
 	["default"] = {
 		["Enchant Cloak - Greater Defense"] = {
 			["castTime"] = 5000,
@@ -25378,6 +25213,167 @@ NeatPlatesSpellDB = {
 			["texture"] = 136154,
 		},
 	},
+	["Player"] = {
+		["Summon Imp"] = {
+			["castTime"] = 9997,
+		},
+		["Smelt Thorium"] = {
+			["castTime"] = 3077.9999999702,
+		},
+		["Conjure Mana Jade"] = {
+			["castTime"] = 3000,
+		},
+		["Solid Sharpening Stone"] = {
+			["castTime"] = 2950,
+		},
+		["Runecloth Bag"] = {
+			["castTime"] = 60000,
+		},
+		["Teleport: Stormwind"] = {
+			["castTime"] = 10049,
+		},
+		["Smelt Mithril"] = {
+			["castTime"] = 2985,
+		},
+		["Armor +32"] = {
+			["castTime"] = 3083.9999999851,
+		},
+		["Elixir of Greater Agility"] = {
+			["castTime"] = 2902,
+		},
+		["Conjure Mana Ruby"] = {
+			["castTime"] = 3027,
+		},
+		["Summon Dreadsteed"] = {
+			["castTime"] = 3000,
+		},
+		["Barbaric Bracers"] = {
+			["castTime"] = 9969,
+		},
+		["Wool Bandage"] = {
+			["castTime"] = 3019,
+		},
+		["Bolt of Mageweave"] = {
+			["castTime"] = 4067,
+		},
+		["Heavy Copper Maul"] = {
+			["castTime"] = 5723,
+		},
+		["Summon Felsteed"] = {
+			["castTime"] = 3101,
+		},
+		["Powerful Anti-Venom"] = {
+			["castTime"] = 3000,
+		},
+		["Basic Campfire"] = {
+			["castTime"] = 10099.0000000298,
+		},
+		["Smelt Gold"] = {
+			["castTime"] = 2962,
+		},
+		["Nature Protection Potion"] = {
+			["castTime"] = 2980,
+		},
+		["Heavy Wool Bandage"] = {
+			["castTime"] = 3029,
+		},
+		["Bolt of Linen Cloth"] = {
+			["castTime"] = 3082,
+		},
+		["Healing Touch"] = {
+			["castTime"] = 1732.9999999851,
+		},
+		["Teleport: Moonglade"] = {
+			["castTime"] = 10000,
+		},
+		["Summon Succubus"] = {
+			["castTime"] = 9997.9999999702,
+		},
+		["Regrowth"] = {
+			["castTime"] = 1982,
+		},
+		["Runed Arcanite Rod"] = {
+			["castTime"] = 30009,
+		},
+		["Spotted Yellowtail"] = {
+			["castTime"] = 3003.9999999702,
+		},
+		["Conjure Water"] = {
+			["castTime"] = 3001,
+		},
+		["Mechanical Squirrel"] = {
+			["castTime"] = 5207,
+		},
+		["Elixir of Fortitude"] = {
+			["castTime"] = 4967,
+		},
+		["Heavy Linen Bandage"] = {
+			["castTime"] = 3059,
+		},
+		["Hearthstone"] = {
+			["castTime"] = 10000,
+		},
+		["Flash Heal"] = {
+			["castTime"] = 1505,
+		},
+		["Create Scrying Bowl"] = {
+			["castTime"] = 2514,
+		},
+		["Smelt Copper"] = {
+			["castTime"] = 2996,
+		},
+		["Advanced Target Dummy"] = {
+			["castTime"] = 4996,
+		},
+		["Elixir of Agility"] = {
+			["castTime"] = 3000,
+		},
+		["Nightscape Tunic"] = {
+			["castTime"] = 36568,
+		},
+		["Revive Pet"] = {
+			["castTime"] = 10000,
+		},
+		["Bolt of Runecloth"] = {
+			["castTime"] = 4935.0000000149,
+		},
+		["Teleport: Ironforge"] = {
+			["castTime"] = 9963.0000000298,
+		},
+		["Summon Charger"] = {
+			["castTime"] = 3026,
+		},
+		["Thick Armor Kit"] = {
+			["castTime"] = 3012.0000000149,
+		},
+		["Summon Voidwalker"] = {
+			["castTime"] = 6012,
+		},
+		["Elixir of the Mongoose"] = {
+			["castTime"] = 2927,
+		},
+		["Create Healthstone"] = {
+			["castTime"] = 3004.0000000298,
+		},
+		["Wrath"] = {
+			["castTime"] = 1547,
+		},
+		["Summon Warhorse"] = {
+			["castTime"] = 3014.9999999702,
+		},
+		["Conjure Food"] = {
+			["castTime"] = 2978.0000000149,
+		},
+		["Rejuvenation"] = {
+			["castTime"] = 3466,
+		},
+		["Smelt Iron"] = {
+			["castTime"] = 2978.9999999702,
+		},
+		["Smelt Tin"] = {
+			["castTime"] = 3000.9999999702,
+		},
+	},
 	["Creature"] = {
 		["Healing Wave"] = {
 			["4467"] = {
@@ -25398,6 +25394,8 @@ NeatPlatesSpellDB = {
 			},
 		},
 		["Demon Skin"] = {
+			["5648"] = {
+			},
 		},
 	},
 }

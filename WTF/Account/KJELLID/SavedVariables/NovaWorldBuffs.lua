@@ -43,9 +43,9 @@ NWBdatabase = {
 						["pvpFlag"] = true,
 						["faction"] = "Horde",
 						["race"] = "Tauren",
-						["level"] = 22,
 						["buffs"] = {
 						},
+						["level"] = 22,
 						["onyCount"] = 0,
 					},
 					["Shapeshifter"] = {
@@ -57,9 +57,9 @@ NWBdatabase = {
 						["zanCount"] = 0,
 						["onyCount"] = 0,
 						["faction"] = "Horde",
-						["level"] = 18,
 						["buffs"] = {
 						},
+						["level"] = 18,
 						["race"] = "Tauren",
 						["pvpFlag"] = false,
 					},
@@ -89,10 +89,10 @@ NWBdatabase = {
 				["nefTimer"] = 0,
 			},
 		},
-		["lo"] = 1616867018,
+		["lo"] = 1616867260,
 		["resetLayerMaps"] = false,
 		["resetLayers4"] = false,
-		["lt"] = 1616866143,
+		["lt"] = 1616867185,
 		["Nethergarde Keep"] = {
 			["Alliance"] = {
 				["flower10"] = 1616525101,
@@ -102,13 +102,14 @@ NWBdatabase = {
 				["flower9"] = 0,
 				["rendYell2"] = 0,
 				["tuber2"] = 1616524937,
-				["layersDisabled"] = {
+				["layers"] = {
 				},
-				["tuber1"] = 1616366879,
+				["dragon3"] = 0,
 				["flower7"] = 1616433462,
 				["timerLog"] = {
 				},
-				["onyYell"] = 1616610639,
+				["layersDisabled"] = {
+				},
 				["tuber3"] = 0,
 				["tuber5"] = 0,
 				["onyTimer"] = 1616610652,
@@ -127,9 +128,9 @@ NWBdatabase = {
 						["pvpFlag"] = false,
 						["faction"] = "Alliance",
 						["race"] = "Gnome",
-						["level"] = 15,
 						["buffs"] = {
 						},
+						["level"] = 15,
 						["onyCount"] = 0,
 					},
 					["Bushwick"] = {
@@ -141,9 +142,9 @@ NWBdatabase = {
 						["zanCount"] = 0,
 						["onyCount"] = 0,
 						["faction"] = "Alliance",
-						["level"] = 4,
 						["buffs"] = {
 						},
+						["level"] = 4,
 						["race"] = "Night Elf",
 						["pvpFlag"] = false,
 					},
@@ -157,9 +158,9 @@ NWBdatabase = {
 						["pvpFlag"] = false,
 						["faction"] = "Alliance",
 						["race"] = "Dwarf",
+						["level"] = 1,
 						["buffs"] = {
 						},
-						["level"] = 1,
 						["onyCount"] = 0,
 					},
 					["Fermion"] = {
@@ -172,19 +173,18 @@ NWBdatabase = {
 						["pvpFlag"] = false,
 						["faction"] = "Alliance",
 						["race"] = "Human",
+						["level"] = 49,
 						["buffs"] = {
 						},
-						["level"] = 49,
 						["onyCount"] = 0,
 					},
 				},
-				["dragon3"] = 0,
+				["tuber1"] = 1616366879,
 				["rendTimer"] = 1616607956,
 				["dragon1"] = 0,
-				["layers"] = {
-				},
-				["onyNpcDied"] = 1616366494,
 				["flower3"] = 1616534868,
+				["onyNpcDied"] = 1616366494,
+				["flower2"] = 1616533723,
 				["dragon2"] = 1616524866,
 				["nefNpcDied"] = 1616343633,
 				["nefTimer"] = 1616609012,
@@ -194,11 +194,11 @@ NWBdatabase = {
 				["flower5"] = 1616529506,
 				["onyYell2"] = 0,
 				["lastSyncBy"] = "Andal-NethergardeKeep",
-				["flower4"] = 1616616154,
+				["onyYell"] = 1616610639,
 				["zanYell"] = 0,
 				["dmfBuffSettings"] = {
 				},
-				["flower2"] = 1616533723,
+				["flower4"] = 1616616154,
 			},
 		},
 	},

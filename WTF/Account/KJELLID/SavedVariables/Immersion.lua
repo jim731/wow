@@ -11,7 +11,7 @@ ImmersionSetup = {
 	["titleoffset"] = 592.518493652344,
 	["titlescale"] = 0.8,
 	["boxoffsetX"] = 0,
-	["hidetooltip"] = true,
+	["hidetracker"] = true,
 	["accept"] = "SPACE",
 	["boxscale"] = 1,
 	["boxlock"] = true,
@@ -22,7 +22,7 @@ ImmersionSetup = {
 	["titlelock"] = false,
 	["anidivisor"] = 1,
 	["inspect"] = "SHIFT",
-	["hidetracker"] = true,
+	["hidetooltip"] = true,
 	["immersivemode"] = false,
 	["reset"] = "|",
 }

@@ -127,7 +127,7 @@ PallyPower: disabled
 Pawn: enabled
 Peggle: disabled
 PixelPerfectAlign: disabled
-Quartz: disabled
+Quartz: enabled
 QuestCompletist: enabled
 SexyMap: enabled
 SilverRareElites: enabled

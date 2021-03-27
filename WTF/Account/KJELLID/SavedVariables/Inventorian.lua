@@ -165,9 +165,9 @@ InventorianDB = {
 						},
 						["CountButton"] = {
 						},
-						["isLocked"] = false,
 						["DragBottomLeft"] = {
 						},
+						["isLocked"] = false,
 						["Title"] = {
 						},
 						["TitleClick"] = {
@@ -342,9 +342,9 @@ InventorianDB = {
 						},
 						["CountButton"] = {
 						},
-						["isLocked"] = false,
 						["DragBottomLeft"] = {
 						},
+						["isLocked"] = false,
 						["Title"] = {
 						},
 						["TitleClick"] = {

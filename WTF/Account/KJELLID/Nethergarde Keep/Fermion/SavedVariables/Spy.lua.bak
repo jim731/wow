@@ -1,9 +1,8 @@
 
 SpyPerCharDB = {
-	["version"] = "1.1",
-	["IgnoreData"] = {
-	},
 	["KOSData"] = {
+	},
+	["IgnoreData"] = {
 	},
 	["PlayerData"] = {
 		["Pauldanielz"] = {
@@ -65,21 +64,6 @@ SpyPerCharDB = {
 			["time"] = 1616534854,
 			["name"] = "Belsebubb",
 		},
-		["Urtimud"] = {
-			["mapID"] = 1446,
-			["guild"] = "Level Up",
-			["zone"] = "Tanaris",
-			["mapY"] = 0.28,
-			["class"] = "WARRIOR",
-			["isEnemy"] = true,
-			["race"] = "Orc",
-			["isGuess"] = false,
-			["subZone"] = "Gadgetzan",
-			["mapX"] = 0.51,
-			["level"] = 50,
-			["time"] = 1616618533,
-			["name"] = "Urtimud",
-		},
 		["Leftovers"] = {
 			["mapID"] = 1413,
 			["guild"] = "Mew",
@@ -94,6 +78,21 @@ SpyPerCharDB = {
 			["level"] = 50,
 			["time"] = 1616617657,
 			["name"] = "Leftovers",
+		},
+		["Urtimud"] = {
+			["mapID"] = 1446,
+			["guild"] = "Level Up",
+			["zone"] = "Tanaris",
+			["mapY"] = 0.28,
+			["class"] = "WARRIOR",
+			["isEnemy"] = true,
+			["race"] = "Orc",
+			["isGuess"] = false,
+			["subZone"] = "Gadgetzan",
+			["mapX"] = 0.51,
+			["level"] = 50,
+			["time"] = 1616618533,
+			["name"] = "Urtimud",
 		},
 		["Rhai"] = {
 			["mapID"] = 1413,
@@ -140,4 +139,5 @@ SpyPerCharDB = {
 			["name"] = "Cannidots",
 		},
 	},
+	["version"] = "1.1",
 }

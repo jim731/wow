@@ -1,5 +1,10 @@
 
 SpyPerCharDB = {
+	["version"] = "1.1",
+	["IgnoreData"] = {
+	},
+	["KOSData"] = {
+	},
 	["PlayerData"] = {
 		["Pauldanielz"] = {
 			["mapID"] = 1446,
@@ -75,20 +80,20 @@ SpyPerCharDB = {
 			["mapX"] = 0.63,
 			["subZone"] = "Ratchet",
 		},
-		["Urtimud"] = {
-			["mapID"] = 1446,
-			["guild"] = "Level Up",
-			["zone"] = "Tanaris",
-			["mapY"] = 0.28,
-			["class"] = "WARRIOR",
+		["Leftovers"] = {
+			["mapID"] = 1413,
+			["guild"] = "Mew",
+			["zone"] = "The Barrens",
+			["mapY"] = 0.4,
+			["class"] = "WARLOCK",
 			["isEnemy"] = true,
-			["race"] = "Orc",
+			["race"] = "Undead",
 			["isGuess"] = false,
-			["name"] = "Urtimud",
-			["time"] = 1616618533,
+			["name"] = "Leftovers",
+			["time"] = 1616617657,
 			["level"] = 50,
-			["mapX"] = 0.51,
-			["subZone"] = "Gadgetzan",
+			["mapX"] = 0.63,
+			["subZone"] = "The Merchant Coast",
 		},
 		["Rhai"] = {
 			["mapID"] = 1413,
@@ -104,20 +109,20 @@ SpyPerCharDB = {
 			["mapX"] = 0.63,
 			["subZone"] = "Ratchet",
 		},
-		["Leftovers"] = {
-			["mapID"] = 1413,
-			["guild"] = "Mew",
-			["zone"] = "The Barrens",
-			["mapY"] = 0.4,
-			["class"] = "WARLOCK",
+		["Urtimud"] = {
+			["mapID"] = 1446,
+			["guild"] = "Level Up",
+			["zone"] = "Tanaris",
+			["mapY"] = 0.28,
+			["class"] = "WARRIOR",
 			["isEnemy"] = true,
-			["race"] = "Undead",
+			["race"] = "Orc",
 			["isGuess"] = false,
-			["name"] = "Leftovers",
-			["time"] = 1616617657,
+			["name"] = "Urtimud",
+			["time"] = 1616618533,
 			["level"] = 50,
-			["mapX"] = 0.63,
-			["subZone"] = "The Merchant Coast",
+			["mapX"] = 0.51,
+			["subZone"] = "Gadgetzan",
 		},
 		["Cannidots"] = {
 			["mapID"] = 1446,
@@ -134,10 +139,5 @@ SpyPerCharDB = {
 			["mapX"] = 0.51,
 			["subZone"] = "Gadgetzan",
 		},
-	},
-	["IgnoreData"] = {
-	},
-	["version"] = "1.1",
-	["KOSData"] = {
 	},
 }

@@ -13,6 +13,30 @@ NeatPlatesSettings = {
 	},
 }
 NeatPlatesSpellDB = {
+	["Creature"] = {
+		["Demon Skin"] = {
+			["5648"] = {
+			},
+		},
+		["Shadow Bolt"] = {
+			["8636"] = {
+				["castTime"] = 3011,
+			},
+			["7996"] = {
+				["castTime"] = 3011,
+			},
+		},
+		["Lightning Bolt"] = {
+			["4467"] = {
+				["castTime"] = 3035,
+			},
+		},
+		["Healing Wave"] = {
+			["4467"] = {
+				["castTime"] = 2994,
+			},
+		},
+	},
 	["Player"] = {
 		["Summon Imp"] = {
 			["castTime"] = 9997,
@@ -32,8 +56,6 @@ NeatPlatesSpellDB = {
 		["Teleport: Stormwind"] = {
 			["castTime"] = 10049,
 		},
-		["Defensive Stance"] = {
-		},
 		["Smelt Mithril"] = {
 			["castTime"] = 2985,
 		},
@@ -52,43 +74,43 @@ NeatPlatesSpellDB = {
 		["Barbaric Bracers"] = {
 			["castTime"] = 9969,
 		},
-		["Battle Stance"] = {
+		["Defensive Stance"] = {
 		},
 		["Smelt Tin"] = {
 			["castTime"] = 3000.9999999702,
 		},
-		["Smelt Iron"] = {
-			["castTime"] = 2978.9999999702,
-		},
 		["Heavy Copper Maul"] = {
 			["castTime"] = 5723,
 		},
-		["Summon Felsteed"] = {
-			["castTime"] = 3101,
+		["Smelt Iron"] = {
+			["castTime"] = 2978.9999999702,
 		},
 		["Powerful Anti-Venom"] = {
 			["castTime"] = 3000,
 		},
-		["Wrath"] = {
-			["castTime"] = 1547,
+		["Basic Campfire"] = {
+			["castTime"] = 10099.0000000298,
+		},
+		["Summon Felsteed"] = {
+			["castTime"] = 3101,
 		},
 		["Nature Protection Potion"] = {
 			["castTime"] = 2980,
 		},
-		["Create Healthstone"] = {
-			["castTime"] = 3004.0000000298,
+		["Conjure Food"] = {
+			["castTime"] = 2978.0000000149,
 		},
-		["Elixir of the Mongoose"] = {
-			["castTime"] = 2927,
+		["Heavy Wool Bandage"] = {
+			["castTime"] = 3029,
 		},
 		["Healing Touch"] = {
 			["castTime"] = 1732.9999999851,
 		},
-		["Summon Voidwalker"] = {
-			["castTime"] = 6012,
+		["Wrath"] = {
+			["castTime"] = 1547,
 		},
-		["Conjure Food"] = {
-			["castTime"] = 2978.0000000149,
+		["Create Healthstone"] = {
+			["castTime"] = 3004.0000000298,
 		},
 		["Regrowth"] = {
 			["castTime"] = 1982,
@@ -111,14 +133,14 @@ NeatPlatesSpellDB = {
 		["Elixir of Fortitude"] = {
 			["castTime"] = 4967,
 		},
+		["Elixir of the Mongoose"] = {
+			["castTime"] = 2927,
+		},
+		["Summon Voidwalker"] = {
+			["castTime"] = 6012,
+		},
 		["Summon Charger"] = {
 			["castTime"] = 3026,
-		},
-		["Basic Campfire"] = {
-			["castTime"] = 10099.0000000298,
-		},
-		["Teleport: Ironforge"] = {
-			["castTime"] = 9963.0000000298,
 		},
 		["Create Scrying Bowl"] = {
 			["castTime"] = 2514,
@@ -129,8 +151,8 @@ NeatPlatesSpellDB = {
 		["Advanced Target Dummy"] = {
 			["castTime"] = 4996,
 		},
-		["Elixir of Agility"] = {
-			["castTime"] = 3000,
+		["Teleport: Ironforge"] = {
+			["castTime"] = 9963.0000000298,
 		},
 		["Nightscape Tunic"] = {
 			["castTime"] = 36568,
@@ -141,14 +163,14 @@ NeatPlatesSpellDB = {
 		["Bolt of Runecloth"] = {
 			["castTime"] = 4935.0000000149,
 		},
+		["Elixir of Agility"] = {
+			["castTime"] = 3000,
+		},
 		["Flash Heal"] = {
 			["castTime"] = 1505,
 		},
 		["Hearthstone"] = {
 			["castTime"] = 10000,
-		},
-		["Heavy Wool Bandage"] = {
-			["castTime"] = 3029,
 		},
 		["Heavy Linen Bandage"] = {
 			["castTime"] = 3059,
@@ -176,30 +198,6 @@ NeatPlatesSpellDB = {
 		},
 		["Wool Bandage"] = {
 			["castTime"] = 3019,
-		},
-	},
-	["Creature"] = {
-		["Demon Skin"] = {
-			["5648"] = {
-			},
-		},
-		["Shadow Bolt"] = {
-			["8636"] = {
-				["castTime"] = 3011,
-			},
-			["7996"] = {
-				["castTime"] = 3011,
-			},
-		},
-		["Lightning Bolt"] = {
-			["4467"] = {
-				["castTime"] = 3035,
-			},
-		},
-		["Healing Wave"] = {
-			["4467"] = {
-				["castTime"] = 2994,
-			},
 		},
 	},
 	["default"] = {
@@ -25401,7 +25399,5 @@ NeatPlatesSpellDB = {
 		["Improved Enslave Demon"] = {
 			["texture"] = 136154,
 		},
-	},
-	["Pet"] = {
 	},
 }

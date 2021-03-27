@@ -137,7 +137,7 @@ NITdatabase = {
 					["cookingSkill"] = 225,
 					["profSkill1"] = 220,
 					["instances"] = {
-						[209] = 4,
+						[209] = 6,
 					},
 					["durabilityAverage"] = 100,
 					["prof2"] = "Mining",
@@ -153,7 +153,7 @@ NITdatabase = {
 					["raceEnglish"] = "Human",
 					["profSkillMax1"] = 300,
 					["resting"] = false,
-					["time"] = 1616866980,
+					["time"] = 1616867242,
 					["gold"] = 619688,
 					["realm"] = "Nethergarde Keep",
 					["raceLocalized"] = "Human",
@@ -174,6 +174,28 @@ NITdatabase = {
 				},
 			},
 			["instances"] = {
+				{
+					["leftMoney"] = 0,
+					["group"] = {
+					},
+					["class"] = "Warrior",
+					["leftTime"] = 1616867260,
+					["enteredXP"] = 28604,
+					["xpFromChat"] = 0,
+					["playerName"] = "Fermion",
+					["enteredMoney"] = 619688,
+					["rep"] = {
+					},
+					["enteredTime"] = 1616867146,
+					["instanceID"] = 209,
+					["leftXP"] = 0,
+					["leftLevel"] = 49,
+					["rawMoneyCount"] = 0,
+					["instanceName"] = "Zul'Farrak",
+					["classEnglish"] = "WARRIOR",
+					["mobCount"] = 0,
+					["enteredLevel"] = 49,
+				}, -- [1]
 				{
 					["GUID"] = "Creature-0-4457-209-11591-5649-0003DF6173",
 					["leftMoney"] = 0,
@@ -198,7 +220,7 @@ NITdatabase = {
 					["rawMoneyCount"] = 0,
 					["GUIDSource"] = "nameplate1",
 					["enteredLevel"] = 49,
-				}, -- [1]
+				}, -- [2]
 				{
 					["GUID"] = "Creature-0-4460-209-12061-5648-00045F4329",
 					["leftMoney"] = 0,
@@ -225,7 +247,7 @@ NITdatabase = {
 					["mergeGUID"] = "Creature-0-4460-209-12061-5648-00005F4329",
 					["GUIDSource"] = "mouseover",
 					["enteredLevel"] = 49,
-				}, -- [2]
+				}, -- [3]
 				{
 					["GUID"] = "Creature-0-4479-209-19272-5649-00015BA550",
 					["leftMoney"] = 0,
@@ -250,7 +272,7 @@ NITdatabase = {
 					["classEnglish"] = "WARRIOR",
 					["mobCount"] = 0,
 					["enteredLevel"] = 49,
-				}, -- [3]
+				}, -- [4]
 			},
 		},
 		["resetCharData"] = false,

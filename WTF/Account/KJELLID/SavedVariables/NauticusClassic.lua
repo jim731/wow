@@ -66,8 +66,8 @@ NauticusClassic5DB = {
 				["since"] = 88538.61,
 			}, -- [10]
 		},
-		["timestamp"] = 1616866142,
-		["uptime"] = 430610.354,
+		["timestamp"] = 1616867184,
+		["uptime"] = 431652.719,
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
