@@ -3,6 +3,7 @@ HandyNotesDB = {
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
@@ -12,6 +13,8 @@ HandyNotesDB = {
 		["Ganado - Nethergarde Keep"] = {
 		},
 		["Shapeshifter - Skullflame"] = {
+		},
+		["Garluk - Mirage Raceway"] = {
 		},
 		["Fermion - Nethergarde Keep"] = {
 		},
@@ -27,6 +30,7 @@ HandyNotes_HandyNotesDB = {
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
@@ -36,6 +40,8 @@ HandyNotes_HandyNotesDB = {
 		["Ganado - Nethergarde Keep"] = {
 		},
 		["Shapeshifter - Skullflame"] = {
+		},
+		["Garluk - Mirage Raceway"] = {
 		},
 		["Fermion - Nethergarde Keep"] = {
 		},

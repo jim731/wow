@@ -125,17 +125,41 @@ end
 -------------------------------------------------------------------------------
 -- Initialization
 --
-
-function plugin:OnPluginEnable()
-	if not BigWigsStatsClassicDB then
+function plugin:OnRegister()
+	if type(BigWigsStatsClassicDB) ~= "table" then
 		BigWigsStatsClassicDB = {}
 	end
+end
 
-	if self.db.profile.enabled then
-		self:RegisterMessage("BigWigs_OnBossEngage")
-		self:RegisterMessage("BigWigs_OnBossWin")
-		self:RegisterMessage("BigWigs_OnBossWipe")
+do
+	local function updateProfile()
+		local db = plugin.db.profile
+
+		for k, v in next, db do
+			local defaultType = type(plugin.defaultDB[k])
+			if defaultType == "nil" then
+				db[k] = nil
+			elseif type(v) ~= defaultType then
+				db[k] = plugin.defaultDB[k]
+			end
+		end
 	end
+
+	function plugin:OnPluginEnable()
+		if self.db.profile.enabled then
+			self:RegisterMessage("BigWigs_OnBossEngage")
+			self:RegisterMessage("BigWigs_OnBossWin")
+			self:RegisterMessage("BigWigs_OnBossWipe")
+		end
+
+		self:RegisterMessage("BigWigs_ProfileUpdate", updateProfile)
+		updateProfile()
+	end
+end
+
+function plugin:OnPluginDisable()
+	activeDurations = {}
+	healthPools = {}
 end
 
 -------------------------------------------------------------------------------
@@ -143,7 +167,7 @@ end
 --
 
 do
-	local UnitHealth, UnitHealthMax, UnitName, IsEncounterInProgress = UnitHealth, UnitHealthMax, UnitName, IsEncounterInProgress
+	local UnitHealth, UnitHealthMax, IsEncounterInProgress = UnitHealth, UnitHealthMax, IsEncounterInProgress
 	local function StoreHealth(module)
 		if IsEncounterInProgress() then
 			for i = 1, 5 do
@@ -153,7 +177,7 @@ do
 					local maxHealth = UnitHealthMax(unit)
 					local health = rawHealth / maxHealth
 					healthPools[module.engageId][unit] = health
-					healthPools[module.engageId].names[unit] = UnitName(unit)
+					healthPools[module.engageId].names[unit] = plugin:UnitName(unit)
 				elseif healthPools[module.engageId][unit] then
 					healthPools[module.engageId][unit] = nil
 				end

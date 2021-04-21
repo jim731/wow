@@ -1,0 +1,8 @@
+Todo:
+
+- Add ANYONE doing a LFG without an instance in chat to automatically enroll in all instances by level Eg: 28 Shaman LFG (Excluding RAIDS and PVP)
+
+- If group has reached 5 on a world quest/raid/pvp ask if you want to expand to 40 or quit
+
+- NEED to make it so when your looking for a group and ADD someone to make a group, your Searching for a group changes to Looking for more.
+

@@ -6,7 +6,7 @@ local mod, CL = BigWigs:NewBoss("Maexxna", 533)
 if not mod then return end
 mod:RegisterEnableMob(15952)
 mod:SetAllowWin(true)
-mod.engageId = 1116
+mod:SetEncounterID(1116)
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -106,8 +106,8 @@ function mod:Frenzy(args)
 end
 
 function mod:UNIT_HEALTH_FREQUENT(event, unit)
-	if self:MobId(UnitGUID(unit)) == 15952 then
-		local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	if self:MobId(self:UnitGUID(unit)) == 15952 then
+		local hp = self:GetHealth(unit)
 		if hp > 30 and hp < 35 then
 			self:Message(28747, "red", L.enragesoonwarn)
 			self:UnregisterEvent(event)

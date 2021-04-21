@@ -6,7 +6,7 @@ local mod, CL = BigWigs:NewBoss("Loatheb", 533)
 if not mod then return end
 mod:RegisterEnableMob(16011)
 mod:SetAllowWin(true)
-mod.engageId = 1115
+mod:SetEncounterID(1115)
 
 --------------------------------------------------------------------------------
 -- Locals
@@ -69,8 +69,8 @@ function mod:OnEngage()
 	doomTime = 30
 	sporeCount = 1
 	doomCount = 1
-	wipe(healerList)
-	wipe(healerDebuffTime)
+	healerList = {}
+	healerDebuffTime = {}
 
 	self:Message(29204, "yellow", L.startwarn, false)
 	self:Bar(29204, 120, CL.count:format(self:SpellName(29204), doomCount))
@@ -83,7 +83,7 @@ function mod:OnEngage()
 	self:DelayedMessage(29204, 270, "yellow", L.doomtime_warn:format(30))
 	self:DelayedMessage(29204, 290, "orange", L.doomtime_warn:format(10))
 	self:DelayedMessage(29204, 295, "red", L.doomtime_warn:format(5))
-	self:DelayedMessage(29204, 300, "red", L.doomtime_now, "Alarm")
+	self:DelayedMessage(29204, 300, "red", L.doomtime_now, "alarm")
 
 	-- Corrupted Mind
 	self:OpenInfo(29185, self:SpellName(29185), 2)

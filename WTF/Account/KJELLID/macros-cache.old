@@ -35,8 +35,7 @@ VER 3 000000000000001D "chicken" "135996"
 /chicken
 END
 VER 3 0000000000000049 "Decursive" "INV_MISC_QUESTIONMARK"
-/stopcasting
-/cast [@mouseover,nomod,exists] Polymorph;  [@mouseover,exists,mod:ctrl] Polymorph; [@mouseover,exists,mod:shift] Polymorph
+/script DecursiveRootTable.Dcr:Println('No spell available')
 END
 VER 3 000000000000002D "details" "INV_MISC_QUESTIONMARK"
 /details toggle
@@ -52,6 +51,9 @@ VER 3 000000000000001E "hello" "INV_MISC_QUESTIONMARK"
 END
 VER 3 000000000000004A "lag" "INV_MISC_QUESTIONMARK"
 /run print("Current Latency: "..select(4,GetNetStats()).."ms.")
+END
+VER 3 0000000000000050 "LFG" "INV_MISC_QUESTIONMARK"
+/lfgwdw
 END
 VER 3 0000000000000048 "quartz" "INV_MISC_QUESTIONMARK"
 /quartz

@@ -20,6 +20,14 @@ L["Flask of Chromatic Resistance"] = "Fläschchen mit chromatischem Widerstand";
 L["Supreme Power"] = "Oberste Macht";
 L["Distilled Wisdom"] = "Destillierte Weisheit";
 L["Chromatic Resistance"] = "Chromatischer Widerstand";
+L["Sap"] = "Sap";
+L["Fire Festival Fortitude"] = "Fire Festival Fortitude";
+L["Fire Festival Fury"] = "Fire Festival Fury";
+L["Ribbon Dance"] = "Ribbon Dance";
+L["Traces of Silithyst"] = "Traces of Silithyst";
+L["Slip'kik's Savvy"] = "Slip'kik's Grips";
+L["Fengus' Ferocity"] = "Fengus' Wildheit";
+L["Mol'dar's Moxie"] = "Mol'Dars Mut";
 
 ---=====---
 ---Horde---
@@ -600,3 +608,10 @@ L["serverTimeShort"] = "st";
 
 L["showUnbuffedAltsTitle"] = "Show Unbuffed Alts";
 L["showUnbuffedAltsDesc"] = "Show alts without any buffs in the buffs window? This is so you can see what characters have no buffs if you would like.";
+
+L["Sheen of Zanza"] = "Zanzas Glanz";
+L["Spirit of Zanza"] = "Zanzas Geist";
+L["Swiftness of Zanza"] = "Zanzas Schnelligkeit";
+
+L["Mind Control"] = "Gedankenkontrolle";
+L["Gnomish Mind Control Cap"] = "Gnomen-Gedankenkontrollkappe";

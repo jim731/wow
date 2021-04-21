@@ -8,14 +8,22 @@ PawnCommon = {
 	["ShowValuesForUpgradesOnly"] = true,
 	["ShowItemLevelUpgrades"] = false,
 	["ShownGettingStarted"] = true,
-	["Debug"] = false,
+	["IgnoreGemsWhileLeveling"] = true,
 	["ColorTooltipBorder"] = true,
 	["ShowTooltipIcons"] = true,
 	["Digits"] = 1,
 	["ShowSocketingAdvisor"] = true,
+	["ShowSpecIcons"] = true,
+	["LastVersion"] = 2.0418,
+	["ButtonPosition"] = 2,
+	["ShowLootUpgradeAdvisor"] = true,
+	["ShowQuestUpgradeAdvisor"] = true,
 	["Scales"] = {
 		["\"Classic\":WARRIOR2"] = {
 			["PerCharacterOptions"] = {
+				["Garluk-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "c69b6d",
 			["LocalizedName"] = "Warrior: Fury",
@@ -137,6 +145,9 @@ PawnCommon = {
 		},
 		["\"Classic\":WARRIOR3"] = {
 			["PerCharacterOptions"] = {
+				["Garluk-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "c69b6d",
 			["LocalizedName"] = "Warrior: Protection",
@@ -221,6 +232,9 @@ PawnCommon = {
 		},
 		["\"Classic\":WARRIOR1"] = {
 			["PerCharacterOptions"] = {
+				["Garluk-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "c69b6d",
 			["LocalizedName"] = "Warrior: Arms",
@@ -440,10 +454,5 @@ PawnCommon = {
 			["SpecID"] = 2,
 		},
 	},
-	["LastVersion"] = 2.0417,
-	["ButtonPosition"] = 2,
-	["ShowLootUpgradeAdvisor"] = true,
-	["ShowQuestUpgradeAdvisor"] = true,
-	["ShowSpecIcons"] = true,
-	["IgnoreGemsWhileLeveling"] = true,
+	["Debug"] = false,
 }

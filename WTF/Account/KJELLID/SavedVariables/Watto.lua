@@ -8,21 +8,15 @@ Watto_Options = {
 	},
 	["showtooltipdata"] = false,
 	["usemoneyicons"] = false,
-	["sellbacklimiter"] = false,
+	["Version"] = "1.7.4",
 	["autosellfood"] = false,
 	["fillreagentbank"] = true,
-	["Version"] = "1.7.4",
+	["sellbacklimiter"] = false,
 }
 Watto_ItemList = {
 	["General"] = {
 	},
 	["PerChar"] = {
-		["Skullflame"] = {
-			["Shapeshifter"] = {
-			},
-			["Ferns"] = {
-			},
-		},
 		["Nethergarde Keep"] = {
 			["Parisi"] = {
 			},
@@ -31,6 +25,16 @@ Watto_ItemList = {
 			["Ganado"] = {
 			},
 			["Fermion"] = {
+			},
+		},
+		["Mirage Raceway"] = {
+			["Garluk"] = {
+			},
+		},
+		["Skullflame"] = {
+			["Ferns"] = {
+			},
+			["Shapeshifter"] = {
 			},
 		},
 	},

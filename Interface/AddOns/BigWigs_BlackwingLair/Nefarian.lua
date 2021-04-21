@@ -6,7 +6,7 @@ local mod, CL = BigWigs:NewBoss("NefarianBWL", 469)
 if not mod then return end
 mod:RegisterEnableMob(11583, 10162) -- Nefarian, Lord Victor Nefarius
 mod:SetAllowWin(true)
-mod.engageId = 617
+mod:SetEncounterID(617)
 
 --------------------------------------------------------------------------------
 -- Locals
@@ -114,6 +114,8 @@ function mod:OnBossEnable()
 	self:RegisterEvent("CHAT_MSG_MONSTER_YELL")
 
 	self:Death("AddDied", 14264, 14263, 14261, 14265, 14262, 14302) --Red, Bronze, Blue, Black, Green, Chromatic
+
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
 end
 
 function mod:OnEngage()

@@ -1,9 +1,9 @@
 ## Interface: 11306
 ## Title: BlizzMove
 ## Notes: Makes blizzard frames movable
-## Author: the-rebel-Mermaid - github.com/the-rebel-Mermaid/BlizzMove/
+## Author: Kiatra - github.com/Kiatra/BlizzMove/
 ## X-WoWI-ID: 23875
-## Version: v3.0.10a
+## Version: v3.0.12
 ## OptionalDeps: Ace3
 ## X-Embeds: Ace3
 ## SavedVariables: BlizzMoveDB

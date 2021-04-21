@@ -19,6 +19,14 @@ L["Flask of Chromatic Resistance"] = "多重抗性合剂";
 L["Supreme Power"] = "至高能量";
 L["Distilled Wisdom"] = "萃取智慧";
 L["Chromatic Resistance"] = "多彩抗性";
+L["Sap"] = "Sap";
+L["Fire Festival Fortitude"] = "Fire Festival Fortitude";
+L["Fire Festival Fury"] = "Fire Festival Fury";
+L["Ribbon Dance"] = "Ribbon Dance";
+L["Traces of Silithyst"] = "Traces of Silithyst";
+L["Slip'kik's Savvy"] = "斯里基克的机智";
+L["Fengus' Ferocity"] = "芬古斯的狂暴";
+L["Mol'dar's Moxie"] = "摩尔达的勇气";
 
 ---=====---
 ---Horde---
@@ -640,3 +648,10 @@ L["layerMsg4"] = "在 %s 选中任何NPC以查看你当前的位面."; --Target 
 --NOTE: Darkmoon Faire buff type is now a character specific setting, changing buff type will only change it for this character.
 L["note"] = "注意:";
 L["dmfConfigWarning"] = "暗夜马戏团Buff现在是角色独立设置,更改Buff类型只会对此角色生效.";
+
+L["Sheen of Zanza"] = "赞扎之光";
+L["Spirit of Zanza"] = "赞扎之魂";
+L["Swiftness of Zanza"] = "赞扎之速";
+
+L["Mind Control"] = "精神控制";
+L["Gnomish Mind Control Cap"] = "侏儒洗脑帽";

@@ -1333,7 +1333,7 @@ function NWB:receivedData(dataReceived, sender, distribution, elapsed)
 		if (not found) then
 			string = string .. " " .. L["noActiveTimers"] .. ".";
 		end
-		NWB:print(string);
+		NWB:print(string, nil, nil, true);
 	end
 end
 
@@ -1380,9 +1380,7 @@ function NWB:receivedNpcDied(type, timestamp, distribution, layer, sender)
 					local timeAgoString =  NWB:getTimeString(timeAgo, true);
 					local msg = "New recently killed " .. typeString .. " NPC timer received, died " .. timeAgoString .. " ago.";
 					if (NWB.db.global.middleNpcKilled) then
-						local colorTable = {r = self.db.global.middleColorR, g = self.db.global.middleColorG, 
-								b = self.db.global.middleColorB, id = 41, sticky = 0};
-						RaidNotice_AddMessage(RaidWarningFrame, msg, colorTable, 5);
+						NWB:middleScreenMsg("npcKilled", msg, nil, 5);
 					end
 					NWB:playSound("soundsNpcKilled", "timer");
 				end)
@@ -1390,12 +1388,10 @@ function NWB:receivedNpcDied(type, timestamp, distribution, layer, sender)
 				local timeAgoString =  NWB:getTimeString(timeAgo, true);
 				local msg = "New recently killed " .. typeString .. " NPC timer received, died " .. timeAgoString .. " ago.";
 				if (NWB.db.global.middleNpcKilled) then
-					local colorTable = {r = self.db.global.middleColorR, g = self.db.global.middleColorG, 
-							b = self.db.global.middleColorB, id = 41, sticky = 0};
-					RaidNotice_AddMessage(RaidWarningFrame, msg, colorTable, 5);
+					NWB:middleScreenMsg("npcKilled", msg, nil, 5);
 				end
 				if (NWB.db.global.chatNpcKilled) then
-					NWB:print(msg);
+					NWB:print(msg, nil, nil, true);
 				end
 				NWB:playSound("soundsNpcKilled", "timer");
 			end
@@ -1775,7 +1771,7 @@ function NWB:resetTimerLog()
 	NWB.data.timerLog = {};
 end
 
-local NWBTimerLogFrame = CreateFrame("ScrollFrame", "NWBTimerLogFrame", UIParent, "InputScrollFrameTemplate");
+local NWBTimerLogFrame = CreateFrame("ScrollFrame", "NWBTimerLogFrame", UIParent, NWB:addBackdrop("InputScrollFrameTemplate"));
 NWBTimerLogFrame:Hide();
 NWBTimerLogFrame:SetToplevel(true);
 NWBTimerLogFrame:SetMovable(true);

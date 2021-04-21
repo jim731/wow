@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Baron Geddon", 409)
 if not mod then return end
 mod:RegisterEnableMob(12056)
 mod:SetAllowWin(true)
-mod.engageId = 668
+mod:SetEncounterID(668)
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -79,5 +79,5 @@ function mod:IgniteMana(args)
 	-- first cast takes 7-19s, so we skip that
 	self:Bar(19659, 27)
 	self:Message(19659, "orange")
-	self:DelayedMessage(19659, 22, "red", CL.custom_sec:format(self:SpellName(19659), 5), false, "Alert")
+	self:DelayedMessage(19659, 22, "red", CL.custom_sec:format(self:SpellName(19659), 5), false, "alert")
 end

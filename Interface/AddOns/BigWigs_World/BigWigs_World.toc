@@ -1,4 +1,4 @@
-## Interface: 11306
+## Interface: 11307
 
 ## Title: BigWigs [|cffeda55fWorld|r]
 ## Title-deDE: BigWigs [|cffeda55fWorld|r]
@@ -22,6 +22,7 @@
 ## Notes-ruRU: BigWigs World Boss Modules
 ## Notes-zhCN: 世界首领模块。
 ## Notes-zhTW: BigWigs World Boss Modules
+## Version: v24-classic
 
 ## LoadOnDemand: 1
 ## Dependencies: BigWigs

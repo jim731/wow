@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Battleguard Sartura", 531)
 if not mod then return end
 mod:RegisterEnableMob(15516, 15984) -- Battleguard Sartura, Sartura's Royal Guard
 mod:SetAllowWin(true)
-mod.engageId = 711
+mod:SetEncounterID(711)
 
 local addsLeft = 3
 
@@ -70,8 +70,8 @@ function mod:WhirlwindOver(args)
 end
 
 function mod:UNIT_HEALTH_FREQUENT(event, unit)
-	if self:MobId(UnitGUID(unit)) == 15516 then
-		local hp = UnitHealth(unit)
+	if self:MobId(self:UnitGUID(unit)) == 15516 then
+		local hp = self:GetHealth(unit)
 		if hp < 31 then
 			self:UnregisterUnitEvent(event, "target", "focus")
 			self:Message(8269, "yellow", CL.soon:format(self:SpellName(8269)), false)

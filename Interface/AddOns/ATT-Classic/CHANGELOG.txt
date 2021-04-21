@@ -1,63 +1,34 @@
-0.4.7 Release Notes
+0.5.0 Release Notes
 Contributions made by Crieve:
-* Initial Commit
-* Some extra logging. (Also note that you can't add exploration for major cities, I tried it and wiped out my other changes after I determined it couldn't be done using our current tech.)
-* Some minor fixes.
-* Fixed the Maul spell for Druids.
-* No longer scanning the "General" Spellbook information as that broke professions. (Might be something to look into future, however.)
-* Tusks and Fetishes...
-* Added a number of quests for Arathi Basin.
-* The quest "Goldleaf's Discovery" is now a breadcrumb quest.
-* Fixed a missing quest item.
-* Fixed a quest chain in Feralas.
-* Merge branch 'exploration' into master
-* Exploration! Note that the assignments for each location are not correct.
-* Some minor improvements to the existing (unchanged) version of the Map Data.
-* Added Art ID to Tooltips as an option.
-* Added the setting to disable Exploration, should that not interest you.
-* Merge pull request #105 from rafalszczykno/breadcrumbs
-* Removed a pointless description.
-* You can now turn off Account Wide Deaths. Also fixed a bug with the Deaths tracker that prevented you from reaching 100% with it active.
-* Modified some boiler plate code for Map Exploration.
-* Working on remapping the Exploration Module.
-* Finished remapping Durotar.
-* Finished exploration for Dustwallow Marsh.
-* Finished exploration for Felwood.
-* Finished exploration for Feralas.
-* Finished exploration for Moonglade.
-* Finished exploration for Mulgore.
-* Finished exploration for Silithus.
-* Finished exploration for Stonetalon Mountains and Tanaris.
-* Finished exploration for The Barrens.
-* Finished exploration for Thousand Needles.
-* Finished exploration for Un'Goro Crater and Winterspring.
-* Implemented boiler plate code for Eastern Kingdoms and Alterac Valley.
-* Finished exploration for Alterac Mountains.
-* Finished exploration for Arathi Highlands.
-* Finished exploration for the Badlands.
-* Finished exploration for the Blasted Lands.
-* Finished exploration for the Burning Steppes.
-* Finished exploration for Dun Morogh.
-* Finished exploration for Duskwood.
-* Finished exploration for the Eastern Plaguelands.
-* Finished exploration for Elwynn Forest.
-* Finished exploration for Hillsbrad Forest.
-* Finished exploration for Loch Modan.
-* Finished exploration for Redridge Mountains.
-* Finished exploration for the Searing Gorge.
-* Finished exploration for Silverpine Forest.
-* Finished exploration for Stranglethorn Vale.
-* Finished exploration for Swamp of Sorrows.
-* Finished exploration for The Hinterlands.
-* Finished exploration for Tirisfal Glades.
-* Finished exploration for Western Plaguelands.
-* Finished exploration for Westfall.
-* Finished exploration for the Wetlands. And also finished the Exploration Module!
-
-Contributions made by Rafa┼é Szczykno:
-* Added missing breadcrumbs
-
-Contributions made by Kalle Sommer Nielsen:
-* Exploration data for every map
-* Implemented subzone names for exploration
+* Headers once again can use Quests and get checked off as saved. (I didn't realize how prevelant this was.)
+* Reporting the error is probably better than printing it.
+* Battle Pets now automatically flag themselves as Wrath Phase One to get stripped out of the addon.
+* Removed a print statement after discovering a new area.
+* Now caching factionID.
+* Parser now supports the -- #if CLASSIC preprocessor command.
+* The Settings Interface changed and now requires an explicit parent assignment for the UI.
+* The Parser tool now supports exporting PTR database information to the PTR folder in WoW and the Classic Beta (TBC) database information to the TBC Beta folder in WoW.
+* Moved the Parser tools into the .tools contrib folder. Added the TBC Parser tool. Moved the raw ATT database into the .db folder and removed "DATAS".
+* Now ignoring the log file.
+* Updated Parser to support "BEFORE" and "AFTER" commands.
+* Made several adjustments to Parser to provide better version and phase filtering. Added the initial build of Karazhan. (which can literally be copy/pasted between Retail and TBC and rebuilt using specific versions of Parser) Added Outland World Bosses. (I'm not sure which Phase these will be made available with.)
+* Now properly handling the Lord Kazzak / Highlord Kruul swap that happens with TBC.
+* Refactored Molten Core to add future items and achievements.
+* Parser is now x64 and supports Lua 5.4.
+* When running Parser, you now have to Opt-In to execute Debug Mode on the Database.
+* Added Deadwind Pass vendors.
+* Bloodsail Buccaneers are now collected at 20999 into Revered.
+* Wrong phase for the zone drop.
+* Added a number of Alchemy quests.
+* Added a number of Blacksmithing quests and cleaned up quest items for blacksmithing now that cost is properly handled.
+* Removed some common craftables as quest rewards. (don't want some unnecessary chaining to occur)
+* Added future proofed quest data for Cooking.
+* Added all Engineering quests up to TBC.
+* Initial touch up of Hellfire Peninsula.
+* Added Hellfire Peninsula Vendors.
+* Marked Plaguewood Tower, Eastwood Tower, etc as Unobtainable.
+* Unobtainable Flight Paths no longer appear in the Dynamic Flight Paths section.
+* Added coord for Elixirs for the Bladeleafs.
+* Moved around the Engineering quests.
+* Classic Phase 7! Patch 1.13.7 content and versioning now available!
 

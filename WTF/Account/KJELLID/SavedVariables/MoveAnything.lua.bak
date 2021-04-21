@@ -1,0 +1,13 @@
+
+MADB = {
+	["noBags"] = false,
+	["characters"] = {
+	},
+	["alwaysShowNudger"] = false,
+	["tooltips"] = true,
+	["profiles"] = {
+	},
+	["noMMMW"] = false,
+	["playSound"] = false,
+	["closeGUIOnEscape"] = false,
+}

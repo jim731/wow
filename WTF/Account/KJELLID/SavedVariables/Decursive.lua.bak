@@ -3,6 +3,7 @@ DecursiveDB = {
 	["profileKeys"] = {
 		["Ferns - Skullflame"] = "Default",
 		["Shapeshifter - Skullflame"] = "Default",
+		["Garluk - Mirage Raceway"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Default",
 		["Ganado - Nethergarde Keep"] = "Default",
@@ -67,7 +68,7 @@ DecursiveDB = {
 	},
 	["global"] = {
 		["NoStartMessages"] = true,
-		["LastVersionAnnounce"] = 1616863229,
+		["LastVersionAnnounce"] = 1618943941,
 	},
 	["profiles"] = {
 		["Default"] = {

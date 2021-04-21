@@ -1,46 +1,5 @@
 local addonName, wt = ...
 
-local _G = _G
-local GetCoinTextureString = GetCoinTextureString
-local GetMoney = GetMoney
-local GetFileIDFromPath = GetFileIDFromPath
-local GetSpellInfo = GetSpellInfo
-local GetQuestDifficultyColor = GetQuestDifficultyColor
-local IsSpellKnown = IsSpellKnown
-local IsPlayerSpell = IsPlayerSpell
-local UnitLevel = UnitLevel
-local FauxScrollFrame_Update = FauxScrollFrame_Update
-local FauxScrollFrame_GetOffset = FauxScrollFrame_GetOffset
-local FauxScrollFrame_OnVerticalScroll = FauxScrollFrame_OnVerticalScroll
-local CreateFrame = CreateFrame
-local tinsert = tinsert
-local format = format
-local hooksecurefunc = hooksecurefunc
-local wipe = wipe
-local sort = sort
-local select = select
-local ipairs = ipairs
-local pairs = pairs
-local Spell = Spell
-local Item = Item
-local MAX_SKILLLINE_TABS = MAX_SKILLLINE_TABS
-local GREEN_FONT_COLOR_CODE = GREEN_FONT_COLOR_CODE
-local ORANGE_FONT_COLOR_CODE = ORANGE_FONT_COLOR_CODE
-local RED_FONT_COLOR_CODE = RED_FONT_COLOR_CODE
-local LIGHTYELLOW_FONT_COLOR_CODE = LIGHTYELLOW_FONT_COLOR_CODE
-local GRAY_FONT_COLOR_CODE = GRAY_FONT_COLOR_CODE
-local FONT_COLOR_CODE_CLOSE = FONT_COLOR_CODE_CLOSE
-local HIGHLIGHT_FONT_COLOR_CODE = HIGHLIGHT_FONT_COLOR_CODE
-local PARENS_TEMPLATE = PARENS_TEMPLATE
-local BOOKTYPE_SPELL = BOOKTYPE_SPELL
-
-local MAX_ROWS = 22
-local ROW_HEIGHT = 14
-local SKILL_LINE_TAB = MAX_SKILLLINE_TABS - 1
-local HIGHLIGHT_TEXTURE_FILEID = GetFileIDFromPath("Interface\\AddOns\\WhatsTraining\\highlight")
-local LEFT_BG_TEXTURE_FILEID = GetFileIDFromPath("Interface\\AddOns\\WhatsTraining\\left")
-local RIGHT_BG_TEXTURE_FILEID = GetFileIDFromPath("Interface\\AddOns\\WhatsTraining\\right")
-local TAB_TEXTURE_FILEID = GetFileIDFromPath("Interface\\Icons\\INV_Misc_QuestionMark")
 local AVAILABLE_KEY = "available"
 local MISSINGREQS_KEY = "missingReqs"
 local NEXTLEVEL_KEY = "nextLevel"
@@ -54,82 +13,6 @@ local COMINGSOON_FONT_COLOR_CODE = "|cff82c5ff"
 local MISSINGTALENT_FONT_COLOR_CODE = "|cffffffff"
 local PET_FONT_COLOR_CODE = "|cffffffff"
 
-local petAbilityNames = {}
-local function isPetAbility(spellId)
-    return wt.petAbilityMap ~= nil and wt.petAbilityMap[spellId]
-    end
-local spellInfoCache = {}
--- done has param cacheHit
-local function getSpellInfo(spell, level, done)
-    if (spellInfoCache[spell.id] ~= nil) then
-        done(true)
-        return
-    end
-    local si = Spell:CreateFromSpellID(spell.id)
-    si:ContinueOnSpellLoad(
-        function()
-            if (spellInfoCache[spell.id] ~= nil) then
-                done(true)
-                return
-            end
-            local subText = si:GetSpellSubtext()
-            local formattedSubText = (subText and subText ~= "") and format(PARENS_TEMPLATE, subText) or ""
-            spellInfoCache[spell.id] = {
-                id = spell.id,
-                name = si:GetSpellName(),
-                subText = subText,
-                formattedSubText = formattedSubText,
-                icon = select(3, GetSpellInfo(spell.id)),
-                cost = spell.cost,
-                formattedCost = GetCoinTextureString(spell.cost),
-                level = level,
-                formattedLevel = format(wt.L.LEVEL_FORMAT, level)
-            }
-            if (isPetAbility(spell.id)) then
-                if (formattedSubText ~= "") then
-                    petAbilityNames[si:GetSpellName().." "..formattedSubText] = spellInfoCache[spell.id]
-                else
-                    petAbilityNames[si:GetSpellName()] = spellInfoCache[spell.id]
-                end
-            end
-            done(false)
-        end
-    )
-end
-local itemInfoCache = {}
--- for warlock pet tomes, the name includes the rank
--- however, this will cause overlap with the level text and there's no good way to fix it with setting points
--- instead, strip the rank text out of the name and put it as the subText
-local parensPattern = " (%(.+%))"
-local function getItemInfo(item, level, done)
-    if (itemInfoCache[item.id] ~= nil) then
-        done(true)
-        return
-    end
-    local ii = Item:CreateFromItemID(item.id)
-    ii:ContinueOnItemLoad(
-        function()
-            if (itemInfoCache[item.id] ~= nil) then
-                done(true)
-                return
-            end
-            local rankText = string.match(ii:GetItemName(), parensPattern)
-            itemInfoCache[item.id] = {
-                id = item.id,
-                name = string.gsub(ii:GetItemName(), parensPattern, ""),
-                formattedSubText = rankText,
-                icon = ii:GetItemIcon(),
-                cost = item.cost,
-                formattedCost = GetCoinTextureString(item.cost),
-                level = level,
-                formattedLevel = format(wt.L.LEVEL_FORMAT, level),
-                isItem = true
-            }
-            done(false)
-        end
-    )
-end
-
 local function isPreviouslyLearnedAbility(spellId)
     if (wt.overriddenSpellsMap == nil or not wt.overriddenSpellsMap[spellId]) then
         return false
@@ -137,9 +20,7 @@ local function isPreviouslyLearnedAbility(spellId)
 
     local spellIndex, knownIndex = 0, 0
     for i, otherId in ipairs(wt.overriddenSpellsMap[spellId]) do
-        if (otherId == spellId) then
-            spellIndex = i
-        end
+        if (otherId == spellId) then spellIndex = i end
         if (IsSpellKnown(otherId) or IsPlayerSpell(otherId)) then
             knownIndex = i
         end
@@ -148,13 +29,10 @@ local function isPreviouslyLearnedAbility(spellId)
 end
 
 local function isAbilityKnown(spellId)
-    if (IsSpellKnown(spellId) or IsPlayerSpell(spellId) or isPreviouslyLearnedAbility(spellId)) then
-        return true
-    end
-    if (not isPetAbility(spellId)) then
-        return false
-    end
-    local info = spellInfoCache[spellId]
+    if (IsSpellKnown(spellId) or IsPlayerSpell(spellId) or
+        isPreviouslyLearnedAbility(spellId)) then return true end
+    if (not wt:IsPetAbility(spellId)) then return false end
+    local info = wt:SpellInfo(spellId)
 
     if (info.subText == nil or wt.learnedPetAbilityMap[info.name] == nil) then
         return false
@@ -172,14 +50,12 @@ local headers = {
         color = GREEN_FONT_COLOR_CODE,
         hideLevel = true,
         key = AVAILABLE_KEY
-    },
-    {
+    }, {
         name = wt.L.MISSINGREQS_HEADER,
         color = ORANGE_FONT_COLOR_CODE,
         hideLevel = true,
         key = MISSINGREQS_KEY
-    },
-    {
+    }, {
         name = wt.L.NEXTLEVEL_HEADER,
         color = COMINGSOON_FONT_COLOR_CODE,
         key = NEXTLEVEL_KEY
@@ -188,34 +64,29 @@ local headers = {
         name = wt.L.NOTLEVEL_HEADER,
         color = RED_FONT_COLOR_CODE,
         key = NOTLEVEL_KEY
-    },
-    {
+    }, {
         name = wt.L.PET_HEADER,
         color = PET_FONT_COLOR_CODE,
         key = PET_KEY
-        --nameSort = true
-    },
-    {
+        -- nameSort = true
+    }, {
         name = wt.L.MISSINGTALENT_HEADER,
         color = MISSINGTALENT_FONT_COLOR_CODE,
         key = MISSINGTALENT_KEY,
         nameSort = true
-    },
-    {
+    }, {
         name = wt.L.IGNORED_HEADER,
         color = LIGHTYELLOW_FONT_COLOR_CODE,
         costFormat = wt.L.TOTALSAVINGS_FORMAT,
         key = IGNORED_KEY,
         nameSort = true
-    },
-    {
+    }, {
         name = wt.L.KNOWN_HEADER,
         color = GRAY_FONT_COLOR_CODE,
         hideLevel = true,
         key = KNOWN_KEY,
         nameSort = true
-    },
-    {
+    }, {
         name = wt.L.KNOWN_PET_HEADER,
         color = GRAY_FONT_COLOR_CODE,
         hideLevel = true,
@@ -247,36 +118,41 @@ local categories = {
 }
 categories:Initialize()
 
-local spellsAndHeaders = {}
-local function rebuildSpells(playerLevel, isLevelUpEvent)
+wt.data = {}
+local function rebuildData(playerLevel, isLevelUpEvent)
     categories:ClearSpells()
-    wipe(spellsAndHeaders)
+    wipe(wt.data)
     if (wt.TomesByLevel) then
         for _, tomesAtLevel in pairs(wt.TomesByLevel) do
             for _, tome in ipairs(tomesAtLevel) do
-                local itemInfo = itemInfoCache[tome.id]
+                local itemInfo = wt:ItemInfo(tome.id)
                 if (itemInfo ~= nil) then
-                    categories:Insert(PET_KEY, itemInfo)
+                    local key = wt.learnedPetAbilityMap[tome.id] and
+                                    KNOWN_PET_KEY or PET_KEY
+                    categories:Insert(key, itemInfo)
                 end
             end
         end
     end
     for level, spellsAtLevel in pairs(wt.SpellsByLevel) do
         for _, spell in ipairs(spellsAtLevel) do
-            local spellInfo = spellInfoCache[spell.id]
+            local spellInfo = wt:SpellInfo(spell.id)
             if (spellInfo ~= nil) then
                 local categoryKey
 
                 if (isAbilityKnown(spellInfo.id)) then
-                    categoryKey = isPetAbility(spellInfo.id) and KNOWN_PET_KEY or KNOWN_KEY
+                    categoryKey = wt:IsPetAbility(spellInfo.id) and
+                                      KNOWN_PET_KEY or KNOWN_KEY
                 elseif (isIgnoredByCTP(spellInfo.id)) then
                     categoryKey = IGNORED_KEY
-                elseif (isPetAbility(spellInfo.id)) then
+                elseif (wt:IsPetAbility(spellInfo.id)) then
                     categoryKey = PET_KEY
-                elseif (spell.requiredTalentId ~= nil and not isAbilityKnown(spell.requiredTalentId)) then
+                elseif (spell.requiredTalentId ~= nil and
+                    not isAbilityKnown(spell.requiredTalentId)) then
                     categoryKey = MISSINGTALENT_KEY
                 elseif (level > playerLevel) then
-                    categoryKey = level <= playerLevel + 2 and NEXTLEVEL_KEY or NOTLEVEL_KEY
+                    categoryKey = level <= playerLevel + 2 and NEXTLEVEL_KEY or
+                                      NOTLEVEL_KEY
                 else
                     local hasReqs = true
                     if (spell.requiredIds ~= nil) then
@@ -294,32 +170,28 @@ local function rebuildSpells(playerLevel, isLevelUpEvent)
     end
 
     local function byLevelThenName(a, b)
-        if (a.level == b.level) then
-            return a.name < b.name
-        end
+        if (a.level == b.level) then return a.name < b.name end
         return a.level < b.level
     end
     local function byNameThenLevel(a, b)
-        if (a.name == b.name) then
-            return a.level < b.level
-        end
+        if (a.name == b.name) then return a.level < b.level end
         return a.name < b.name
     end
     for _, category in ipairs(categories) do
         if (#category.spells > 0) then
-            tinsert(spellsAndHeaders, category)
-            local sortFunc = category.nameSort and byNameThenLevel or byLevelThenName
+            tinsert(wt.data, category)
+            local sortFunc = category.nameSort and byNameThenLevel or
+                                 byLevelThenName
             sort(category.spells, sortFunc)
             local totalCost = 0
             if (category.key == PET_KEY and WT_NeedsToOpenBeastTraining == true) then
-                tinsert(spellsAndHeaders, {
-                    formattedName = ORANGE_FONT_COLOR_CODE..wt.L.OPEN_BEAST_TRAINING..FONT_COLOR_CODE_CLOSE,
+                tinsert(wt.data, {
+                    formattedName = ORANGE_FONT_COLOR_CODE ..
+                        wt.L.OPEN_BEAST_TRAINING .. FONT_COLOR_CODE_CLOSE,
                     isHeader = true,
                     cost = 0,
                     tooltip = wt.L.CLICK_TO_OPEN,
-                    click = function()
-                        CastSpellByID(5149)
-                    end
+                    click = function() CastSpellByID(5149) end
                 })
             end
             for _, s in ipairs(category.spells) do
@@ -332,36 +204,32 @@ local function rebuildSpells(playerLevel, isLevelUpEvent)
                 s.levelColor = GetQuestDifficultyColor(effectiveLevel)
                 s.hideLevel = category.hideLevel
                 totalCost = totalCost + s.cost
-                tinsert(spellsAndHeaders, s)
+                tinsert(wt.data, s)
             end
             category.cost = totalCost
         end
     end
-    if (wt.MainFrame == nil) then
-        return
-    end
+    if (wt.MainFrame == nil) then return end
 end
 local function rebuildIfNotCached(fromCache)
-    if (fromCache or wt.MainFrame == nil) then
-        return
-    end
-    rebuildSpells(UnitLevel("player"))
+    if (fromCache or wt.MainFrame == nil) then return end
+    rebuildData(UnitLevel("player"))
 end
 
-local function rebuildAndUpdate()
-    rebuildSpells(UnitLevel("player"))
-    if (wt.MainFrame and wt.MainFrame:IsVisible()) then
-        wt.Update(wt.MainFrame, true)
+function wt:RebuildData()
+    rebuildData(UnitLevel("player"))
+    if (self.MainFrame and self.MainFrame:IsVisible()) then
+        self.Update(self.MainFrame, true)
     end
 end
 
 function wt.afterPetUpdate()
     WT_NeedsToOpenBeastTraining = false
-    rebuildAndUpdate()
+    wt:RebuildData()
 end
 
 function wt.onSpellLearned(name)
-    local petAbility = petAbilityNames[name]
+    local petAbility = wt:PetAbility(name)
     if (petAbility == nil) then return end
     if (petAbility.subText) then
         if (wt.learnedPetAbilityMap[petAbility.name] == nil) then
@@ -371,301 +239,166 @@ function wt.onSpellLearned(name)
     else
         WT_NeedsToOpenBeastTraining = true
     end
-    rebuildAndUpdate()
+    wt:RebuildData()
 end
 
 if (wt.TomesByLevel) then
     for level, tomesByLevel in pairs(wt.TomesByLevel) do
         for _, tome in ipairs(tomesByLevel) do
-            getItemInfo(tome, level, rebuildIfNotCached)
+            wt:CacheItem(tome, level, rebuildIfNotCached)
         end
     end
 end
 for level, spellsByLevel in pairs(wt.SpellsByLevel) do
     for _, spell in ipairs(spellsByLevel) do
-        getSpellInfo(spell, level, rebuildIfNotCached)
+        wt:CacheSpell(spell, level, rebuildIfNotCached)
     end
-end
-
-local tooltip = CreateFrame("GameTooltip", "WhatsTrainingTooltip", UIParent, "GameTooltipTemplate")
-function wt.SetTooltip(spellInfo)
-    if (spellInfo.isItem) then
-        tooltip:SetItemByID(spellInfo.id)
-    elseif (spellInfo.id) then
-        tooltip:SetSpellByID(spellInfo.id)
-    else
-        tooltip:ClearLines()
-    end
-    if (spellInfo.cost > 0) then
-    local coloredCoinString = spellInfo.formattedCost or GetCoinTextureString(spellInfo.cost)
-    if (GetMoney() < spellInfo.cost) then
-        coloredCoinString = RED_FONT_COLOR_CODE .. coloredCoinString .. FONT_COLOR_CODE_CLOSE
-    end
-    local formatString = spellInfo.isHeader and (spellInfo.costFormat or wt.L.TOTALCOST_FORMAT) or wt.L.COST_FORMAT
-
-    tooltip:AddLine(HIGHLIGHT_FONT_COLOR_CODE .. format(formatString, coloredCoinString) .. FONT_COLOR_CODE_CLOSE)
-    end
-    if (spellInfo.tooltip) then
-        tooltip:AddLine(spellInfo.tooltip)
-    end
-    tooltip:Show()
-end
-
-function wt.SetRowSpell(row, spell)
-    if (spell == nil) then
-        row.currentSpell = nil
-        row:Hide()
-        return
-    elseif (spell.isHeader) then
-        row.spell:Hide()
-        row.header:Show()
-        row.header:SetText(spell.formattedName)
-        row:SetID(0)
-        row.highlight:SetTexture(nil)
-    else
-        local rowSpell = row.spell
-        row.header:Hide()
-        row.isHeader = false
-        row.highlight:SetTexture(HIGHLIGHT_TEXTURE_FILEID)
-        rowSpell:Show()
-        rowSpell.label:SetText(spell.name)
-        rowSpell.subLabel:SetText(spell.formattedSubText)
-        if (not spell.hideLevel) then
-            rowSpell.level:Show()
-            rowSpell.level:SetText(spell.formattedLevel)
-            local color = spell.levelColor
-            rowSpell.level:SetTextColor(color.r, color.g, color.b)
-        else
-            rowSpell.level:Hide()
-        end
-        row:SetID(spell.id)
-        rowSpell.icon:SetTexture(spell.icon)
-    end
-    row:SetScript("OnClick", spell.click)
-    row.currentSpell = spell
-    if (tooltip:IsOwned(row)) then
-        wt.SetTooltip(spell)
-    end
-    row:Show()
-end
-
--- When holding down left mouse on the slider knob, it will keep firing update even though
--- the offset hasn't changed so this will help throttle that
-local lastOffset = -1
-function wt.Update(frame, forceUpdate)
-    local scrollBar = frame.scrollBar
-    local offset = FauxScrollFrame_GetOffset(scrollBar)
-    if (offset == lastOffset and not forceUpdate) then
-        return
-    end
-    for i, row in ipairs(frame.rows) do
-        local spellIndex = i + offset
-        local spell = spellsAndHeaders[spellIndex]
-        wt.SetRowSpell(row, spell)
-    end
-    FauxScrollFrame_Update(
-        wt.MainFrame.scrollBar,
-        #spellsAndHeaders,
-        MAX_ROWS,
-        ROW_HEIGHT,
-        nil,
-        nil,
-        nil,
-        nil,
-        nil,
-        nil,
-        true
-    )
-    lastOffset = offset
-end
-
-local hasFrameShown = false
-function wt.CreateFrame()
-    local mainFrame = CreateFrame("Frame", "WhatsTrainingFrame", SpellBookFrame)
-    mainFrame:SetPoint("TOPLEFT", SpellBookFrame, "TOPLEFT", 0, 0)
-    mainFrame:SetPoint("BOTTOMRIGHT", SpellBookFrame, "BOTTOMRIGHT", 0, 0)
-    mainFrame:SetFrameStrata("HIGH")
-    local left = mainFrame:CreateTexture(nil, "ARTWORK")
-    left:SetTexture(LEFT_BG_TEXTURE_FILEID)
-    left:SetWidth(256)
-    left:SetHeight(512)
-    left:SetPoint("TOPLEFT", mainFrame)
-    local right = mainFrame:CreateTexture(nil, "ARTWORK")
-    right:SetTexture(RIGHT_BG_TEXTURE_FILEID)
-    right:SetWidth(128)
-    right:SetHeight(512)
-    right:SetPoint("TOPRIGHT", mainFrame)
-    mainFrame:Hide()
-
-    local skillLineTab = _G["SpellBookSkillLineTab" .. SKILL_LINE_TAB]
-    hooksecurefunc(
-        "SpellBookFrame_UpdateSkillLineTabs",
-        function()
-            skillLineTab:SetNormalTexture(TAB_TEXTURE_FILEID)
-            skillLineTab.tooltip = wt.L.TAB_TEXT
-            skillLineTab:Show()
-            if (SpellBookFrame.selectedSkillLine == SKILL_LINE_TAB) then
-                skillLineTab:SetChecked(true)
-                mainFrame:Show()
-            else
-                skillLineTab:SetChecked(false)
-                mainFrame:Hide()
-            end
-        end
-    )
-    hooksecurefunc(
-        "SpellBookFrame_Update",
-        function()
-            if (SpellBookFrame.bookType ~= BOOKTYPE_SPELL) then
-                mainFrame:Hide()
-            elseif (SpellBookFrame.selectedSkillLine == SKILL_LINE_TAB) then
-                mainFrame:Show()
-            end
-        end
-    )
-
-    local scrollBar = CreateFrame("ScrollFrame", "$parentScrollBar", mainFrame, "FauxScrollFrameTemplate")
-    scrollBar:SetPoint("TOPLEFT", 0, -75)
-    scrollBar:SetPoint("BOTTOMRIGHT", -65, 81)
-    scrollBar:SetScript(
-        "OnVerticalScroll",
-        function(self, offset)
-            FauxScrollFrame_OnVerticalScroll(
-                self,
-                offset,
-                ROW_HEIGHT,
-                function()
-                    wt.Update(mainFrame)
-                end
-            )
-        end
-    )
-    scrollBar:SetScript(
-        "OnShow",
-        function()
-            if (not hasFrameShown) then
-                rebuildSpells(UnitLevel("player"))
-                hasFrameShown = true
-            end
-            wt.Update(mainFrame, true)
-        end
-    )
-    mainFrame.scrollBar = scrollBar
-
-    local rows = {}
-    for i = 1, MAX_ROWS do
-        local row = CreateFrame("Button", "$parentRow" .. i, mainFrame)
-        row:SetHeight(ROW_HEIGHT)
-        row:EnableMouse()
-        row:SetScript(
-            "OnEnter",
-            function(self)
-                tooltip:SetOwner(self, "ANCHOR_RIGHT")
-                wt.SetTooltip(self.currentSpell)
-            end
-        )
-        row:SetScript(
-            "OnLeave",
-            function()
-                tooltip:Hide()
-            end
-        )
-        local highlight = row:CreateTexture("$parentHighlight", "HIGHLIGHT")
-        highlight:SetAllPoints()
-
-        local spell = CreateFrame("Frame", "$parentSpell", row)
-        spell:SetPoint("LEFT", row, "LEFT")
-        spell:SetPoint("TOP", row, "TOP")
-        spell:SetPoint("BOTTOM", row, "BOTTOM")
-
-        local spellIcon = spell:CreateTexture(nil, "OVERLAY")
-        spellIcon:SetPoint("TOPLEFT", spell)
-        spellIcon:SetPoint("BOTTOMLEFT", spell)
-        local iconWidth = ROW_HEIGHT
-        spellIcon:SetWidth(iconWidth)
-        local spellLabel = spell:CreateFontString("$parentLabel", "OVERLAY", "GameFontNormal")
-        spellLabel:SetPoint("TOPLEFT", spell, "TOPLEFT", iconWidth + 4, 0)
-        spellLabel:SetPoint("BOTTOM", spell)
-        spellLabel:SetJustifyV("MIDDLE")
-        spellLabel:SetJustifyH("LEFT")
-        local spellSublabel = spell:CreateFontString("$parentSubLabel", "OVERLAY", "NewSubSpellFont")
-        spellSublabel:SetJustifyH("LEFT")
-        spellSublabel:SetPoint("TOPLEFT", spellLabel, "TOPRIGHT", 2, 0)
-        spellSublabel:SetPoint("BOTTOM", spellLabel)
-        local spellLevelLabel = spell:CreateFontString("$parentLevelLabel", "OVERLAY", "GameFontWhite")
-        spellLevelLabel:SetPoint("TOPRIGHT", spell, -4, 0)
-        spellLevelLabel:SetPoint("BOTTOM", spell)
-        spellLevelLabel:SetJustifyH("RIGHT")
-        spellLevelLabel:SetJustifyV("MIDDLE")
-        spellSublabel:SetPoint("RIGHT", spellLevelLabel, "LEFT")
-        spellSublabel:SetJustifyV("MIDDLE")
-
-        local headerLabel = row:CreateFontString("$parentHeaderLabel", "OVERLAY", "GameFontWhite")
-        headerLabel:SetAllPoints()
-        headerLabel:SetJustifyV("MIDDLE")
-        headerLabel:SetJustifyH("CENTER")
-
-        spell.label = spellLabel
-        spell.subLabel = spellSublabel
-        spell.icon = spellIcon
-        spell.level = spellLevelLabel
-        row.highlight = highlight
-        row.header = headerLabel
-        row.spell = spell
-
-        if (rows[i - 1] == nil) then
-            row:SetPoint("TOPLEFT", mainFrame, 26, -78)
-        else
-            row:SetPoint("TOPLEFT", rows[i - 1], "BOTTOMLEFT", 0, -2)
-        end
-        row:SetPoint("RIGHT", scrollBar)
-
-        rawset(rows, i, row)
-    end
-    mainFrame.rows = rows
-    wt.MainFrame = mainFrame
 end
 
 if (HookCTPUpdate) then
     wt.ctpDb = ClassTrainerPlusDBPC
-    HookCTPUpdate(
-        function()
-            rebuildSpells(UnitLevel("player"))
-        end
-    )
+    HookCTPUpdate(function()
+        wt:RebuildData()
+    end)
 end
 
 local eventFrame = CreateFrame("Frame")
-eventFrame:SetScript(
-    "OnEvent",
-    function(self, event, ...)
-        if (event == "ADDON_LOADED" and ... == addonName) then
-            if (WT_LearnedPetAbilities == nil) then
-                WT_LearnedPetAbilities = {}
-                WT_NeedsToOpenBeastTraining = wt.currentClass == "HUNTER"
-            end
+eventFrame:SetScript("OnEvent", function(self, event, ...)
+    if (event == "ADDON_LOADED" and ... == addonName) then
+        if (WT_LearnedPetAbilities == nil) then
+            WT_LearnedPetAbilities = {}
+            WT_NeedsToOpenBeastTraining = wt.currentClass == "HUNTER"
+        end
 
-            wt.learnedPetAbilityMap = WT_LearnedPetAbilities
-            if (WT_NeedsToOpenBeastTraining == nil and wt.currentClass == "HUNTER") then
-                WT_NeedsToOpenBeastTraining = true
-            end
-            self:UnregisterEvent("ADDON_LOADED")
-        elseif (event == "PLAYER_ENTERING_WORLD") then
-            local isLogin, isReload = ...
-            if (isLogin or isReload) then
-                rebuildSpells(UnitLevel("player"))
-                wt.CreateFrame()
-            end
-        elseif (event == "LEARNED_SPELL_IN_TAB" or event == "PLAYER_LEVEL_UP") then
-            local isLevelUp = event == "PLAYER_LEVEL_UP"
-            rebuildSpells(isLevelUp and ... or UnitLevel("player"), isLevelUp)
-            if (wt.MainFrame and wt.MainFrame:IsVisible()) then
-                wt.Update(wt.MainFrame, true)
-            end
+        wt.learnedPetAbilityMap = WT_LearnedPetAbilities
+        if (WT_NeedsToOpenBeastTraining == nil and wt.currentClass == "HUNTER") then
+            WT_NeedsToOpenBeastTraining = true
+        end
+        self:UnregisterEvent("ADDON_LOADED")
+    elseif (event == "PLAYER_ENTERING_WORLD") then
+        local isLogin, isReload = ...
+        if (isLogin or isReload) then
+            rebuildData(UnitLevel("player"))
+            wt.CreateFrame()
+        end
+    elseif (event == "LEARNED_SPELL_IN_TAB" or event == "PLAYER_LEVEL_UP") then
+        local isLevelUp = event == "PLAYER_LEVEL_UP"
+        rebuildData(isLevelUp and ... or UnitLevel("player"), isLevelUp)
+        if (wt.MainFrame and wt.MainFrame:IsVisible()) then
+            wt.Update(wt.MainFrame, true)
         end
     end
-)
+end)
 eventFrame:RegisterEvent("ADDON_LOADED")
 eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 eventFrame:RegisterEvent("LEARNED_SPELL_IN_TAB")
 eventFrame:RegisterEvent("PLAYER_LEVEL_UP")
+
+if (wt.currentClass == "WARLOCK") then
+    local scan = CreateFrame("GameTooltip", "WTWarlockTomeScanningTooltip", nil,
+                             "GameTooltipTemplate")
+    scan:SetOwner(UIParent, "ANCHOR_NONE")
+    local requiresLevelPattern = SPELL_REQUIRED_FORM .. '?'
+    local function isKnown(merchantIndex)
+        scan:ClearLines()
+        local link = GetMerchantItemLink(merchantIndex)
+        scan:SetHyperlink(link)
+        local lines = scan:NumLines()
+        for i = lines, 1, -1 do
+            local text =
+                _G['WTWarlockTomeScanningTooltipTextLeft' .. i]:GetText()
+            -- the "Requires Level x" line is above the "Already Known" line
+            -- we can stop searching when we hit it
+            if (string.match(text, requiresLevelPattern)) then
+                return false
+            end
+            if (text == ITEM_SPELL_KNOWN) then return true end
+        end
+        return false
+    end
+
+    local tomeMerchantIds = {
+        [5520] = true,
+        [5753] = true,
+        [1277] = true,
+        [6027] = true,
+        [6374] = true,
+        [6373] = true,
+        [6376] = true,
+        [1280] = true,
+        [5749] = true,
+        [5750] = true,
+        [6382] = true,
+        [5815] = true,
+        [6328] = true
+    }
+    local function updateMerchantFrame()
+        local guid = UnitGUID("npc")
+        if (guid == nil) then return end
+        local npcId = select(6, strsplit("-", guid))
+        if (npcId == nil) then return end
+        npcId = tonumber(npcId)
+        if (not tomeMerchantIds[npcId]) then return end
+
+        local numMerchantItems = GetMerchantNumItems();
+        for i = 1, MERCHANT_ITEMS_PER_PAGE do
+            local index =
+                (((MerchantFrame.page - 1) * MERCHANT_ITEMS_PER_PAGE) + i);
+            local itemButton = _G["MerchantItem" .. i .. "ItemButton"];
+            local merchantButton = _G["MerchantItem" .. i];
+            if (index <= numMerchantItems) then
+                local merchantItemID = GetMerchantItemID(index)
+                if (wt.TomeIds[merchantItemID]) then
+                    if (wt.learnedPetAbilityMap[merchantItemID] == nil) then
+                        if (isKnown(index)) then
+                            wt.learnedPetAbilityMap[merchantItemID] = true
+                        end
+                    end
+                end
+                if (wt.learnedPetAbilityMap[merchantItemID]) then
+                    SetItemButtonNameFrameVertexColor(merchantButton, 0.5, 0, 0);
+                    SetItemButtonSlotVertexColor(merchantButton, 0.5, 0, 0);
+                    SetItemButtonTextureVertexColor(itemButton, 0.5, 0, 0);
+                    SetItemButtonNormalTextureVertexColor(itemButton, 0.5, 0, 0);
+                end
+            end
+
+        end
+    end
+    hooksecurefunc("MerchantFrame_UpdateMerchantInfo", updateMerchantFrame)
+end
+
+if (wt.currentClass == "HUNTER") then
+    local petAbilityUpdateFrame = CreateFrame("Frame")
+    petAbilityUpdateFrame:SetScript("OnEvent", function()
+        -- Beast training should always have at least one craft, and
+        -- display skill line should always return nil for beast training
+        local numCrafts = GetNumCrafts()
+        if (numCrafts == 0 or GetCraftDisplaySkillLine()) then return end
+        for i = 1, numCrafts do
+            local name, rank = GetCraftInfo(i)
+            if (wt.learnedPetAbilityMap[name] == nil) then
+                wt.learnedPetAbilityMap[name] = {}
+            end
+            -- some locales may not provide a rank, need more investigation
+            if (rank ~= nil) then
+                wt.learnedPetAbilityMap[name][rank] = true
+            end
+        end
+        wt.afterPetUpdate()
+    end)
+    petAbilityUpdateFrame:RegisterEvent("CRAFT_UPDATE")
+    petAbilityUpdateFrame:RegisterEvent("SPELLS_CHANGED")
+
+    local learnedSpellMatchPattern = string.gsub(ERR_LEARN_SPELL_S, "%%s",
+                                                 "(.+)")
+    local petChatParserFrame = CreateFrame("Frame")
+    petChatParserFrame:SetScript("OnEvent", function(_, _, ...)
+        local matchedSpellName = string.match(select(1, ...),
+                                              learnedSpellMatchPattern)
+        if (matchedSpellName ~= nil) then
+            wt.onSpellLearned(matchedSpellName)
+        end
+    end)
+    petChatParserFrame:RegisterEvent("CHAT_MSG_SYSTEM")
+end

@@ -7,6 +7,13 @@
 local addonName, addon = ...;
 addon.a = LibStub("AceAddon-3.0"):NewAddon("NovaWorldBuffs", "AceComm-3.0");
 local NWB = addon.a;
+if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+	NWB.isClassic = true;
+elseif (WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC) then
+	NWB.isTBC = true;
+elseif (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+	NWB.isRetail = true;
+end
 NWB.LSM = LibStub("LibSharedMedia-3.0");
 NWB.dragonLib = LibStub("HereBeDragons-2.0");
 NWB.dragonLibPins = LibStub("HereBeDragons-Pins-2.0");
@@ -15,6 +22,7 @@ NWB.commPrefix = "NWB";
 NWB.hasAddon = {};
 NWB.realm = GetRealmName();
 NWB.faction = UnitFactionGroup("player");
+NWB.maxBuffLevel = 63;
 NWB.loadTime = 0;
 NWB.limitLayerCount = 99;
 NWB.sharedLayerBuffs = true;
@@ -102,6 +110,10 @@ NWB:setRegionFont();
 --Print current buff timers to chat window.
 local npcRespawnTime = 360;
 function NWB:printBuffTimers(isLogon)
+	if (isLogon and NWB.isTBC and (NWB.db.global.disableLogonAllLevels
+		or (UnitLevel("player") > NWB.maxBuffLevel and NWB.db.global.disableLogonAboveMaxBuffLevel))) then
+		return;
+	end
 	local msg;
 	if (NWB.faction == "Horde" or NWB.db.global.allianceEnableRend) then
 		if (NWB.data.rendTimer > (GetServerTime() - NWB.db.global.rendRespawnTime)) then
@@ -417,7 +429,11 @@ end
 
 --Add prefix and colors from db then print.
 local printPrefix;
-function NWB:print(msg, channel, prefix)
+function NWB:print(msg, channel, prefix, tbcCheck)
+	if (tbcCheck and NWB.isTBC and (NWB.db.global.disableChatAllLevels
+		or (UnitLevel("player") > NWB.maxBuffLevel and NWB.db.global.disableChatAboveMaxBuffLevel))) then
+		return;
+	end
 	if (prefix) then
 		printPrefix = NWB.prefixColor .. prefix .. "|r";
 	end
@@ -735,17 +751,17 @@ function NWB:doWarning(type, num, secondsLeft, layer)
 	msg = msg .. layerMsg .. period;
 	--Chat.
 	if (NWB.db.global.chat30 and num == 30 and send) then
-		NWB:print(msg);
+		NWB:print(msg, nil, nil, true);
 	elseif (NWB.db.global.chat15 and num == 15 and send) then
-		NWB:print(msg);
+		NWB:print(msg, nil, nil, true);
 	elseif (NWB.db.global.chat10 and num == 10 and send) then
-		NWB:print(msg);
+		NWB:print(msg, nil, nil, true);
 	elseif (NWB.db.global.chat5 and num == 5 and send) then
-		NWB:print(msg);
+		NWB:print(msg, nil, nil, true);
 	elseif (NWB.db.global.chat1 and num == 1 and send) then
-		NWB:print(msg);
+		NWB:print(msg, nil, nil, true);
 	elseif (NWB.db.global.chat0 and num == 0 and send) then
-		NWB:print(msg);
+		NWB:print(msg, nil, nil, true);
 	end
 	--Guild.
 	local loadWait = GetServerTime() - NWB.loadTime;
@@ -768,20 +784,18 @@ function NWB:doWarning(type, num, secondsLeft, layer)
 	if (UnitInBattleground("player") and NWB.db.global.middleHideBattlegrounds) then
 		return;
 	end
-	local colorTable = {r = self.db.global.middleColorR, g = self.db.global.middleColorG, 
-			b = self.db.global.middleColorB, id = 41, sticky = 0};
 	if (NWB.db.global.middle30 and num == 30 and send) then
-		RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, 5);
+		NWB:middleScreenMsg("middle30", msg, nil, 5);
 	elseif (NWB.db.global.middle15 and num == 15 and send) then
-		RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, 5);
+		NWB:middleScreenMsg("middle15", msg, nil, 5);
 	elseif (NWB.db.global.middle10 and num == 10 and send) then
-		RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, 5);
+		NWB:middleScreenMsg("middle10", msg, nil, 5);
 	elseif (NWB.db.global.middle5 and num == 5 and send) then
-		RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, 5);
+		NWB:middleScreenMsg("middle5", msg, nil, 5);
 	elseif (NWB.db.global.middle1 and num == 1 and send) then
-		RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, 5);
+		NWB:middleScreenMsg("middle1", msg, nil, 5);
 	elseif (NWB.db.global.middle0 and num == 0 and send) then
-		RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, 5);
+		NWB:middleScreenMsg("middle0", msg, nil, 5);
 	end
 end
 
@@ -790,6 +804,9 @@ end
 --BUG: sometimes a user doesn't register as having addon, checked table they don't exist when this happens.
 --Must be some reason they don't send a guild addon msg at logon.
 function NWB:sendGuildMsg(msg, type, zoneName)
+	if (NWB.isTBC) then
+		return;
+	end
 	if (NWB.db.global.disableAllGuildMsgs == 1) then
 		return;
 	end
@@ -1032,26 +1049,30 @@ function NWB:monsterYell(...)
 				NWB:sendTimerLogData("YELL");
 			end)
 		end
-	elseif ((name == L["Overlord Runthak"] and (string.match(msg, L["Onyxia, has been slain"]) or skipStringCheck))
-			or (name == L["Major Mattingly"] and (string.match(msg, L["history has been made"]) or skipStringCheck))) then
+	elseif ((NWB.faction == "Horde" and name == L["Overlord Runthak"] and (string.match(msg, L["Onyxia, has been slain"]) or skipStringCheck))
+			or (NWB.faction == "Alliance" and name == L["Major Mattingly"]
+			and (string.match(msg, L["history has been made"]) or skipStringCheck))) then
 		--14 seconds between first ony yell and buff applied.
 		NWB.data.onyYell = GetServerTime();
 		NWB:doFirstYell("ony", layerNum);
 		--Send first yell msg to guild so people in org see it, needed because 1 person online only will send msg.
 		NWB:sendYell("GUILD", "ony", nil, layerNum);
-	elseif ((name == L["Overlord Runthak"] and string.match(msg, L["Be lifted by the rallying cry"]))
-			or (name == L["Major Mattingly"] and string.match(msg, L["Onyxia, hangs from the arches"]))) then
+	elseif ((NWB.faction == "Horde" and name == L["Overlord Runthak"] and string.match(msg, L["Be lifted by the rallying cry"]))
+			or (NWB.faction == "Alliance" and name == L["Major Mattingly"]
+			and string.match(msg, L["Onyxia, hangs from the arches"]))) then
 		--Second yell right before drops "Be lifted by the rallying cry of your dragon slayers".
 		NWB.data.onyYell2 = GetServerTime();
-	elseif ((name == L["High Overlord Saurfang"] and (string.match(msg, L["NEFARIAN IS SLAIN"]) or skipStringCheck))
-		 	or (name == L["Field Marshal Afrasiabi"] and (string.match(msg, L["the Lord of Blackrock is slain"]) or skipStringCheck))) then
+	elseif ((NWB.faction == "Horde" and name == L["High Overlord Saurfang"] and (string.match(msg, L["NEFARIAN IS SLAIN"]) or skipStringCheck))
+		 	or (NWB.faction == "Alliance" and name == L["Field Marshal Afrasiabi"]
+		 	and (string.match(msg, L["the Lord of Blackrock is slain"]) or skipStringCheck))) then
 		--15 seconds between first nef yell and buff applied.
 		NWB.data.nefYell = GetServerTime();
 		NWB:doFirstYell("nef", layerNum);
 		--Send first yell msg to guild so people in org see it, needed because 1 person online only will send msg.
 		NWB:sendYell("GUILD", "nef", nil, layerNum);
-	elseif ((name == L["High Overlord Saurfang"] and string.match(msg, L["Revel in his rallying cry"]))
-			or (name == L["Field Marshal Afrasiabi"] and string.match(msg, L["Revel in the rallying cry"]))) then
+	elseif ((NWB.faction == "Horde" and name == L["High Overlord Saurfang"] and string.match(msg, L["Revel in his rallying cry"]))
+			or (NWB.faction == "Alliance" and name == L["Field Marshal Afrasiabi"] 
+			and string.match(msg, L["Revel in the rallying cry"]))) then
 		--Second yell right before drops "Be lifted by PlayerName's accomplishment! Revel in his rallying cry!".
 		NWB.data.nefYell2 = GetServerTime();
 	elseif ((name == L["Molthor"] or name == L["Zandalarian Emissary"])
@@ -1107,9 +1128,6 @@ function NWB:doFirstYell(type, layer, source, distribution, arg)
 	if (NWB.isLayered and tonumber(layer) and NWB.doLayerMsg and layer > 0) then
 		layerMsg = " (Layer " .. layer .. ")";
 	end
-	--NWB:debug("layerMsg", layerMsg);
-	local colorTable = {r = self.db.global.middleColorR, g = self.db.global.middleColorG, 
-			b = self.db.global.middleColorB, id = 41, sticky = 0};
 	if (type == "rend") then
 		if ((GetServerTime() - rendFirstYell) > 40) then
 			--6 seconds from rend first yell to buff drop.
@@ -1123,7 +1141,7 @@ function NWB:doFirstYell(type, layer, source, distribution, arg)
 			if (NWB.faction == "Horde" or NWB.db.global.allianceEnableRend) then
 				NWB:startFlash("flashFirstYell");
 				if (NWB.db.global.middleBuffWarning) then
-					RaidNotice_AddMessage(RaidWarningFrame, L["rendFirstYellMsg"] .. layerMsg, colorTable, 5);
+					NWB:middleScreenMsg("rendFirstYell", L["rendFirstYellMsg"] .. layerMsg, nil, 5);
 				end
 			end
 			NWB:playSound("soundsFirstYell", "rend");
@@ -1141,7 +1159,7 @@ function NWB:doFirstYell(type, layer, source, distribution, arg)
 			onyFirstYell = GetServerTime();
 			NWB:startFlash("flashFirstYell");
 			if (NWB.db.global.middleBuffWarning) then
-				RaidNotice_AddMessage(RaidWarningFrame, L["onyxiaFirstYellMsg"] .. layerMsg, colorTable, 5);
+				NWB:middleScreenMsg("onyFirstYell", L["onyxiaFirstYellMsg"] .. layerMsg, nil, 5);
 			end
 			NWB:playSound("soundsFirstYell", "ony");
 			NWB:sendBigWigs(14, "[NWB] " .. L["Rallying Cry of the Dragonslayer"]);
@@ -1158,7 +1176,7 @@ function NWB:doFirstYell(type, layer, source, distribution, arg)
 			nefFirstYell = GetServerTime();
 			NWB:startFlash("flashFirstYell");
 			if (NWB.db.global.middleBuffWarning) then
-				RaidNotice_AddMessage(RaidWarningFrame, L["nefarianFirstYellMsg"] .. layerMsg, colorTable, 5);
+				NWB:middleScreenMsg("nefFirstYell", L["nefarianFirstYellMsg"] .. layerMsg, nil, 5);
 			end
 			NWB:playSound("soundsFirstYell", "nef");
 			NWB:sendBigWigs(15, "[NWB] " .. L["Rallying Cry of the Dragonslayer"]);
@@ -1188,20 +1206,20 @@ function NWB:doFirstYell(type, layer, source, distribution, arg)
 				NWB.data.zanYell = GetServerTime();
 			end
 			if (NWB.db.global.chatZan) then
-				NWB:print(msg);
+				NWB:print(msg, nil, nil, true);
 			end
 			if (NWB.db.global.guildZanDialogue == 1) then
 				if (IsInGuild()) then
 					NWB:sendGuildMsg(msg .. layerMsg, "guildZanDialogue");
 				elseif (not NWB.db.global.chatZan) then
 					--Fall back to a chat msg if guild msg is enabled but we have no guild, and chat msg wasn't already sent.
-					NWB:print(msg);
+					NWB:print(msg, nil, nil, true);
 				end
 			end
 			zanFirstYell = GetServerTime();
 			NWB:startFlash("flashFirstYellZan");
 			if (NWB.db.global.middleBuffWarning) then
-				RaidNotice_AddMessage(RaidWarningFrame, msg .. layerMsg, colorTable, 5);
+				NWB:middleScreenMsg("zanFirstYell", msg .. layerMsg, nil, 5);
 			end
 			NWB:playSound("soundsFirstYell", "zan");
 			if (distribution == "RAID" or distribution == "PARTY") then
@@ -1249,8 +1267,6 @@ function NWB:doNpcKilledMsg(type, layer)
 	if (NWB.isLayered and tonumber(layer)) then
 		layerMsg = " (Layer " .. layer .. ")";
 	end
-	local colorTable = {r = self.db.global.middleColorR, g = self.db.global.middleColorG, 
-			b = self.db.global.middleColorB, id = 41, sticky = 0};
 	if (type == "ony") then
 		if ((GetServerTime() - onyNpcKill) > 40) then
 			local msg = "";
@@ -1263,10 +1279,10 @@ function NWB:doNpcKilledMsg(type, layer)
 				NWB:sendGuildMsg(msg, "guildNpcKilled");
 			end
 			if (NWB.db.global.middleNpcKilled) then
-				RaidNotice_AddMessage(RaidWarningFrame, msg, colorTable, 5);
+				NWB:middleScreenMsg("onynNpcKilled", msg, nil, 5);
 			end
 			if (NWB.db.global.chatNpcKilled and GetServerTime() - NWB.loadTime > 30) then
-				NWB:print(msg);
+				NWB:print(msg, nil, nil, true);
 			end
 			NWB:playSound("soundsNpcKilled", "timer");
 			NWB:startFlash("flashNpcKilled");
@@ -1285,10 +1301,10 @@ function NWB:doNpcKilledMsg(type, layer)
 				NWB:sendGuildMsg(msg, "guildNpcKilled");
 			end
 			if (NWB.db.global.middleNpcKilled) then
-				RaidNotice_AddMessage(RaidWarningFrame, msg, colorTable, 5);
+				NWB:middleScreenMsg("onynNpcKilled", msg, nil, 5);
 			end
 			if (NWB.db.global.chatNpcKilled and GetServerTime() - NWB.loadTime > 30) then
-				NWB:print(msg);
+				NWB:print(msg, nil, nil, true);
 			end
 			NWB:playSound("soundsNpcKilled", "timer");
 			NWB:startFlash("flashNpcKilled");
@@ -1314,7 +1330,7 @@ function NWB:doNpcRespawnMsg(type, layerID)
 				msg = L["onyxiaNpcRespawnAlliance"] .. layerMsg;
 			end
 			if (NWB.db.global.chatNpcKilled) then
-				NWB:print(msg);
+				NWB:print(msg, nil, nil, true);
 			end
 			onyNpcRespawn = GetServerTime();
 		end
@@ -1327,7 +1343,7 @@ function NWB:doNpcRespawnMsg(type, layerID)
 				msg = L["nefarianNpcRespawnAlliance"] .. layerMsg;
 			end
 			if (NWB.db.global.chatNpcKilled) then
-				NWB:print(msg);
+				NWB:print(msg, nil, nil, true);
 			end
 			nefNpcRespawn = GetServerTime();
 		end
@@ -1456,7 +1472,7 @@ function NWB:combatLogEventUnfiltered(...)
 			--if (expirationTime >= 3599.5 and (zone == 1454 or not NWB.isLayered) and unitType == "Creature") then
 			if (expirationTime >= (3599.5 - buffLag) and (zone == 1454 or not NWB.isLayered) and unitType == "Creature"
 					and ((GetServerTime() - NWB.data.rendYell2) < yellTwoOffset or (GetServerTime() - NWB.data.rendYell) < yellOneOffset)) then
-				NWB:trackNewBuff(spellName, "rend");
+				NWB:trackNewBuff(spellName, "rend", npcID);
 				NWB:playSound("soundsRendDrop", "rend");
 				if (NWB.db.global.cityGotBuffSummon) then
 					if (not InCombatLockdown() and C_SummonInfo.GetSummonConfirmTimeLeft() > 0) then
@@ -1494,7 +1510,7 @@ function NWB:combatLogEventUnfiltered(...)
 			local expirationTime = NWB:getBuffDuration(L["Spirit of Zandalar"], 4);
 			if (expirationTime >= 7199.5) then
 				NWB:setZanBuff("self", UnitName("player"), zoneID, sourceGUID);
-				NWB:trackNewBuff(spellName, "zan");
+				NWB:trackNewBuff(spellName, "zan", npcID);
 				--Not sure why this triggers 4 times on PTR, needs more testing once it's on live server but for now we do a 1 second cooldown.
 				lastZanBuffGained = GetServerTime();
 				NWB:playSound("soundsZanDrop", "zan");
@@ -1529,7 +1545,7 @@ function NWB:combatLogEventUnfiltered(...)
 						NWB:setNefBuff("self", UnitName("player"), zoneID, sourceGUID);
 					end
 				end
-				NWB:trackNewBuff(spellName, "nef");
+				NWB:trackNewBuff(spellName, "nef", npcID);
 				NWB:playSound("soundsNefDrop", "nef");
 				if (NWB.db.global.cityGotBuffSummon) then
 					if (not InCombatLockdown() and C_SummonInfo.GetSummonConfirmTimeLeft() > 0) then
@@ -1563,7 +1579,7 @@ function NWB:combatLogEventUnfiltered(...)
 						NWB:setOnyBuff("self", UnitName("player"), zoneID, sourceGUID);
 					end
 				end
-				NWB:trackNewBuff(spellName, "ony");
+				NWB:trackNewBuff(spellName, "ony", npcID);
 				NWB:playSound("soundsOnyDrop", "ony");
 				if (NWB.db.global.cityGotBuffSummon) then
 					if (not InCombatLockdown() and C_SummonInfo.GetSummonConfirmTimeLeft() > 0) then
@@ -1604,7 +1620,7 @@ function NWB:combatLogEventUnfiltered(...)
 				 or spellName == L["Sayge's Dark Fortune of Intelligence"])) then
 			local expirationTime = NWB:getBuffDuration(spellName, 0);
 			if (expirationTime >= 7199) then
-				NWB:trackNewBuff(spellName, "dmf");
+				NWB:trackNewBuff(spellName, "dmf", npcID);
 				lastDmfBuffGained = GetServerTime();
 				NWB:debug(GetTime() - speedtest);
 				if (NWB.db.global.dmfGotBuffSummon) then
@@ -1620,14 +1636,14 @@ function NWB:combatLogEventUnfiltered(...)
 			--Maybe this is a better way of doing it overall but I have to test when DMF is actually up first.
 			local expirationTime = NWB:getBuffDuration(spellName, 0);
 			if (expirationTime >= 7199) then
-				NWB:trackNewBuff(spellName, "dmf");
+				NWB:trackNewBuff(spellName, "dmf", npcID);
 			end
 		elseif ((NWB.noGUID or (npcID == "14720" or npcID == "14721" or npcID == "173758")) and destName == UnitName("player")
 				and spellName == L["Rallying Cry of the Dragonslayer"]) then
 			--Fallback ony/nef buff tracking incase no yell msgs seen abive.
 			local expirationTime = NWB:getBuffDuration(L["Rallying Cry of the Dragonslayer"], 2);
 			if (expirationTime >= 7199.5) then
-				NWB:trackNewBuff(spellName, "ony");
+				NWB:trackNewBuff(spellName, "ony", npcID);
 			end
 		end
 		--Check new nef/ony buffs for tracking durations seperately than the buff timer checks with validation above.
@@ -1661,19 +1677,19 @@ function NWB:combatLogEventUnfiltered(...)
 			--Mol'dar's Moxie.
 			local expirationTime = NWB:getBuffDuration(spellName, 0);
 			if (expirationTime >= 7199) then
-				NWB:trackNewBuff(spellName, "moxie");
+				NWB:trackNewBuff(spellName, "moxie", npcID);
 			end
 		elseif (npcID == "14321" and destName == UnitName("player")) then
 			--Fengus' Ferocity.
 			local expirationTime = NWB:getBuffDuration(spellName, 0);
 			if (expirationTime >= 7199) then
-				NWB:trackNewBuff(spellName, "ferocity");
+				NWB:trackNewBuff(spellName, "ferocity", npcID);
 			end
 		elseif (npcID == "14323" and destName == UnitName("player")) then
 			--Slip'kik's Savvy.
 			local expirationTime = NWB:getBuffDuration(spellName, 0);
 			if (expirationTime >= 7199) then
-				NWB:trackNewBuff(spellName, "savvy");
+				NWB:trackNewBuff(spellName, "savvy", npcID);
 			end
 		elseif (NWB.isDebugg and destName == UnitName("player") and spellName == "Ice Armor") then
 			local expirationTime = NWB:getBuffDuration("Ice Armor", 0);
@@ -1734,6 +1750,21 @@ function NWB:combatLogEventUnfiltered(...)
 			if (expirationTime >= 1799) then
 				NWB:trackNewBuff(spellName, "silithyst");
 			end
+		elseif (destName == UnitName("player") and spellName == L["Sheen of Zanza"]) then
+			local expirationTime = NWB:getBuffDuration(spellName, 0);
+			if (expirationTime >= 7199) then
+				NWB:trackNewBuff(spellName, "sheenZanza");
+			end
+		elseif (destName == UnitName("player") and spellName == L["Spirit of Zanza"]) then
+			local expirationTime = NWB:getBuffDuration(spellName, 0);
+			if (expirationTime >= 7199) then
+				NWB:trackNewBuff(spellName, "spiritZanza");
+			end
+		elseif (destName == UnitName("player") and spellName == L["Swiftness of Zanza"]) then
+			local expirationTime = NWB:getBuffDuration(spellName, 0);
+			if (expirationTime >= 7199) then
+				NWB:trackNewBuff(spellName, "swiftZanza");
+			end
 		elseif (destName == UnitName("player") and spellName == L["Stealth"]) then
 			--Vanish is hidden from combat log even to ourself, use stealth instead as it fires when we vanish.
 			NWB:doStealth();
@@ -1747,6 +1778,21 @@ function NWB:combatLogEventUnfiltered(...)
 		end
 		local timestamp, subEvent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, 
 			destName, destFlags, destRaidFlags, _, spellName, _, _, extraSpellName, _, auraType = CombatLogGetCurrentEventInfo();
+		local unitType, _, _, _, zoneID, npcID = strsplit("-", destGUID);
+		if (tonumber(npcID) == 14392 or tonumber(npcID) == 14720 or tonumber(npcID) == 14394 or tonumber(npcID) == 14721) then
+			local _, _, zone = NWB.dragonLib:GetPlayerZonePosition();
+			if ((zone == 1454 or zone == 1453) and (extraSpellName == L["Mind Control"] or extraSpellName == L["Gnomish Mind Control Cap"])) then
+				local _, sourceClass = GetPlayerInfoByGUID(sourceGUID);
+				local _, _, _, sourceHex = GetClassColor(sourceClass);
+				local sourceWho = "|c" .. sourceHex .. sourceName .. "|r"
+				local _, _, _, destHex = GetClassColor("WARRIOR");
+				local destWho = "|c" .. destHex .. destName .. "|r"
+				local spell = "|cff71d5ff[" .. extraSpellName .. "]|r";
+				NWB:print(sourceWho .. NWB.chatColor .. " dispelled " .. destWho .. " " .. spell .. NWB.chatColor .. ".");
+				NWB:playSound("soundsDispelsAll", "dispelsAll");
+			end
+			return;
+		end
 		--if (auraType == "BUFF") then
 			--NWB:debug(CombatLogGetCurrentEventInfo());
 		--end
@@ -2296,7 +2342,8 @@ end
 
 --Track our current buff durations across all chars.
 local gotPlayedData;
-function NWB:trackNewBuff(spellName, type)
+local chronoRestoreUsed = 0;
+function NWB:trackNewBuff(spellName, type, npcID)
 	if (not NWB.data.myChars[UnitName("player")].buffs[spellName]) then
 		NWB.data.myChars[UnitName("player")].buffs[spellName] = {};
 	end
@@ -2309,13 +2356,18 @@ function NWB:trackNewBuff(spellName, type)
 	if (not NWB.data.myChars[UnitName("player")][type .. "Count"]) then
 		NWB.data.myChars[UnitName("player")][type .. "Count"] = 0;
 	end
-	NWB.data.myChars[UnitName("player")][type .. "Count"] = NWB.data.myChars[UnitName("player")][type .. "Count"] + 1;
+	if (GetTime() - chronoRestoreUsed > 1) then
+		NWB.data.myChars[UnitName("player")][type .. "Count"] = NWB.data.myChars[UnitName("player")][type .. "Count"] + 1;
+	end
 	NWB.data.myChars[UnitName("player")].buffs[spellName].type = type;
 	--Set timestamp as a backup to calc from when dmf buff is got.
 	NWB.data.myChars[UnitName("player")].buffs[spellName].setTime = GetServerTime();
 	NWB.data.myChars[UnitName("player")].buffs[spellName].track = true;
 	if (NWB.data.myChars[UnitName("player")].buffs[spellName].noMsgs) then
 		NWB.data.myChars[UnitName("player")].buffs[spellName].noMsgs = nil;
+	end
+	if (npcID and tonumber(npcID)) then
+		NWB.data.myChars[UnitName("player")].buffs[spellName].npcID = tonumber(npcID);
 	end
 	--Request played data when getting new buff drops to calc from as primary.
 	--Use local cache if we have a valid number from RequestTimePlayed() at logon, otherwise request new data.
@@ -2346,34 +2398,8 @@ function NWB:untrackBuff(spellName)
 	end
 end
 
---Recalc time left on buffs we track.
---We recalc it from current total played time vs total played we recorded at time of buff drop.
-function NWB:recalcBuffTimers()
-	if (NWB.data.myChars[UnitName("player")].buffs) then
-		for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
-			if (not v.timeLeft or not v.setTime) then
-				NWB.data.myChars[UnitName("player")].buffs[k] = nil;
-			else
-				if (not gotPlayedData) then
-					NWB:debug("no played data found");
-					return
-				end
-				if (not v.playedCacheSetAt) then
-					v.playedCacheSetAt = 0;
-				end
-				--Calc the difference between current total played time and the played time we record when buff was gotten.
-				v.timeLeft = NWB.db.global[v.type .. "BuffTime"] - (NWB.played - v.playedCacheSetAt);
-				--NWB.data.myChars[UnitName("player")].buffs[k].timeLeft = NWB.db.global[v.type .. "BuffTime"] - (NWB.played - v.playedCacheSetAt);
-			end
-		end
-	end
-	NWB:recalcBuffListFrame();
-end
-
---/played can sometimes drift a bit with buff durations, probably due to loads times and such.
---Here we resync the buff tracking with current buff durations.
---And pick up any buffs not being tracked already for whenever reason.
-local spellTypes = {			
+local spellTypes = {
+	--Classic.
 	[16609] = "rend",
 	[22888] = "ony",
 	--[22888] = "nef",
@@ -2401,7 +2427,308 @@ local spellTypes = {
 	[29338] = "festivalFury", --Fire Festival Fury 2 diff types? aoe and single version possibly?
 	[29175] = "ribbonDance", --Fire Festival Fortitude
 	[29534] = "silithyst", --Traces of Silithyst
+	[24417] = "sheenZanza",
+	[24382] = "spiritZanza",
+	[24383] = "swiftZanza",
+	--TBC.
+	[28518] = "flaskFort",
+	[28591] = "flaskPure",
+	[28520] = "flaskRelent",
+	[28521] = "flaskBlinding",
+	[28519] = "flaskMighty",
+	[0] = "flaskChromatic", --This is not recorded by wowhead yet.
+	--Shat flasks have 2 or 3 spells the same, have to test after launch which is correct for each.
+	[41607] = "shattrathFlaskFort",
+	[41609] = "shattrathFlaskFort",
+	[46837] = "shattrathFlaskPure",
+	[46838] = "shattrathFlaskPure",
+	[41606] = "shattrathFlaskRelent",
+	[41608] = "shattrathFlaskRelent",
+	[46839] = "shattrathFlaskBlinding",
+	[46840] = "shattrathFlaskBlinding",
+	[41605] = "shattrathFlaskMighty",
+	[41610] = "shattrathFlaskMighty",
+	[41604] = "shattrathFlaskSupreme",
+	[41611] = "shattrathFlaskSupreme",
+	[40572] = "unstableFlaskBeast",
+	[40580] = "unstableFlaskBeast",
+	[40576] = "unstableFlaskSorcerer",
+	[40588] = "unstableFlaskSorcerer",
+	[40763] = "unstableFlaskSorcerer",
+	[40567] = "unstableFlaskBandit",
+	[40577] = "unstableFlaskBandit",
+	[40579] = "unstableFlaskBandit",
+	[40568] = "unstableFlaskElder",
+	[40582] = "unstableFlaskElder",
+	[40573] = "unstableFlaskPhysician",
+	[40586] = "unstableFlaskPhysician",
+	[40575] = "unstableFlaskSoldier",
+	[40587] = "unstableFlaskSoldier",
 };
+
+--[[rendBuffTime = 3600,
+onyBuffTime = 7200,
+nefBuffTime = 7200,
+zanBuffTime = 7200,
+dmfBuffTime = 7200,
+moxieBuffTime = 7200,
+ferocityBuffTime = 7200,
+savvyBuffTime = 7200,
+flaskPowerBuffTime = 7200,
+flaskTitansBuffTime = 7200,
+flaskWisdomBuffTime = 7200,
+flaskResistanceBuffTime = 7200,
+resistFireBuffTime = 3600,
+festivalFortitudeBuffTime = 3600,
+festivalFuryBuffTime = 3600,
+ribbonDanceBuffTime = 3600,
+silithystBuffTime = 3600,
+sheenZanzaBuffTime = 7200,
+spiritZanzaBuffTime = 7200,
+swiftZanzaBuffTime = 7200,
+songflowerBuffTime = 3600,
+iceBuffTime = 1800, --Debug.
+blackfathomBuffTime = 3600,]]
+		
+local buffTable = {
+	--Classic.
+	["rend"] = {
+		icon = "|TInterface\\Icons\\spell_arcane_teleportorgrimmar:12:12:0:0|t",
+		fullName = "Warchief's Blessing",
+		maxDuration = 3600,
+	},
+	["ony"] = {
+		icon = "|TInterface\\Icons\\inv_misc_head_dragon_01:12:12:0:0|t",
+		fullName = "Rallying Cry of the Dragonslayer",
+		maxDuration = 7200,
+	},
+	["nef"] = {
+		icon = "|TInterface\\Icons\\inv_misc_head_dragon_01:12:12:0:0|t",
+		fullName = "Rallying Cry of the Dragonslayer",
+		maxDuration = 7200,
+	},
+	["dmf"] = {
+		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
+		fullName = "Darkmoon Faire",
+		maxDuration = 7200,
+	},
+	["zan"] = {
+		icon = "|TInterface\\Icons\\ability_creature_poison_05:12:12:0:0|t",
+		fullName = "Spirit of Zandalar",
+		maxDuration = 7200,
+	},
+	["moxie"] = {
+		icon = "|TInterface\\Icons\\spell_nature_massteleport:12:12:0:0|t",
+		fullName = "Mol'dar's Moxie",
+		maxDuration = 7200,
+	},
+	["ferocity"] = {
+		icon = "|TInterface\\Icons\\spell_nature_undyingstrength:12:12:0:0|t",
+		fullName = "Fengus' Ferocity",
+		maxDuration = 7200,
+	},
+	["savvy"] = {
+		icon = "|TInterface\\Icons\\spell_holy_lesserheal02:12:12:0:0|t",
+		fullName = "Slip'kik's Savvy",
+		maxDuration = 7200,
+	},
+	["flaskPower"] = {
+		icon = "|TInterface\\Icons\\inv_potion_41:12:12:0:0|t",
+		fullName = "Supreme Power",
+		maxDuration = 7200,
+	},
+	["flaskTitans"] = {
+		icon = "|TInterface\\Icons\\inv_potion_62:12:12:0:0|t",
+		fullName = "Flask of the Titans",
+		maxDuration = 7200,
+	},
+	["flaskWisdom"] = {
+		icon = "|TInterface\\Icons\\inv_potion_97:12:12:0:0|t",
+		fullName = "Distilled Wisdom",
+		maxDuration = 7200,
+	},
+	["flaskResistance"] = {
+		icon = "|TInterface\\Icons\\inv_potion_48:12:12:0:0|t",
+		fullName = "Flask of Chromatic Resistance",
+		maxDuration = 7200,
+	},
+	["songflower"] = {
+		icon = "|TInterface\\Icons\\spell_holy_mindvision:12:12:0:0|t",
+		fullName = "Songflower Serenade",
+		maxDuration = 3600,
+	},
+	["resistFire"] = {
+		icon = "|TInterface\\Icons\\spell_fire_firearmor:12:12:0:0|t",
+		fullName = "Resist Fire",
+		maxDuration = 3600,
+	},
+	["blackfathom"] = {
+		icon = "|TInterface\\Icons\\spell_frost_frostward:12:12:0:0|t",
+		fullName = "Blessing of Blackfathom",
+		maxDuration = 3600,
+	},
+	["festivalFortitude"] = {
+		icon = "|TInterface\\Icons\\inv_summerfest_firespirit:12:12:0:0|t",
+		fullName = "Fire Festival Fortitude",
+		maxDuration = 3600,
+	},
+	["festivalFury"] = {
+		icon = "|TInterface\\Icons\\inv_misc_summerfest_brazierorange:12:12:0:0|t",
+		fullName = "Fire Festival Fury",
+		maxDuration = 3600,
+	},
+	["ribbonDance"] = {
+		icon = "|TInterface\\Icons\\inv_summerfest_symbol_medium:12:12:0:0|t",
+		fullName = "Ribbon Dance",
+		maxDuration = 3600,
+	},
+	["silithyst"] = {
+		icon = "|TInterface\\Icons\\spell_nature_timestop:12:12:0:0|t",
+		fullName = "Traces of Silithyst",
+		maxDuration = 3600,
+	},
+	["sheenZanza"] = {
+		icon = "|TInterface\\Icons\\inv_potion_29:12:12:0:0|t",
+		fullName = "Sheen of Zanza",
+		maxDuration = 7200,
+	},
+	["spiritZanza"] = {
+		icon = "|TInterface\\Icons\\inv_potion_30:12:12:0:0|t",
+		fullName = "Spirit of Zanza",
+		maxDuration = 7200,
+	},
+	["swiftZanza"] = {
+		icon = "|TInterface\\Icons\\inv_potion_31:12:12:0:0|t",
+		fullName = "Swiftness of Zanza",
+		maxDuration = 7200,
+	},
+	--TBC.
+	["flaskFort"] = {
+		icon = "|TInterface\\Icons\\inv_potion_119:12:12:0:0|t",
+		fullName = "Flask of Fortification",
+		maxDuration = 7200,
+	},
+	["flaskPure"] = {
+		icon = "|TInterface\\Icons\\inv_potion_115:12:12:0:0|t",
+		fullName = "Flask of Pure Death",
+		maxDuration = 7200,
+	},
+	["flaskRelent"] = {
+		icon = "|TInterface\\Icons\\inv_potion_117:12:12:0:0|t",
+		fullName = "Flask of Relentless Assault",
+		maxDuration = 7200,
+	},
+	["flaskBlinding"] = {
+		icon = "|TInterface\\Icons\\inv_potion_116:12:12:0:0|t",
+		fullName = "Flask of Blinding Light",
+		maxDuration = 7200,
+	},
+	["flaskMighty"] = {
+		icon = "|TInterface\\Icons\\inv_potion_118:12:12:0:0|t",
+		fullName = "Flask of Mighty Restoration",
+		maxDuration = 7200,
+	},
+	["flaskChromatic"] = {
+		icon = "|TInterface\\Icons\\inv_potion_48:12:12:0:0|t",
+		fullName = "Flask of Chromatic Wonder",
+		maxDuration = 7200,
+	},
+	["shattrathFlaskFort"] = {
+		icon = "|TInterface\\Icons\\inv_potion_119:12:12:0:0|t",
+		fullName = "Fortification of Shattrath",
+		maxDuration = 7200,
+	},
+	["shattrathFlaskPure"] = {
+		icon = "|TInterface\\Icons\\inv_potion_115:12:12:0:0|t",
+		fullName = "Pure Death of Shattrath",
+		maxDuration = 7200,
+	},
+	["shattrathFlaskRelent"] = {
+		icon = "|TInterface\\Icons\\inv_potion_117:12:12:0:0|t",
+		fullName = "Relentless Assault of Shattrath",
+		maxDuration = 7200,
+	},
+	["shattrathFlaskBlinding"] = {
+		icon = "|TInterface\\Icons\\inv_potion_116:12:12:0:0|t",
+		fullName = "Blinding Light of Shattrath",
+		maxDuration = 7200,
+	},
+	["shattrathFlaskMighty"] = {
+		icon = "|TInterface\\Icons\\inv_potion_118:12:12:0:0|t",
+		fullName = "Mighty Restoration of Shattrath",
+		maxDuration = 7200,
+	},
+	["shattrathFlaskSupreme"] = {
+		icon = "|TInterface\\Icons\\inv_potion_41:12:12:0:0|t",
+		fullName = "Supreme Power of Shattrath",
+		maxDuration = 7200,
+	},
+	["unstableFlaskBeast"] = {
+		icon = "|TInterface\\Icons\\inv_potion_35:12:12:0:0|t",
+		--icon = "|TInterface\\Icons\\inv_potion_91:12:12:0:0|t",
+		fullName = "Unstable Flask of the Beast",
+		maxDuration = 7200,
+	},
+	["unstableFlaskSorcerer"] = {
+		icon = "|TInterface\\Icons\\inv_potion_42:12:12:0:0|t",
+		--icon = "|TInterface\\Icons\\inv_potion_91:12:12:0:0|t",
+		fullName = "Unstable Flask of the Sorcerer",
+		maxDuration = 7200,
+	},
+	["unstableFlaskBandit"] = {
+		icon = "|TInterface\\Icons\\inv_potion_91:12:12:0:0|t",
+		fullName = "Unstable Flask of the Bandit",
+		maxDuration = 7200,
+	},
+	["unstableFlaskElder"] = {
+		icon = "|TInterface\\Icons\\inv_potion_77:12:12:0:0|t",
+		--icon = "|TInterface\\Icons\\inv_potion_91:12:12:0:0|t",
+		fullName = "Unstable Flask of the Elder",
+		maxDuration = 7200,
+	},
+	["unstableFlaskPhysician"] = {
+		icon = "|TInterface\\Icons\\inv_potion_70:12:12:0:0|t",
+		--icon = "|TInterface\\Icons\\inv_potion_91:12:12:0:0|t",
+		fullName = "Unstable Flask of the Physician",
+		maxDuration = 7200,
+	},
+	["unstableFlaskSoldier"] = {
+		icon = "|TInterface\\Icons\\inv_potion_84:12:12:0:0|t",
+		--icon = "|TInterface\\Icons\\inv_potion_91:12:12:0:0|t",
+		fullName = "Unstable Flask of the Soldier",
+		maxDuration = 7200,
+	},
+};
+
+--Recalc time left on buffs we track.
+--We recalc it from current total played time vs total played we recorded at time of buff drop.
+function NWB:recalcBuffTimers()
+	if (NWB.data.myChars[UnitName("player")].buffs) then
+		for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
+			if (not v.timeLeft or not v.setTime) then
+				NWB.data.myChars[UnitName("player")].buffs[k] = nil;
+			else
+				if (not gotPlayedData) then
+					NWB:debug("no played data found");
+					return
+				end
+				if (not v.playedCacheSetAt) then
+					v.playedCacheSetAt = 0;
+				end
+				--Calc the difference between current total played time and the played time we record when buff was gotten.
+				v.timeLeft = buffTable[v.type].maxDuration - (NWB.played - v.playedCacheSetAt);
+				--v.timeLeft = NWB.db.global[v.type .. "BuffTime"] - (NWB.played - v.playedCacheSetAt);
+				--NWB.data.myChars[UnitName("player")].buffs[k].timeLeft = NWB.db.global[v.type .. "BuffTime"] - (NWB.played - v.playedCacheSetAt);
+			end
+		end
+	end
+	NWB:recalcBuffListFrame();
+end
+
+--/played can sometimes drift a bit with buff durations, probably due to loads times and such.
+--Here we resync the buff tracking with current buff durations.
+--And pick up any buffs not being tracked already for whenever reason.
+
 function NWB:syncBuffsWithCurrentDuration()
 	for i = 1, 32 do
 		local spellName, _, _, _, _, expirationTime, _, _, _, spellID = UnitBuff("player", i);
@@ -2412,7 +2739,8 @@ function NWB:syncBuffsWithCurrentDuration()
 				end
 				local type = NWB.data.myChars[UnitName("player")].buffs[spellName].type;
 				local timeLeft = expirationTime - GetTime();
-				local maxDuration = NWB.db.global[type .. "BuffTime"] or 0;
+				local maxDuration = (buffTable[type].maxDuration or 0);
+				--local maxDuration = NWB.db.global[type .. "BuffTime"] or 0;
 				local elapsedDuration = maxDuration - timeLeft;
 				local newPlayedCache = NWB.played - elapsedDuration;
 				if (timeLeft > 0) then
@@ -2432,7 +2760,8 @@ function NWB:syncBuffsWithCurrentDuration()
 				NWB.data.myChars[UnitName("player")].buffs[spellName] = {};
 				NWB.data.myChars[UnitName("player")].buffs[spellName].type = type;
 				local timeLeft = expirationTime - GetTime();
-				local maxDuration = NWB.db.global[type .. "BuffTime"] or 0;
+				local maxDuration = (buffTable[type].maxDuration or 0);
+				--local maxDuration = NWB.db.global[type .. "BuffTime"] or 0;
 				local elapsedDuration = maxDuration - timeLeft;
 				local newPlayedCache = NWB.played - elapsedDuration;
 				NWB.data.myChars[UnitName("player")].buffs[spellName].timeLeft = timeLeft;
@@ -2448,6 +2777,67 @@ function NWB:syncBuffsWithCurrentDuration()
 			end
 		end
 	end
+	NWB:recalcBuffTimers();
+end
+
+--This has to check npcID's as well as names to work for all languages.
+--We have no spellID's to check thanks to combat log hiding them in classic.
+local tempStoredBuffs = {};
+function NWB:storeBuffs()
+	NWB:debug("temp storing buffs");
+	if (NWB.data.myChars[UnitName("player")].buffs) then
+		for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
+			if (v.track) then
+				--This cluster is thanks to hidden spellID's in classic and dealing with locales.
+				if (k == L["Warchief's Blessing"] or k == L["Rallying Cry of the Dragonslayer"] or k == L["Songflower Serenade"]
+						or k == L["Slip'kik's Savvy"] or k == L["Fengus' Ferocity"] or k == L["Mol'dar's Moxie"]
+						or k == L["Spirit of Zandalar"] or k == L["Sayge's Dark Fortune of Agility"]
+						or k == L["Sayge's Dark Fortune of Intelligence"] or k == L["Sayge's Dark Fortune of Spirit"]
+						or k == L["Sayge's Dark Fortune of Stamina"] or k == L["Sayge's Dark Fortune of Strength"]
+						or k == L["Sayge's Dark Fortune of Armor"] or k == L["Sayge's Dark Fortune of Resistance"]
+						or k == L["Sayge's Dark Fortune of Damage"]) then
+					tempStoredBuffs[k] = {};
+					for kk, vv in pairs(v) do
+						tempStoredBuffs[k][kk] = vv;
+					end
+				elseif (v.npcID and (v.npcID == 14392 or v.npcID == 14394
+						or v.npcID == 14720 or v.npcID == 14721 or v.npcID == 4949 or v.npcID == 10719 or v.npcID == 14875
+						or v.npcID == 15076 or v.npcID == 14326 or v.npcID == 14321 or v.npcID == 14323)) then
+					tempStoredBuffs[k] = {};
+					for kk, vv in pairs(v) do
+						tempStoredBuffs[k][kk] = vv;
+					end
+				end
+			end
+		end
+	end
+end
+
+--Insert buffs from temp table we recorded on cast start.
+function NWB:recordStoredBuffs()
+	NWB:debug("record temp stored buffs");
+	if (not NWB.data.myChars[UnitName("player")].storedBuffs) then
+		NWB.data.myChars[UnitName("player")].storedBuffs = {};
+	end
+	for k, v in pairs(tempStoredBuffs) do
+		NWB.data.myChars[UnitName("player")].storedBuffs[k] = {};
+		for kk, vv in pairs(v) do
+			NWB.data.myChars[UnitName("player")].storedBuffs[k][kk] = vv;
+		end
+	end
+	tempStoredBuffs = {};
+	NWB:recalcBuffTimers();
+end
+
+function NWB:clearTempStoredBuffs()
+	NWB:debug("clear temp stored buffs");
+	tempStoredBuffs = {};
+end
+
+function NWB:clearStoredBuffs()
+	NWB:debug("clear stored buffs");
+	NWB.data.myChars[UnitName("player")].storedBuffs = {};
+	tempStoredBuffs = {};
 	NWB:recalcBuffTimers();
 end
 
@@ -2645,10 +3035,13 @@ f:RegisterEvent("CHAT_MSG_SYSTEM");
 f:RegisterEvent("CHAT_MSG_ADDON");
 f:RegisterEvent("GUILD_ROSTER_UPDATE");
 f:RegisterEvent("PLAYER_REGEN_ENABLED");
+f:RegisterEvent("UNIT_SPELLCAST_START");
+f:RegisterEvent("UNIT_SPELLCAST_INTERRUPTED");
 f:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
 f:RegisterEvent("QUEST_TURNED_IN");
 local doLogon = true;
 local mc = "myChars";
+local storeBuffsTimer;
 f:SetScript("OnEvent", function(self, event, ...)
 	if (event == "PLAYER_LOGIN") then
 		--Testing this here instead of PLAYER_ENTERING_WORLD, maybe it fires slightly faster enough to stop duplicate msgs.
@@ -2759,6 +3152,24 @@ f:SetScript("OnEvent", function(self, event, ...)
 		NWB:checkGuildMasterSetting("set");
 	elseif (event == "PLAYER_REGEN_ENABLED") then
 		NWB:leftCombat();
+	elseif (event == "UNIT_SPELLCAST_START") then
+		local unit, GUID, spellID = ...;
+		if (unit == "player" and spellID == 349858) then
+			NWB:storeBuffs();
+			--Run another check of buffs 1 second before the cast ends.
+			--This is to check for any new buffs that landed during the chronoboon cast.
+			storeBuffsTimer = C_Timer.NewTimer(5, function()
+				NWB:storeBuffs();
+			end)
+		end
+	elseif (event == "UNIT_SPELLCAST_INTERRUPTED") then
+		local unit, GUID, spellID = ...;
+		if (unit == "player" and spellID == 349858) then
+			NWB:clearTempStoredBuffs();
+			if (storeBuffsTimer) then
+				storeBuffsTimer:Cancel();
+			end
+		end
 	elseif (event == "UNIT_SPELLCAST_SUCCEEDED") then
 		local unit, GUID, spellID = ...;
 		if (unit == "player" and (spellID == 1856 or spellID == 1857)) then
@@ -2766,6 +3177,20 @@ f:SetScript("OnEvent", function(self, event, ...)
 		end
 		if (unit == "player" and spellID == 5384) then
 			NWB:doFeign();
+		end
+		if (unit == "player" and spellID == 349858) then
+			NWB:recordStoredBuffs();
+			--Cancel this timer incase haste buffs can be used on chronoboon and it goes off before this timer ends.
+			if (storeBuffsTimer) then
+				storeBuffsTimer:Cancel();
+			end
+		end
+		if (unit == "player" and spellID == 349863) then
+			chronoRestoreUsed = GetTime();
+			NWB:clearStoredBuffs();
+			C_Timer.After(1, function()
+				NWB:syncBuffsWithCurrentDuration();
+			end)
 		end
 	end
 end)
@@ -3178,6 +3603,10 @@ end
 
 local lastFlash = 0;
 function NWB:startFlash(type)
+	if (NWB.isTBC and (NWB.db.global.disableFlashAllLevels
+		or (UnitLevel("player") > NWB.maxBuffLevel and NWB.db.global.disableFlashAboveMaxBuffLevel))) then
+		return;
+	end
 	if (NWB.db.global[type]) then
 		if (lastFlash < (GetServerTime() - 4)) then
 			FlashClientIcon();
@@ -3187,6 +3616,11 @@ function NWB:startFlash(type)
 end
 
 function NWB:playSound(sound, type)
+	if (NWB.isTBC and (NWB.db.global.disableSoundsAllLevels
+		or (UnitLevel("player") > NWB.maxBuffLevel and NWB.db.global.disableSoundsAboveMaxBuffLevel))
+		and sound ~= "soundsDispelsMine" and sound ~= "soundsDispelsAll") then
+		return;
+	end
 	if (NWB.db.global.disableAllSounds) then
 		return;
 	end
@@ -3196,7 +3630,7 @@ function NWB:playSound(sound, type)
 	if (UnitInBattleground("player") and NWB.db.global.soundsDisableInBattlegrounds) then
 		return;
 	end
-	if (NWB.db.global.soundOnlyInCity) then
+	if (NWB.db.global.soundOnlyInCity and (type == "rend" or type == "ony" or type == "nef" or type == "zan" or type == "timer")) then
 		local play;
 		local _, _, zone = NWB.dragonLib:GetPlayerZonePosition();
 		local subZone = GetSubZoneText();
@@ -3207,7 +3641,7 @@ function NWB:playSound(sound, type)
 		elseif (zone == 1413 and subZone == POSTMASTER_LETTER_BARRENS_MYTHIC and (type == "ony" or type == "nef"
 				or type == "rend" or type == "timer")) then
 			play = true;
-		elseif (zone == 1434 and type == "zan" or type == "timer") then
+		elseif ((zone == 1434 or zone == 1443 or zone == 1454 or zone == 1413) and type == "zan" or type == "timer") then
 			play = true;
 		end
 		if (not play) then
@@ -3229,6 +3663,31 @@ function NWB:playSound(sound, type)
 			local soundFile = NWB.LSM:Fetch("sound", NWB.db.global[sound]);
 			PlaySoundFile(soundFile, "Master");
 		end
+	end
+end
+
+function NWB:middleScreenMsg(type, msg, colorTable, time)
+	if (NWB.isTBC and (NWB.db.global.disableMiddleAllLevels
+		or (UnitLevel("player") > NWB.maxBuffLevel and NWB.db.global.disableMiddleAboveMaxBuffLevel))) then
+		return;
+	end
+	if (not colorTable) then
+		colorTable = {r = self.db.global.middleColorR, g = self.db.global.middleColorG, 
+				b = self.db.global.middleColorB, id = 41, sticky = 0};
+	end
+	RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, time);
+end
+
+function NWB:addBackdrop(string)
+	if (BackdropTemplateMixin) then
+		if (string) then
+			--Inherit backdrop first so our frames points etc don't get overwritten.
+			return "BackdropTemplate," .. string;
+		else
+			return "BackdropTemplate";
+		end
+	else
+		return string;
 	end
 end
 
@@ -3395,7 +3854,7 @@ end
 function NWB:debug(...)
 	if (NWB.isDebug) then
 		if (type(...) == "table") then
-			UIParentLoadAddOn('Blizzard_DebugTools');
+			UIParentLoadAddOn("Blizzard_DebugTools");
 			--DevTools_Dump(...);
     		DisplayTableInspectorWindow(...);
     	else
@@ -5888,7 +6347,7 @@ end
 ---Buff tracking frame---
 ---===================---
 
-local NWBbuffListFrame = CreateFrame("ScrollFrame", "NWBbuffListFrame", UIParent, "InputScrollFrameTemplate");
+local NWBbuffListFrame = CreateFrame("ScrollFrame", "NWBbuffListFrame", UIParent, NWB:addBackdrop("InputScrollFrameTemplate"));
 NWBbuffListFrame:Hide();
 NWBbuffListFrame:SetToplevel(true);
 NWBbuffListFrame:SetMovable(true);
@@ -6176,85 +6635,6 @@ function NWB:openBuffListFrame()
 end
 
 local c = string.char;
-local buffTable = {
-	["rend"] = {
-		icon = "|TInterface\\Icons\\spell_arcane_teleportorgrimmar:12:12:0:0|t",
-		fullName = "Warchief's Blessing",
-	},
-	["ony"] = {
-		icon = "|TInterface\\Icons\\inv_misc_head_dragon_01:12:12:0:0|t",
-		fullName = "Rallying Cry of the Dragonslayer",
-	},
-	["nef"] = {
-		icon = "|TInterface\\Icons\\inv_misc_head_dragon_01:12:12:0:0|t",
-		fullName = "Rallying Cry of the Dragonslayer",
-	},
-	["dmf"] = {
-		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
-		fullName = "Darkmoon Faire",
-	},
-	["zan"] = {
-		icon = "|TInterface\\Icons\\ability_creature_poison_05:12:12:0:0|t",
-		fullName = "Spirit of Zandalar",
-	},
-	["moxie"] = {
-		icon = "|TInterface\\Icons\\spell_nature_massteleport:12:12:0:0|t",
-		fullName = "Mol'dar's Moxie",
-	},
-	["ferocity"] = {
-		icon = "|TInterface\\Icons\\spell_nature_undyingstrength:12:12:0:0|t",
-		fullName = "Fengus' Ferocity",
-	},
-	["savvy"] = {
-		icon = "|TInterface\\Icons\\spell_holy_lesserheal02:12:12:0:0|t",
-		fullName = "Slip'kik's Savvy",
-	},
-	["flaskPower"] = {
-		icon = "|TInterface\\Icons\\inv_potion_41:12:12:0:0|t",
-		fullName = "Supreme Power",
-	},
-	["flaskTitans"] = {
-		icon = "|TInterface\\Icons\\inv_potion_62:12:12:0:0|t",
-		fullName = "Flask of the Titans",
-	},
-	["flaskWisdom"] = {
-		icon = "|TInterface\\Icons\\inv_potion_97:12:12:0:0|t",
-		fullName = "Distilled Wisdom",
-	},
-	["flaskResistance"] = {
-		icon = "|TInterface\\Icons\\inv_potion_48:12:12:0:0|t",
-		fullName = "Flask of Chromatic Resistance",
-	},
-	["songflower"] = {
-		icon = "|TInterface\\Icons\\spell_holy_mindvision:12:12:0:0|t",
-		fullName = "Songflower Serenade",
-	},
-	["resistFire"] = {
-		icon = "|TInterface\\Icons\\spell_fire_firearmor:12:12:0:0|t",
-		fullName = "Resist Fire",
-	},
-	["blackfathom"] = {
-		icon = "|TInterface\\Icons\\spell_frost_frostward:12:12:0:0|t",
-		fullName = "Blessing of Blackfathom",
-	},
-	["festivalFortitude"] = {
-		icon = "|TInterface\\Icons\\inv_summerfest_firespirit:12:12:0:0|t",
-		fullName = "Fire Festival Fortitude",
-	},
-	["festivalFury"] = {
-		icon = "|TInterface\\Icons\\inv_misc_summerfest_brazierorange:12:12:0:0|t",
-		fullName = "Fire Festival Fury",
-	},
-	["ribbonDance"] = {
-		icon = "|TInterface\\Icons\\inv_summerfest_symbol_medium:12:12:0:0|t",
-		fullName = "Ribbon Dance",
-	},
-	["silithyst"] = {
-		icon = "|TInterface\\Icons\\spell_nature_timestop:12:12:0:0|t",
-		fullName = "Traces of Silithyst",
-	},
-};
-
 function NWB:recalcBuffListFrame(top)
 	if (not NWB.showStatsButton) then
 		NWB:createShowStatsButton();
@@ -6311,10 +6691,12 @@ function NWB:recalcBuffListFrame(top)
 				--They had realmdata in thier db file without the myChars table and it won't create it until they log on that realm.
 				local foundAnyBuff;
 				if (v.myChars) then
-					local foundActiveBuff;
+					local foundActiveBuff, foundStoredBuff;
 					for k, v in NWB:pairsByKeys(v.myChars) do --Iterate characters.
 						foundActiveBuff = nil;
+						foundStoredBuff = nil;
 						local msg3 = "";
+						local msg4 = "";
 						local _, _, _, classColor = GetClassColor(v.englishClass);
 						local pvpFlagMsg = "";
 						if (v.pvpFlag) then
@@ -6374,9 +6756,57 @@ function NWB:recalcBuffListFrame(top)
 								foundBuffs[v.type] = true;
 							end
 						end
-						--if (NWB.db.global.showAllAlts or foundActiveBuff) then
-						if (foundActiveBuff or NWB.db.global.showUnbuffedAlts) then
-						--if (foundActiveBuff) then
+						if (v.storedBuffs and next(v.storedBuffs)) then
+							for k, v in NWB:pairsByKeys(v.storedBuffs) do --Iterate buffs.
+								--if (v.timeLeft > 0) then
+								if (v.track and v.timeLeft > 0) then
+									local icon = "";
+									if (buffTable[v.type]) then
+										icon = buffTable[v.type].icon;
+									end
+									local buffName = k;
+									if (k == "Supreme Power") then
+										buffName = "Flask of Supreme Power";
+									elseif (k == "Distilled Wisdom") then
+										buffName = "Flask of Distilled Wisdom";
+									end
+									msg4 = msg4 .. "        |cffffff00--|r" .. icon .. " |cFFFFAE42" .. buffName .. "  ";
+									if (NWB.db.global.showBuffStats and NWB.data.myChars[charName]
+											and NWB.data.myChars[charName][v.type .. "Count"] and NWB.data.myChars[charName][v.type .. "Count"] > 0) then
+										msg4 = msg4 .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. "|r";
+										local buffCount = NWB.data.myChars[charName][v.type .. "Count"];
+										if (v.type == "ony" or v.type == "nef") then
+											--If ony or nef then add them together, same buff.
+											local onyBuffCount, nefBuffCount = 0, 0;
+											if (NWB.db.global[realm][faction].myChars[charName]
+													and NWB.db.global[realm][faction].myChars[charName]["onyCount"]) then
+												onyBuffCount = NWB.db.global[realm][faction].myChars[charName]["onyCount"];
+											end
+											if (NWB.db.global[realm][faction].myChars[charName]
+													and NWB.db.global[realm][faction].myChars[charName]["nefCount"]) then
+												nefBuffCount = NWB.db.global[realm][faction].myChars[charName]["nefCount"];
+											end
+											buffCount = onyBuffCount + nefBuffCount;
+										end
+										if (buffCount == 1) then
+											--msg4 = msg4 .. " |cFFA0A0A0(" .. buffCount .. " " .. L["time"] .. ")|r|cFF9CD6DE.|r\n";
+											msg4 = msg4 .. " |cFFA0A0A0" .. string.format(L["time"], buffCount) .. "|r|cFF9CD6DE.|r\n";
+										else
+											msg4 = msg4 .. " |cFFA0A0A0" .. string.format(L["times"], buffCount) .. "|r|cFF9CD6DE.|r\n";
+										end
+									else
+										msg4 = msg4 .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. ".|r\n";
+									end
+									foundStoredBuff = true;
+									foundBuffs[v.type] = true;
+								end
+							end
+						end
+						if (foundStoredBuff) then
+							msg4 = "        |cffffff00" .. L["Chronoboon Displacer"] .. " Buffs:|r\n" .. msg4;
+						 	msg3 = msg3 .. msg4;
+						end
+						if (foundActiveBuff or foundStoredBuff or NWB.db.global.showUnbuffedAlts) then
 						 	msg2 = msg2 .. msg3;
 						 	foundChars = true;
 						 	foundAnyBuff = true;
@@ -6587,7 +7017,7 @@ local gameVersions = {
 ---====================---
 
 --This is actually the timers frame, it was orginally only used on layered servers hence the name.
-local NWBlayerFrame = CreateFrame("ScrollFrame", "NWBlayerFrame", UIParent, "InputScrollFrameTemplate");
+local NWBlayerFrame = CreateFrame("ScrollFrame", "NWBlayerFrame", UIParent, NWB:addBackdrop("InputScrollFrameTemplate"));
 NWBlayerFrame:Hide();
 NWBlayerFrame:SetToplevel(true);
 NWBlayerFrame:SetMovable(true);
@@ -6795,7 +7225,7 @@ NWBlayerFrameMapButton:SetScript("OnHide", function(self)
 end)
 
 --Copy Paste.
-local NWBCopyFrame = CreateFrame("ScrollFrame", "NWBCopyFrame", UIParent, "InputScrollFrameTemplate");
+local NWBCopyFrame = CreateFrame("ScrollFrame", "NWBCopyFrame", UIParent, NWB:addBackdrop("InputScrollFrameTemplate"));
 NWBCopyFrame:Hide();
 NWBCopyFrame:SetToplevel(true);
 NWBCopyFrame:SetMovable(true);
@@ -6827,7 +7257,7 @@ NWBCopyFrameClose:GetHighlightTexture():SetTexCoord(0.1875, 0.8125, 0.1875, 0.81
 NWBCopyFrameClose:GetPushedTexture():SetTexCoord(0.1875, 0.8125, 0.1875, 0.8125);
 NWBCopyFrameClose:GetDisabledTexture():SetTexCoord(0.1875, 0.8125, 0.1875, 0.8125);
 
-local NWBCopyDragFrame = CreateFrame("Frame", "NWBCopyDragFrame", NWBCopyFrame);
+local NWBCopyDragFrame = CreateFrame("Frame", "NWBCopyDragFrame", NWBCopyFrame, NWB:addBackdrop());
 NWBCopyDragFrame:SetToplevel(true);
 NWBCopyDragFrame:EnableMouse(true);
 NWBCopyDragFrame:SetPoint("TOP", 0, 25);
@@ -8185,7 +8615,7 @@ function NWB:resetLayerMaps()
 end
 
 --Layer map display.
-local NWBLayerMapFrame = CreateFrame("ScrollFrame", "NWBLayerMapFrame", UIParent, "InputScrollFrameTemplate");
+local NWBLayerMapFrame = CreateFrame("ScrollFrame", "NWBLayerMapFrame", UIParent, NWB:addBackdrop("InputScrollFrameTemplate"));
 NWBLayerMapFrame:Hide();
 NWBLayerMapFrame:SetToplevel(true);
 NWBLayerMapFrame:SetMovable(true);
@@ -8714,7 +9144,7 @@ function SlashCmdList.NWBLAYERSCMD(msg, editBox)
 end
 
 --Version guild display.
-local NWBVersionFrame = CreateFrame("ScrollFrame", "NWBVersionFrame", UIParent, "InputScrollFrameTemplate");
+local NWBVersionFrame = CreateFrame("ScrollFrame", "NWBVersionFrame", UIParent, NWB:addBackdrop("InputScrollFrameTemplate"));
 NWBVersionFrame:Hide();
 NWBVersionFrame:SetToplevel(true);
 NWBVersionFrame:SetMovable(true);
@@ -9393,6 +9823,7 @@ f:SetScript("OnEvent", function(self, event, ...)
 	elseif (event == "UNIT_COMBAT") then
 		local unit = ...;
 		if (unit == "npc") then
+			NWB:debug("lastNpcCombat");
 			lastNpcCombat = GetTime();
 		end
 	elseif (event == "TRADE_SHOW") then
@@ -9535,16 +9966,14 @@ function NWB:walkingAlert(type, layer, sender)
 	else
 		return;
 	end
-	local colorTable = {r = NWB.db.global.middleColorR, g = NWB.db.global.middleColorG, 
-			b = NWB.db.global.middleColorB, id = 41, sticky = 0};
 	NWB:playSound("soundsNpcWalking", type);
 	NWB:startFlash("flashNpcWalking");
-	RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, 5);
+	NWB:middleScreenMsg("npcWalking", msg, nil, 5);
 	local senderMsg = "";
 	if (sender) then
 		senderMsg = " (" .. sender .. ")";
 	end
-	NWB:print(msg .. senderMsg);
+	NWB:print(msg .. senderMsg, nil, nil, true);
 end
 
 function NWB:doHandIn(id, layer, sender)
@@ -9603,9 +10032,7 @@ function NWB:doHandIn(id, layer, sender)
 		msg = msg .. " quest handed in by " .. sender .. ".";
 		if (NWB.db.global.middleHandInMsg) then
 			if (NWB.db.global.middleHandInMsgWhenOnCooldown or not onCooldown) then
-				local colorTable = {r = NWB.db.global.middleColorR, g = NWB.db.global.middleColorG, 
-					b = NWB.db.global.middleColorB, id = 41, sticky = 0};
-				RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, 5);
+				NWB:middleScreenMsg("questHandIn", msg, nil, 5);
 			end
 		end
 		NWB:print(msg);
@@ -10013,11 +10440,9 @@ function NWB:heraldFound(sender, layer)
 		end
 		msg = msg .. layerMsg;
 		lastHeraldAlert = GetServerTime();
-		local colorTable = {r = NWB.db.global.middleColorR, g = NWB.db.global.middleColorG, 
-				b = NWB.db.global.middleColorB, id = 41, sticky = 0};
 		NWB:playSound("soundsNpcWalking", "rend");
 		NWB:startFlash("flashNpcWalking");
-		RaidNotice_AddMessage(RaidWarningFrame, NWB:stripColors(msg), colorTable, 5);
+		NWB:middleScreenMsg("heraldFound", msg, nil, 5);
 		local senderMsg = "";
 		if (sender) then
 			senderMsg = " (" .. sender .. ")";
@@ -10090,7 +10515,7 @@ end
 --This helps using the stuck method for DMF buff people are already using on pvp realms for when factions are griefing each other.
 --If Blizzard is against using stuck in this way I'll be happy to remove this.
 local dmfTimerBar;
-local NWBDmfFrame = CreateFrame("Frame", "NWBDmfFrame", UIParent);
+local NWBDmfFrame = CreateFrame("Frame", "NWBDmfFrame", UIParent, NWB:addBackdrop());
 NWBDmfFrame:Hide();
 NWBDmfFrame:SetToplevel(true);
 NWBDmfFrame:SetMovable(true);
@@ -10410,7 +10835,7 @@ function NWB:createDmfHelperButtons()
 			edgeFile = "Interface\\ChatFrame\\ChatFrameBackground",
 			tile = true, edgeSize = 1, tileSize = 5,
 		};
-		NWB.dmfAutoResSlider.editBox = CreateFrame("EditBox", nil, NWB.dmfAutoResSlider);
+		NWB.dmfAutoResSlider.editBox = CreateFrame("EditBox", nil, NWB.dmfAutoResSlider, NWB:addBackdrop());
 		NWB.dmfAutoResSlider.editBox:SetAutoFocus(false);
 		NWB.dmfAutoResSlider.editBox:SetFontObject(GameFontHighlightSmall);
 		NWB.dmfAutoResSlider.editBox:SetPoint("TOP", NWB.dmfAutoResSlider, "BOTTOM");
@@ -10625,7 +11050,7 @@ end
 function NWB:verifyDmfZone()
 	local _, _, zone = NWB.dragonLib:GetPlayerZonePosition();
 	if ((zone == 1429 and NWB.faction == "Horde") or (zone == 1412 and NWB.faction == "Alliance")) then
-		return true
+		return true;
 	end
 end
 
@@ -10645,15 +11070,12 @@ function NWB:verifyDmfPos()
 			return;
 		end
 	elseif (NWB.faction == "Alliance") then
-		--Unfinished, needs to be tested when Mulgore is up next month.
-		return;
 		--Only works within a square around Mulgore DMF.
-		--[[local x, y, zone = NWB.dragonLib:GetPlayerZonePosition();
-		--Only works within a square around Mulgore DMF.
-		if (zone ~= 1412 or (y > 0.69853476638874 or y < 0.6824626793253
-				or x > 0.42938295086608 or x < 0.41670588083958)) then
+		local x, y, zone = NWB.dragonLib:GetPlayerZonePosition();
+		if (zone ~= 1412 or (y > 0.394447705692 or y < 0.37847691674407
+				or x > 0.37333657662182 or x < 0.36484996019735)) then
 			return;
-		end]]
+		end
 	end
 	return true;
 end

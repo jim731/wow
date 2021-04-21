@@ -33,7 +33,6 @@ BigWigsClassicDB = {
 	["profileKeys"] = {
 		["Fermion - Nethergarde Keep"] = "Default",
 	},
-	["discord"] = 15,
 	["profiles"] = {
 		["Default"] = {
 		},

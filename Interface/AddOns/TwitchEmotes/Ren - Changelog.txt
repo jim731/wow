@@ -2381,6 +2381,64 @@ KEKEGA
 Added support for Synergy Twitch Emotes
 
 ----
+Twitch Emotes V2.42.010
+----
+
+fix widepeepoHappy
+fix widepeepoLove
+add widestpeepoSad
+Bedge
+kekega
+PAUSERS
+peepoSmile / PepeSmile fix
+WICKED
+peepoClap
+
+yacubgasm
+:quest:
+:woa:
+:idk:
+:glad:
+
+PagMan
+BigNars
+YKD
+
+:axe:
+
+KEKWPog
+Yamero | YAMERO
+FatDragon
+
+HD ANELE
+
+Yunõ
+Keqing
+
+02Cry
+
+
+Didntask lowercase a
+
+tyler1 emotes update (may add to menu?)
+tyler1B
+tyler1Int
+tyler1BAD
+tyler1H1
+tyler1H2
+tyler1H3
+tyler1H4
+tyler1B1
+tyler1B2
+tyler1S
+tyler1B
+tyler1H
+tyler1E
+tyler1X
+
+
+
+----
 To do
 ----
 

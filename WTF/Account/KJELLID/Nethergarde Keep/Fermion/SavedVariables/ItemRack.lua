@@ -7,7 +7,7 @@ ItemRackUser = {
 	["MainScale"] = 1,
 	["SetMenuWrapValue"] = 3,
 	["SetMenuWrap"] = "OFF",
-	["EnableQueues"] = "ON",
+	["CurrentSet"] = "Tank",
 	["Sets"] = {
 		["~CombatQueue"] = {
 			["equip"] = {
@@ -46,10 +46,6 @@ ItemRackUser = {
 				[3] = "6792::::::::49:::11::::",
 			},
 		},
-		["~Unequip"] = {
-			["equip"] = {
-			},
-		},
 		["DPS"] = {
 			["key"] = "ALT-+",
 			["equip"] = {
@@ -82,11 +78,16 @@ ItemRackUser = {
 				[3] = "4123::::::::49:::11::::",
 			},
 		},
+		["~Unequip"] = {
+			["equip"] = {
+			},
+		},
 	},
-	["EnablePerSetQueues"] = "OFF",
+	["EnableQueues"] = "ON",
 	["Queues"] = {
 	},
-	["Alpha"] = 1,
+	["Buttons"] = {
+	},
 	["ItemsUsed"] = {
 	},
 	["Events"] = {
@@ -95,11 +96,10 @@ ItemRackUser = {
 		["Set"] = {
 		},
 	},
+	["EnableEvents"] = "ON",
 	["Hidden"] = {
 	},
-	["EnableEvents"] = "ON",
-	["Buttons"] = {
-	},
+	["Alpha"] = 1,
 	["MenuScale"] = 0.85,
-	["CurrentSet"] = "Tank",
+	["EnablePerSetQueues"] = "OFF",
 }

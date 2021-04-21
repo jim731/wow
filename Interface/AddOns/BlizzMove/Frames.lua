@@ -547,7 +547,7 @@ BlizzMoveAPI:RegisterAddOnFrames(
 	{
 		["CraftFrame"] =
 		{
-			MaxVersion = 70300, -- When was this renamed to TradeSkillFrame?
+			MaxVersion = 11305,
 		},
 	},
 	["Blizzard_DeathRecap"] =
@@ -889,7 +889,7 @@ BlizzMoveAPI:RegisterAddOnFrames(
 	{
 		["TradeSkillFrame"] =
 		{
-			MinVersion = 20000, -- Was previously CraftFrame.
+			MinVersion = 11306,
 			SubFrames =
 			{
 				["TradeSkillFrame.RecipeList"] =

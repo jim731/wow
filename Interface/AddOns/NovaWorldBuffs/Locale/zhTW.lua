@@ -24,6 +24,9 @@ L["Sap"] = "悶棍";
 L["Fire Festival Fortitude"] = "火焰節慶之韌";
 L["Fire Festival Fury"] = "火焰節慶之怒";
 L["Ribbon Dance"] = "緞帶舞";
+L["Slip'kik's Savvy"] = "Slip'kik's Savvy";
+L["Fengus' Ferocity"] = "Fengus' Ferocity";
+L["Mol'dar's Moxie"] = "Mol'dar's Moxie";
 
 ---=====---
 ---Horde---
@@ -572,11 +575,6 @@ L["flashNpcKilledTitle"] = "NPC被殺時閃爍";
 L["flashNpcKilledDesc"] = "當NPC被殺時，閃爍魔獸視窗?";
 
 
-
-
-
-
-
 L["timerWindowWidthTitle"] = "計時器視窗寬度";
 L["timerWindowWidthDesc"] = "計時器的視窗寬度。";
 
@@ -606,3 +604,10 @@ L["layerMsg4"] = "目標任何NPC在 %s 以觀看你正確的Layer。"; --Target
 --NOTE: Darkmoon Faire buff type is now a character specific setting, changing buff type will only change it for this character.
 L["note"] = "註記:";
 L["dmfConfigWarning"] = "暗月馬戲團的增益種類特定設定，更改增益類型只會對此腳色進行修改。";
+
+L["Sheen of Zanza"] = "贊札之光";
+L["Spirit of Zanza"] = "贊札之魂";
+L["Swiftness of Zanza"] = "贊札之速";
+
+L["Mind Control"] = "心靈控制";
+L["Gnomish Mind Control Cap"] = "地精洗腦帽";

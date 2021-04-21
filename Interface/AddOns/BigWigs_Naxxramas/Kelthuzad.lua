@@ -6,7 +6,7 @@ local mod, CL = BigWigs:NewBoss("Kel'Thuzad", 533)
 if not mod then return end
 mod:RegisterEnableMob(15990)
 mod:SetAllowWin(true)
-mod.engageId = 1114
+mod:SetEncounterID(1114)
 
 --------------------------------------------------------------------------------
 -- Locals
@@ -85,12 +85,14 @@ function mod:OnBossEnable()
 	self:BossYell("Phase2", L.phase2_trigger1, L.phase2_trigger2, L.phase2_trigger3)
 	self:BossYell("Phase3", L.phase3_trigger)
 	self:BossYell("Guardians", L.guardians_trigger)
+
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
 	self:Death("Win", 15990)
 end
 
 function mod:OnEngage()
-	wipe(mcTargets)
-	wipe(fbTargets)
+	fbTargets = self:NewTargetList()
+	mcTargets = self:NewTargetList()
 	self:CloseProximity("proximity")
 
 	self:Message("stages", "yellow", L.start_warning, false) -- CL.custom_start:format(L.bossName, _G.ACTIVE_PETS, 5)
@@ -163,8 +165,8 @@ function mod:ChainsOfKelThuzad(args)
 end
 
 function mod:UNIT_HEALTH_FREQUENT(event, unit)
-	if self:MobId(UnitGUID(unit)) == 15990 then
-		local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	if self:MobId(self:UnitGUID(unit)) == 15990 then
+		local hp = self:GetHealth(unit)
 		if hp < 46 then
 			self:UnregisterUnitEvent(event, "target", "focus")
 			self:Message("stages", "cyan", L.phase3_soon_warning, false)

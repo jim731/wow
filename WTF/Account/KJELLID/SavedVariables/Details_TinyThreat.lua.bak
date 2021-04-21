@@ -8,6 +8,7 @@ Details_TinyThreatDB = {
 		["Ferns - Skullflame"] = "Fermion - Nethergarde Keep",
 		["Consumables - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
+		["Garluk - Mirage Raceway"] = "Fermion - Nethergarde Keep",
 		["Bushwick - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Fermion - Nethergarde Keep",
 	},
@@ -26,8 +27,8 @@ Details_TinyThreatDB = {
 			["dividebyhundred"] = true,
 			["showamount"] = false,
 			["useplayercolor"] = false,
-			["alwaysshowme"] = true,
 			["author"] = "Details! Team",
+			["alwaysshowme"] = true,
 		},
 	},
 }

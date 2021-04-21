@@ -2,7 +2,7 @@
 DecursiveDB = {
 	["global"] = {
 		["NoStartMessages"] = true,
-		["LastVersionAnnounce"] = 1616863229,
+		["LastVersionAnnounce"] = 1619029228,
 	},
 	["class"] = {
 		["WARRIOR"] = {
@@ -64,6 +64,7 @@ DecursiveDB = {
 	["profileKeys"] = {
 		["Ferns - Skullflame"] = "Default",
 		["Shapeshifter - Skullflame"] = "Default",
+		["Garluk - Mirage Raceway"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
 		["Parisi - Nethergarde Keep"] = "Default",
 		["Ganado - Nethergarde Keep"] = "Default",

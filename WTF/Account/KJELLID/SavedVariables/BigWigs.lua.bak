@@ -30,7 +30,6 @@ BigWigsClassicDB = {
 		["BigWigs_Plugins_Wipe"] = {
 		},
 	},
-	["discord"] = 15,
 	["profileKeys"] = {
 		["Fermion - Nethergarde Keep"] = "Default",
 	},

@@ -6,6 +6,7 @@ InventorianDB = {
 		["Parisi - Nethergarde Keep"] = "Default",
 		["Various - Nethergarde Keep"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
+		["Garluk - Mirage Raceway"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Default",
 		["Raremats - Nethergarde Keep"] = "Default",
 	},
@@ -167,7 +168,8 @@ InventorianDB = {
 						},
 						["ClearButton"] = {
 						},
-						["isLocked"] = false,
+						["DragBottomLeft"] = {
+						},
 						["Title"] = {
 						},
 						["TitleClick"] = {
@@ -180,8 +182,7 @@ InventorianDB = {
 							["Text"] = {
 							},
 						},
-						["DragBottomLeft"] = {
-						},
+						["isLocked"] = false,
 					},
 					["firstTimeLoaded"] = 1,
 				},
@@ -189,8 +190,8 @@ InventorianDB = {
 				["width"] = 383.999969482422,
 			},
 			["keyring"] = {
-				["y"] = 75.0000457763672,
-				["x"] = 204.018432617187,
+				["y"] = 65.5186004638672,
+				["x"] = 94.1912231445313,
 				["point"] = "CENTER",
 				["scale"] = 1,
 			},
@@ -350,7 +351,8 @@ InventorianDB = {
 						},
 						["ClearButton"] = {
 						},
-						["isLocked"] = false,
+						["DragBottomLeft"] = {
+						},
 						["Title"] = {
 						},
 						["TitleClick"] = {
@@ -363,8 +365,7 @@ InventorianDB = {
 							["Text"] = {
 							},
 						},
-						["DragBottomLeft"] = {
-						},
+						["isLocked"] = false,
 					},
 					["firstTimeLoaded"] = 1,
 				},

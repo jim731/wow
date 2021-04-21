@@ -2,12 +2,13 @@
 NauticusClassic5DB = {
 	["char"] = {
 		["Fermion - Nethergarde Keep"] = {
-			["activeTransit"] = 6,
+			["activeTransit"] = 8,
 		},
 	},
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
@@ -16,63 +17,65 @@ NauticusClassic5DB = {
 	["global"] = {
 		["knownCycles"] = {
 			{
-				["swaps"] = 2,
+				["swaps"] = 5,
 				["boots"] = 0,
-				["since"] = 79798.318,
+				["since"] = 140199.149,
 			}, -- [1]
 			{
-				["swaps"] = 1,
+				["swaps"] = 5,
 				["boots"] = 0,
-				["since"] = 59511.178,
+				["since"] = 141043.771,
 			}, -- [2]
 			{
-				["swaps"] = 2,
+				["swaps"] = 4,
 				["boots"] = 0,
-				["since"] = 83851.984,
+				["since"] = -444704.674,
 			}, -- [3]
 			{
-				["swaps"] = 0,
+				["swaps"] = 4,
 				["boots"] = 0,
-				["since"] = 181801.767277909,
+				["since"] = 140222.961,
 			}, -- [4]
 			{
-				["swaps"] = 2,
+				["swaps"] = 3,
 				["boots"] = 0,
-				["since"] = 51510.789,
+				["since"] = 147752.433,
 			}, -- [5]
-			{
-				["swaps"] = 1,
-				["boots"] = 0,
-				["since"] = -333679.564,
-			}, -- [6]
-			{
-				["swaps"] = 2,
-				["boots"] = 0,
-				["since"] = -949711.215,
-			}, -- [7]
-			{
-				["swaps"] = 2,
-				["boots"] = 0,
-				["since"] = -21891.03,
-			}, -- [8]
 			{
 				["swaps"] = 0,
 				["boots"] = 0,
-				["since"] = 99642.9922472674,
+				["since"] = 505610.399614018,
+			}, -- [6]
+			{
+				["swaps"] = 3,
+				["boots"] = 0,
+				["since"] = -141344.534,
+			}, -- [7]
+			{
+				["swaps"] = 4,
+				["boots"] = 0,
+				["since"] = 142935.752,
+			}, -- [8]
+			{
+				["swaps"] = 4,
+				["boots"] = 0,
+				["since"] = 16293.913,
 			}, -- [9]
 			{
-				["swaps"] = 2,
+				["swaps"] = 4,
 				["boots"] = 0,
-				["since"] = 88538.61,
+				["since"] = -68485.217,
 			}, -- [10]
 		},
-		["timestamp"] = 1616867184,
-		["uptime"] = 431652.719,
+		["timestamp"] = 1619026129,
+		["uptime"] = 576699.621,
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
 		},
 		["Shapeshifter - Skullflame"] = {
+		},
+		["Garluk - Mirage Raceway"] = {
 		},
 		["Fermion - Nethergarde Keep"] = {
 			["worldIconSize"] = 1.07,

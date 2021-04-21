@@ -1,5 +1,36 @@
 
 ItemTooltipIconsConfig = {
+	["Skullflame"] = {
+		["Ferns"] = {
+			["showProfs"] = true,
+			["showDMF"] = true,
+			["profFlags"] = 255,
+			["includeVendor"] = false,
+			["questFlags"] = 1048575,
+			["iconSize"] = 16,
+			["showQuests"] = true,
+		},
+		["Shapeshifter"] = {
+			["showProfs"] = true,
+			["showDMF"] = true,
+			["profFlags"] = 255,
+			["includeVendor"] = false,
+			["questFlags"] = 1048575,
+			["showQuests"] = true,
+			["iconSize"] = 16,
+		},
+	},
+	["Mirage Raceway"] = {
+		["Garluk"] = {
+			["showProfs"] = true,
+			["showDMF"] = true,
+			["profFlags"] = 255,
+			["includeVendor"] = false,
+			["questFlags"] = 1048575,
+			["showQuests"] = true,
+			["iconSize"] = 16,
+		},
+	},
 	["Nethergarde Keep"] = {
 		["Consumables"] = {
 			["showProfs"] = true,
@@ -63,26 +94,6 @@ ItemTooltipIconsConfig = {
 			["questFlags"] = 1048575,
 			["iconSize"] = 16,
 			["showQuests"] = true,
-		},
-	},
-	["Skullflame"] = {
-		["Ferns"] = {
-			["showProfs"] = true,
-			["showDMF"] = true,
-			["profFlags"] = 255,
-			["includeVendor"] = false,
-			["questFlags"] = 1048575,
-			["iconSize"] = 16,
-			["showQuests"] = true,
-		},
-		["Shapeshifter"] = {
-			["showProfs"] = true,
-			["showDMF"] = true,
-			["profFlags"] = 255,
-			["includeVendor"] = false,
-			["questFlags"] = 1048575,
-			["showQuests"] = true,
-			["iconSize"] = 16,
 		},
 	},
 }

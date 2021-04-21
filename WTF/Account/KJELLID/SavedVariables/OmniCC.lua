@@ -8,6 +8,7 @@ OmniCCDB = {
 		["Ferns - Skullflame"] = "Default",
 		["Consumables - Nethergarde Keep"] = "Default",
 		["Parisi - Nethergarde Keep"] = "Default",
+		["Garluk - Mirage Raceway"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Default",
 		["Shapeshifter - Skullflame"] = "Default",
 	},

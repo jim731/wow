@@ -8,6 +8,7 @@ AtlasLootClassicDB = {
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
+		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
 	},
@@ -40,6 +41,8 @@ AtlasLootClassicDB = {
 		["Consumables - Nethergarde Keep"] = {
 		},
 		["Parisi - Nethergarde Keep"] = {
+		},
+		["Garluk - Mirage Raceway"] = {
 		},
 		["Bushwick - Nethergarde Keep"] = {
 		},

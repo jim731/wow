@@ -2,13 +2,13 @@
 AUCTIONATOR_SAVEDVARS = {
 	["_50000"] = 500,
 	["_2000"] = 100,
-	["_500"] = 5,
-	["STARTING_DISCOUNT"] = 5,
-	["_1000000"] = 2500,
-	["_10000"] = 200,
 	["LOG_DE_DATA_X"] = true,
+	["_500"] = 5,
+	["_1000000"] = 2500,
 	["_200000"] = 1000,
+	["STARTING_DISCOUNT"] = 5,
 	["_5000000"] = 10000,
+	["_10000"] = 200,
 }
 AUCTIONATOR_PRICING_HISTORY = {
 }
@@ -35,6 +35,8 @@ AUCTIONATOR_PRICE_DATABASE = {
 	["__dbversion"] = 4,
 	["Nethergarde Keep_Alliance"] = {
 	},
+	["Mirage Raceway_Horde"] = {
+	},
 	["Skullflame_Horde"] = {
 	},
 }
@@ -44,6 +46,11 @@ AUCTIONATOR_TOONS = {
 		["firstSeen"] = 1616350884,
 		["guid"] = "Player-4456-0308EAB1",
 		["firstVersion"] = "100.0.9",
+	},
+	["Fermion"] = {
+		["firstSeen"] = 1616091869,
+		["firstVersion"] = "100.0.9",
+		["guid"] = "Player-4456-019041F2",
 	},
 	["Ferns"] = {
 		["firstSeen"] = 1616226408,
@@ -55,10 +62,10 @@ AUCTIONATOR_TOONS = {
 		["guid"] = "Player-4456-01C21F39",
 		["firstVersion"] = "100.0.9",
 	},
-	["Fermion"] = {
-		["firstSeen"] = 1616091869,
+	["Garluk"] = {
+		["firstSeen"] = 1617906570,
 		["firstVersion"] = "100.0.9",
-		["guid"] = "Player-4456-019041F2",
+		["guid"] = "Player-4454-0316309D",
 	},
 	["Ganado"] = {
 		["firstSeen"] = 1616345995,

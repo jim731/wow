@@ -1,6 +1,20 @@
 
 SpyDB = {
 	["kosData"] = {
+		["Skullflame"] = {
+			["Horde"] = {
+				["Ferns"] = {
+				},
+				["Shapeshifter"] = {
+				},
+			},
+		},
+		["Mirage Raceway"] = {
+			["Horde"] = {
+				["Garluk"] = {
+				},
+			},
+		},
 		["Nethergarde Keep"] = {
 			["Alliance"] = {
 				["Consumables"] = {
@@ -19,22 +33,18 @@ SpyDB = {
 				},
 			},
 		},
-		["Skullflame"] = {
-			["Horde"] = {
-				["Ferns"] = {
-				},
-				["Shapeshifter"] = {
-				},
-			},
-		},
 	},
 	["removeKOSData"] = {
-		["Nethergarde Keep"] = {
-			["Alliance"] = {
-			},
-		},
 		["Skullflame"] = {
 			["Horde"] = {
+			},
+		},
+		["Mirage Raceway"] = {
+			["Horde"] = {
+			},
+		},
+		["Nethergarde Keep"] = {
+			["Alliance"] = {
 			},
 		},
 	},
@@ -46,6 +56,7 @@ SpyDB = {
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
+		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
 	},
@@ -129,6 +140,18 @@ SpyDB = {
 			["AppendUnitKoSCheck"] = true,
 		},
 		["Parisi - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitKoSCheck"] = true,
+		},
+		["Garluk - Mirage Raceway"] = {
 			["AppendUnitNameCheck"] = true,
 			["MainWindowVis"] = false,
 			["Colors"] = {

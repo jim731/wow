@@ -2,7 +2,7 @@
 OneRing_Config = {
 	["CharProfiles"] = {
 	},
-	["_GameVersion"] = "1.13.6",
+	["_GameVersion"] = "1.13.7",
 	["_OPieVersion"] = "Ancient Xe 2a (3.104)",
 	["ProfileStorage"] = {
 		["default"] = {

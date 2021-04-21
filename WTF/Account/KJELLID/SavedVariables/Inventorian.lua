@@ -8,12 +8,14 @@ InventorianDB = {
 		["Fermion - Nethergarde Keep"] = "Default",
 		["Raremats - Nethergarde Keep"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Default",
+		["Garluk - Mirage Raceway"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
 			["bag"] = {
-				["y"] = -76.6418533325195,
-				["x"] = -77.4290771484375,
+				["y"] = -56.83984375,
+				["x"] = 215.552825927734,
+				["point"] = "TOP",
 				["showBags"] = true,
 				["scale"] = 1,
 				["parent"] = {
@@ -165,9 +167,9 @@ InventorianDB = {
 						},
 						["CountButton"] = {
 						},
+						["isLocked"] = false,
 						["DragBottomLeft"] = {
 						},
-						["isLocked"] = false,
 						["Title"] = {
 						},
 						["TitleClick"] = {
@@ -185,14 +187,14 @@ InventorianDB = {
 					},
 					["firstTimeLoaded"] = 1,
 				},
-				["height"] = 511.999938964844,
-				["width"] = 383.999969482422,
+				["height"] = 511.999969482422,
+				["width"] = 384.000091552734,
 			},
 			["bank"] = {
-				["y"] = -50.6666870117188,
-				["x"] = 220.000030517578,
+				["y"] = -50.666748046875,
+				["x"] = 220.000061035156,
 				["point"] = "TOPLEFT",
-				["height"] = 511.999938964844,
+				["height"] = 511.999969482422,
 				["parent"] = {
 					["variablesLoaded"] = true,
 					["Above"] = {
@@ -342,9 +344,9 @@ InventorianDB = {
 						},
 						["CountButton"] = {
 						},
+						["isLocked"] = false,
 						["DragBottomLeft"] = {
 						},
-						["isLocked"] = false,
 						["Title"] = {
 						},
 						["TitleClick"] = {
@@ -363,11 +365,11 @@ InventorianDB = {
 					["firstTimeLoaded"] = 1,
 				},
 				["scale"] = 1,
-				["width"] = 511.999938964844,
+				["width"] = 511.999969482422,
 			},
 			["keyring"] = {
-				["y"] = 75.0000457763672,
-				["x"] = 204.018432617187,
+				["y"] = 65.5186004638672,
+				["x"] = 94.1912231445313,
 				["point"] = "CENTER",
 				["scale"] = 1,
 			},

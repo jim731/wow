@@ -20,6 +20,14 @@ L["Flask of Chromatic Resistance"] = "Настой всецветного соп
 L["Supreme Power"] = "Превосходная мощь";
 L["Distilled Wisdom"] = "Очищенная мудрость";
 L["Chromatic Resistance"] = "Всецветное сопротивление";
+L["Sap"] = "Sap";
+L["Fire Festival Fortitude"] = "Fire Festival Fortitude";
+L["Fire Festival Fury"] = "Fire Festival Fury";
+L["Ribbon Dance"] = "Ribbon Dance";
+L["Traces of Silithyst"] = "Traces of Silithyst";
+L["Slip'kik's Savvy"] = "Смекалка Слип'кика";
+L["Fengus' Ferocity"] = "Свирепость Фенгуса";
+L["Mol'dar's Moxie"] = "Дерзость Мол'дара";
 
 ---=====---
 ---Horde---
@@ -600,3 +608,10 @@ L["trimDataMsg9"] = "Удален %s из базы данных.";
 
 L["heraldFoundCrossroads"] = "Глашатай найден! Ренд в Перекрестке будет бафнут через 20 секунд.";
 L["heraldFoundTimerMsg"] = "Ренд в Перекрестке";
+
+L["Sheen of Zanza"] = "Блеск Занзы";
+L["Spirit of Zanza"] = "Дух Занзы";
+L["Swiftness of Zanza"] = "Скорость Занзы";
+
+L["Mind Control"] = "Контроль над разумом";
+L["Gnomish Mind Control Cap"] = "Гномья шапка контроля над разумом";

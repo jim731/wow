@@ -2,8 +2,9 @@
 OmniBarDB = {
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Default",
-		["Fermion - Nethergarde Keep"] = "Default",
 		["Parisi - Nethergarde Keep"] = "Default",
+		["Garluk - Mirage Raceway"] = "Default",
+		["Fermion - Nethergarde Keep"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Default",
 	},
 	["profiles"] = {

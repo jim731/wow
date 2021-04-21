@@ -1,13 +1,14 @@
 ## Interface: 11306
 ## Title: OmniBar
 ## Notes: Tracks enemy cooldowns
-## Version: v10.14
+## Version: v10.16
 ## Author: Jordon
 ## DefaultState: Enabled
 ## SavedVariables: OmniBarDB
 ## OptionalDeps: Masque, LibStub, CallbackHandler-1.0, Ace3, LibDualSpec-1.0
 ## X-Curse-Project-ID: 85814
 
+#@no-lib-strip@
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
 Libs\AceAddon-3.0\AceAddon-3.0.xml
@@ -19,6 +20,7 @@ Libs\AceGUI-3.0\AceGUI-3.0.xml
 Libs\AceConfig-3.0\AceConfig-3.0.xml
 Libs\AceLocale-3.0\AceLocale-3.0.xml
 Libs\LibDualSpec-1.0\LibDualSpec-1.0.lua
+#@end-no-lib-strip@
 
 Locales\Locales.xml
 OmniBar.xml

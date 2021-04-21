@@ -1,4 +1,4 @@
-﻿## Interface: 11306
+## Interface: 11307
 
 ## Title: BigWigs [|cffeda55fNaxxramas|r]
 ## Title-deDE: BigWigs [|cffeda55fNaxxramas|r]
@@ -22,6 +22,7 @@
 ## Notes-ruRU: BigWigs Naxxramas Modules
 ## Notes-zhCN: BigWigs 纳克萨玛斯模块
 ## Notes-zhTW: BigWigs 納克薩瑪斯模組
+## Version: v24-classic
 
 ## LoadOnDemand: 1
 ## Dependencies: BigWigs

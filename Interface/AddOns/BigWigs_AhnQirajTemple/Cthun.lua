@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("C'Thun", 531)
 if not mod then return end
 mod:RegisterEnableMob(15727, 15589) -- C'Thun, Eye of C'Thun
 mod:SetAllowWin(true)
-mod.engageId = 717
+mod:SetEncounterID(717)
 
 local timeP1Tentacle = 45      -- tentacle timers for phase 1
 local timeP1TentacleStart = 45 -- delay for first tentacles from engage onwards
@@ -227,7 +227,7 @@ function mod:CheckTarget()
 	local unit = self:GetUnitIdByGUID(15589) -- Eye of C'Thun
 	if unit then
 		local unitTarget = unit.."target"
-		local guid = UnitGUID(unitTarget)
+		local guid = self:UnitGUID(unitTarget)
 		if guid then
 			target = guid
 		end
@@ -237,7 +237,7 @@ end
 function mod:GroupWarning()
 	if target then
 		for unit in self:IterateGroup() do
-			local guid = UnitGUID(unit)
+			local guid = self:UnitGUID(unit)
 			if target == guid then
 				local name = self:UnitName(unit)
 				if not IsInRaid() then

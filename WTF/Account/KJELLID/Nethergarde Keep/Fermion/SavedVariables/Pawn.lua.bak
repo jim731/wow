@@ -1,8 +1,6 @@
 
 PawnOptions = {
-	["LastVersion"] = 2.0417,
-	["LastPlayerFullName"] = "Fermion-Nethergarde Keep",
-	["AutoSelectScales"] = false,
+	["LastVersion"] = 2.0418,
 	["ItemLevels"] = {
 		{
 			["ID"] = 9664,
@@ -15,15 +13,15 @@ PawnOptions = {
 			["Link"] = "|cff0070dd|Hitem:10824::::::::49:::11::::|h[Amberglow Talisman]|h|r",
 		}, -- [2]
 		{
-			["ID"] = 6792,
-			["Level"] = 40,
-			["Link"] = "|cff1eff00|Hitem:6792::::::::49:::11::::|h[Sanguine Pauldrons]|h|r",
+			["ID"] = 9476,
+			["Level"] = 50,
+			["Link"] = "|cff0070dd|Hitem:9476::::::::49:::1::::|h[Big Bad Pauldrons]|h|r",
 		}, -- [3]
 		nil, -- [4]
 		{
-			["ID"] = 6411,
-			["Level"] = 41,
-			["Link"] = "|cff1eff00|Hitem:6411::::::::49:::::::|h[Chief Brigadier Armor]|h|r",
+			["ID"] = 14768,
+			["Level"] = 44,
+			["Link"] = "|cff1eff00|Hitem:14768::::::::49:::1::::|h[Ravager's Armor]|h|r",
 		}, -- [5]
 		{
 			["ID"] = 14918,
@@ -51,16 +49,16 @@ PawnOptions = {
 			["Link"] = "|cff1eff00|Hitem:10331::::::::49:::1::::|h[Scarlet Gauntlets]|h|r",
 		}, -- [10]
 		{
-			["ID"] = 4549,
-			["Level"] = 46,
+			["ID"] = 9533,
+			["Level"] = 47,
 			["AlsoFitsIn"] = 12,
-			["Link"] = "|cff1eff00|Hitem:4549::::::::49:::11::::|h[Seafire Band]|h|r",
+			["Link"] = "|cff0070dd|Hitem:9533::::::::49:::11::::|h[Masons Fraternity Ring]|h|r",
 		}, -- [11]
 		{
-			["ID"] = 2933,
-			["Level"] = 31,
+			["ID"] = 9533,
+			["Level"] = 47,
 			["AlsoFitsIn"] = 11,
-			["Link"] = "|cff0070dd|Hitem:2933::::::::49:::11::::|h[Seal of Wrynn]|h|r",
+			["Link"] = "|cff0070dd|Hitem:9533::::::::50:::11::::|h[Masons Fraternity Ring]|h|r",
 		}, -- [12]
 		nil, -- [13]
 		nil, -- [14]
@@ -86,6 +84,8 @@ PawnOptions = {
 			["Link"] = "|cff1eff00|Hitem:10508::::::::49:::::::|h[Mithril Blunderbuss]|h|r",
 		}, -- [18]
 	},
+	["AutoSelectScales"] = false,
+	["LastPlayerFullName"] = "Fermion-Nethergarde Keep",
 }
 PawnMrRobotScaleProviderOptions = nil
 PawnClassicScaleProviderOptions = {

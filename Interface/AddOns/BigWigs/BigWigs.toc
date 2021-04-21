@@ -1,4 +1,4 @@
-## Interface: 11306
+## Interface: 11307
 
 ## Title: BigWigs
 ## Notes: Modular, lightweight, non-intrusive approach to boss encounter warnings.
@@ -13,7 +13,7 @@
 ## Notes-itIT: Un approccio modulare, leggero e non intrusivo per gli avvisi ai combattimenti con i boss.
 ## Notes-ptBR: Abordagem modular, leve e não intrusiva para avisos em encontros com chefes.
 ## Author: Funkydude, Nebula, Elvador, Justwait
-## Version: v22-classic
+## Version: v24-classic
 
 ## X-Category: Raid
 ## X-License: All Rights Reserved: You are free to fork and modify on GitHub, please ask us about anything else.
@@ -21,7 +21,7 @@
 ## X-Curse-Project-ID: 2382
 ## X-WoWI-ID: 5086
 
-## OptionalDeps: Ace3, LibCandyBar-3.0, LibSharedMedia-3.0, LibSink-2.0, LibDBIcon-1.0, LibDDI-1.0, LibChatAnims, LibDualSpec-1.0
+## OptionalDeps: Ace3, LibCandyBar-3.0, LibSharedMedia-3.0, LibSink-2.0, LibDBIcon-1.0, LibDDI-1.0, LibChatAnims
 ## SavedVariables: BigWigsClassicDB, BigWigsIconClassicDB, BigWigsStatsClassicDB, BigWigs3DB, BigWigsIconDB, BigWigsStatsDB
 
 embeds.xml

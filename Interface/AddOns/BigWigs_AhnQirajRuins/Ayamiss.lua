@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Ayamiss the Hunter", 509)
 if not mod then return end
 mod:RegisterEnableMob(15369)
 mod:SetAllowWin(true)
-mod.engageId = 722
+mod:SetEncounterID(722)
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -60,8 +60,8 @@ function mod:Frenzy(args)
 end
 
 function mod:UNIT_HEALTH_FREQUENT(event, unit)
-	if self:MobId(UnitGUID(unit)) == 15369 then
-		local hp = UnitHealth(unit)
+	if self:MobId(self:UnitGUID(unit)) == 15369 then
+		local hp = self:GetHealth(unit)
 		if hp < 26 then
 			self:UnregisterUnitEvent(event, "target", "focus")
 			self:Message(8269, "green", CL.soon:format(self:SpellName(8269)), false)

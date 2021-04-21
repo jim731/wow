@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Princess Huhuran", 531)
 if not mod then return end
 mod:RegisterEnableMob(15509)
 mod:SetAllowWin(true)
-mod.engageId = 714
+mod:SetEncounterID(714)
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -87,8 +87,8 @@ function mod:BerserkApplied(args)
 end
 
 function mod:UNIT_HEALTH_FREQUENT(event, unit)
-	if self:MobId(UnitGUID(unit)) == 15509 then
-		local hp = UnitHealth(unit)
+	if self:MobId(self:UnitGUID(unit)) == 15509 then
+		local hp = self:GetHealth(unit)
 		if hp < 36  then
 			self:UnregisterUnitEvent(event, "target", "focus")
 			self:Message("berserk", "red", CL.soon:format(self:SpellName(26662)), false)
