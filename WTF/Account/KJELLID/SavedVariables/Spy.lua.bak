@@ -11,19 +11,25 @@ SpyDB = {
 		},
 		["Mirage Raceway"] = {
 			["Horde"] = {
+				["Zabuji"] = {
+				},
 				["Garluk"] = {
 				},
 			},
 		},
 		["Nethergarde Keep"] = {
 			["Alliance"] = {
-				["Consumables"] = {
+				["Various"] = {
 				},
 				["Bushwick"] = {
 				},
-				["Various"] = {
-				},
 				["Parisi"] = {
+				},
+				["Craftingmats"] = {
+				},
+				["Consumables"] = {
+				},
+				["Clothguy"] = {
 				},
 				["Raremats"] = {
 				},
@@ -54,11 +60,14 @@ SpyDB = {
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
+		["Craftingmats - Nethergarde Keep"] = "Craftingmats - Nethergarde Keep",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
+		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
 		["Raremats - Nethergarde Keep"] = "Raremats - Nethergarde Keep",
+		["Zabuji - Mirage Raceway"] = "Zabuji - Mirage Raceway",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -98,13 +107,30 @@ SpyDB = {
 			["AppendUnitKoSCheck"] = true,
 		},
 		["Fermion - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindow"] = {
+				["Position"] = {
+					["y"] = 853.333374023438,
+					["h"] = 38.1604690551758,
+					["w"] = 124.000030517578,
+				},
+			},
 			["Colors"] = {
+				["Alert"] = {
+					["Stealth Text"] = {
+						["a"] = 1,
+					},
+					["Name Text"] = {
+						["a"] = 1,
+					},
+				},
 				["Bar"] = {
 					["Bar Text"] = {
 						["a"] = 1,
 					},
 				},
 			},
+			["AppendUnitKoSCheck"] = true,
 			["FilteredZones"] = {
 				["Gadgetzan"] = true,
 				["The Salty Sailor Tavern"] = true,
@@ -112,12 +138,21 @@ SpyDB = {
 				["Ratchet"] = true,
 				["Everlook"] = true,
 			},
-			["AppendUnitNameCheck"] = true,
-			["MainWindowVis"] = false,
-			["AppendUnitKoSCheck"] = true,
 		},
 		["Ferns - Skullflame"] = {
 			["AppendUnitNameCheck"] = true,
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitKoSCheck"] = true,
+		},
+		["Craftingmats - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
 			["Colors"] = {
 				["Bar"] = {
 					["Bar Text"] = {
@@ -175,7 +210,31 @@ SpyDB = {
 			},
 			["AppendUnitKoSCheck"] = true,
 		},
+		["Clothguy - Nethergarde Keep"] = {
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
+			["AppendUnitKoSCheck"] = true,
+		},
 		["Raremats - Nethergarde Keep"] = {
+			["AppendUnitNameCheck"] = true,
+			["MainWindowVis"] = false,
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["AppendUnitKoSCheck"] = true,
+		},
+		["Zabuji - Mirage Raceway"] = {
 			["AppendUnitNameCheck"] = true,
 			["MainWindowVis"] = false,
 			["Colors"] = {

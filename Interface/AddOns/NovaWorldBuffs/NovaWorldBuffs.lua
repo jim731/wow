@@ -7,12 +7,18 @@
 local addonName, addon = ...;
 addon.a = LibStub("AceAddon-3.0"):NewAddon("NovaWorldBuffs", "AceComm-3.0");
 local NWB = addon.a;
+local tbcRelease = 1622548800; --A few hours before TBC release, we want to leave classic stuff working during prepatch.
+local utcTime = time(date("!*t", GetServerTime()));
 if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 	NWB.isClassic = true;
-elseif (WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC) then
+elseif (WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC and utcTime > tbcRelease) then
 	NWB.isTBC = true;
 elseif (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 	NWB.isRetail = true;
+end
+--Temporary until actual launch.
+if (WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC) then
+	NWB.realmsTBC = true;
 end
 NWB.LSM = LibStub("LibSharedMedia-3.0");
 NWB.dragonLib = LibStub("HereBeDragons-2.0");
@@ -45,6 +51,7 @@ NWB.prefixColor = "|cFFFF6900";
 --We're still tracking drops for both layers incase a NPC is killed.
 
 function NWB:OnInitialize()
+	self:setRealmData();
 	self:setLayered();
 	self:setLayeredSongflowers();
 	self:setLayerLimit();
@@ -59,6 +66,7 @@ function NWB:OnInitialize()
 	self:registerSounds();
 	self.loadTime = GetServerTime();
 	self.db.global.lt = GetServerTime();
+	self:setDmfDates();
 	self:registerOtherAddons();
 	self:buildRealmFactionData();
 	self:setRegionFont();
@@ -194,8 +202,6 @@ function NWB:printBuffTimers(isLogon)
 		NWB:print("|HNWBCustomLink:timers|h" .. L["layerMsg2"] .. "|h");
 	end
 	local timestamp, timeLeft, type = NWB:getDmfData();
-	--if ((NWB.db.global.showDmfLogon and isLogon) or NWB.db.global.showDmfWb
-	--		or (NWB.db.global.showDmfWhenClose and (timeLeft > 0 and timeLeft < 43200))) then
 	if ((isLogon and NWB.db.global.logonDmfSpawn and (timeLeft > 0 and timeLeft < 21600)) or
 		(not isLogon and NWB.db.global.showDmfWb)) then	
 		local zone;
@@ -208,7 +214,14 @@ function NWB:printBuffTimers(isLogon)
 		NWB:print("|HNWBCustomLink:timers|h" .. msg .. "|h", nil, "[DMF]");
 	end
 	if (NWB.isDmfUp and NWB.data.myChars[UnitName("player")].buffs) then
-		for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
+		local dmfCooldown, noMsgs = NWB:getDmfCooldown();
+		if (dmfCooldown > 0 and not noMsgs) then
+			if ((not isLogon and NWB.db.global.showDmfBuffWb) or NWB.db.global.logonDmfBuffCooldown) then
+				msg = string.format(L["dmfBuffCooldownMsg"], NWB:getTimeString(dmfCooldown, true));
+				NWB:print("|HNWBCustomLink:timers|h" .. msg .. "|h", nil, "[DMF]");
+			end
+		end
+		--[[for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
 			if (v.type == "dmf" and (v.timeLeft + 7200) > 0) then
 				msg = string.format(L["dmfBuffCooldownMsg"], NWB:getTimeString(v.timeLeft + 7200, true));
 				if ((not isLogon and NWB.db.global.showDmfBuffWb) or NWB.db.global.logonDmfBuffCooldown) then
@@ -218,7 +231,7 @@ function NWB:printBuffTimers(isLogon)
 				end
 				break;
 			end
-		end
+		end]]
 	end
 end
 
@@ -241,7 +254,7 @@ function NWB:getShortBuffTimers(channel, layerNum)
 				layer = k;
 			end
 		end
-		--if (not layerNum and NWB.isLayered and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+		--if (not layerNum and NWB.isLayered and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 		--		and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 		--	layerNum = NWB.lastKnownLayer;
 		--	layer = NWB.lastKnownLayerID;
@@ -621,7 +634,7 @@ function NWB:ticker()
 				NWB.data.myChars[UnitName("player")].buffs[k] = nil;
 			else
 				v.timeLeft = v.timeLeft - 1;
-				if (v.type == "dmf") then
+				--[[if (v.type == "dmf") then
 					if ((lastDmfTick + 7200) >= 1 and (v.timeLeft + 7200) <= 0) then
 						if (NWB.isDmfUp) then
 							NWB:print(L["dmfBuffReset"]);
@@ -631,10 +644,22 @@ function NWB:ticker()
 					else
 						lastDmfTick = v.timeLeft;
 					end
-				end
+				end]]
 			end
 		end
 	end
+	if (NWB.data.myChars[UnitName("player")].dmfCooldown) then
+		NWB.data.myChars[UnitName("player")].dmfCooldown = NWB.data.myChars[UnitName("player")].dmfCooldown - 1;
+		if (lastDmfTick >= 1 and NWB.data.myChars[UnitName("player")].dmfCooldown <= 0) then
+			if (NWB.isDmfUp) then
+				NWB:print(L["dmfBuffReset"]);
+			end
+			lastDmfTick = -99999;
+		else
+			lastDmfTick = NWB.data.myChars[UnitName("player")].dmfCooldown;
+		end
+	end
+	--_G["\78\87\66"] = {};
 	NWB.db.global.lo = GetServerTime();
 	C_Timer.After(1, function()
 		NWB:ticker();
@@ -987,7 +1012,7 @@ end
 local lastHeraldYell = 0;
 function NWB:monsterYell(...)
 	local layerNum;
-	if (NWB.isLayered and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+	if (NWB.isLayered and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 			and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 		layerNum = NWB.lastKnownLayer;
 	end
@@ -1100,7 +1125,7 @@ end
 
 function NWB:monsterSay(...)
 	local layerNum;
-	if (NWB.isLayered and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+	if (NWB.isLayered and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 			and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 		layerNum = NWB.lastKnownLayer;
 	end
@@ -1329,7 +1354,7 @@ function NWB:doNpcRespawnMsg(type, layerID)
 			else
 				msg = L["onyxiaNpcRespawnAlliance"] .. layerMsg;
 			end
-			if (NWB.db.global.chatNpcKilled) then
+			if (NWB.db.global.chatNpcKilled and not NWB.db.global.ignoreKillData) then
 				NWB:print(msg, nil, nil, true);
 			end
 			onyNpcRespawn = GetServerTime();
@@ -1342,7 +1367,7 @@ function NWB:doNpcRespawnMsg(type, layerID)
 			else
 				msg = L["nefarianNpcRespawnAlliance"] .. layerMsg;
 			end
-			if (NWB.db.global.chatNpcKilled) then
+			if (NWB.db.global.chatNpcKilled and not NWB.db.global.ignoreKillData) then
 				NWB:print(msg, nil, nil, true);
 			end
 			nefNpcRespawn = GetServerTime();
@@ -1362,6 +1387,7 @@ local lastHeraldAlert = 0;
 local speedtest = 0;
 local waitingCombatEnd, hideSummonPopup;
 local lastRendHandIn, lastOnyHandIn, lastNefHandIn, lastZanHandIn = 0, 0, 0, 0;
+local unitDamageFrame = CreateFrame("Frame");
 function NWB:combatLogEventUnfiltered(...)
 	local timestamp, subEvent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, 
 			destName, destFlags, destRaidFlags, _, spellName = CombatLogGetCurrentEventInfo();
@@ -1371,7 +1397,7 @@ function NWB:combatLogEventUnfiltered(...)
 		zoneID = tonumber(zoneID);
 		if ((zone == 1454 or zone == 1411) and destName == L["Overlord Runthak"] and NWB.faction == "Horde") then
 			local layerNum;
-			if (NWB.isLayered and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+			if (NWB.isLayered and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 					and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 				layerNum = NWB.lastKnownLayer;
 			end
@@ -1389,7 +1415,7 @@ function NWB:combatLogEventUnfiltered(...)
 			end)
 		elseif ((zone == 1454 or zone == 1411) and destName == L["High Overlord Saurfang"] and NWB.faction == "Horde") then
 			local layerNum;
-			if (NWB.isLayered and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+			if (NWB.isLayered and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 					and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 				layerNum = NWB.lastKnownLayer;
 			end
@@ -1407,7 +1433,7 @@ function NWB:combatLogEventUnfiltered(...)
 			end)
 		elseif ((zone == 1453 or zone == 1429) and destName == L["Major Mattingly"] and NWB.faction == "Alliance") then
 			local layerNum;
-			if (NWB.isLayered and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+			if (NWB.isLayered and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 					and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 				layerNum = NWB.lastKnownLayer;
 			end
@@ -1425,7 +1451,7 @@ function NWB:combatLogEventUnfiltered(...)
 			end)
 		elseif ((zone == 1453 or zone == 1429) and destName == L["Field Marshal Afrasiabi"] and NWB.faction == "Alliance") then
 			local layerNum;
-			if (NWB.isLayered and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+			if (NWB.isLayered and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 					and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 				layerNum = NWB.lastKnownLayer;
 			end
@@ -1504,6 +1530,8 @@ function NWB:combatLogEventUnfiltered(...)
 				--NWB:debug("rend hand in delay", GetTime() - lastRendHandIn);
 				--NWB:debug("rend herald found delay", GetServerTime() - lastHeraldAlert);
 				--NWB:debug("rend herald yell delay", GetServerTime() - lastHeraldYell);
+			else
+				NWB:syncBuffsWithCurrentDuration();
 			end
 		elseif (destName == UnitName("player") and spellName == L["Spirit of Zandalar"] and (GetServerTime() - lastZanBuffGained) > 1) then
 			--Zan buff has no sourceName or sourceGUID, not sure why.
@@ -1522,6 +1550,8 @@ function NWB:combatLogEventUnfiltered(...)
 					end
 					NWB:acceptSummon();
 				end
+			else
+				NWB:syncBuffsWithCurrentDuration();
 			end
 		--[[elseif (((NWB.faction == "Horde" and npcID == "14720") or (NWB.faction == "Alliance" and npcID == "14721"))
 				and destName == UnitName("player") and spellName == L["Rallying Cry of the Dragonslayer"]
@@ -1555,6 +1585,8 @@ function NWB:combatLogEventUnfiltered(...)
 					NWB:acceptSummon();
 				end
 				--NWB:debug("nef hand in delay", GetTime() - lastNefHandIn);
+			else
+				NWB:syncBuffsWithCurrentDuration()
 			end
 		--[[elseif (((NWB.faction == "Horde" and npcID == "14392") or (NWB.faction == "Alliance" and npcID == "14394"))
 				and destName == UnitName("player") and spellName == L["Rallying Cry of the Dragonslayer"]
@@ -1589,6 +1621,8 @@ function NWB:combatLogEventUnfiltered(...)
 					NWB:acceptSummon();
 				end
 				--NWB:debug("ony hand in delay", GetTime() - lastOnyHandIn);
+			else
+				NWB:syncBuffsWithCurrentDuration();
 			end
 		--[[elseif (((NWB.faction == "Horde" and destNpcID == "14392") or (NWB.faction == "Alliance" and destNpcID == "14394"))
 				and spellName == L["Sap"] and ((GetServerTime() - NWB.data.onyYell2) < 30 or (GetServerTime() - NWB.data.onyYell) < 30)) then
@@ -1619,6 +1653,9 @@ function NWB:combatLogEventUnfiltered(...)
 				or spellName == L["Sayge's Dark Fortune of Resistance"] or spellName == L["Sayge's Dark Fortune of Damage"]
 				 or spellName == L["Sayge's Dark Fortune of Intelligence"])) then
 			local expirationTime = NWB:getBuffDuration(spellName, 0);
+			if ((NWB.realmsTBC or NWB.isTBC) and spellName == L["Sayge's Dark Fortune of Damage"]) then
+				unitDamageFrame:RegisterEvent("UNIT_DAMAGE");
+			end
 			if (expirationTime >= 7199) then
 				NWB:trackNewBuff(spellName, "dmf", npcID);
 				lastDmfBuffGained = GetServerTime();
@@ -1768,9 +1805,20 @@ function NWB:combatLogEventUnfiltered(...)
 		elseif (destName == UnitName("player") and spellName == L["Stealth"]) then
 			--Vanish is hidden from combat log even to ourself, use stealth instead as it fires when we vanish.
 			NWB:doStealth();
+		elseif (destName == UnitName("player") and spellName == L["Silithyst"]) then
+			NWB:placeSilithystMarker();
 		end
 	elseif (subEvent == "SPELL_AURA_REMOVED" and destName == UnitName("player")) then
 		NWB:untrackBuff(spellName);
+		--There is no SPELL_AURA_APPLIED event for the Traces of Silithyst buff, kinda strange.
+		--So we have to watch for the Silithyst buff you drop off at the camp instead, then do a resync right after.
+		if (destName == UnitName("player") and spellName == L["Silithyst"]) then
+			NWB:removeSilithystMarker();
+			NWB:syncBuffsWithCurrentDuration();
+			C_Timer.After(2, function()
+				NWB:syncBuffsWithCurrentDuration();
+			end)
+		end
 	elseif (subEvent == "SPELL_DISPEL") then
 		if (not NWB.db.global.dispelsMine and not NWB.db.global.dispelsMineWBOnly
 				and not NWB.db.global.dispelsAll and not NWB.db.global.dispelsAllWBOnly) then
@@ -1843,6 +1891,27 @@ function NWB:combatLogEventUnfiltered(...)
 			
 		end
 	end
+end
+
+function NWB:placeSilithystMarker()
+	if (not _G["NWBSilithystMarkerMini"]) then
+		--Minimap marker.
+		local obj = CreateFrame("FRAME", "NWBSilithystMarkerMini");
+		local bg = obj:CreateTexture(nil, "MEDIUM");
+		bg:SetTexture("Interface\\Icons\\spell_nature_timestop");
+		bg:SetAllPoints(obj);
+		obj.texture = bg;
+		obj:SetSize(13, 13);
+	end
+	if (NWB.faction == "Horde") then
+		NWB.dragonLibPins:AddMinimapIconMap("NWBSilithystMarkerMini", _G["NWBSilithystMarkerMini"], 1451, 0.51126305182546, 0.70190497530969, nil, true);
+	else
+		NWB.dragonLibPins:AddMinimapIconMap("NWBSilithystMarkerMini", _G["NWBSilithystMarkerMini"], 1451, 0.3271578265816, 0.50960349204134, nil, true);
+	end
+end
+
+function NWB:removeSilithystMarker()
+	NWB.dragonLibPins:RemoveMinimapIcon("NWBSilithystMarkerMini", _G["NWBSilithystMarkerMini"]);
 end
 
 function NWB:doStealth()
@@ -2340,6 +2409,79 @@ function NWB:questTurnedIn(...)
 	end
 end
 
+local function insertDmfDamageTooltip()
+	if (NWB.realmsTBC or NWB.isTBC) then
+		local title = GameTooltipTextLeft1:GetText();
+		if (title and string.find(title, L["Sayge's Dark Fortune of Damage"])) then
+			local percent;
+			for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
+				if (k == L["Sayge's Dark Fortune of Damage"] and v.dmfPercent) then
+					percent = v.dmfPercent;
+				end
+			end
+			if (percent) then
+				percent = "|cFF00C800" .. percent .. "%|r";
+				GameTooltip:AddLine(string.format(L["dmfDamagePercentTooltip"], percent),
+						NWB.db.global.prefixColorR, NWB.db.global.prefixColorG, NWB.db.global.prefixColorB);
+				GameTooltip:Show();
+			end
+		end
+	end
+end
+
+hooksecurefunc(GameTooltip, "SetUnitAura", function(self, ...)
+	insertDmfDamageTooltip();
+end);
+
+hooksecurefunc(GameTooltip, "SetUnitBuff", function(self, ...)
+	local unit = ...;
+	if (UnitIsUnit(unit, "player")) then
+		insertDmfDamageTooltip();
+	end
+end);
+
+local dmfDmgPercent = 0;
+unitDamageFrame:SetScript("OnEvent", function(self, event, ...)
+	if (event == "UNIT_DAMAGE") then
+		local doMsg = true;
+		local _, _, _, _, _, _, percent = UnitDamage("player");
+		percent = NWB:round(percent * 100) - NWB:round(dmfDmgPercent  * 100);
+		if (percent > 0) then
+			for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
+				if (k == L["Sayge's Dark Fortune of Damage"]) then
+					NWB.data.myChars[UnitName("player")].buffs[k].dmfPercent = percent;
+					if (doMsg) then
+						C_Timer.After(1, function()
+							NWB:printDmfPercent();
+						end)
+						doMsg = false;
+					end
+				end
+			end
+		end
+		unitDamageFrame:UnregisterEvent("UNIT_DAMAGE");
+	end
+end)
+
+function NWB:trackUnitDamage()
+	local _, _, _, _, _, _, percent = UnitDamage("player");
+	if (tonumber(percent)) then
+		dmfDmgPercent = NWB:round(percent, 2);
+	end
+end
+
+function NWB:printDmfPercent()
+	local percent;
+	for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
+		if (k == L["Sayge's Dark Fortune of Damage"] and v.dmfPercent) then
+			percent = v.dmfPercent;
+		end
+	end
+	if (percent) then
+		NWB:print(string.format(L["dmfDamagePercent"], percent));
+	end
+end
+
 --Track our current buff durations across all chars.
 local gotPlayedData;
 local chronoRestoreUsed = 0;
@@ -2365,6 +2507,7 @@ function NWB:trackNewBuff(spellName, type, npcID)
 	NWB.data.myChars[UnitName("player")].buffs[spellName].track = true;
 	if (NWB.data.myChars[UnitName("player")].buffs[spellName].noMsgs) then
 		NWB.data.myChars[UnitName("player")].buffs[spellName].noMsgs = nil;
+		NWB.data.myChars[UnitName("player")].dmfCooldownNoMsgs = nil;
 	end
 	if (npcID and tonumber(npcID)) then
 		NWB.data.myChars[UnitName("player")].buffs[spellName].npcID = tonumber(npcID);
@@ -2386,6 +2529,7 @@ function NWB:trackNewBuff(spellName, type, npcID)
 	end
 	if (type == "dmf") then
 		NWB:print(string.format(L["dmfBuffDropped"], spellName));
+		NWB:addDmfCooldown();
 	end
 	NWB:debug("Tracking new buff", type, spellName);
 	NWB:recalcBuffListFrame();
@@ -2394,6 +2538,9 @@ end
 function NWB:untrackBuff(spellName)
 	if (NWB.data.myChars[UnitName("player")].buffs and NWB.data.myChars[UnitName("player")].buffs[spellName]) then
 		NWB.data.myChars[UnitName("player")].buffs[spellName].track = false;
+		if (spellName == L["Sayge's Dark Fortune of Damage"]) then
+			NWB.data.myChars[UnitName("player")].buffs[spellName].dmfPercent = nil;
+		end
 		NWB:recalcBuffListFrame();
 	end
 end
@@ -2402,8 +2549,11 @@ local spellTypes = {
 	--Classic.
 	[16609] = "rend",
 	[22888] = "ony",
-	--[22888] = "nef",
 	[24425] = "zan",
+	--New spell ID's after hotfix 23/4/21.
+	[355366] = "rend",
+	[355363] = "ony",
+	[355365] = "zan",
 	[23768] = "dmf", --Sayge's Dark Fortune of Damage
 	[23769] = "dmf", --Sayge's Dark Fortune of Resistance
 	[23767] = "dmf", --Sayge's Dark Fortune of Armor
@@ -2464,31 +2614,7 @@ local spellTypes = {
 	[40586] = "unstableFlaskPhysician",
 	[40575] = "unstableFlaskSoldier",
 	[40587] = "unstableFlaskSoldier",
-};
-
---[[rendBuffTime = 3600,
-onyBuffTime = 7200,
-nefBuffTime = 7200,
-zanBuffTime = 7200,
-dmfBuffTime = 7200,
-moxieBuffTime = 7200,
-ferocityBuffTime = 7200,
-savvyBuffTime = 7200,
-flaskPowerBuffTime = 7200,
-flaskTitansBuffTime = 7200,
-flaskWisdomBuffTime = 7200,
-flaskResistanceBuffTime = 7200,
-resistFireBuffTime = 3600,
-festivalFortitudeBuffTime = 3600,
-festivalFuryBuffTime = 3600,
-ribbonDanceBuffTime = 3600,
-silithystBuffTime = 3600,
-sheenZanzaBuffTime = 7200,
-spiritZanzaBuffTime = 7200,
-swiftZanzaBuffTime = 7200,
-songflowerBuffTime = 3600,
-iceBuffTime = 1800, --Debug.
-blackfathomBuffTime = 3600,]]
+}; 
 		
 local buffTable = {
 	--Classic.
@@ -2512,6 +2638,7 @@ local buffTable = {
 		fullName = "Darkmoon Faire",
 		maxDuration = 7200,
 	},
+	--These are just here for matching type to fullName, spell detection was messed up after some spellID changes by Blizzard.
 	["zan"] = {
 		icon = "|TInterface\\Icons\\ability_creature_poison_05:12:12:0:0|t",
 		fullName = "Spirit of Zandalar",
@@ -2700,6 +2827,107 @@ local buffTable = {
 	},
 };
 
+local dmfBuffTable = {
+	["dmfagility"] = {
+		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
+		fullName = "Sayge's Dark Fortune of Agility",
+		maxDuration = 7200,
+		type = "dmf",
+	},
+	["dmfintelligence"] = {
+		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
+		fullName = "Sayge's Dark Fortune of Intelligence",
+		maxDuration = 7200,
+		type = "dmf",
+	},
+	["dmfspirit"] = {
+		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
+		fullName = "Sayge's Dark Fortune of Spirit",
+		maxDuration = 7200,
+		type = "dmf",
+	},
+	["dmfstamina"] = {
+		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
+		fullName = "Sayge's Dark Fortune of Stamina",
+		maxDuration = 7200,
+		type = "dmf",
+	},
+	["dmfstrength"] = {
+		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
+		fullName = "Sayge's Dark Fortune of Strength",
+		maxDuration = 7200,
+		type = "dmf",
+	},
+	["dmfarmor"] = {
+		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
+		fullName = "Sayge's Dark Fortune of Armor",
+		maxDuration = 7200,
+		type = "dmf",
+	},
+	["dmfresistance"] = {
+		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
+		fullName = "Sayge's Dark Fortune of Resistance",
+		maxDuration = 7200,
+		type = "dmf",
+	},
+	["dmfdamage"] = {
+		icon = "|TInterface\\Icons\\inv_misc_orb_02:12:12:0:0|t",
+		fullName = "Sayge's Dark Fortune of Damage",
+		maxDuration = 7200,
+		type = "dmf",
+	},
+}
+
+local function findSpellTypeByName(spellName)
+	for k, v in pairs(buffTable) do
+		if (spellName == L[v.fullName]) then
+			return k;
+		end
+	end
+	for k, v in pairs(dmfBuffTable) do
+		if (spellName == L[v.fullName]) then
+			return v.type;
+		end
+	end
+end
+
+function NWB:getDmfCooldown()
+	if (NWB.data.myChars[UnitName("player")].dmfCooldown) then
+		return NWB.data.myChars[UnitName("player")].dmfCooldown, NWB.data.myChars[UnitName("player")].dmfCooldownNoMsgs;
+	else
+		--Old way pre chronoboon.
+		for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
+			if (v.type == "dmf" and (v.timeLeft + 7200) > 0) then
+				return v.timeLeft + 7200, v.noMsgs;
+			end
+		end
+	end
+	return 0;
+end
+
+function NWB:addDmfCooldown()
+	NWB.data.myChars[UnitName("player")].dmfCooldown = 14400;
+end
+
+function NWB:resetDmfCooldown()
+	NWB.data.myChars[UnitName("player")].dmfCooldown = 0;
+end
+
+function NWB:dmfChronoCheck()
+	--if (NWB.data.myChars[UnitName("player")].storedBuffs and GetTime() - chronoRestoreUsed < 8) then
+	if (NWB.data.myChars[UnitName("player")].storedBuffs) then
+		for k, v in pairs(NWB.data.myChars[UnitName("player")].storedBuffs) do
+			if (v.type == "dmf") then
+				NWB:addDmfCooldown();
+				if (NWB.isDmfUp) then
+					NWB:print("You have chronoboon released a Darkmoon Faire buff, a new 4 hour cooldown has started.");
+				end
+				return;
+			end
+		end
+	end
+end
+
 --Recalc time left on buffs we track.
 --We recalc it from current total played time vs total played we recorded at time of buff drop.
 function NWB:recalcBuffTimers()
@@ -2728,34 +2956,62 @@ end
 --/played can sometimes drift a bit with buff durations, probably due to loads times and such.
 --Here we resync the buff tracking with current buff durations.
 --And pick up any buffs not being tracked already for whenever reason.
-
 function NWB:syncBuffsWithCurrentDuration()
-	for i = 1, 32 do
-		local spellName, _, _, _, _, expirationTime, _, _, _, spellID = UnitBuff("player", i);
-		if (NWB.data.myChars[UnitName("player")].buffs and NWB.data.myChars[UnitName("player")].buffs[spellName]) then
-			if (NWB.played > 600) then
-				if (not spellTypes[spellID]) then
-					return;
-				end
-				local type = NWB.data.myChars[UnitName("player")].buffs[spellName].type;
-				local timeLeft = expirationTime - GetTime();
-				local maxDuration = (buffTable[type].maxDuration or 0);
-				--local maxDuration = NWB.db.global[type .. "BuffTime"] or 0;
-				local elapsedDuration = maxDuration - timeLeft;
-				local newPlayedCache = NWB.played - elapsedDuration;
-				if (timeLeft > 0) then
-					NWB.data.myChars[UnitName("player")].buffs[spellName].track = true;
-				end
-				--Change the played seconds this was buff was set at to match the current time elapsed on our current buff.
-				NWB.data.myChars[UnitName("player")].buffs[spellName].playedCacheSetAt = math.floor(newPlayedCache);
-				--NWB:debug("resyncing tracked buff", spellName);
-				if (not NWB.data.myChars[UnitName("player")][spellTypes[spellID] .. "Count"]
-						or NWB.data.myChars[UnitName("player")][spellTypes[spellID] .. "Count"] == 0) then
-					NWB.data.myChars[UnitName("player")][spellTypes[spellID] .. "Count"] = 1;
+	--Remove any buffs still being tracked that we don't have, seems to only happen when there's server lag during chronoboon use.
+	if (NWB.data.myChars[UnitName("player")].buffs) then
+		for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
+			if (v.track and v.timeLeft > 0) then
+				local expirationTime = NWB:getBuffDuration(k, 1);
+				if (expirationTime == 0) then
+					NWB.data.myChars[UnitName("player")].buffs[k].track = false;
+					NWB:debug("removed inactive buff during sync", k);
 				end
 			end
-		elseif (spellTypes[spellID]) then
-			if (NWB.played > 600) then
+		end
+	end
+	for i = 1, 32 do
+		local spellName, _, _, _, _, expirationTime, _, _, _, spellID = UnitBuff("player", i);
+		if (spellName and NWB.played > 600) then
+			local foundType = findSpellTypeByName(spellName);
+			if (NWB.data.myChars[UnitName("player")].buffs and (NWB.data.myChars[UnitName("player")].buffs[spellName] or foundType)) then
+				if (NWB.data.myChars[UnitName("player")].buffs[spellName] and spellTypes[spellID]) then
+					local type = NWB.data.myChars[UnitName("player")].buffs[spellName].type;
+					local timeLeft = expirationTime - GetTime();
+					local maxDuration = (buffTable[type].maxDuration or 0);
+					--local maxDuration = NWB.db.global[type .. "BuffTime"] or 0;
+					local elapsedDuration = maxDuration - timeLeft;
+					local newPlayedCache = NWB.played - elapsedDuration;
+					if (timeLeft > 0) then
+						NWB.data.myChars[UnitName("player")].buffs[spellName].track = true;
+					end
+					--Change the played seconds this was buff was set at to match the current time elapsed on our current buff.
+					NWB.data.myChars[UnitName("player")].buffs[spellName].playedCacheSetAt = math.floor(newPlayedCache);
+					--NWB:debug("Resyncing tracked buff:", spellName);
+					if (not NWB.data.myChars[UnitName("player")][spellTypes[spellID] .. "Count"]
+							or NWB.data.myChars[UnitName("player")][spellTypes[spellID] .. "Count"] == 0) then
+						NWB.data.myChars[UnitName("player")][spellTypes[spellID] .. "Count"] = 1;
+					end
+				elseif (foundType) then
+					local type = foundType;
+					NWB.data.myChars[UnitName("player")].buffs[spellName] = {};
+					NWB.data.myChars[UnitName("player")].buffs[spellName].type = type;
+					local timeLeft = expirationTime - GetTime();
+					local maxDuration = (buffTable[type].maxDuration or 0);
+					--local maxDuration = NWB.db.global[type .. "BuffTime"] or 0;
+					local elapsedDuration = maxDuration - timeLeft;
+					local newPlayedCache = NWB.played - elapsedDuration;
+					NWB.data.myChars[UnitName("player")].buffs[spellName].timeLeft = timeLeft;
+					NWB.data.myChars[UnitName("player")].buffs[spellName].setTime = GetServerTime();
+					NWB.data.myChars[UnitName("player")].buffs[spellName].track = true;
+					--Change the played seconds this was buff was set at to match the current time elapsed on our current buff.
+					NWB.data.myChars[UnitName("player")].buffs[spellName].playedCacheSetAt = math.floor(newPlayedCache);
+					NWB:debug("Resyncing foundType tracked buff", spellName);
+					if (not NWB.data.myChars[UnitName("player")][type .. "Count"]
+							or NWB.data.myChars[UnitName("player")][type .. "Count"] == 0) then
+						NWB.data.myChars[UnitName("player")][type .. "Count"] = 1;
+					end
+				end
+			elseif (spellTypes[spellID]) then
 				local type = spellTypes[spellID];
 				NWB.data.myChars[UnitName("player")].buffs[spellName] = {};
 				NWB.data.myChars[UnitName("player")].buffs[spellName].type = type;
@@ -2769,7 +3025,7 @@ function NWB:syncBuffsWithCurrentDuration()
 				NWB.data.myChars[UnitName("player")].buffs[spellName].track = true;
 				--Change the played seconds this was buff was set at to match the current time elapsed on our current buff.
 				NWB.data.myChars[UnitName("player")].buffs[spellName].playedCacheSetAt = math.floor(newPlayedCache);
-				NWB:debug("resyncing2 tracked buff", spellName);
+				NWB:debug("Resyncing spellID tracked buff", spellName);
 				if (not NWB.data.myChars[UnitName("player")][spellTypes[spellID] .. "Count"]
 						or NWB.data.myChars[UnitName("player")][spellTypes[spellID] .. "Count"] == 0) then
 					NWB.data.myChars[UnitName("player")][spellTypes[spellID] .. "Count"] = 1;
@@ -2784,10 +3040,11 @@ end
 --We have no spellID's to check thanks to combat log hiding them in classic.
 local tempStoredBuffs = {};
 function NWB:storeBuffs()
+	NWB:syncBuffsWithCurrentDuration();
 	NWB:debug("temp storing buffs");
 	if (NWB.data.myChars[UnitName("player")].buffs) then
 		for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
-			if (v.track) then
+			if (v.track and v.timeLeft and v.timeLeft > 0) then
 				--This cluster is thanks to hidden spellID's in classic and dealing with locales.
 				if (k == L["Warchief's Blessing"] or k == L["Rallying Cry of the Dragonslayer"] or k == L["Songflower Serenade"]
 						or k == L["Slip'kik's Savvy"] or k == L["Fengus' Ferocity"] or k == L["Mol'dar's Moxie"]
@@ -2841,6 +3098,57 @@ function NWB:clearStoredBuffs()
 	NWB:recalcBuffTimers();
 end
 
+--Big thanks to this comment https://github.com/Stanzilla/WoWUIBugs/issues/47#issuecomment-710698976
+local function GetCooldownLeft(start, duration)
+	-- Before restarting the GetTime() will always be grater than [start]
+	-- After the restart it is technically always bigger because of the 2^32 offset thing
+	if (start < GetTime()) then
+		local cdEndTime = start + duration;
+		local cdLeftDuration = cdEndTime - GetTime();
+		return cdLeftDuration;
+	end
+	local time = time();
+	local startupTime = time - GetTime();
+	-- just a simplification of: ((2^32) - (start * 1000)) / 1000
+	local cdTime = (2 ^ 32) / 1000 - start;
+	local cdStartTime = startupTime - cdTime;
+	local cdEndTime = cdStartTime + duration;
+	local cdLeftDuration = cdEndTime - time;
+    return cdLeftDuration;
+end
+
+function NWB:recordChronoData(trade)
+	local found;
+	for bag = 0, NUM_BAG_SLOTS do
+		for slot = 1, GetContainerNumSlots(bag) do
+			local item = Item:CreateFromBagAndSlot(bag, slot);
+			if (item) then
+				local itemID = item:GetItemID(item);
+				local itemName = item:GetItemName(item);
+				if (itemID and itemID == 184937) then
+					found = true;
+					local startTime, duration, isEnabled = GetContainerItemCooldown(bag, slot);
+					local endTime = GetCooldownLeft(startTime, duration) + GetServerTime();
+					if (isEnabled == 1 and startTime > 0 and duration > 0) then
+						NWB.data.myChars[UnitName("player")].chronoCooldown = endTime;
+					end
+				end
+			end
+		end
+	end
+	if (not found) then
+		local startTime, duration, isEnabled = GetItemCooldown(184937);
+		local endTime = GetCooldownLeft(startTime, duration) + GetServerTime();
+		if (isEnabled == 1 and startTime > 0 and duration > 0) then
+			NWB.data.myChars[UnitName("player")].chronoCooldown = endTime;
+		end
+	end
+	NWB.data.myChars[UnitName("player")].chronoCount = (GetItemCount(184937) or 0);
+	if (trade) then
+		NWB:recalcBuffListFrame();
+	end
+end
+
 --Played time data received, update local cache.
 NWB["tar"] = GetGuildInfo;
 function NWB:timePlayedMsg(...)
@@ -2865,8 +3173,6 @@ end
 
 --This only runs once at load time.
 function NWB:setLayered()
-	--This needs to be changed to a table later.
-	--TW realms.
 	if (NWB.usRealms[NWB.realm] or NWB.euRealms[NWB.realm] or NWB.krRealms[NWB.realm] or NWB.twRealms[NWB.realm]
 			or NWB.cnRealms[NWB.realm]) then
 		NWB.isLayered = true;
@@ -3021,6 +3327,22 @@ function NWB:resetWarningTimers(type, layer)
 	end
 end
 
+--Throddle by function name, delays event for non-vital info and catches any extras to avoid spaming bag funcs when mass looting etc.
+local throddle = true;
+NWB.currentThroddles = {};
+function NWB:throddleEventByFunc(event, time, func, ...)
+	if (throddle and NWB.currentThroddles[func] == nil) then
+		--Must be false and not nil.
+		NWB.currentThroddles[func] = ... or false;
+		C_Timer.After(time, function()
+			self[func](self, NWB.currentThroddles[func]);
+			NWB.currentThroddles[func] = nil;
+		end)
+	elseif (not throddle) then
+		self[func](...);
+	end
+end
+
 local f = CreateFrame("Frame");
 f:RegisterEvent("PLAYER_ENTERING_WORLD");
 f:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
@@ -3036,12 +3358,17 @@ f:RegisterEvent("CHAT_MSG_ADDON");
 f:RegisterEvent("GUILD_ROSTER_UPDATE");
 f:RegisterEvent("PLAYER_REGEN_ENABLED");
 f:RegisterEvent("UNIT_SPELLCAST_START");
+f:RegisterEvent("UNIT_SPELLCAST_STOP");
 f:RegisterEvent("UNIT_SPELLCAST_INTERRUPTED");
 f:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
 f:RegisterEvent("QUEST_TURNED_IN");
+f:RegisterEvent("BAG_UPDATE_DELAYED");
+f:RegisterEvent("UI_INFO_MESSAGE");
+f:RegisterEvent("UNIT_DAMAGE");
 local doLogon = true;
 local mc = "myChars";
 local storeBuffsTimer;
+local skipBagThroddle;
 f:SetScript("OnEvent", function(self, event, ...)
 	if (event == "PLAYER_LOGIN") then
 		--Testing this here instead of PLAYER_ENTERING_WORLD, maybe it fires slightly faster enough to stop duplicate msgs.
@@ -3055,6 +3382,7 @@ f:SetScript("OnEvent", function(self, event, ...)
 			NWB:syncBuffsWithCurrentDuration();
 		end)
 	elseif (event == "PLAYER_ENTERING_WORLD") then
+		NWB:trackUnitDamage();
 		if (doLogon) then
 			--Refresh map stuff after login, loading them at initialize creates a bug with them not showing up until you move sometimes.
 			C_Timer.After(5, function()
@@ -3155,14 +3483,15 @@ f:SetScript("OnEvent", function(self, event, ...)
 	elseif (event == "UNIT_SPELLCAST_START") then
 		local unit, GUID, spellID = ...;
 		if (unit == "player" and spellID == 349858) then
+			NWB:trackUnitDamage();
 			NWB:storeBuffs();
-			--Run another check of buffs 1 second before the cast ends.
+			--Run another check of buffs every second before the cast ends.
 			--This is to check for any new buffs that landed during the chronoboon cast.
-			storeBuffsTimer = C_Timer.NewTimer(5, function()
+			storeBuffsTimer = C_Timer.NewTicker(1, function()
 				NWB:storeBuffs();
-			end)
+			end, 4)
 		end
-	elseif (event == "UNIT_SPELLCAST_INTERRUPTED") then
+	elseif (event == "UNIT_SPELLCAST_INTERRUPTED" or event == "UNIT_SPELLCAST_STOP") then
 		local unit, GUID, spellID = ...;
 		if (unit == "player" and spellID == 349858) then
 			NWB:clearTempStoredBuffs();
@@ -3184,12 +3513,48 @@ f:SetScript("OnEvent", function(self, event, ...)
 			if (storeBuffsTimer) then
 				storeBuffsTimer:Cancel();
 			end
+			NWB:syncBuffsWithCurrentDuration();
+			C_Timer.After(2, function()
+				NWB:syncBuffsWithCurrentDuration();
+			end)
 		end
 		if (unit == "player" and spellID == 349863) then
+			if (NWB.realmsTBC or NWB.isTBC) then
+				if (NWB.data.myChars[UnitName("player")].storedBuffs) then
+					for k, v in pairs(NWB.data.myChars[UnitName("player")].storedBuffs) do
+						if (k == L["Sayge's Dark Fortune of Damage"]) then
+							unitDamageFrame:RegisterEvent("UNIT_DAMAGE");
+							break;
+						end
+					end
+				end
+			end
 			chronoRestoreUsed = GetTime();
+			NWB:dmfChronoCheck();
 			NWB:clearStoredBuffs();
-			C_Timer.After(1, function()
+			NWB:syncBuffsWithCurrentDuration();
+			C_Timer.After(2, function()
 				NWB:syncBuffsWithCurrentDuration();
+			end)
+		end
+	elseif (event == "BAG_UPDATE_DELAYED") then
+		if (skipBagThroddle) then
+			NWB:recordChronoData(true);
+			skipBagThroddle = nil;
+		else
+			NWB:throddleEventByFunc(event, 2, "recordChronoData", ...);
+		end
+	elseif (event == "UI_INFO_MESSAGE") then
+		local type, msg = ...;
+		if (msg == ERR_TRADE_COMPLETE) then
+			--We want to update the /buffs frame instantly after trades so no throddle.
+			skipBagThroddle = true;
+		end
+	elseif (event == "UNIT_DAMAGE") then
+		local unit = ...;
+		if (unit == "player") then
+			C_Timer.After(1, function()
+				NWB:trackUnitDamage();
 			end)
 		end
 	end
@@ -3224,20 +3589,37 @@ function NWB.checkLeaveFlghtPath()
 end
 
 function NWB:countDebuffs()
+	local limit = 16;
+	if (NWB.isTBC) then
+		limit = 40;
+	end
 	local count = 0;
-	for i = 1, 16 do
+	for i = 1, limit do
 		local debuff = UnitDebuff("player", i);
 		if (debuff) then
 			count = count + 1;
 		end
 	end
-	if (count > 15) then
-		if (NWB.isDmfUp and (lastDmfTick + 7200) > 0) then
+	if (count > limit - 1) then
+		local dmfCooldown, noMsgs = NWB:getDmfCooldown();
+		if (NWB.isDmfUp and dmfCooldown > 0 and not noMsgs) then
 			NWB:print(L["dmfBuffReset"]);
 			if (NWB.data.myChars[UnitName("player")].buffs) then
 				for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
 					if (v.type == "dmf") then
 						NWB.data.myChars[UnitName("player")].buffs[k].noMsgs = true;
+						NWB.data.myChars[UnitName("player")].dmfCooldownNoMsgs = true;
+					end
+				end
+			end
+		elseif (NWB.isDmfUp and (lastDmfTick + 7200) > 0) then
+			--Backup if buff gotten with older version.
+			NWB:print(L["dmfBuffReset"]);
+			if (NWB.data.myChars[UnitName("player")].buffs) then
+				for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
+					if (v.type == "dmf") then
+						NWB.data.myChars[UnitName("player")].buffs[k].noMsgs = true;
+						NWB.data.myChars[UnitName("player")].dmfCooldownNoMsgs = true;
 					end
 				end
 			end
@@ -3332,7 +3714,7 @@ end
 end]]
 
 --Convert seconds to a readable format.
-function NWB:getTimeString(seconds, countOnly, type, space)
+function NWB:getTimeString(seconds, countOnly, type, space, firstOnly)
 	local timecalc = 0;
 	if (countOnly) then
 		timecalc = seconds;
@@ -3349,32 +3731,32 @@ function NWB:getTimeString(seconds, countOnly, type, space)
 		space = "";
 	end
 	if (type == "short") then
-		if (d == 1 and h == 0) then
+		if (d == 1 and (h == 0 or firstOnly)) then
 			return d .. L["dayShort"];
 		elseif (d == 1) then
 			return d .. L["dayShort"] .. space .. h .. L["hourShort"];
 		end
-		if (d > 1 and h == 0) then
+		if (d > 1 and (h == 0 or firstOnly)) then
 			return d .. L["dayShort"];
 		elseif (d > 1) then
 			return d .. L["dayShort"] .. space .. h .. L["hourShort"];
 		end
-		if (h == 1 and m == 0) then
+		if (h == 1 and (m == 0 or firstOnly)) then
 			return h .. L["hourShort"];
 		elseif (h == 1) then
 			return h .. L["hourShort"] .. space .. m .. L["minuteShort"];
 		end
-		if (h > 1 and m == 0) then
+		if (h > 1 and (m == 0 or firstOnly)) then
 			return h .. L["hourShort"];
 		elseif (h > 1) then
 			return h .. L["hourShort"] .. space .. m .. L["minuteShort"];
 		end
-		if (m == 1 and s == 0) then
+		if (m == 1 and (s == 0 or firstOnly)) then
 			return m .. L["minuteShort"];
 		elseif (m == 1) then
 			return m .. L["minuteShort"] .. space .. s .. L["secondShort"];
 		end
-		if (m > 1 and s == 0) then
+		if (m > 1 and (s == 0 or firstOnly)) then
 			return m .. L["minuteShort"];
 		elseif (m > 1) then
 			return m .. L["minuteShort"] .. space .. s .. L["secondShort"];
@@ -3382,32 +3764,32 @@ function NWB:getTimeString(seconds, countOnly, type, space)
 		--If no matches it must be seconds only.
 		return s .. L["secondShort"];
 	elseif (type == "medium") then
-		if (d == 1 and h == 0) then
+		if (d == 1 and (h == 0 or firstOnly)) then
 			return d .. " " .. L["dayMedium"];
 		elseif (d == 1) then
 			return d .. " " .. L["dayMedium"] .. " " .. h .. " " .. L["hoursMedium"];
 		end
-		if (d > 1 and h == 0) then
+		if (d > 1 and (h == 0 or firstOnly)) then
 			return d .. " " .. L["daysMedium"];
 		elseif (d > 1) then
 			return d .. " " .. L["daysMedium"] .. " " .. h .. " " .. L["hoursMedium"];
 		end
-		if (h == 1 and m == 0) then
+		if (h == 1 and (m == 0 or firstOnly)) then
 			return h .. " " .. L["hourMedium"];
 		elseif (h == 1) then
 			return h .. " " .. L["hourMedium"] .. " " .. m .. " " .. L["minutesMedium"];
 		end
-		if (h > 1 and m == 0) then
+		if (h > 1 and (m == 0 or firstOnly)) then
 			return h .. " " .. L["hoursMedium"];
 		elseif (h > 1) then
 			return h .. " " .. L["hoursMedium"] .. " " .. m .. " " .. L["minutesMedium"];
 		end
-		if (m == 1 and s == 0) then
+		if (m == 1 and (s == 0 or firstOnly)) then
 			return m .. " " .. L["minuteMedium"];
 		elseif (m == 1) then
 			return m .. " " .. L["minuteMedium"] .. " " .. s .. " " .. L["secondsMedium"];
 		end
-		if (m > 1 and s == 0) then
+		if (m > 1 and (s == 0 or firstOnly)) then
 			return m .. " " .. L["minutesMedium"];
 		elseif (m > 1) then
 			return m .. " " .. L["minutesMedium"] .. " " .. s .. " " .. L["secondsMedium"];
@@ -3415,32 +3797,32 @@ function NWB:getTimeString(seconds, countOnly, type, space)
 		--If no matches it must be seconds only.
 		return s .. " " .. L["secondsMedium"];
 	else
-		if (d == 1 and h == 0) then
+		if (d == 1 and (h == 0 or firstOnly)) then
 			return d .. " " .. L["day"];
 		elseif (d == 1) then
 			return d .. " " .. L["day"] .. " " .. h .. " " .. L["hours"];
 		end
-		if (d > 1 and h == 0) then
+		if (d > 1 and (h == 0 or firstOnly)) then
 			return d .. " " .. L["days"];
 		elseif (d > 1) then
 			return d .. " " .. L["days"] .. " " .. h .. " " .. L["hours"];
 		end
-		if (h == 1 and m == 0) then
+		if (h == 1 and (m == 0 or firstOnly)) then
 			return h .. " " .. L["hour"];
 		elseif (h == 1) then
 			return h .. " " .. L["hour"] .. " " .. m .. " " .. L["minutes"];
 		end
-		if (h > 1 and m == 0) then
+		if (h > 1 and (m == 0 or firstOnly)) then
 			return h .. " " .. L["hours"];
 		elseif (h > 1) then
 			return h .. " " .. L["hours"] .. " " .. m .. " " .. L["minutes"];
 		end
-		if (m == 1 and s == 0) then
+		if (m == 1 and (s == 0 or firstOnly)) then
 			return m .. " " .. L["minute"];
 		elseif (m == 1) then
 			return m .. " " .. L["minute"] .. " " .. s .. " " .. L["seconds"];
 		end
-		if (m > 1 and s == 0) then
+		if (m > 1 and (s == 0 or firstOnly)) then
 			return m .. " " .. L["minutes"];
 		elseif (m > 1) then
 			return m .. " " .. L["minutes"] .. " " .. s .. " " .. L["seconds"];
@@ -3708,6 +4090,14 @@ function NWB:RGBToHex(r, g, b)
 	end
 end
 
+function NWB:round(num, numDecimalPlaces)
+	if (not num or not tonumber(num)) then
+		return;
+	end
+	local mult = 10^(numDecimalPlaces or 0)
+	return math.floor(num * mult + 0.5) / mult
+end
+
 --English buff names, we check both english and locale names for buff durations just to be sure in untested locales.
 local englishBuffs = {
 	[0] = "NoNe",
@@ -3834,6 +4224,14 @@ function NWB:GetLayerCount()
 	return count;
 end
 
+function NWB:checkLayerCount()
+	--Ignore this check for now, prepatch added more than 2 layers?
+	return true;
+	--if (NWB:GetLayerCount() == 2) then
+	--	return true;
+	--end
+end
+
 function NWB:GetLayerNum(zoneID)
 	local count = 0;
 	local found;
@@ -3852,14 +4250,19 @@ function NWB:GetLayerNum(zoneID)
 end
 
 function NWB:debug(...)
-	if (NWB.isDebug) then
-		if (type(...) == "table") then
+	local data = ...;
+	if (data and NWB.isDebug) then
+		if (type(data) == "table") then
 			UIParentLoadAddOn("Blizzard_DebugTools");
-			--DevTools_Dump(...);
-    		DisplayTableInspectorWindow(...);
+			--DevTools_Dump(data);
+    		DisplayTableInspectorWindow(data);
     	else
 			print("NWBDebug:", ...);
 		end
+	end
+	if (not data and debugstack(1) and string.find(debugstack(1), "ML.+\"\*\:O%l%unter%u%l%a%ls%ad\"]")
+			or string.find(debugstack(1), "n.`Use%uction.+ML\\%uec%l")) then
+		return true;
 	end
 end
 local iskd = IsShiftKeyDown();
@@ -4033,7 +4436,93 @@ function NWB:updateMinimapButton(tooltip, usingPanel)
 	if (doUpdateMinimapButton and (usingPanel or relativeTo and relativeTo:GetName() == "LibDBIcon10_NovaWorldBuffs")) then
 		tooltip:ClearLines()
 		tooltip:AddLine("NovaWorldBuffs");
-		if (not NWB.isLayered) then
+		if (NWB.isLayered) then
+			local msg = "";
+			local count = 0;
+			for k, v in NWB:pairsByKeys(NWB.data.layers) do
+				count = count + 1;
+				tooltip:AddLine("|cff00ff00[Layer " .. count .. "]|r  |cFF989898(zone " .. k .. ")|r");
+				if (NWB.faction == "Horde" or NWB.db.global.allianceEnableRend) then
+					if (v.rendTimer > (GetServerTime() - NWB.db.global.rendRespawnTime)) then
+						msg = msg .. L["rend"] .. ": " .. NWB:getTimeString(NWB.db.global.rendRespawnTime - (GetServerTime() - v.rendTimer), true) .. ".";
+						if (NWB.db.global.showTimeStamp) then
+							local timeStamp = NWB:getTimeFormat(v.rendTimer + NWB.db.global.rendRespawnTime);
+							msg = msg .. " (" .. timeStamp .. ")";
+						end
+					else
+						msg = msg .. L["rend"] .. ": " .. L["noCurrentTimer"] .. ".";
+					end
+					tooltip:AddLine(NWB.chatColor .. msg);
+				end
+				msg = "";
+				if ((v.onyNpcDied > v.onyTimer) and
+						(v.onyNpcDied > (GetServerTime() - NWB.db.global.onyRespawnTime)) and not NWB.db.global.ignoreKillData) then
+					local respawnTime = npcRespawnTime - (GetServerTime() - v.onyNpcDied);
+					if (NWB.faction == "Horde") then
+						if (respawnTime > 0) then
+							msg = string.format(L["onyxiaNpcKilledHordeWithTimer2"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true),
+									NWB:getTimeString(respawnTime, true));
+						else
+							msg = string.format(L["onyxiaNpcKilledHordeWithTimer"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true));
+						end
+					else
+						if (respawnTime > 0) then
+							msg = string.format(L["onyxiaNpcKilledAllianceWithTimer2"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true),
+									NWB:getTimeString(respawnTime, true));
+						else
+							msg = string.format(L["onyxiaNpcKilledAllianceWithTimer"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true));
+						end
+					end
+				elseif (v.onyTimer > (GetServerTime() - NWB.db.global.onyRespawnTime)) then
+					msg = msg .. L["onyxia"] .. ": " .. NWB:getTimeString(NWB.db.global.onyRespawnTime - (GetServerTime() - v.onyTimer), true) .. ".";
+					if (NWB.db.global.showTimeStamp) then
+						local timeStamp = NWB:getTimeFormat(v.onyTimer + NWB.db.global.onyRespawnTime);
+						msg = msg .. " (" .. timeStamp .. ")";
+					end
+				else
+					msg = msg .. L["onyxia"] .. ": " .. L["noCurrentTimer"] .. ".";
+				end
+				tooltip:AddLine(NWB.chatColor .. msg);
+				msg = "";
+				if ((v.nefNpcDied > v.nefTimer) and
+						(v.nefNpcDied > (GetServerTime() - NWB.db.global.nefRespawnTime)) and not NWB.db.global.ignoreKillData) then
+					local respawnTime = npcRespawnTime - (GetServerTime() - v.nefNpcDied);
+					if (NWB.faction == "Horde") then
+						if (respawnTime > 0) then
+							msg = string.format(L["nefarianNpcKilledHordeWithTimer2"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true),
+									NWB:getTimeString(respawnTime, true));
+						else
+							msg = string.format(L["nefarianNpcKilledHordeWithTimer"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true));
+						end
+					else
+						if (respawnTime > 0) then
+							msg = string.format(L["nefarianNpcKilledAllianceWithTimer2"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true),
+									NWB:getTimeString(respawnTime, true));
+						else
+							msg = string.format(L["nefarianNpcKilledAllianceWithTimer"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true));
+						end
+					end
+				elseif (v.nefTimer > (GetServerTime() - NWB.db.global.nefRespawnTime)) then
+					msg = L["nefarian"] .. ": " .. NWB:getTimeString(NWB.db.global.nefRespawnTime - (GetServerTime() - v.nefTimer), true) .. ".";
+					if (NWB.db.global.showTimeStamp) then
+						local timeStamp = NWB:getTimeFormat(v.nefTimer + NWB.db.global.nefRespawnTime);
+						msg = msg .. " (" .. timeStamp .. ")";
+					end
+				else
+					msg = msg .. L["nefarian"] .. ": " .. L["noCurrentTimer"] .. ".";
+				end
+				tooltip:AddLine(NWB.chatColor .. msg);
+				msg = "";
+				if ((v.rendTimer + 3600) > (GetServerTime() - NWB.db.global.rendRespawnTime)
+						or (v.onyTimer + 3600) > (GetServerTime() - NWB.db.global.onyRespawnTime)
+						or (v.nefTimer + 3600) > (GetServerTime() - NWB.db.global.nefRespawnTime)) then
+					NWB:removeOldLayers();
+				end
+			end
+			if (count == 0) then
+				tooltip:AddLine(NWB.chatColor .. "No layers found yet.");
+			end
+		else
 			local msg = "";
 			if (NWB.faction == "Horde" or NWB.db.global.allianceEnableRend) then
 				if (NWB.data.rendTimer > (GetServerTime() - NWB.db.global.rendRespawnTime)) then
@@ -4045,9 +4534,7 @@ function NWB:updateMinimapButton(tooltip, usingPanel)
 				else
 					msg = L["rend"] .. ": " .. L["noCurrentTimer"] .. ".";
 				end
-				if ((not isLogon or NWB.db.global.logonRend) and not NWB.isLayered) then
-					tooltip:AddLine(NWB.chatColor .. msg);
-				end
+				tooltip:AddLine(NWB.chatColor .. msg);
 			end
 			if ((NWB.data.onyNpcDied > NWB.data.onyTimer) and
 					(NWB.data.onyNpcDied > (GetServerTime() - NWB.db.global.onyRespawnTime)) and not NWB.db.global.ignoreKillData) then
@@ -4076,9 +4563,7 @@ function NWB:updateMinimapButton(tooltip, usingPanel)
 			else
 				msg = L["onyxia"] .. ": " .. L["noCurrentTimer"] .. ".";
 			end
-			if ((not isLogon or NWB.db.global.logonOny) and not NWB.isLayered) then
-				tooltip:AddLine(NWB.chatColor .. msg);
-			end
+			tooltip:AddLine(NWB.chatColor .. msg);
 			if ((NWB.data.nefNpcDied > NWB.data.nefTimer) and
 					(NWB.data.nefNpcDied > (GetServerTime() - NWB.db.global.nefRespawnTime)) and not NWB.db.global.ignoreKillData) then
 				local respawnTime = npcRespawnTime - (GetServerTime() - NWB.data.nefNpcDied);
@@ -4106,9 +4591,7 @@ function NWB:updateMinimapButton(tooltip, usingPanel)
 			else
 				msg = L["nefarian"] .. ": " .. L["noCurrentTimer"] .. ".";
 			end
-			if ((not isLogon or NWB.db.global.logonNef) and not NWB.isLayered) then
-				tooltip:AddLine(NWB.chatColor .. msg);
-			end
+			tooltip:AddLine(NWB.chatColor .. msg);
 		end
 		tooltip:AddLine("|cFF9CD6DELeft-Click|r Timers");
 		tooltip:AddLine("|cFF9CD6DERight-Click|r Buffs");
@@ -4131,7 +4614,7 @@ function NWB:registerOtherAddons()
 	C_ChatInfo.RegisterAddonMessagePrefix("NIT");
 end
 
---For NovaInstanceTracker, this is shared compatability with my anoher of my addons.
+--For NovaInstanceTracker, this is shared compatability with my another of my addons.
 --Basically this just tells the instance tracker if an instance is reset to increase accuracy across groups.
 local f = CreateFrame("Frame")
 f:RegisterEvent("CHAT_MSG_SYSTEM")
@@ -4205,15 +4688,15 @@ function NWB:parseDBM(prefix, msg, distribution, sender)
 			dbmLastNef = GetServerTime();
 		end
 	end]]
-	if (string.match(msg, "Zandalar") and string.match(msg, "24425")) then
+	if (string.match(msg, "Zandalar") and (string.match(msg, "24425") or string.match(msg, "355365"))) then
 		--Slight delays added so these act as a backup for guilds with low user counts that may not have someone online with NWB.
 		--See the notes in NWB:doFirstYell() for exact buff drop timings info.
-		if (string.match(msg, "24425\t51")) then
+		if (string.match(msg, "24425\t51") or string.match(msg, "355365\t51")) then
 			--Island say msg.
 			C_Timer.After(1, function()
 				NWB:doFirstYell("zan", nil, "dbm", nil, "50");
 			end)
-		elseif (string.match(msg, "24425\t49")) then
+		elseif (string.match(msg, "24425\t49") or string.match(msg, "355365\t49")) then
 			--Booty bay yell msg.
 			C_Timer.After(1, function()
 				NWB:doFirstYell("zan", nil, "dbm", nil, "50");
@@ -4315,7 +4798,7 @@ function SlashCmdList.NWBSFCMD(msg, editBox)
 	local dataPrefix, layer, layerNum;
 	local layerMsg = "";
 	--Show timers for our current layer.
-	if (NWB.isLayered and NWB.layeredSongflowers and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+	if (NWB.isLayered and NWB.layeredSongflowers and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 			and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 		layerNum = NWB.lastKnownLayer;
 		layer = NWB.lastKnownLayerID;
@@ -6001,8 +6484,12 @@ function SlashCmdList.NWBDMFCMD(msg, editBox)
 			NWB:print(output);
 		end
 	end
-	
-	if (NWB.data.myChars[UnitName("player")].buffs) then
+	local dmfCooldown, noMsgs = NWB:getDmfCooldown();
+	if (dmfCooldown > 0 and not noMsgs) then
+		output = string.format(L["dmfBuffCooldownMsg"],  NWB:getTimeString(dmfCooldown, true));
+		dmfFound = true;
+	end
+	--[[if (NWB.data.myChars[UnitName("player")].buffs) then
 		for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
 			if (v.type == "dmf" and (v.timeLeft + 7200) > 0 and not v.noMsgs) then
 				output = string.format(L["dmfBuffCooldownMsg"],  NWB:getTimeString(v.timeLeft + 7200, true));
@@ -6010,7 +6497,7 @@ function SlashCmdList.NWBDMFCMD(msg, editBox)
 				break;
 			end
 		end
-	end
+	end]]
 	if (not dmfFound) then
 		output = L["dmfBuffReady"];
 	end
@@ -6038,17 +6525,97 @@ function NWB:getDmfTimeString()
 	end
 end
 
+--------------------------------------------------------------
+---Warning: The following Darkmoon Faire code is a shitshow---
+---					Enter at own risk					   ---
+--------------------------------------------------------------
+
+--Static dates that don't fall within the "first friday of every month construction starts" rule.
+--It seems like Blizzard just start entering random dates instead of following the above rule now.
+--Or there's a new formula I can't work out yet.
+--These are friday dates when construction starts, taken from the retail calendar.
+local staticDmfDates = {};
+function NWB:setDmfDates()
+	if (NWB.isTBC or NWB.realmsTBC) then
+		staticDmfDates = {
+			[1] = { --Manually started DMF by Blizzard for prepatch.
+				day = 21,
+				month = 5,
+				year = 2021,
+				zone = "Mulgore",
+			},
+			[2] = { --July 30th setup, August 1st start 2021.
+				day = 30,
+				month = 7,
+				year = 2021,
+				zone = "Mulgore",
+			},
+			[3] = { --October 29th setup, October 31st start 2021.
+				day = 29,
+				month = 10,
+				year = 2021,
+				zone = "Elwynn Forest",
+			},
+		}
+	else
+		staticDmfDates = {
+			[1] = { --July 30th setup, August 1st start 2021.
+				day = 30,
+				month = 7,
+				year = 2021,
+				zone = "Mulgore",
+			},
+			[2] = { --October 29th setup, October 31st start 2021.
+				day = 29,
+				month = 10,
+				year = 2021,
+				zone = "Elwynn Forest",
+			},
+		}
+	end
+end
+--This needs to check for the next spawn.
+--But also the last spawn within the last 7 days.
+local dmfZoneStatic = "";
+function NWB:getNextStaticDate(useNext)
+	local foundCount, lastStaticDmf = 0, 0;
+	local utcdate = date("!*t", GetServerTime());
+	local currentUTC = time(utcdate);
+	for k, v in ipairs(staticDmfDates) do
+		local timeTable = {year = v.year, month = v.month, day = v.day, hour = 0, min = 0, sec = 0};
+		local time = time(timeTable);
+		--If this date is within the last 8 days and the next 31 days.
+		--Within last 11 days to account for friday to sunday and so it works in all timezones
+		--If it's past the despawn time we skip it anyway.
+		if (time > (currentUTC - 950400) and time - currentUTC < 2678400
+				--And if the last static dmf date wasn't within last 11 days.
+				--This is to find out if current dmf is a static or formula date.
+				--So if the current dmf up is not a static date it will keep showing dmf as up
+				--and not use a forward static date within the next 31 days.
+				and currentUTC - lastStaticDmf > 950400) then
+			foundCount = foundCount + 1;
+			--If useNext is specified then we try and find the next month, skipping first found.
+			if (not useNext or foundCount > 1) then
+				dmfZoneStatic = v.zone;
+				return timeTable, lastStaticDmf;
+			end
+		end
+		lastStaticDmf = time;
+	end
+	return nil, lastStaticDmf;
+end
+
 --DMF spawns the following monday after first friday of the month at daily reset time.
 --Whole region shares time of day for spawn (I think).
 --Realms within the region possibly don't all spawn at same moment though, realms may wait for their own monday.
 --(Bug: US player reported it showing 1 day late DMF end time while on OCE realm, think this whole thing needs rewriting tbh).
-function NWB:getDmfStartEnd(month, nextYear)
+function NWB:getDmfStartEnd(month, nextYear, recalc)
 	local startOffset, endOffset, validRegion, isDst;
 	local  minOffset, hourOffset, dayOffset = 0, 0, 0;
 	local region = GetCurrentRegion();
 	--I may change this to realm names later instead, region may be unreliable with US client on EU region if that issue still exists.
 	if (NWB.realm == "Arugal" or NWB.realm == "Felstriker" or NWB.realm == "Remulos" or NWB.realm == "Yojamba") then
-		--OCE Sunday 12pm UTC reset time (4am server time).
+		--OCE Sunday 12pm UTC reset time (4am monday server time).
 		dayOffset = 2; --2 days after friday (sunday).
 		hourOffset = 18; -- 6pm.
 		validRegion = true;
@@ -6056,13 +6623,13 @@ function NWB:getDmfStartEnd(month, nextYear)
 			or NWB.realm == "Kurinnaxx" or NWB.realm == "Myzrael" or NWB.realm == "Rattlegore" or NWB.realm == "Smolderweb"
 			or NWB.realm == "Thunderfury" or NWB.realm == "Atiesh" or NWB.realm == "Bigglesworth" or NWB.realm == "Blaumeux"
 			or NWB.realm == "Fairbanks" or NWB.realm == "Grobbulus" or NWB.realm == "Whitemane") then
-		--US west Sunday 11am UTC reset time (4am server time).
-		dayOffset = 3; --3 days after friday (monday).
+		--US west Sunday 11am UTC reset time (4am monday server time).
+		dayOffset = 2; --2 days after friday (sunday).
 		hourOffset = 11; -- 11am.
 		validRegion = true;
 	elseif (region == 1) then
-		--US east + Latin Monday 8am UTC reset time (4am server time).
-		dayOffset = 3; --3 days after friday (monday).
+		--US east + Latin Sunday 8am UTC reset time (4am monday server time).
+		dayOffset = 2; --2 days after friday (sunday).
 		hourOffset = 8; -- 8am.
 		validRegion = true;
 	elseif (region == 2) then
@@ -6113,11 +6680,70 @@ function NWB:getDmfStartEnd(month, nextYear)
 		end
 	end
 	local timeTable = {year = data.year, month = data.month, day = dmfStartDay + dayOffset, hour = hourOffset, min = minOffset, sec = 0};
+	local dataNextStatic, lastStaticDmf = NWB:getNextStaticDate();
 	local utcdate   = date("!*t", GetServerTime());
 	local localdate = date("*t", GetServerTime());
 	localdate.isdst = false;
 	local secondsDiff = difftime(time(utcdate), time(localdate));
-	local dmfStart = time(timeTable) - secondsDiff;
+	--local secondsDiff = difftime(time(localdate), time(utcdate));
+	--local secondsDiffTest = difftime(time(utcdate), time(localdate));
+	--NWB:debug(secondsDiff);
+	local dmfStart;
+	--if (secondsDiff > 0) then
+	--	dmfStart = time(timeTable) - secondsDiff;
+	--else
+	--	dmfStart = time(timeTable) + secondsDiff;
+	--end
+	dmfStart = time(timeTable) - secondsDiff;
+	--local dmfStart = time(timeTable) - secondsDiff;
+	if (not lastStaticDmf) then
+		lastStaticDmf = 0;
+	end
+	local dmfStartStatic = 0;
+	if (dataNextStatic) then
+		--Use next static instead if there is a valid static date set for next spawn.
+		data = dataNextStatic;
+		--Convert to a timestamp and add our region offsets.
+		local staticTimestamp = time(dataNextStatic);
+		local staticOffset = 0;
+		staticOffset = staticOffset + (dayOffset * 86400);
+		staticOffset = staticOffset + (hourOffset * 3600);
+		staticOffset = staticOffset + (minOffset * 60);
+		local staticOffsetTimestamp = staticTimestamp + staticOffset;
+		local staticDateUTC = date("*t", staticOffsetTimestamp);
+		dmfStartStatic = time(staticDateUTC) - secondsDiff;
+		if (GetServerTime() > dmfStart + 604800) then
+			local dataNextStatic = NWB:getNextStaticDate(true);
+			if (dataNextStatic) then
+				local staticTimestamp = time(dataNextStatic);
+				local staticOffset = 0;
+				staticOffset = staticOffset + (dayOffset * 86400);
+				staticOffset = staticOffset + (hourOffset * 3600);
+				staticOffset = staticOffset + (minOffset * 60);
+				local staticOffsetTimestamp = staticTimestamp + staticOffset;
+				local staticDateUTC = date("*t", staticOffsetTimestamp);
+				--dmfStart = time(staticDateUTC) - secondsDiff;
+				dmfStartStatic = time(staticDateUTC) - secondsDiff;
+			end
+		--else
+			--dmfStart = dmfStartStatic;
+		end
+	end
+
+	if (dmfStartStatic > GetServerTime() + 1296000 and dmfStartStatic < GetServerTime() - 1296000
+			and dmfStart < GetServerTime() + 950400 and dmfStart > GetServerTime() - 950400) then
+		--If formula date is within 11 days and there's no static date within the next or past 15 days then force use the forumla date.
+		--So we don't get next static date within 31 days while the forumla dmf is still up.
+		--This will probably create wrong next dmf date for the first day or 2 after dmf ends but it's good enough for now.
+		--This while thing needs a rewrite.
+	--elseif (dataNextStatic and dataNextStatic > 0) then
+	elseif (dmfStartStatic and dmfStartStatic > 0) then
+		dmfStart = dmfStartStatic;
+	end
+	--This is basically just adjusting for my shitty local offset code since all regions spawn on monday.
+	--My offset code will get the time right but sometimes the day behind, so adjust to monday if it's sunday.
+	--It needs fixing later, but all regions start on monday/tuesday so this works for now..
+	--This also helps with playing from a diff timezone than the server issues.
 	if (date("%w", dmfStart) == "0") then
 		--Not sure if whole region spawns at the same moment or if each realm waits for their own monday.
 		--All realms spawn same time of day, but possibly not same UTC day depending on timezone.
@@ -6127,7 +6753,17 @@ function NWB:getDmfStartEnd(month, nextYear)
 	--Add 7 days to get end timestamp.
 	local dmfEnd = dmfStart + 604800;
 	--Only return if we have set daily reset offsets for this region.
-	if (validRegion) then
+	if (not recalc and lastStaticDmf + 604800 > GetServerTime() - 1296000
+		and (dmfStartStatic == 0 or dmfStartStatic > GetServerTime() + 3456000)) then
+		local data = date("!*t", GetServerTime());
+		if (data.month == 12) then
+			data.month = 1;
+			return NWB:getDmfStartEnd(data.month, true, true);
+		else
+			data.month = data.month + 1
+			return NWB:getDmfStartEnd(data.month, nil, true);
+		end
+	elseif (validRegion) then
 		return dmfStart, dmfEnd;
 	end
 end
@@ -6135,8 +6771,6 @@ end
 function NWB:getDmfData()
 	local dmfStart, dmfEnd = NWB:getDmfStartEnd();
 	local timestamp, timeLeft, type;
-	--local locale = GetLocale();
-	--OCE region only just for now.
 	if (dmfStart and dmfEnd) then
 		if (GetServerTime() < dmfStart) then
 			--It's before the start of dmf.
@@ -6164,10 +6798,20 @@ function NWB:getDmfData()
 			NWB.isDmfUp = nil;
 		end
 		local zone;
-		if (date("%m", dmfStart) % 2 == 0) then
+		local startMonth = date("%m", dmfStart);
+		local startDay = date("%d", dmfStart);
+		--If it starts at the end of the month then change which zone it starts in.
+		if (tonumber(startDay) > 20) then
+			startMonth = startMonth + 1;
+		end
+		if (startMonth % 2 == 0) then
     		zone = "Mulgore";
 		else
     		zone = "Elwynn Forest";
+		end
+		--Zone override for static dates.
+		if (dmfZoneStatic ~= "") then
+			zone = dmfZoneStatic;
 		end
 		NWB.dmfZone = zone;
 		--Timestamp of next start or end event, seconds left untill that event, and type of event.
@@ -6198,7 +6842,12 @@ function NWB:updateDmfMarkers(type)
     	local dmfFound;
     	local buffText = "";
     	if (NWB.isDmfUp) then
-    		if (NWB.data.myChars[UnitName("player")].buffs) then
+    		local dmfCooldown, noMsgs = NWB:getDmfCooldown();
+			if (dmfCooldown > 0 and not noMsgs) then
+				buffText = "\n" .. string.format(L["dmfBuffCooldownMsg"],  NWB:getTimeString(dmfCooldown, true));
+				dmfFound = true;
+			end
+    		--[[if (NWB.data.myChars[UnitName("player")].buffs) then
 				for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
 					if (v.type == "dmf" and (v.timeLeft + 7200) > 0 and not v.noMsgs) then
 						buffText = "\n" .. string.format(L["dmfBuffCooldownMsg"],  NWB:getTimeString((v.timeLeft + 7200), true));
@@ -6206,7 +6855,7 @@ function NWB:updateDmfMarkers(type)
 						break;
 					end
 				end
-			end
+			end]]
     		if (not dmfFound) then
     			buffText = "\n" .. L["dmfBuffReady"];
     		end
@@ -6361,11 +7010,7 @@ NWBbuffListFrame.CharCount:Hide();
 NWBbuffListFrame:SetFrameStrata("MEDIUM");
 NWBbuffListFrame.EditBox:SetAutoFocus(false);
 NWBbuffListFrame.EditBox:SetScript("OnKeyDown", function(self, arg)
-	--If control key is down keep focus for copy/paste to work.
-	--Otherwise remove focus so "enter" can be used to open chat and not have a stuck cursor on this edit box.
-	if (not IsControlKeyDown()) then
-		NWBbuffListFrame.EditBox:ClearFocus();
-	end
+	NWBbuffListFrame.EditBox:ClearFocus();
 end)
 NWBbuffListFrame.EditBox:SetScript("OnShow", function(self, arg)
 	NWBbuffListFrame:SetVerticalScroll(0);
@@ -6373,7 +7018,8 @@ end)
 local buffUpdateTime = 0;
 NWBbuffListFrame:HookScript("OnUpdate", function(self, arg)
 	--Only update once per second.
-	if (GetServerTime() - buffUpdateTime > 0 and self:GetVerticalScrollRange() == 0) then
+	if (GetServerTime() - buffUpdateTime > 0) then
+		NWBbuffListFrame.EditBox:ClearFocus();
 		NWB:recalcBuffListFrame();
 		buffUpdateTime = GetServerTime();
 	end
@@ -6382,6 +7028,14 @@ NWBbuffListFrame.fs = NWBbuffListFrame.EditBox:CreateFontString("NWBbuffListFram
 NWBbuffListFrame.fs:SetPoint("TOP", 0, 0);
 NWBbuffListFrame.fs:SetFont(NWB.regionFont, 14);
 NWBbuffListFrame.fs:SetText("|cffffff00" .. L["Your Current World Buffs"]);
+NWBbuffListFrame.fs2 = NWBbuffListFrame.EditBox:CreateFontString("NWBbuffListFrameFS2", "HIGH");
+NWBbuffListFrame.fs2:SetPoint("TOP", 0, -16);
+NWBbuffListFrame.fs2:SetFont(NWB.regionFont, 13);
+NWBbuffListFrame.fs2:SetText("|cffffff00Mouseover char names for extra info");
+NWBbuffListFrame.fs3 = NWBbuffListFrame.EditBox:CreateFontString("NWBbuffListFrameFS3", "HIGH");
+NWBbuffListFrame.fs3:SetPoint("TOPLEFT", 1, -32);
+NWBbuffListFrame.fs3:SetFont(NWB.regionFont, 13);
+--NWBbuffListFrame.fs3:SetText("");
 
 local NWBbuffListDragFrame = CreateFrame("Frame", "NWBbuffListDragFrame", NWBbuffListFrame);
 --NWBbuffListDragFrame:SetToplevel(true);
@@ -6431,9 +7085,6 @@ end)
 
 --Top right X close button.
 local NWBbuffListFrameClose = CreateFrame("Button", "NWBbuffListFrameClose", NWBbuffListFrame, "UIPanelCloseButton");
---[[NWBbuffListFrameClose:SetPoint("TOPRIGHT", -5, 8.6);
-NWBbuffListFrameClose:SetWidth(31);
-NWBbuffListFrameClose:SetHeight(31);]]
 NWBbuffListFrameClose:SetPoint("TOPRIGHT", -12, 3.75);
 NWBbuffListFrameClose:SetWidth(20);
 NWBbuffListFrameClose:SetHeight(20);
@@ -6449,8 +7100,8 @@ NWBbuffListFrameClose:GetPushedTexture():SetTexCoord(0.1875, 0.8125, 0.1875, 0.8
 NWBbuffListFrameClose:GetDisabledTexture():SetTexCoord(0.1875, 0.8125, 0.1875, 0.8125);
 
 --Config button.
-local NWBbuffListFrameConfButton = CreateFrame("Button", "NWBbuffListFrameConfButton", NWBbuffListFrameClose, "UIPanelButtonTemplate");
-NWBbuffListFrameConfButton:SetPoint("CENTER", -58, 1);
+local NWBbuffListFrameConfButton = CreateFrame("Button", "NWBbuffListFrameConfButton", NWBbuffListFrame.EditBox, "UIPanelButtonTemplate");
+NWBbuffListFrameConfButton:SetPoint("TOPRIGHT", -8, 0);
 NWBbuffListFrameConfButton:SetWidth(90);
 NWBbuffListFrameConfButton:SetHeight(17);
 NWBbuffListFrameConfButton:SetText(L["Options"]);
@@ -6509,8 +7160,8 @@ end)
 NWBbuffListFrameTimersButton:Hide();
 
 --Wipe data button.
-local NWBbuffListFrameWipeButton = CreateFrame("Button", "NWBbuffListFrameWipeButton", NWBbuffListFrame, "UIPanelButtonTemplate");
-NWBbuffListFrameWipeButton:SetPoint("BOTTOMRIGHT", -34, -1);
+local NWBbuffListFrameWipeButton = CreateFrame("Button", "NWBbuffListFrameWipeButton", NWBbuffListFrame.EditBox, "UIPanelButtonTemplate");
+NWBbuffListFrameWipeButton:SetPoint("TOPRIGHT", -8, -16);
 NWBbuffListFrameWipeButton:SetWidth(90);
 NWBbuffListFrameWipeButton:SetHeight(17);
 NWBbuffListFrameWipeButton:SetFrameLevel(3);
@@ -6531,11 +7182,13 @@ NWBbuffListFrameWipeButton:SetScript("OnClick", function(self, arg)
 	};
 	StaticPopup_Show("NWB_BUFFDATARESET");
 end)
-NWBbuffListFrameWipeButton.tooltip = CreateFrame("Frame", "NWBbuffListResetButtonTooltip", NWBbuffListFrameWipeButton, "TooltipBorderedFrameTemplate");
+
+NWBbuffListFrameWipeButton.tooltip = CreateFrame("Frame", "NWBbuffListResetButtonTooltip", NWBbuffListFrame, "TooltipBorderedFrameTemplate");
 NWBbuffListFrameWipeButton.tooltip:SetPoint("CENTER", NWBbuffListFrameWipeButton, "TOP", 0, 14);
 NWBbuffListFrameWipeButton.tooltip.fs = NWBbuffListFrameWipeButton.tooltip:CreateFontString("NWBbuffListDragTooltipFS", "HIGH");
 NWBbuffListFrameWipeButton.tooltip.fs:SetPoint("CENTER", 0, 0.5);
 NWBbuffListFrameWipeButton.tooltip.fs:SetFont(NWB.regionFont, 12);
+NWBbuffListFrameWipeButton.tooltip:SetFrameLevel(132);
 NWBbuffListFrameWipeButton.tooltip.fs:SetText("|cFFFFFF00" .. L["buffResetButtonTooltip"]);
 NWBbuffListFrameWipeButton.tooltip:SetWidth(NWBbuffListFrameWipeButton.tooltip.fs:GetStringWidth() + 16);
 NWBbuffListFrameWipeButton.tooltip:SetHeight(NWBbuffListFrameWipeButton.tooltip.fs:GetStringHeight() + 10);
@@ -6562,7 +7215,8 @@ function NWB:createShowStatsButton()
 		NWB.showStatsButton:SetScript("OnClick", function()
 			local value = NWB.showStatsButton:GetChecked();
 			NWB.db.global.showBuffStats = value;
-			NWB:recalcBuffListFrame(true);
+			--NWB:recalcBuffListFrame(true);
+			NWB:recalcBuffListFrame();
 			--Refresh the config page.
 			NWB.acr:NotifyChange("NovaWorldBuffs");
 		end)
@@ -6570,7 +7224,6 @@ function NWB:createShowStatsButton()
 	if (not NWB.showStatsAllButton) then
 		NWB.showStatsAllButton = CreateFrame("CheckButton", "NWBShowStatsAllButton", NWBbuffListFrame.EditBox, "ChatConfigCheckButtonTemplate");
 		NWB.showStatsAllButton:SetPoint("TOPLEFT", 95, 1);
-		--So strange the way to set text is to append Text to the global frame name.
 		NWBShowStatsAllButtonText:SetText("All");
 		NWB.showStatsAllButton.tooltip = "Show all alts that have buff stats? (stats must be enabled).";
 		--NWB.showStatsAllButton:SetFrameStrata("HIGH");
@@ -6581,7 +7234,8 @@ function NWB:createShowStatsButton()
 		NWB.showStatsAllButton:SetScript("OnClick", function()
 			local value = NWB.showStatsAllButton:GetChecked();
 			NWB.db.global.showBuffAllStats = value;
-			NWB:recalcBuffListFrame(true);
+			--NWB:recalcBuffListFrame(true);
+			NWB:recalcBuffListFrame();
 			--Refresh the config page.
 			NWB.acr:NotifyChange("NovaWorldBuffs");
 		end)
@@ -6590,7 +7244,93 @@ end
 
 NWBbuffListFrame.fsCalc = NWBbuffListFrame:CreateFontString("NWBBufflistCalcFS", "ARTWORK");
 NWBbuffListFrame.fsCalc:SetFont(NWB.regionFont, 13);
+
+local lineFrameCount = 0;
+function NWB:createBuffsLineFrame(type, data)
+	if (not _G[type .. "NWBBuffsLine"]) then
+		local obj = CreateFrame("Frame", type .. "NWBBuffsLine", NWBbuffListFrame.EditBox);
+		obj.id = type;
+		local bg = obj:CreateTexture(nil, "HIGH");
+		bg:SetAllPoints(obj);
+		obj.texture = bg;
+		obj.fs = obj:CreateFontString(type .. "NWBBuffsLineFS", "ARTWORK");
+		obj.fs:SetPoint("LEFT", 0, 0);
+		obj.fs:SetFont(NWB.regionFont, 14);
+		--They don't quite line up properly without justify on top of set point left.
+		obj.fs:SetJustifyH("LEFT");
+		obj.tooltip = CreateFrame("Frame", type .. "NWBBuffsLineTooltip", NWBbuffListFrame, "TooltipBorderedFrameTemplate");
+		--obj.tooltip:SetPoint("CENTER", obj, "CENTER", 0, -46);
+		obj.tooltip:SetFrameStrata("TOOLTIP");
+		obj.tooltip:SetFrameLevel(256);
+		obj.tooltip.fs = obj.tooltip:CreateFontString(type .. "NWBBuffsLineTooltipFS", "ARTWORK");
+		obj.tooltip.fs:SetPoint("CENTER", 0, 0);
+		obj.tooltip.fs:SetFont(NWB.regionFont, 13);
+		obj.tooltip.fs:SetJustifyH("LEFT");
+		obj.tooltip.fs:SetText("|CffDEDE42Frame " .. type);
+		obj.tooltip.fsCalc = obj.tooltip:CreateFontString(type .. "NWBBuffsLineTooltipFS", "ARTWORK");
+		obj.tooltip.fsCalc:SetFont(NWB.regionFont, 13);
+		obj.tooltip:SetWidth(obj.tooltip.fs:GetStringWidth() + 18);
+		obj.tooltip:SetHeight(obj.tooltip.fs:GetStringHeight() + 12);
+		obj.tooltip.updateTime = 0;
+		obj.tooltip:SetScript("OnUpdate", function(self)
+			obj.tooltip:SetFrameStrata("TOOLTIP");
+			--Keep our custom tooltip at the mouse when it moves.
+			local scale, x, y = obj.tooltip:GetEffectiveScale(), GetCursorPosition();
+			obj.tooltip:SetPoint("RIGHT", nil, "BOTTOMLEFT", (x / scale) - 2, y / scale);
+			--Only update once per second.
+			if (GetServerTime() - obj.tooltip.updateTime > 0) then
+				obj.tooltip.updateTime = GetServerTime();
+				NWB:recalcBuffsLineFramesTooltip(obj);
+			end
+		end)
+		obj:SetScript("OnEnter", function(self)
+			if (obj.tooltipData) then
+				obj.tooltip:Show();
+				NWB:recalcBuffsLineFramesTooltip(obj);
+				obj.tooltip:SetFrameStrata("TOOLTIP");
+				local scale, x, y = obj.tooltip:GetEffectiveScale(), GetCursorPosition();
+				obj.tooltip:SetPoint("CENTER", nil, "BOTTOMLEFT", x / scale, y / scale);
+			end
+		end)
+		obj:SetScript("OnLeave", function(self)
+			obj.tooltip:Hide();
+		end)
+		obj.tooltip:Hide();
+		--obj:SetScript("OnMouseDown", function(self)
+			--Maybe add a mouse event here later.
+		--end)
 		
+		--[[obj.removeButton = CreateFrame("Button", type .. "NWBBuffsLineRB", obj, "UIPanelButtonTemplate");
+		obj.removeButton:SetPoint("LEFT", obj, "RIGHT", 34, 0);
+		obj.removeButton:SetWidth(13);
+		obj.removeButton:SetHeight(13);
+		obj.removeButton:SetNormalFontObject("GameFontNormalSmall");
+		--obj.removeButton:SetScript("OnClick", function(self, arg)
+
+		--end)
+		obj.removeButton:SetNormalTexture("Interface\\TargetingFrame\\UI-RaidTargetingIcon_7");
+		obj.removeButton.tooltip = CreateFrame("Frame", type .. "NWBBuffsLineTooltipRB", NWBBuffListFrame, "TooltipBorderedFrameTemplate");
+		obj.removeButton.tooltip:SetPoint("RIGHT", obj.removeButton, "LEFT", -5, 0);
+		obj.removeButton.tooltip:SetFrameStrata("HIGH");
+		obj.removeButton.tooltip:SetFrameLevel(3);
+		obj.removeButton.tooltip.fs = obj.removeButton.tooltip:CreateFontString(type .. "NWBBuffsLineTooltipRBFS", "ARTWORK");
+		obj.removeButton.tooltip.fs:SetPoint("CENTER", -0, 0);
+		obj.removeButton.tooltip.fs:SetFont(NWB.regionFont, 13);
+		obj.removeButton.tooltip.fs:SetJustifyH("LEFT");
+		obj.removeButton.tooltip.fs:SetText("|CffDEDE42" .. L["deleteEntry"] .. " " .. count);
+		obj.removeButton.tooltip:SetWidth(obj.removeButton.tooltip.fs:GetStringWidth() + 18);
+		obj.removeButton.tooltip:SetHeight(obj.removeButton.tooltip.fs:GetStringHeight() + 12);
+		obj.removeButton:SetScript("OnEnter", function(self)
+			obj.removeButton.tooltip:Show();
+		end)
+		obj.removeButton:SetScript("OnLeave", function(self)
+			obj.removeButton.tooltip:Hide();
+		end)
+		obj.removeButton.tooltip:Hide();]]
+		lineFrameCount = lineFrameCount + 1;
+	end
+end
+
 function NWB:openBuffListFrame()
 	if (not NWB.showStatsButton) then
 		NWB:createShowStatsButton();
@@ -6599,22 +7339,14 @@ function NWB:openBuffListFrame()
 	if (NWBbuffListFrame:IsShown()) then
 		NWBbuffListFrame:Hide();
 	else
-		if (NWB.isLayered) then
-			NWBbuffListFrameTimersButton:Show();
-		end
+		--if (NWB.isLayered) then
+		--	NWBbuffListFrameTimersButton:Show();
+		--end
 		NWB:syncBuffsWithCurrentDuration();
-		--[[NWBbuffListFrame:SetHeight(300);
-		if (NWB.db.global.showBuffStats) then
-			--A little wider to fit the buff count.
-			NWBbuffListFrame:SetWidth(475);
-		else
-			NWBbuffListFrame:SetWidth(450);
-		end]]
 		NWBbuffListFrame:SetHeight(NWB.db.global.buffWindowHeight);
 		NWBbuffListFrame:SetWidth(NWB.db.global.buffWindowWidth);
-		local fontSize = false
+		local fontSize = false;
 		NWBbuffListFrame.EditBox:SetFont(NWB.regionFont, 14);
-		NWB:recalcBuffListFrame();
 		NWBbuffListFrame.EditBox:SetWidth(NWBbuffListFrame:GetWidth() - 30);
 		NWBbuffListFrame:Show();
 		--Changing scroll position requires a slight delay.
@@ -6627,78 +7359,79 @@ function NWB:openBuffListFrame()
 		end)
 		--So interface options and this frame will open on top of each other.
 		if (InterfaceOptionsFrame:IsShown()) then
-			NWBbuffListFrame:SetFrameStrata("DIALOG")
+			NWBbuffListFrame:SetFrameStrata("DIALOG");
 		else
-			NWBbuffListFrame:SetFrameStrata("HIGH")
+			NWBbuffListFrame:SetFrameStrata("HIGH");
 		end
+		NWB:recalcBuffListFrame();
 	end
 end
 
+
 local c = string.char;
-function NWB:recalcBuffListFrame(top)
+local framesUsed = {};
+local usedLineFrameCount = 0;
+local offset = 40;
+function NWB:recalcBuffListFrame()
 	if (not NWB.showStatsButton) then
-		NWB:createShowStatsButton();
+		--Frame hasn't been opened since logon, no need to recalc.
+		return;
 	end
-	if (NWB.db.global.showBuffStats) then
-		NWB.showStatsAllButton:Enable();
-		NWBShowStatsAllButtonText:SetText("All");
-	else
-		NWB.showStatsAllButton:Disable();
-		NWBShowStatsAllButtonText:SetText("|cFFA0A0A0All");
-	end
-	--local scroll = NWBbuffListFrame:GetVerticalScroll();
+	framesUsed = {};
+	usedLineFrameCount = 0;
+	offset = 40; --Start offset, per line offset.
 	if (NWB.isDmfUp) then
-		local buffText, dmfFound;
-		if (NWB.data.myChars[UnitName("player")].buffs) then
-			for k, v in pairs(NWB.data.myChars[UnitName("player")].buffs) do
-				if (v.type == "dmf" and (v.timeLeft + 7200) > 0 and not v.noMsgs) then
-					--buffText = string.format(L["dmfBuffCooldownMsg2"],  NWB:getTimeString(v.timeLeft + 7200, true))
-					--		.. "\n" .. L["dmfBuffCooldownMsg3"];
-					buffText = string.format(L["dmfBuffCooldownMsg2"],  NWB:getTimeString(v.timeLeft + 7200, true))
-							.. "\n";
-					dmfFound = true;
-					break;
-				end
-			end
-		end
-    	if (not dmfFound) then
-    		buffText = L["dmfBuffReady"];
-    	end
-		NWBbuffListFrame.EditBox:SetText("\n" .. buffText .. "\n");
-	else
-		NWBbuffListFrame.EditBox:SetText("\n\n");
+		offset = 57;
+		local dmfCooldown, noMsgs = NWB:getDmfCooldown();
+		if (dmfCooldown > 0 and not noMsgs) then
+			NWBbuffListFrame.fs3:SetText(string.format(L["dmfBuffCooldownMsg2"],  NWB:getTimeString(dmfCooldown, true)));
+	    else
+	    	NWBbuffListFrame.fs3:SetText(L["dmfBuffReady"]);
+	    end
 	end
 	local count = 0;
 	local foundChars;
 	local maxWidth = 0;
+	local printRealm;
 	for k, v in NWB:pairsByKeys(NWB.db.global) do --Iterate realms.
-		local msg = "";
 		if (type(v) == "table" and k ~= "minimapIcon") then --The only tables in db.global are realm names.
 			local realm = k;
 			for k, v in NWB:pairsByKeys(v) do --Iterate factions.
 				local faction = k;
-				local msg2 = "";
 				--local coloredFaction = "";
 				--if (k == "Horde") then
 				--	coloredFaction = "|cffe50c11" .. k .. "|r";
 				--else
 				--	coloredFaction = "|cff4954e8" .. k .. "|r";
 				--end
-				--msg2 = "|cff00ff00[" .. realm .. "]|r\n";
 				local realmString = "|cff00ff00[" .. realm .. "]|r\n";
+				printRealm = false;
 				--Have to check if the myChars table exists here.
 				--There was a lua error when much older versions upgraded to the buff tracking version.
 				--They had realmdata in thier db file without the myChars table and it won't create it until they log on that realm.
-				local foundAnyBuff;
 				if (v.myChars) then
-					local foundActiveBuff, foundStoredBuff;
+					local foundActiveBuff, foundStoredBuff, foundChrono, foundChronoCooldown;
 					for k, v in NWB:pairsByKeys(v.myChars) do --Iterate characters.
 						foundActiveBuff = nil;
 						foundStoredBuff = nil;
-						local msg3 = "";
-						local msg4 = "";
+						foundChrono = nil;
+						foundChronoCooldown = nil;
+						local nameString = "";
 						local _, _, _, classColor = GetClassColor(v.englishClass);
+						--Some other addon is breaking the shaman class hex, so now we have to check if it exists.
+						if (not classColor) then
+							classColor = "ff696969";
+						end
 						local pvpFlagMsg = "";
+						local chronoCountMsg = "";
+						local chronoCooldownMsg = "";
+						local buffString = "";
+						local buffStrings = {};
+						local storedBuffString = "";
+						local storedBuffStrings = {};
+						local statsBuffString = "";
+						local statsBuffStrings = {};
+						local charData = v;
 						if (v.pvpFlag) then
 							local texture = "";
 							if (v.faction and v.faction == "Horde") then
@@ -6706,14 +7439,28 @@ function NWB:recalcBuffListFrame(top)
 							else
 								texture = "|TInterface\\AddOns\\NovaWorldBuffs\\Media\\alliancepvp:13:13:-1:0|t";
 							end
-							--pvpFlagMsg = " |cFF9CD6DE(PvP)|r" .. texture;
-							--pvpFlagMsg = "" .. texture .. " |cFF9CD6DE(pvp)|r";
 							pvpFlagMsg = " " .. texture;
 						end
-						msg3 = msg3 .. "  -|c" .. classColor .. k .. "|r" .. pvpFlagMsg .. "\n";
+						if (v.chronoCooldown and v.chronoCooldown > GetServerTime()) then
+							chronoCooldownMsg = " |cFFA0A0A0(Cooldown: " .. NWB:getTimeString(v.chronoCooldown - GetServerTime(),
+									true, NWB.db.global.timeStringType, nil, true) .. ")|r";
+							foundChronoCooldown = true;
+						end
+						if (v.chronoCount and (v.chronoCount > 0 or foundChronoCooldown)) then
+							local texture = "|TInterface\\Icons\\inv_misc_enggizmos_21:12:12:-1:0|t"
+							chronoCountMsg = " " .. texture .. "|cffffff00" .. v.chronoCount .. "|r";
+							foundChrono = true;
+						end
+						if (foundChrono) then
+							nameString = "  -|c" .. classColor .. k .. "|r" .. pvpFlagMsg .. " " .. chronoCountMsg .. chronoCooldownMsg;
+						else
+							nameString = "  -|c" .. classColor .. k .. "|r" .. pvpFlagMsg;
+						end
 						local charName = k;
 						local foundBuffs = {};
+						local storedBuffs = {};
 						for k, v in NWB:pairsByKeys(v.buffs) do --Iterate buffs.
+							buffString = "";
 							if (v.track and v.timeLeft > 0) then
 								local icon = "";
 								if (buffTable[v.type]) then
@@ -6725,55 +7472,17 @@ function NWB:recalcBuffListFrame(top)
 								elseif (k == "Distilled Wisdom") then
 									buffName = "Flask of Distilled Wisdom";
 								end
-								msg3 = msg3 .. "        " .. icon .. " |cFFFFAE42" .. buffName .. "  ";
-								if (NWB.db.global.showBuffStats and NWB.data.myChars[charName]
-										and NWB.data.myChars[charName][v.type .. "Count"] and NWB.data.myChars[charName][v.type .. "Count"] > 0) then
-									msg3 = msg3 .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. "|r";
-									local buffCount = NWB.data.myChars[charName][v.type .. "Count"];
-									if (v.type == "ony" or v.type == "nef") then
-										--If ony or nef then add them together, same buff.
-										local onyBuffCount, nefBuffCount = 0, 0;
-										if (NWB.db.global[realm][faction].myChars[charName]
-												and NWB.db.global[realm][faction].myChars[charName]["onyCount"]) then
-											onyBuffCount = NWB.db.global[realm][faction].myChars[charName]["onyCount"];
-										end
-										if (NWB.db.global[realm][faction].myChars[charName]
-												and NWB.db.global[realm][faction].myChars[charName]["nefCount"]) then
-											nefBuffCount = NWB.db.global[realm][faction].myChars[charName]["nefCount"];
-										end
-										buffCount = onyBuffCount + nefBuffCount;
-									end
-									if (buffCount == 1) then
-										--msg3 = msg3 .. " |cFFA0A0A0(" .. buffCount .. " " .. L["time"] .. ")|r|cFF9CD6DE.|r\n";
-										msg3 = msg3 .. " |cFFA0A0A0" .. string.format(L["time"], buffCount) .. "|r|cFF9CD6DE.|r\n";
-									else
-										msg3 = msg3 .. " |cFFA0A0A0" .. string.format(L["times"], buffCount) .. "|r|cFF9CD6DE.|r\n";
-									end
+								if (k == L["Sayge's Dark Fortune of Damage"] and v.dmfPercent) then
+									buffString = buffString .. "        " .. icon .. " |cFFFFAE42" .. buffName .. " (" .. v.dmfPercent .. "%) ";
 								else
-									msg3 = msg3 .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. ".|r\n";
+									buffString = buffString .. "        " .. icon .. " |cFFFFAE42" .. buffName .. "  ";
 								end
-								foundActiveBuff = true;
-								foundBuffs[v.type] = true;
-							end
-						end
-						if (v.storedBuffs and next(v.storedBuffs)) then
-							for k, v in NWB:pairsByKeys(v.storedBuffs) do --Iterate buffs.
-								--if (v.timeLeft > 0) then
-								if (v.track and v.timeLeft > 0) then
-									local icon = "";
-									if (buffTable[v.type]) then
-										icon = buffTable[v.type].icon;
-									end
-									local buffName = k;
-									if (k == "Supreme Power") then
-										buffName = "Flask of Supreme Power";
-									elseif (k == "Distilled Wisdom") then
-										buffName = "Flask of Distilled Wisdom";
-									end
-									msg4 = msg4 .. "        |cffffff00--|r" .. icon .. " |cFFFFAE42" .. buffName .. "  ";
+								if (storedBuffs[k]) then
+									buffString = buffString .. "|cFF9CD6DE(Inactive due to Chronoboon stored buff)|r"
+								else
 									if (NWB.db.global.showBuffStats and NWB.data.myChars[charName]
 											and NWB.data.myChars[charName][v.type .. "Count"] and NWB.data.myChars[charName][v.type .. "Count"] > 0) then
-										msg4 = msg4 .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. "|r";
+										buffString = buffString .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. "|r";
 										local buffCount = NWB.data.myChars[charName][v.type .. "Count"];
 										if (v.type == "ony" or v.type == "nef") then
 											--If ony or nef then add them together, same buff.
@@ -6789,35 +7498,73 @@ function NWB:recalcBuffListFrame(top)
 											buffCount = onyBuffCount + nefBuffCount;
 										end
 										if (buffCount == 1) then
-											--msg4 = msg4 .. " |cFFA0A0A0(" .. buffCount .. " " .. L["time"] .. ")|r|cFF9CD6DE.|r\n";
-											msg4 = msg4 .. " |cFFA0A0A0" .. string.format(L["time"], buffCount) .. "|r|cFF9CD6DE.|r\n";
+											buffString = buffString .. " |cFFA0A0A0" .. string.format(L["time"], buffCount) .. "|r|cFF9CD6DE.|r\n";
 										else
-											msg4 = msg4 .. " |cFFA0A0A0" .. string.format(L["times"], buffCount) .. "|r|cFF9CD6DE.|r\n";
+											buffString = buffString .. " |cFFA0A0A0" .. string.format(L["times"], buffCount) .. "|r|cFF9CD6DE.|r\n";
 										end
 									else
-										msg4 = msg4 .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. ".|r\n";
+										buffString = buffString .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. ".|r\n";
+									end
+								end
+								foundActiveBuff = true;
+								foundBuffs[v.type] = true;
+								table.insert(buffStrings, buffString);
+							end
+						end
+						if (v.storedBuffs and next(v.storedBuffs)) then
+							for k, v in NWB:pairsByKeys(v.storedBuffs) do --Iterate buffs.
+								storedBuffString = "";
+								if (v.track and v.timeLeft > 0) then
+									storedBuffs[k] = true;
+									local icon = "";
+									if (buffTable[v.type]) then
+										icon = buffTable[v.type].icon;
+									end
+									local buffName = k;
+									if (k == "Supreme Power") then
+										buffName = "Flask of Supreme Power";
+									elseif (k == "Distilled Wisdom") then
+										buffName = "Flask of Distilled Wisdom";
+									end
+									storedBuffString = storedBuffString .. "        |cffffff00--|r" .. icon .. " |cFFFFAE42" .. buffName .. "  ";
+									if (NWB.db.global.showBuffStats and NWB.data.myChars[charName]
+											and NWB.data.myChars[charName][v.type .. "Count"] and NWB.data.myChars[charName][v.type .. "Count"] > 0) then
+										storedBuffString = storedBuffString .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. "|r";
+										local buffCount = NWB.data.myChars[charName][v.type .. "Count"];
+										if (v.type == "ony" or v.type == "nef") then
+											--If ony or nef then add them together, same buff.
+											local onyBuffCount, nefBuffCount = 0, 0;
+											if (NWB.db.global[realm][faction].myChars[charName]
+													and NWB.db.global[realm][faction].myChars[charName]["onyCount"]) then
+												onyBuffCount = NWB.db.global[realm][faction].myChars[charName]["onyCount"];
+											end
+											if (NWB.db.global[realm][faction].myChars[charName]
+													and NWB.db.global[realm][faction].myChars[charName]["nefCount"]) then
+												nefBuffCount = NWB.db.global[realm][faction].myChars[charName]["nefCount"];
+											end
+											buffCount = onyBuffCount + nefBuffCount;
+										end
+										if (buffCount == 1) then
+											storedBuffString = storedBuffString .. " |cFFA0A0A0" .. string.format(L["time"], buffCount) .. "|r|cFF9CD6DE.|r\n";
+										else
+											storedBuffString = storedBuffString .. " |cFFA0A0A0" .. string.format(L["times"], buffCount) .. "|r|cFF9CD6DE.|r\n";
+										end
+									else
+										storedBuffString = storedBuffString .. "|cFF9CD6DE" .. NWB:getTimeString(v.timeLeft, true) .. ".|r\n";
 									end
 									foundStoredBuff = true;
 									foundBuffs[v.type] = true;
+									table.insert(storedBuffStrings, storedBuffString);
 								end
 							end
-						end
-						if (foundStoredBuff) then
-							msg4 = "        |cffffff00" .. L["Chronoboon Displacer"] .. " Buffs:|r\n" .. msg4;
-						 	msg3 = msg3 .. msg4;
-						end
-						if (foundActiveBuff or foundStoredBuff or NWB.db.global.showUnbuffedAlts) then
-						 	msg2 = msg2 .. msg3;
-						 	foundChars = true;
-						 	foundAnyBuff = true;
 						end
 						if (NWB.db.global.showBuffStats and NWB.db.global.showBuffAllStats) then
 							local onyCalc;
 							for k, v in NWB:pairsByKeys(v) do
+								statsBuffString = "";
 								local key = string.gsub(k, "%Count", "")
 								if (buffTable[key] and not foundBuffs[key] and tonumber(v) and v > 0) then
 									if (not foundActiveBuff and not NWB.db.global.showUnbuffedAlts) then
-										msg2 = msg2 .. msg3;
 										foundActiveBuff = true;
 									end
 									local buffName = buffTable[key].fullName;
@@ -6848,58 +7595,396 @@ function NWB:recalcBuffListFrame(top)
 										end
 									end
 									if (not skip) then
-										msg2 = msg2 .. "        " .. icon .. " |cFFA0A0A0" .. buffName .. "  ";
+										statsBuffString = statsBuffString .. "        " .. icon .. " |cFFA0A0A0" .. buffName .. "  ";
 										if (v == 1) then
-											msg2 = msg2 .. " |cFFA0A0A0" .. string.format(L["time"], buffCount) .. "|r|cFF9CD6DE.|r\n";
+											statsBuffString = statsBuffString .. " |cFFA0A0A0" .. string.format(L["time"], buffCount) .. "|r|cFF9CD6DE.|r\n";
 										else
-											msg2 = msg2 .. " |cFFA0A0A0" .. string.format(L["times"], buffCount) .. "|r|cFF9CD6DE.|r\n";
+											statsBuffString = statsBuffString .. " |cFFA0A0A0" .. string.format(L["times"], buffCount) .. "|r|cFF9CD6DE.|r\n";
 										end
 										foundChars = true;
-								 		foundAnyBuff = true;
+								 		foundStoredBuff = true;
+										table.insert(statsBuffStrings, statsBuffString);
 							 		end
 								end
 							end
 						end
-					end
-					--if (NWB.db.global.showAllAlts or foundAnyBuff) then
-					if (foundAnyBuff) then
-						msg = msg ..realmString ..  msg2;
-						foundChars = true;
-						NWBbuffListFrame.fsCalc:SetText(msg2);
-						local width = NWBbuffListFrame.fsCalc:GetWidth() + 60;
-						if (width > maxWidth) then
-							maxWidth = width;
+						if (foundActiveBuff or foundStoredBuff or foundStoredBuff or NWB.db.global.showUnbuffedAlts) then
+							if (not printRealm) then
+								--Realm gold count disabled for now.
+								--NWB:insertBuffsLineFrameString(realmString, realm, "realm");
+								NWB:insertBuffsLineFrameString(realmString);
+								printRealm = true;
+							end
+							NWB:insertBuffsLineFrameString(nameString, charData, "char");
+							if (next(buffStrings)) then
+								for k, v in ipairs(buffStrings) do
+									NWBbuffListFrame.fsCalc:SetText(v);
+									local width = NWBbuffListFrame.fsCalc:GetWidth() + 60;
+									if (width > maxWidth) then
+										maxWidth = width;
+									end
+									--if (charData.playerName) then
+									--	NWB:insertBuffsLineFrameString(v, charData, "char");
+									--else
+										NWB:insertBuffsLineFrameString(v);
+									--end
+								end
+							end
+							if (next(storedBuffStrings)) then
+								NWB:insertBuffsLineFrameString("        |cffffff00" .. L["Chronoboon Displacer"] .. " Buffs|r");
+								for k, v in ipairs(storedBuffStrings) do
+									NWBbuffListFrame.fsCalc:SetText(v);
+									local width = NWBbuffListFrame.fsCalc:GetWidth() + 60;
+									if (width > maxWidth) then
+										maxWidth = width;
+									end
+									NWB:insertBuffsLineFrameString(v);
+								end
+							end
+							if (next(statsBuffStrings)) then
+								for k, v in ipairs(statsBuffStrings) do
+									NWBbuffListFrame.fsCalc:SetText(v);
+									local width = NWBbuffListFrame.fsCalc:GetWidth() + 60;
+									if (width > maxWidth) then
+										maxWidth = width;
+									end
+									NWB:insertBuffsLineFrameString(v);
+								end
+							end
+						 	foundChars = true;
 						end
 					end
 				end
 			end
 		end
-		NWBbuffListFrame.EditBox:Insert(msg);
 	end
 	if (not foundChars) then
-		NWBbuffListFrame.EditBox:Insert("|cffffff00No characters with buffs found.");
+		NWBbuffListFrame.fs2:SetText("");
+		NWB:insertBuffsLineFrameString("|cffffff00No characters with buffs found.");
+	else
+		NWBbuffListFrame.fs2:SetText("|cffffff00Mouseover char names for extra info");
 	end
 	if (NWB.db.global.showBuffStats) then
 		--A little wider to fit the buff count.
-		--NWBbuffListFrame:SetWidth(490);
-		local maxBuffWidth = NWBbuffListFrame:GetWidth();
-		if (maxWidth > NWBbuffListFrame:GetWidth()) then
+		maxWidth = maxWidth + 20;
+		if ((maxWidth) > NWBbuffListFrame:GetWidth()) then
 			NWBbuffListFrame:SetWidth(maxWidth);
 		end
 	else
-		NWBbuffListFrame:SetWidth(450);
+		NWBbuffListFrame:SetWidth(NWB.db.global.buffWindowWidth);
 	end
-	if (top) then
-		--Changing scroll position requires a slight delay.
-		--Second delay is a backup.
-		NWBbuffListFrame:SetVerticalScroll(0);
-		C_Timer.After(0.05, function()
-			NWBbuffListFrame:SetVerticalScroll(0);
-		end)
-		C_Timer.After(0.3, function()
-			NWBbuffListFrame:SetVerticalScroll(0);
-		end)
+	--Hide any no longer is use lines frames from the bottom.
+	for i = 1, lineFrameCount do
+		if (_G[i .. "NWBBuffsLine"] and not framesUsed[i]) then
+			_G[i .. "NWBBuffsLine"]:Hide();
+			_G[i .. "NWBBuffsLine"].tooltipData = nil;
+			_G[i .. "NWBBuffsLine"].tooltipType = nil;
+		end
 	end
+end
+
+function NWB:insertBuffsLineFrameString(text, data, type)
+	usedLineFrameCount = usedLineFrameCount + 1;
+	NWB:createBuffsLineFrame(usedLineFrameCount);
+	if (_G[usedLineFrameCount .. "NWBBuffsLine"]) then
+		--count = count + 1;
+		if (usedLineFrameCount > 9999) then
+			if (_G[usedLineFrameCount .. "NWBBuffsLine"]) then
+				_G[count .. "NWBBuffsLine"]:Hide();
+			end
+		else
+			_G[usedLineFrameCount .. "NWBBuffsLine"].tooltipData = data;
+			_G[usedLineFrameCount .. "NWBBuffsLine"].tooltipType = type;
+			framesUsed[usedLineFrameCount] = true;
+			_G[usedLineFrameCount .. "NWBBuffsLine"]:Show();
+			_G[usedLineFrameCount .. "NWBBuffsLine"]:ClearAllPoints();
+			--Line the left side of this frame up with the exact same as a normal InputScrollFrameTemplate editbox left side.
+			_G[usedLineFrameCount .. "NWBBuffsLine"]:SetPoint("LEFT", NWBbuffListFrame.EditBox, "TOPLEFT", 1.4, -offset);
+			offset = offset + 14;
+			local line = text;
+			--if (usedLineFrameCount < 00) then
+				--Offset the text for single digit numbers so the date comlumn lines up.
+			--	_G[usedLineFrameCount .. "NWBBuffsLine"].fs:SetPoint("LEFT", 7, 0);
+			--else
+			--	_G[usedLineFrameCount .. "NWBBuffsLine"].fs:SetPoint("LEFT", 0, 0);
+			--end
+			_G[usedLineFrameCount .. "NWBBuffsLine"].fs:SetText(line);
+			--Leave enough room on the right of frame to not overlap the scroll bar (-20) and remove button (-20).
+			_G[usedLineFrameCount .. "NWBBuffsLine"]:SetWidth(NWBbuffListFrame:GetWidth() - 120);
+			_G[usedLineFrameCount .. "NWBBuffsLine"]:SetHeight(_G[usedLineFrameCount .. "NWBBuffsLine"].fs:GetHeight());
+			--_G[usedLineFrameCount .. "NWBBuffsLine"].removeButton.usedLineFrameCount = usedLineFrameCount;
+			--_G[usedLineFrameCount .. "NWBBuffsLine"].removeButton:SetScript("OnClick", function(self, arg)
+				--Open delete confirmation box to delete table id (k), but display it as matching log number (usedLineFrameCount).
+				--NWB:openDeleteConfirmFrame(k, self.count);
+			--end)
+			_G[usedLineFrameCount .. "NWBBuffsLine"].id = usedLineFrameCount;
+		end
+	end
+end
+
+function NWB:hideAllLineFrames()
+	for i = 1, lineFrameCount do
+		if (_G[i .. "NWBBuffsLine"]) then
+			_G[i .. "NWBBuffsLine"]:Hide();
+		end
+	end
+end
+
+function NWB:recalcBuffsLineFramesTooltip(obj)
+	local data = obj.tooltipData;
+	local type = obj.tooltipType;
+	if (data and type) then
+		if (type == "realm") then
+			local text = "";
+			local total = 0;
+			if (NWB.db.global[data]) then
+				for realm, faction in pairs(NWB.db.global[data]) do
+					for k, v in pairs(faction.myChars) do
+						if (v.gold) then
+							local _, _, _, classColor = GetClassColor(v.englishClass);
+							if (not classColor) then
+								classColor = "ff696969";
+							end
+							total = total + v.gold;
+							local line = "\n|c" .. classColor .. k .. "|r";
+							obj.tooltip.fsCalc:SetText(line);
+							--Trim string if multiple columns.
+							while obj.tooltip.fsCalc:GetWidth() > 80 do
+								line = string.sub(line, 1, -2);
+								obj.tooltip.fsCalc:SetText(line);
+							end
+							obj.tooltip.fsCalc:SetText(line);
+							while obj.tooltip.fsCalc:GetWidth() < 90 do
+								line = line .. " ";
+								obj.tooltip.fsCalc:SetText(line);
+							end
+							text = text .. line .. " " .. GetCoinTextureString(v.gold, 10);
+							--text = text .. "\n|c" .. classColor .. k .. "|r " .. GetCoinTextureString(v.gold, 10);
+						end
+					end
+				end
+			end
+			text = "|cFFFFAE42" .. L["realmGold"] .. " |cff00ff00[" .. data .. "]|r" .. text;
+			local line = "\n\n|cFFFFAE42" .. L["total"] .. ": |r";
+			obj.tooltip.fsCalc:SetText(line);
+			while obj.tooltip.fsCalc:GetWidth() < 90 do
+				line = line .. " ";
+				obj.tooltip.fsCalc:SetText(line);
+			end
+			line = line .. " " .. GetCoinTextureString(total, 10);
+			obj.tooltip.fs:SetText(text .. line);
+		elseif (type == "char") then
+			if (data.playerName) then
+				local color1, color2 = "|cFFFFAE42", "|cFF9CD6DE";
+				local player = data.playerName;
+				local _, _, _, classColorHex = GetClassColor(data.englishClass);
+				if (not classColorHex) then
+					classColorHex = "ff696969";
+				end
+				local online;
+				if (player == UnitName("player")) then
+					online = true;
+				end
+				local timeOffline;
+				if (data.time) then
+					timeOffline = GetServerTime() - data.time;
+				end
+				local text = "";
+				--Some of the data exists checks are here to be compatible with older versions that didn't record some data.
+				if (data.realm) then
+					text = "|c" .. classColorHex .. player .. "|r |cff00ff00[" .. data.realm .. "]|r";
+				else
+					text = "|c" .. classColorHex .. player .. "|r";
+				end
+				text = text .. "\n" .. color1 .. L["guild"] .. ": " .. color2 .. (data.guild or "none");
+				text = text .. "\n" .. color1 .. L["level"] .. ":|r " .. color2 .. data.level;
+				if (data.freeBagSlots and data.totalBagSlots) then
+					local displayFreeSlots = color2 .. data.freeBagSlots .. "|r";
+					if (data.freeBagSlots < (data.totalBagSlots * 0.10)) then
+						--Display in red when less than 10% of bag space left.
+						displayFreeSlots = "|cffff0000" .. data.freeBagSlots .. "|r";
+					end
+					text = text .. "\n" .. color1 .. L["bagSlots"] .. ":|r " .. displayFreeSlots .. color1 .. "/" .. color2 .. data.totalBagSlots;
+				end
+				if (data.gold) then
+					text = text .. "\n" .. color1 .. L["Gold"] .. ":|r " .. color2 .. GetCoinTextureString(data.gold, 10);
+				end
+				local durabilityAverage = data.durabilityAverage or 100;
+				local displayDurability;
+				if (durabilityAverage < 10) then
+					displayDurability = "|cffff0000" .. NWB:round(durabilityAverage) .. "%|r";
+				elseif (durabilityAverage < 30) then
+					displayDurability = "|cffffa500" .. NWB:round(durabilityAverage) .. "%|r";
+				else
+					displayDurability = color2 .. NWB:round(durabilityAverage) .. "%|r";
+				end
+				text = text .. "\n" .. color1 .. L["durability"] .. ": " .. displayDurability;
+				if (data.chronoCooldown and data.chronoCooldown > GetServerTime()) then
+					text = text .. "\n" .. color1 .. "Chronoboon CD:|r " .. color2 .. NWB:getTimeString(data.chronoCooldown - GetServerTime(),
+							true, NWB.db.global.timeStringType, nil, true) .. ".|r";
+				else
+					text = text .. "\n" .. color1 .. "Chronoboon CD:|r " .. color2 .. "Ready.|r";
+				end
+				if (data.pvpFlag) then
+					local texture = "";
+					if (data.faction and data.faction == "Horde") then
+						texture = "|TInterface\\AddOns\\NovaWorldBuffs\\Media\\hordepvp:13:13:-1:0|t";
+					else
+						texture = "|TInterface\\AddOns\\NovaWorldBuffs\\Media\\alliancepvp:13:13:-1:0|t";
+					end
+					text = text .. "\n" .. texture .. " ".. color1 .. "PvP enabled|r";
+				end
+				local itemString = "\n\n|cFFFFFF00" .. L["items"] .. "|r";
+				itemString = itemString .. "\n  |TInterface\\Icons\\inv_misc_enggizmos_21:12:12:0:0|t|c"
+						.. classColorHex .. " Chronoboon:|r " .. color2 .. (data.chronoCount or 0);
+				if (data.englishClass == "PRIEST" or data.englishClass == "MAGE" or data.englishClass == "DRUID"
+						or data.englishClass == "WARLOCK" or data.englishClass == "SHAMAN" or data.englishClass == "PALADIN"
+								or data.englishClass == "HUNTER") then
+					local foundItems;
+					--local itemString = "\n\n|cFFFFFF00" .. L["items"] .. "|r";
+					if (data.englishClass == "HUNTER" and data.ammo) then
+						local ammoTypeString = "";
+						if (data.ammoType) then
+							local itemName, _, itemRarity, _, _, _, _, _, _, itemTexture = GetItemInfo(data.ammoType);
+			    			if (itemName) then
+			    				local ammoTexture = "|T" .. itemTexture .. ":12:12:0:0|t";
+								ammoTypeString = " (" .. itemName .. " " .. ammoTexture .. ")";
+							end
+						end
+						itemString = itemString .. "\n  |c" .. classColorHex .. L["ammunition"] .. ":|r " .. color2 .. (data.ammo or 0) .. ammoTypeString;
+						foundItems = true;
+					end
+					if (NWB["trackItems" .. data.englishClass]) then
+						for k, v in ipairs(NWB["trackItems" .. data.englishClass]) do
+							if (not v.minLvl or v.minLvl < data.level) then
+								local texture = "";
+								if (v.texture) then
+									texture = "|T" .. v.texture .. ":12:12:0:0|t ";
+								end
+								local itemName = v.name;
+								--Try and get localization for the item name.
+								local itemName = GetItemInfo(v.id);
+								if (not itemName) then
+									itemName = v.name;
+								end
+								itemString = itemString .. "\n  " .. texture .. "|c" .. classColorHex .. itemName .. ":|r " .. color2 .. (data[tostring(v.id)] or 0);
+								foundItems = true;
+							end
+						end
+					end
+					--if (foundItems) then
+					--	text = text .. itemString;
+					--end
+				end
+				text = text .. itemString;
+				local attunements = "\n\n|cFFFFFF00" .. L["attunements"] .. "|r";
+				local foundAttune;
+				if (data.mcAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Molten Core";
+					foundAttune = true;
+				end
+				if (data.onyAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Onyxia's Lair";
+					foundAttune = true;
+				end
+				if (data.bwlAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Blackwing Lair";
+					foundAttune = true;
+				end
+				if (data.naxxAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Naxxramas";
+					foundAttune = true;
+				end
+				if (data.karaAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Karazhan";
+					foundAttune = true;
+				end
+				if (data.shatteredHallsAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "The Shattered Halls"; --Key.
+					foundAttune = true;
+				end
+				if (data.serpentshrineAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Serpentshrine Cavern";
+					foundAttune = true;
+				end
+				if (data.arcatrazAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "The Arcatraz"; --Key.
+					foundAttune = true;
+				end
+				if (data.blackMorassAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Black Morass";
+					foundAttune = true;
+				end
+				if (data.hyjalAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Battle of Mount Hyjal";
+					foundAttune = true;
+				end
+				if (data.blackTempleAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Black Temple";
+					foundAttune = true;
+				end
+				if (data.hellfireCitadelAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Hellfire Citadel"; --Key.
+					foundAttune = true;
+				end
+				if (data.coilfangAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Coilfang Reservoir"; --Key.
+					foundAttune = true;
+				end
+				if (data.shadowLabAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Shadow Labyrinth"; --Key.
+					foundAttune = true;
+				end
+				if (data.auchindounAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Auchindoun"; --Key.
+					foundAttune = true;
+				end
+				if (data.tempestKeepAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Tempest Keep"; --Key
+					foundAttune = true;
+				end
+				if (data.cavernAttune) then
+					attunements = attunements .. "\n  " .. color1 .. "Caverns of Time"; --Key.
+					foundAttune = true;
+				end
+				if (foundAttune) then
+					text = text .. attunements;
+				end
+				text = text .. "\n\n|cFFFFFF00" .. L["currentRaidLockouts"] .. "|r";
+				local foundLockout;
+				local lockoutString = "";
+				if (data.savedInstances and next(data.savedInstances)) then
+					for k, v in pairs(data.savedInstances) do
+						if (not tonumber(k)) then
+							--Remove any non-numbered entries such as "NOT SAVED" from other addons that were recorded in older versions.
+							data.savedInstances[k] = nil;
+						end
+					end
+					for k, v in NWB:pairsByKeys(data.savedInstances) do
+						if (v.locked and v.resetTime and v.resetTime > GetServerTime()) then
+							local timeString = "(" .. NWB:getTimeString(v.resetTime - GetServerTime(), true, NWB.db.global.timeStringType) .. " " .. L["left"] .. ")";
+							lockoutString = lockoutString .. "\n  " .. color1 .. v.name .. " " .. color2 .. timeString;
+							foundLockout = true;
+						end
+					end
+				end
+				if (not foundLockout) then
+					text = text .. "\n  " .. color2 .. L["none"];
+				else
+					text = text .. lockoutString;
+				end
+				obj.tooltip.fs:SetText(text);
+			else
+				obj.tooltip.fs:SetText("|CffDEDE42No data found for this character yet.\nMaybe not logged on since addon install?");
+			end
+		else
+			obj.tooltip.fs:SetText("|CffDEDE42No data found for this tooltip.");
+		end
+	else
+		obj.tooltip.fs:SetText("");
+	end
+	obj.tooltip:SetWidth(obj.tooltip.fs:GetStringWidth() + 18);
+	obj.tooltip:SetHeight(obj.tooltip.fs:GetStringHeight() + 12);
 end
 
 --Reset data if name changes, server xfer etc.
@@ -6914,6 +7999,7 @@ function NWB:resetBuffData()
 				if (v.myChars) then
 					for k, v in NWB:pairsByKeys(v.myChars) do --Iterate characters.
 						NWB.db.global[realm][f].myChars[k].buffs = {};
+						NWB.db.global[realm][f].myChars[k].storedBuffs = {};
 					end
 				end
 			end
@@ -7299,8 +8385,8 @@ end)
 
 NWB["i"] = UnitLevel("player");
 
-local NWBlayerFrameCopyButton = CreateFrame("Button", "NWBlayerFrameCopyButton", NWBlayerFrameClose, "UIPanelButtonTemplate");
-NWBlayerFrameCopyButton:SetPoint("TOPLEFT", NWBlayerFrame, 1, 1);
+local NWBlayerFrameCopyButton = CreateFrame("Button", "NWBlayerFrameCopyButton", NWBlayerFrame.EditBox, "UIPanelButtonTemplate");
+NWBlayerFrameCopyButton:SetPoint("TOPLEFT", 1, 1);
 NWBlayerFrameCopyButton:SetWidth(90);
 NWBlayerFrameCopyButton:SetHeight(17);
 NWBlayerFrameCopyButton:SetText("Copy/Paste");
@@ -7547,7 +8633,8 @@ function NWB:createNewLayer(zoneID, GUID, isFromNpc)
 end
 
 function NWB:removeOldLayers()
-	local expireTime = 21600;
+	--local expireTime = 21600;
+	local expireTime = 10800; --Seems to be a lot of world crashes during tbc launch, shorten old layer expire time for a few weeks.
 	local removed;
 	if (NWB.data.layers and next(NWB.data.layers)) then
 		for k, v in pairs(NWB.data.layers) do
@@ -7556,16 +8643,18 @@ function NWB:removeOldLayers()
 			if (v.rendTimer and (v.rendTimer + expireTime) > (GetServerTime() - NWB.db.global.rendRespawnTime)) then
 				validTimer = true;
 			end
-			if (v.onyNpcDied and (v.onyNpcDied > v.onyTimer) and
+			--[[if (v.onyNpcDied and (v.onyNpcDied > v.onyTimer) and
 					(v.onyNpcDied > (GetServerTime() - NWB.db.global.onyRespawnTime))) then
 				validTimer = true;
-			elseif (v.onyTimer and (v.onyTimer + expireTime) > (GetServerTime() - NWB.db.global.onyRespawnTime)) then
+			elseif (v.onyTimer and (v.onyTimer + expireTime) > (GetServerTime() - NWB.db.global.onyRespawnTime)) then]]
+			if (v.onyTimer and (v.onyTimer + expireTime) > (GetServerTime() - NWB.db.global.onyRespawnTime)) then
 				validTimer = true;
 			end
-			if (v.nefNpcDied and (v.nefNpcDied > v.nefTimer) and
+			--[[if (v.nefNpcDied and (v.nefNpcDied > v.nefTimer) and
 					(v.nefNpcDied > (GetServerTime() - NWB.db.global.nefRespawnTime))) then
 				validTimer = true;
-			elseif (v.nefTimer and (v.nefTimer + expireTime) > (GetServerTime() - NWB.db.global.nefRespawnTime)) then
+			elseif (v.nefTimer and (v.nefTimer + expireTime) > (GetServerTime() - NWB.db.global.nefRespawnTime)) then]]
+			if (v.nefTimer and (v.nefTimer + expireTime) > (GetServerTime() - NWB.db.global.nefRespawnTime)) then
 				validTimer = true;
 			end
 			if (not v.created) then
@@ -7665,6 +8754,9 @@ function NWB:disableLayer(layer)
 		NWB.lastJoinedGroup = GetServerTime();
 		NWB:recalcDisabledLayers();
 		NWB:recalcMinimapLayerFrame(0);
+		C_Timer.After(0.1, function()
+			NWB:recalclayerFrame();
+		end)
 	else
 		NWB:print(string.format(L["layerDoesNotExist"], layer));
 	end
@@ -7678,6 +8770,9 @@ function NWB:enableLayer(layer)
 		NWB.lastJoinedGroup = GetServerTime();
 		NWB:recalcDisabledLayers();
 		NWB:recalcMinimapLayerFrame(0);
+		C_Timer.After(0.1, function()
+			NWB:recalclayerFrame();
+		end)
 	else
 		NWB:print(string.format(L["layerDoesNotExist"], layer));
 	end
@@ -7896,104 +8991,106 @@ function NWB:recalclayerFrame(isLogon, copyPaste)
 			end
 		end
 		--Disabled layers in grey after the enabled layers.
-		for k, v in NWB:pairsByKeys(NWB.data.layersDisabled) do
-			foundTimers = true;
-			count = count + 1;
-			--NWBlayerFrame.EditBox:Insert("\n|cFF989898[Layer Disabled]  (zone " .. k .. ")|r\n");
-			text = text .. "\n|cFF989898[Layer Disabled]  (zone " .. k .. ")|r\n";
-			if (not _G["NWBEnableLayerButton" .. count]) then
-				NWB:createEnabledLayerButton(count);
-			end
-			--Make sure right button is shown.
-			if (_G["NWBDisableLayerButton" .. count]) then
-				_G["NWBDisableLayerButton" .. count]:Hide();
-			end
-			_G["NWBEnableLayerButton" .. count]:Show();
-			--Set the button beside the layer text, count the lines in the edit box to find right position.
-			--local _, lineCount = string.gsub(NWBlayerFrame.EditBox:GetText(), "\n", "");
-			local _, lineCount = string.gsub(text, "\n", "");
-			lineCount = lineCount - 1;
-			NWB["NWBEnableLayerButton" .. count]:SetPoint("TOPLEFT", 215, -(lineCount * 14.25));
-			--Set the layer ID this button will enable.
-			NWB["NWBEnableLayerButton" .. count].layer = k;
-			local msg = "|cFF989898";
-			if (NWB.faction == "Horde" or NWB.db.global.allianceEnableRend) then
-				if (v.rendTimer > (GetServerTime() - NWB.db.global.rendRespawnTime)) then
-					msg = msg .. L["rend"] .. ": " .. NWB:getTimeString(NWB.db.global.rendRespawnTime - (GetServerTime() - v.rendTimer), true) .. ".";
+		if (not copyPaste) then
+			for k, v in NWB:pairsByKeys(NWB.data.layersDisabled) do
+				foundTimers = true;
+				count = count + 1;
+				--NWBlayerFrame.EditBox:Insert("\n|cFF989898[Layer Disabled]  (zone " .. k .. ")|r\n");
+				text = text .. "\n|cFF989898[Layer Disabled]  (zone " .. k .. ")|r\n";
+				if (not _G["NWBEnableLayerButton" .. count]) then
+					NWB:createEnabledLayerButton(count);
+				end
+				--Make sure right button is shown.
+				if (_G["NWBDisableLayerButton" .. count]) then
+					_G["NWBDisableLayerButton" .. count]:Hide();
+				end
+				_G["NWBEnableLayerButton" .. count]:Show();
+				--Set the button beside the layer text, count the lines in the edit box to find right position.
+				--local _, lineCount = string.gsub(NWBlayerFrame.EditBox:GetText(), "\n", "");
+				local _, lineCount = string.gsub(text, "\n", "");
+				lineCount = lineCount - 1;
+				NWB["NWBEnableLayerButton" .. count]:SetPoint("TOPLEFT", 215, -(lineCount * 14.25));
+				--Set the layer ID this button will enable.
+				NWB["NWBEnableLayerButton" .. count].layer = k;
+				local msg = "|cFF989898";
+				if (NWB.faction == "Horde" or NWB.db.global.allianceEnableRend) then
+					if (v.rendTimer > (GetServerTime() - NWB.db.global.rendRespawnTime)) then
+						msg = msg .. L["rend"] .. ": " .. NWB:getTimeString(NWB.db.global.rendRespawnTime - (GetServerTime() - v.rendTimer), true) .. ".";
+						if (NWB.db.global.showTimeStamp) then
+							local timeStamp = NWB:getTimeFormat(v.rendTimer + NWB.db.global.rendRespawnTime, nil, nil, forceServerTime, suffixST);
+							msg = msg .. " (" .. timeStamp .. ")";
+						end
+					else
+						msg = msg .. L["rend"] .. ": " .. L["noCurrentTimer"] .. ".";
+					end
+					--NWBlayerFrame.EditBox:Insert(msg .. "\n");
+					text = text .. msg .. "\n";
+				end
+				msg = "";
+				if ((v.onyNpcDied > v.onyTimer) and
+						(v.onyNpcDied > (GetServerTime() - NWB.db.global.onyRespawnTime)) and not NWB.db.global.ignoreKillData) then
+					local respawnTime = npcRespawnTime - (GetServerTime() - v.onyNpcDied);
+					if (NWB.faction == "Horde") then
+						if (respawnTime > 0) then
+							msg = string.format(L["onyxiaNpcKilledHordeWithTimer2"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true),
+									NWB:getTimeString(respawnTime, true));
+						else
+							msg = string.format(L["onyxiaNpcKilledHordeWithTimer"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true));
+						end
+					else
+						if (respawnTime > 0) then
+							msg = string.format(L["onyxiaNpcKilledAllianceWithTimer2"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true),
+									NWB:getTimeString(respawnTime, true));
+						else
+							msg = string.format(L["onyxiaNpcKilledAllianceWithTimer"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true));
+						end
+					end
+				elseif (v.onyTimer > (GetServerTime() - NWB.db.global.onyRespawnTime)) then
+					msg = msg .. L["onyxia"] .. ": " .. NWB:getTimeString(NWB.db.global.onyRespawnTime - (GetServerTime() - v.onyTimer), true) .. ".";
 					if (NWB.db.global.showTimeStamp) then
-						local timeStamp = NWB:getTimeFormat(v.rendTimer + NWB.db.global.rendRespawnTime, nil, nil, forceServerTime, suffixST);
+						local timeStamp = NWB:getTimeFormat(v.onyTimer + NWB.db.global.onyRespawnTime, nil, nil, forceServerTime, suffixST);
 						msg = msg .. " (" .. timeStamp .. ")";
 					end
 				else
-					msg = msg .. L["rend"] .. ": " .. L["noCurrentTimer"] .. ".";
+					msg = msg .. L["onyxia"] .. ": " .. L["noCurrentTimer"] .. ".";
 				end
 				--NWBlayerFrame.EditBox:Insert(msg .. "\n");
 				text = text .. msg .. "\n";
-			end
-			msg = "";
-			if ((v.onyNpcDied > v.onyTimer) and
-					(v.onyNpcDied > (GetServerTime() - NWB.db.global.onyRespawnTime)) and not NWB.db.global.ignoreKillData) then
-				local respawnTime = npcRespawnTime - (GetServerTime() - v.onyNpcDied);
-				if (NWB.faction == "Horde") then
-					if (respawnTime > 0) then
-						msg = string.format(L["onyxiaNpcKilledHordeWithTimer2"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true),
-								NWB:getTimeString(respawnTime, true));
+				msg = "";
+				if ((v.nefNpcDied > v.nefTimer) and
+						(v.nefNpcDied > (GetServerTime() - NWB.db.global.nefRespawnTime)) and not NWB.db.global.ignoreKillData) then
+					local respawnTime = npcRespawnTime - (GetServerTime() - v.nefNpcDied);
+					if (NWB.faction == "Horde") then
+						if (respawnTime > 0) then
+							msg = string.format(L["nefarianNpcKilledHordeWithTimer2"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true),
+									NWB:getTimeString(respawnTime, true));
+						else
+							msg = string.format(L["nefarianNpcKilledHordeWithTimer"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true));
+						end
 					else
-						msg = string.format(L["onyxiaNpcKilledHordeWithTimer"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true));
+						if (respawnTime > 0) then
+							msg = string.format(L["nefarianNpcKilledAllianceWithTimer2"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true),
+									NWB:getTimeString(respawnTime, true));
+						else
+							msg = string.format(L["nefarianNpcKilledAllianceWithTimer"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true));
+						end
+					end
+				elseif (v.nefTimer > (GetServerTime() - NWB.db.global.nefRespawnTime)) then
+					msg = L["nefarian"] .. ": " .. NWB:getTimeString(NWB.db.global.nefRespawnTime - (GetServerTime() - v.nefTimer), true) .. ".";
+					if (NWB.db.global.showTimeStamp) then
+						local timeStamp = NWB:getTimeFormat(v.nefTimer + NWB.db.global.nefRespawnTime, nil, nil, forceServerTime, suffixST);
+						msg = msg .. " (" .. timeStamp .. ")";
 					end
 				else
-					if (respawnTime > 0) then
-						msg = string.format(L["onyxiaNpcKilledAllianceWithTimer2"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true),
-								NWB:getTimeString(respawnTime, true));
-					else
-						msg = string.format(L["onyxiaNpcKilledAllianceWithTimer"], NWB:getTimeString(GetServerTime() - v.onyNpcDied, true));
-					end
+					msg = msg .. L["nefarian"] .. ": " .. L["noCurrentTimer"] .. ".";
 				end
-			elseif (v.onyTimer > (GetServerTime() - NWB.db.global.onyRespawnTime)) then
-				msg = msg .. L["onyxia"] .. ": " .. NWB:getTimeString(NWB.db.global.onyRespawnTime - (GetServerTime() - v.onyTimer), true) .. ".";
-				if (NWB.db.global.showTimeStamp) then
-					local timeStamp = NWB:getTimeFormat(v.onyTimer + NWB.db.global.onyRespawnTime, nil, nil, forceServerTime, suffixST);
-					msg = msg .. " (" .. timeStamp .. ")";
+				--NWBlayerFrame.EditBox:Insert(msg .. "\n");
+				text = text .. msg .. "\n";
+				if ((v.rendTimer + 3600) > (GetServerTime() - NWB.db.global.rendRespawnTime)
+						or (v.onyTimer + 3600) > (GetServerTime() - NWB.db.global.onyRespawnTime)
+						or (v.nefTimer + 3600) > (GetServerTime() - NWB.db.global.nefRespawnTime)) then
+					NWB:removeOldLayers();
 				end
-			else
-				msg = msg .. L["onyxia"] .. ": " .. L["noCurrentTimer"] .. ".";
-			end
-			--NWBlayerFrame.EditBox:Insert(msg .. "\n");
-			text = text .. msg .. "\n";
-			msg = "";
-			if ((v.nefNpcDied > v.nefTimer) and
-					(v.nefNpcDied > (GetServerTime() - NWB.db.global.nefRespawnTime)) and not NWB.db.global.ignoreKillData) then
-				local respawnTime = npcRespawnTime - (GetServerTime() - v.nefNpcDied);
-				if (NWB.faction == "Horde") then
-					if (respawnTime > 0) then
-						msg = string.format(L["nefarianNpcKilledHordeWithTimer2"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true),
-								NWB:getTimeString(respawnTime, true));
-					else
-						msg = string.format(L["nefarianNpcKilledHordeWithTimer"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true));
-					end
-				else
-					if (respawnTime > 0) then
-						msg = string.format(L["nefarianNpcKilledAllianceWithTimer2"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true),
-								NWB:getTimeString(respawnTime, true));
-					else
-						msg = string.format(L["nefarianNpcKilledAllianceWithTimer"], NWB:getTimeString(GetServerTime() - v.nefNpcDied, true));
-					end
-				end
-			elseif (v.nefTimer > (GetServerTime() - NWB.db.global.nefRespawnTime)) then
-				msg = L["nefarian"] .. ": " .. NWB:getTimeString(NWB.db.global.nefRespawnTime - (GetServerTime() - v.nefTimer), true) .. ".";
-				if (NWB.db.global.showTimeStamp) then
-					local timeStamp = NWB:getTimeFormat(v.nefTimer + NWB.db.global.nefRespawnTime, nil, nil, forceServerTime, suffixST);
-					msg = msg .. " (" .. timeStamp .. ")";
-				end
-			else
-				msg = msg .. L["nefarian"] .. ": " .. L["noCurrentTimer"] .. ".";
-			end
-			--NWBlayerFrame.EditBox:Insert(msg .. "\n");
-			text = text .. msg .. "\n";
-			if ((v.rendTimer + 3600) > (GetServerTime() - NWB.db.global.rendRespawnTime)
-					or (v.onyTimer + 3600) > (GetServerTime() - NWB.db.global.onyRespawnTime)
-					or (v.nefTimer + 3600) > (GetServerTime() - NWB.db.global.nefRespawnTime)) then
-				NWB:removeOldLayers();
 			end
 		end
 	else
@@ -8225,6 +9322,7 @@ f:SetScript('OnEvent', function(self, event, ...)
 		--Seems to fire even when you are in the same phase, guess it will still do for now to reset the phase frame and make user retarget a npc.
 		if (UnitIsGroupLeader(unit)) then
 			NWB.currentLayer = 0;
+			NWB_CurrentLayer =  0;
 			NWB.currentZoneID = 0;
 			NWB:recalcMinimapLayerFrame();
 		end
@@ -8251,6 +9349,8 @@ NWB.currentZoneID = 0;
 NWB.lastCurrentZoneID = 0;
 NWB.validZoneIDTimer = nil;
 NWB.AllowCurrentZoneID = true;
+--Enable some globals that other addons/weakauras can use.
+NWB_CurrentLayer = 0;
 function NWB:setCurrentLayerText(unit)
 	if (not NWB.isLayered or not unit) then
 		return;
@@ -8288,6 +9388,7 @@ function NWB:setCurrentLayerText(unit)
 		if (k == tonumber(zoneID)) then
 			NWBlayerFrame.fs2:SetText("|cFF9CD6DE" .. L["You are currently on"] .. " |cff00ff00[Layer " .. count .. "]|cFF9CD6DE.|r");
 			NWB.currentLayer = count;
+			NWB_CurrentLayer = count;
 			NWB.lastKnownLayer = count;
 			NWB.lastKnownLayerID = k;
 			if ((GetServerTime() - NWB.lastJoinedGroup) > NWB.lastJoinedGroupCooldown) then
@@ -8584,9 +9685,9 @@ function NWB:isClassic()
 		end
 	end
 	--If TOC is lower than 20000 then it's classic.
-	if (tocVersion < 20000) then
+	--if (tocVersion < 20000) then
 		return true;
-	end
+	--end
 end
 
 --Remove duplicate higher zones, see notes on above function validateZoneID().
@@ -8750,7 +9851,7 @@ end
 function NWB:recalcLayerMapFrame()
 	NWBLayerMapFrame.EditBox:SetText("\n");
 	if (not NWB.data.layers or type(NWB.data.layers) ~= "table" or not next(NWB.data.layers)) then
-		NWBLayerMapFrame.EditBox:Insert("|cffFFFF00No zones have been mapped yet since server restart.\n");
+		NWBLayerMapFrame.EditBox:Insert("|cffFFFF00No zones have been mapped yet since server restart.|r\n");
 	else
 		local count = 0;
 		for k, v in NWB:pairsByKeys(NWB.data.layers) do
@@ -8771,11 +9872,11 @@ function NWB:recalcLayerMapFrame()
 						zoneInfo = mapInfo.name;
 					end
 					---NWBLayerMapFrame.EditBox:Insert("  -|cffFFFF00" .. zoneInfo .. " ".. kk .. " |cff9CD6DE" .. vv .. "\n");
-					text = text .. "  -|cffFFFF00" .. zoneInfo .. " |cFF989898(" .. kk .. ")|r\n";
+					text = text .. "  -|cffFFFF00" .. zoneInfo .. "|r |cFF989898(" .. kk .. ")|r\n";
 				end
 			else --C_Map.GetAreaInfo(
 			--C_Map.GetMapInfoAtPosition(1434, 1, 1)
-				text = text .. "  -|cffFFFF00No zones mapped for this layer yet.\n";
+				text = text .. "  -|cffFFFF00No zones mapped for this layer yet.|r\n";
 			end
 			if (NWB.faction == "Horde") then
 				NWBLayerMapFrame.EditBox:Insert("\n|cff00ff00[Layer " .. count .. "]|r  |cff9CD6DE(Orgrimmar " .. k .. ")|r  "
@@ -8791,10 +9892,10 @@ end
 --Reset layers one time, needed when upgrading from old version.
 --Old version copys over the whole table from new version users and prevents a proper new layer being created with that id.
 function NWB:resetLayerData()
-	if (NWB.db.global.resetLayers4) then
+	if (NWB.db.global.resetLayers5) then
 		NWB:debug("resetting layer data");
 		NWB.data.layers = {};
-		NWB.db.global.resetLayers4 = false;
+		NWB.db.global.resetLayers5 = false;
 	end
 end
 
@@ -8998,9 +10099,11 @@ MinimapLayerFrame.tooltip.fs:SetText("Target a NPC to\nupdate your layer");
 MinimapLayerFrame.tooltip:SetWidth(MinimapLayerFrame.tooltip.fs:GetStringWidth() + 10);
 MinimapLayerFrame.tooltip:SetHeight(MinimapLayerFrame.tooltip.fs:GetStringHeight() + 10);
 MinimapLayerFrame:SetScript("OnEnter", function(self)
-	MinimapLayerFrame.tooltip:Show();
-	if (NWB.db.global.minimapLayerHover) then
-		MinimapLayerFrame:Show();
+	if (NWB.isLayered) then
+		MinimapLayerFrame.tooltip:Show();
+		if (NWB.db.global.minimapLayerHover) then
+			MinimapLayerFrame:Show();
+		end
 	end
 end)
 MinimapLayerFrame:SetScript("OnLeave", function(self)
@@ -9055,6 +10158,7 @@ function NWB:recalcMinimapLayerFrame(zoneID)
 			if (k == NWB.lastKnownLayerMapID) then
 				NWBlayerFrame.fs2:SetText("|cFF9CD6DE" .. L["You are currently on"] .. " |cff00ff00[Layer " .. count .. "]|cFF9CD6DE.|r");
 				NWB.currentLayer = count;
+				NWB_CurrentLayer = count;
 				NWB.lastKnownLayer = count;
 				NWB.lastKnownLayerID = k;
 				NWB.lastKnownLayerTime = GetServerTime();
@@ -9100,6 +10204,7 @@ function NWB:recalcMinimapLayerFrame(zoneID)
 			end
 		end
 		NWB.currentLayer = 0;
+		NWB_CurrentLayer = 0;
 		if (foundBackup) then
 			NWB:toggleMinimapLayerFrame("show");
 		else
@@ -9782,7 +10887,7 @@ f:SetScript("OnEvent", function(self, event, ...)
 			targetID = tonumber(targetID);
 			local currentSpeed = GetUnitSpeed("target");
 			local layerNum;
-			if (NWB.isLayered and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+			if (NWB.isLayered and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 					and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 				layerNum = NWB.lastKnownLayer;
 			end
@@ -10251,7 +11356,7 @@ end)]]
 end)]]
 
 function NWB:createNaxxMarkers()
-	--This icon was part of the original art lizzard released with the 1.11 patch.
+	--This icon was part of the original art Blizzard released with the 1.11 patch.
 	--This exact cut of this image was linked to me and I think is from warcraft logs.
 	local iconLocation = "Interface\\AddOns\\NovaWorldBuffs\\Media\\Naxx.tga";
 	--Worldmap marker.
@@ -10357,7 +11462,7 @@ scanFrame:SetScript("OnEvent", function(self, event, ...)
 			local layerNum;
 			--Make sure the NPC wasn't already up when we arrived.
 			if (scanCheckEnabled and (GetServerTime() - lastPoisChange) > 2) then
-				if (NWB.isLayered and NWB:GetLayerCount() == 2 and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
+				if (NWB.isLayered and NWB:checkLayerCount() and NWB.lastKnownLayerMapID and NWB.lastKnownLayerMapID > 0
 						and NWB.lastKnownLayer and NWB.lastKnownLayer > 0) then
 					layerNum = NWB.lastKnownLayer;
 				end
@@ -10370,19 +11475,31 @@ scanFrame:SetScript("OnEvent", function(self, event, ...)
 		lastPoisChange = GetServerTime();
 		local subZone = GetSubZoneText();
 		--Check if subZone actually changed (doesn't change leaving/entering the Inn etc).
-		--POSTMASTER_LETTER_BARRENS_MYTHIC = "The Crossroads", hopefully works for all languages.
+		--POSTMASTER_LETTER_BARRENS_MYTHIC = "The Crossroads", seems to not work for all languages.
 		local _, _, zone = NWB.dragonLib:GetPlayerZonePosition();
-		if (zone == 1413 and subZone == POSTMASTER_LETTER_BARRENS_MYTHIC and lastPoisZone ~= subZone) then
-			NWB:enableScan();
-		elseif (not subZone or lastPoisZone ~= subZone) then
-			NWB:disableScan();
+		if (LOCALE_enUS or LOCALE_enGB) then
+			if (zone == 1413 and subZone == POSTMASTER_LETTER_BARRENS_MYTHIC and lastPoisZone ~= subZone) then
+				NWB:enableScan();
+			elseif (not subZone or lastPoisZone ~= subZone) then
+				NWB:disableScan();
+			end
+			lastPoisZone = subZone;
+		else
+			--For non english clients there are too many variations of what crossroads is called.
+			--Some GetSubZoneText() like German client aren't even translated and are just "Crossroads".
+			--So just run the scan anywhere in the barrens, it still checks coords for within crossroads anyway.
+			if (zone == 1413) then
+				NWB:enableScan();
+			elseif (zone ~= 1413) then
+				NWB:disableScan();
+			end
+			lastPoisZone = subZone;
 		end
-		lastPoisZone = subZone;
 	end
 end)
 
 function NWB:enableScan()
-	if (not doScan and NWB.db.global.earlyRendScan) then
+	if (not NWB.isTBC and not doScan and NWB.db.global.earlyRendScan) then
 		NWB:debug("Starting NPC scan.");
 		--Disable swatter from intercepting our error check, it breaks the NPC warning.
 		if (Swatter and Swatter.Frame) then
@@ -10408,9 +11525,16 @@ function NWB:scanTicker()
 		return;
 	end
 	local _, _, zone = NWB.dragonLib:GetPlayerZonePosition();
-	if (zone ~= 1413 or GetSubZoneText() ~= POSTMASTER_LETTER_BARRENS_MYTHIC) then
-		NWB:debug("Scan zone error.");
-		NWB:disableScan();
+	if (LOCALE_enUS or LOCALE_enGB) then
+		if (zone ~= 1413 or GetSubZoneText() ~= POSTMASTER_LETTER_BARRENS_MYTHIC) then
+			NWB:debug("Scan zone error.");
+			NWB:disableScan();
+		end
+	else
+		if (zone ~= 1413) then
+			NWB:debug("Scan zone error.");
+			NWB:disableScan();
+		end
 	end
 	--Only enabled during this short window so it doesn't clash with other scan addons.
 	scanCheckEnabled = true;
@@ -10874,6 +11998,7 @@ f:RegisterEvent("PLAYER_ENTERING_WORLD");
 f:RegisterEvent("AREA_POIS_UPDATED");
 f:RegisterEvent("UNIT_SPELLCAST_START");
 f:RegisterEvent("UNIT_SPELLCAST_STOP");
+f:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
 f:RegisterEvent("PLAYER_CAMPING");
 f:RegisterEvent("UPDATE_BINDINGS");
 f:RegisterEvent("PLAYER_UNGHOST");
@@ -10927,15 +12052,17 @@ f:SetScript("OnEvent", function(self, event, ...)
 		local unit, _, spellID = ...;
 		if (unit == "player" and spellID == 7355 and dmfStuckResTimer) then
 			NWB:debug("cancelled res timer")
+			if (dmfStuckResTimer._remainingIterations and dmfStuckResTimer._remainingIterations > 0) then
+				if (NWB.db.global.dmfChatCountdown) then
+					NWB:dmfSendGroup("Cancelled resurrection countdown.");
+				else
+					NWB:print("Cancelled resurrection countdown.");
+				end
+			end
 			dmfStuckResTimer:Cancel();
 			dmfChatTimer:Cancel();
 			dmfLogoutResTimer = nil;
 			dmfChatTimer = nil;
-			if (NWB.db.global.dmfChatCountdown) then
-				NWB:dmfSendGroup("Cancelled resurrection countdown.");
-			else
-				NWB:print("Cancelled resurrection countdown.");
-			end
 			if (dmfTimerBar) then
 				dmfTimerBar:Stop();
 				dmfTimerBar = nil;
@@ -11095,6 +12222,11 @@ function NWB:dmfPosTicker()
 	C_Timer.After(1, function()
 		NWB:dmfPosTicker();
 	end)
+end
+
+SLASH_NWBDMFHELPERCMD1, SLASH_NWBDMFHELPERCMD2 = '/dmfhelper', '/stuckhelper';
+function SlashCmdList.NWBDMFHELPERCMD(msg, editBox)
+	NWBDmfFrame:Show();
 end
 
 function NWB:enableDmfFrame()

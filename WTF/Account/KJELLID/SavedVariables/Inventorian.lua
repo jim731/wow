@@ -2,20 +2,24 @@
 InventorianDB = {
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Default",
-		["Consumables - Nethergarde Keep"] = "Default",
-		["Parisi - Nethergarde Keep"] = "Default",
+		["Bullsi - Mirage Raceway"] = "Default",
+		["Raremats - Nethergarde Keep"] = "Default",
 		["Various - Nethergarde Keep"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
-		["Raremats - Nethergarde Keep"] = "Default",
-		["Bushwick - Nethergarde Keep"] = "Default",
+		["Elunari - Firemaw"] = "Default",
+		["Consumables - Nethergarde Keep"] = "Default",
+		["Parisi - Nethergarde Keep"] = "Default",
 		["Garluk - Mirage Raceway"] = "Default",
+		["Bushwick - Nethergarde Keep"] = "Default",
+		["Bankmoomoo - Mirage Raceway"] = "Default",
+		["Zabuji - Mirage Raceway"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
 			["bag"] = {
-				["y"] = -56.83984375,
-				["x"] = 215.552825927734,
-				["point"] = "TOP",
+				["y"] = 68.740478515625,
+				["x"] = -36.4967041015625,
+				["point"] = "BOTTOMRIGHT",
 				["showBags"] = true,
 				["scale"] = 1,
 				["parent"] = {
@@ -32,142 +36,143 @@ InventorianDB = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 1,
 								["RightText"] = {
 								},
-								["id"] = 1,
 							}, -- [1]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 2,
 								["RightText"] = {
 								},
-								["id"] = 2,
 							}, -- [2]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 3,
 								["RightText"] = {
 								},
-								["id"] = 3,
 							}, -- [3]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 4,
 								["RightText"] = {
 								},
-								["id"] = 4,
 							}, -- [4]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 5,
 								["RightText"] = {
 								},
-								["id"] = 5,
 							}, -- [5]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 6,
 								["RightText"] = {
 								},
-								["id"] = 6,
 							}, -- [6]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 7,
 								["RightText"] = {
 								},
-								["id"] = 7,
 							}, -- [7]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 8,
 								["RightText"] = {
 								},
-								["id"] = 8,
 							}, -- [8]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 9,
 								["RightText"] = {
 								},
-								["id"] = 9,
 							}, -- [9]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 10,
 								["RightText"] = {
 								},
-								["id"] = 10,
 							}, -- [10]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 11,
 								["RightText"] = {
 								},
-								["id"] = 11,
 							}, -- [11]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 12,
 								["RightText"] = {
 								},
-								["id"] = 12,
 							}, -- [12]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 13,
 								["RightText"] = {
 								},
-								["id"] = 13,
 							}, -- [13]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 14,
 								["RightText"] = {
 								},
-								["id"] = 14,
 							}, -- [14]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 15,
 								["RightText"] = {
 								},
-								["id"] = 15,
 							}, -- [15]
 						},
 						["RightButton"] = {
 						},
 						["CountButton"] = {
 						},
-						["isLocked"] = false,
+						["ClearButton"] = {
+						},
 						["DragBottomLeft"] = {
 						},
 						["Title"] = {
@@ -182,19 +187,25 @@ InventorianDB = {
 							["Text"] = {
 							},
 						},
-						["ClearButton"] = {
-						},
+						["isLocked"] = false,
 					},
 					["firstTimeLoaded"] = 1,
 				},
-				["height"] = 511.999969482422,
-				["width"] = 384.000091552734,
+				["height"] = 511.9999389648438,
+				["width"] = 384.0000915527344,
+			},
+			["keyring"] = {
+				["y"] = 65.51860046386719,
+				["x"] = 94.19122314453125,
+				["point"] = "CENTER",
+				["scale"] = 1,
 			},
 			["bank"] = {
-				["y"] = -50.666748046875,
-				["x"] = 220.000061035156,
-				["point"] = "TOPLEFT",
-				["height"] = 511.999969482422,
+				["y"] = -73.58038330078125,
+				["x"] = -90.51850891113281,
+				["point"] = "TOP",
+				["showBags"] = true,
+				["height"] = 511.9999389648438,
 				["parent"] = {
 					["variablesLoaded"] = true,
 					["Above"] = {
@@ -209,142 +220,143 @@ InventorianDB = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 1,
 								["RightText"] = {
 								},
-								["id"] = 1,
 							}, -- [1]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 2,
 								["RightText"] = {
 								},
-								["id"] = 2,
 							}, -- [2]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 3,
 								["RightText"] = {
 								},
-								["id"] = 3,
 							}, -- [3]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 4,
 								["RightText"] = {
 								},
-								["id"] = 4,
 							}, -- [4]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 5,
 								["RightText"] = {
 								},
-								["id"] = 5,
 							}, -- [5]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 6,
 								["RightText"] = {
 								},
-								["id"] = 6,
 							}, -- [6]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 7,
 								["RightText"] = {
 								},
-								["id"] = 7,
 							}, -- [7]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 8,
 								["RightText"] = {
 								},
-								["id"] = 8,
 							}, -- [8]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 9,
 								["RightText"] = {
 								},
-								["id"] = 9,
 							}, -- [9]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 10,
 								["RightText"] = {
 								},
-								["id"] = 10,
 							}, -- [10]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 11,
 								["RightText"] = {
 								},
-								["id"] = 11,
 							}, -- [11]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 12,
 								["RightText"] = {
 								},
-								["id"] = 12,
 							}, -- [12]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 13,
 								["RightText"] = {
 								},
-								["id"] = 13,
 							}, -- [13]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 14,
 								["RightText"] = {
 								},
-								["id"] = 14,
 							}, -- [14]
 							{
 								["StatusBar"] = {
 								},
 								["LeftText"] = {
 								},
+								["id"] = 15,
 								["RightText"] = {
 								},
-								["id"] = 15,
 							}, -- [15]
 						},
 						["RightButton"] = {
 						},
 						["CountButton"] = {
 						},
-						["isLocked"] = false,
+						["ClearButton"] = {
+						},
 						["DragBottomLeft"] = {
 						},
 						["Title"] = {
@@ -359,19 +371,12 @@ InventorianDB = {
 							["Text"] = {
 							},
 						},
-						["ClearButton"] = {
-						},
+						["isLocked"] = false,
 					},
 					["firstTimeLoaded"] = 1,
 				},
 				["scale"] = 1,
-				["width"] = 511.999969482422,
-			},
-			["keyring"] = {
-				["y"] = 65.5186004638672,
-				["x"] = 94.1912231445313,
-				["point"] = "CENTER",
-				["scale"] = 1,
+				["width"] = 511.9998779296875,
 			},
 		},
 	},

@@ -30,4 +30,6 @@ function AutoLootAssist_IsSpellRelevant(spellID)
         or spellID == 7732 -- Fishing (Expert)
         or spellID == 13262 -- Disenchant
         or spellID == 18248 -- Fishing (Artisan)
+        or spellID == 31252 -- Prospecting
+        or spellID == 33095 -- Fishing (Master)
 end

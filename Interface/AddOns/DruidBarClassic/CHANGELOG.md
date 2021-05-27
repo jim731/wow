@@ -1,7 +1,18 @@
 ## Version History
 
+#### 0.7.11
+Add missing closing slash in xml
+
+#### 0.7.10
+Fix options panel background
+
+#### 0.7.9
+Bump interface version to 2.05.01
+Remove backgroup for options pannels that was buggy.
+- Will fix asap
+
 #### 0.7.8
-Bunmp interface version to 1.13.04
+Bump interface version to 1.13.04
 
 #### 0.7.7
 Fix text on mouseover.

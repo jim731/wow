@@ -30,7 +30,7 @@ local function createConfigEnv()
 		UnitLevel = function(unit) return MAX_PLAYER_LEVEL end,
 		UnitIsPlayer = function(unit) return unit ~= "boss" and unit ~= "pet" and not string.match(unit, "(%w+)pet") end,
 		UnitHealth = function(unit) return getValue("UnitHealth", unit, math.random(20000, 50000)) end,
-		UnitIsQuestBoss = function(unit) return unit == "target" end,
+		UnitIsQuestBoss = function(unit) return unit == "target" or unit == "focus" end,
 		UnitHealthMax = function(unit) return 50000 end,
 		UnitPower = function(unit, powerType)
 			if( powerType == Enum.PowerType.HolyPower or powerType == Enum.PowerType.SoulShards ) then
@@ -462,7 +462,7 @@ function Movers:CreateInfoFrame()
 	if( self.infoFrame ) then return end
 
 	-- Show an info frame that users can lock the frames through
-	local frame = CreateFrame("Frame", nil, UIParent)
+	local frame = CreateFrame("Frame", nil, UIParent, BackdropTemplateMixin and "BackdropTemplate" or nil)
 	frame:SetClampedToScreen(true)
 	frame:SetWidth(300)
 	frame:SetHeight(115)

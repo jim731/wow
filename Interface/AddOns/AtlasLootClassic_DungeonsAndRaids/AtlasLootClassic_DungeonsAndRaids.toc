@@ -1,6 +1,6 @@
-﻿## Interface: 11306
+## Interface: 20501
 ## Author: Lag
-## Version: v1.5.9
+## Version: v2.2.0-bcc
 ## Dependencies: AtlasLootClassic
 ## LoadOnDemand: 1
 
@@ -35,4 +35,7 @@
 Locales\Locales.xml
 
 data.lua
+#@version-bc@
+data-tbc.lua
+#@end-version-bc@
 droprate.lua

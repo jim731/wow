@@ -1,8 +1,4 @@
 
-if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
-	return
-end
-
 local _, sm = ...
 sm.borders = {}
 
@@ -846,10 +842,10 @@ function mod:OnInitialize(profile)
 	end
 	self.db = profile.borders
 
-	if type(SexyMapClassicDB.presets) ~= "table" then
-		SexyMapClassicDB.presets = {}
+	if type(SexyMap2DB.presets) ~= "table" then
+		SexyMap2DB.presets = {}
 	end
-	self.presets = SexyMapClassicDB.presets
+	self.presets = SexyMap2DB.presets
 end
 
 function mod:OnEnable()
@@ -887,7 +883,7 @@ function mod:OnEnable()
 		end
 	end
 
-	customBackdrop = CreateFrame("Frame", "SexyMapCustomBackdrop", Minimap)
+	customBackdrop = CreateFrame("Frame", "SexyMapCustomBackdrop", Minimap, "BackdropTemplate")
 	customBackdrop:SetFrameStrata("BACKGROUND")
 	customBackdrop:SetPoint("CENTER")
 	customBackdrop:SetWidth(Minimap:GetWidth())
@@ -950,43 +946,58 @@ function mod:SavePresetAs(name)
 	self:RebuildPresets()
 end
 
-local inc = 0
-function mod:CreateBorderFromParams(t)
-	inc = inc + 1
-	local tex = tremove(texturePool) or Minimap:CreateTexture()
-	tex:SetTexture(t.texture)
-	tex:SetBlendMode(t.blendMode or "ADD")
-	tex:SetVertexColor(t.r or 1, t.g or 1, t.b or 1, t.a or 1)
-	tex:SetPoint("CENTER", Minimap, "CENTER", t.hNudge or 0, t.vNudge or 0)
-	tex:SetWidth((t.width or defaultSize) * (t.scale or 1))
-	tex:SetHeight((t.height or defaultSize) * (t.scale or 1))
-	tex:SetDrawLayer(t.drawLayer or "ARTWORK")
+do
+	local inc = 0
+	local backgroundFrame = CreateFrame("Frame") -- HybridMinimap support
+	backgroundFrame:SetParent(Minimap)
+	backgroundFrame:SetFrameStrata("BACKGROUND")
+	backgroundFrame:SetFrameLevel(1)
+	backgroundFrame:SetFixedFrameStrata(true)
+	backgroundFrame:SetFixedFrameLevel(true)
+	backgroundFrame:Show()
+	function mod:CreateBorderFromParams(t)
+		inc = inc + 1
+		local tex = tremove(texturePool) or Minimap:CreateTexture()
 
-	tex.rotSpeed = t.rotSpeed or 0
-	tex.settings = t
-	tex:Show()
-	if t.disableRotation then
-		tex:SetTexCoord(0, 1, 0, 1)
-	else
-		if t.playerRotation and t.playerRotation ~= "none" then
-			rotateTextures[tex] = t.playerRotation
+		if t.drawLayer == "BACKGROUND" then -- Be compatible with HybridMinimap which sits at frame strata BACKGROUND level 100
+			tex:SetParent(backgroundFrame)
 		else
-			rotateTextures[tex] = t.rotSpeed ~= 0 and t.rotSpeed or nil
+			tex:SetParent(Minimap)
 		end
-		RotateTexture(tex, t.rotation or 0, true)
+		tex:SetTexture(t.texture)
+		tex:SetBlendMode(t.blendMode or "ADD")
+		tex:SetVertexColor(t.r or 1, t.g or 1, t.b or 1, t.a or 1)
+		tex:SetPoint("CENTER", Minimap, "CENTER", t.hNudge or 0, t.vNudge or 0)
+		tex:SetWidth((t.width or defaultSize) * (t.scale or 1))
+		tex:SetHeight((t.height or defaultSize) * (t.scale or 1))
+		tex:SetDrawLayer(t.drawLayer or "ARTWORK")
+
+		tex.rotSpeed = t.rotSpeed or 0
+		tex.settings = t
+		tex:Show()
+		if t.disableRotation then
+			tex:SetTexCoord(0, 1, 0, 1)
+		else
+			if t.playerRotation and t.playerRotation ~= "none" then
+				rotateTextures[tex] = t.playerRotation
+			else
+				rotateTextures[tex] = t.rotSpeed ~= 0 and t.rotSpeed or nil
+			end
+			RotateTexture(tex, t.rotation or 0, true)
+		end
+
+		local r,g,b,a = t.r or 1, t.g or 1, t.b or 1, t.a or 1
+		tex:SetVertexColor(r,g,b,a)
+		textures["tex" .. inc] = tex
+
+		options.args.currentGroup.args.borders.args["tex" .. inc] = {
+			type = "group",
+			name = t.name or ("Border #" .. inc),
+			arg = "tex" .. inc,
+			args = borderOptions
+		}
+		return tex
 	end
-
-	local r,g,b,a = t.r or 1, t.g or 1, t.b or 1, t.a or 1
-	tex:SetVertexColor(r,g,b,a)
-	textures["tex" .. inc] = tex
-
-	options.args.currentGroup.args.borders.args["tex" .. inc] = {
-		type = "group",
-		name = t.name or ("Border #" .. inc),
-		arg = "tex" .. inc,
-		args = borderOptions
-	}
-	return tex
 end
 
 function mod:ClearWidgets()

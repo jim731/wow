@@ -38,6 +38,24 @@ the previous widget to anchor to.  Default and consistent anchor points also mak
 
 --]]
 
+local AnchorOptions = {
+	{ text = L["CENTER"], value = "CENTER"  },
+	{ text = L["TOP"], value = "TOP"  },
+	{ text = L["LEFT"], value = "LEFT"  },
+	{ text = L["RIGHT"], value = "RIGHT"  },
+	{ text = L["BOTTOM"], value = "BOTTOM"  },
+	{ text = L["TOPLEFT"], value = "TOPLEFT"  },
+	{ text = L["TOPRIGHT"], value = "TOPRIGHT"  },
+	{ text = L["BOTTOMLEFT"], value = "BOTTOMLEFT"  },
+	{ text = L["BOTTOMRIGHT"], value = "BOTTOMRIGHT"  },
+}
+
+local AlignOptions = {
+	{ text = L["LEFT"], value = "LEFT" },
+	{ text = L["CENTER"], value = "CENTER" },
+	{ text = L["RIGHT"], value = "RIGHT" },
+}
+
 
 local function QuickSetPoints(frame, columnFrame, neighborFrame, xOffset, yOffset)
 		local TopOffset = frame.Margins.Top + (yOffset or 0)
@@ -183,7 +201,9 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 		-- Set Positions
 		QuickSetPoints(frame, ...)
 		-- Set Feedback Function
-		frame.OnValueChanged = function() columnFrame.Callback() end
+		frame.OnValueChanged = function()
+			columnFrame.Callback()
+		end
 		--frame.OnValueChanged = columnFrame.OnFeedback
 		return frame, frame
 	end
@@ -279,88 +299,6 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 		return frame, frame
 	end
 
-	local function OptionsList_ClearSelection(listFrame, buttons)
-		for _, button in pairs(buttons) do
-			button.highlight:SetVertexColor(.196, .388, .8);
-			button:UnlockHighlight();
-		end
-
-		listFrame.selection = nil;
-	end
-
-	local function OptionsList_SelectButton(listFrame, button)
-		button.highlight:SetVertexColor(1, 1, 0);
-		button:LockHighlight()
-
-		listFrame.selection = button;
-	end
-
-	local function CreateQuickScrollList(parent, name, lists, buttonFunc)
-		-- Create scroll frame
-		local frame = CreateFrame("ScrollFrame", name.."_Scrollframe", parent, 'UIPanelScrollFrameTemplate')
-		local child = CreateFrame("Frame", name.."_ScrollList")
-		frame.listFrame = child
-		frame:SetWidth(160)
-		frame:SetHeight(260)
-		child:SetWidth(160)
-		child:SetHeight(100)
-
-		-- Populate with list
-		local lastItem
-		for k,list in pairs(lists) do
-			-- Create Label
-			if list.label then
-				local label = child:CreateFontString(nil, "OVERLAY")
-				label:SetFont(NeatPlatesLocalizedFont or "Interface\\Addons\\NeatPlates\\Media\\DefaultFont.ttf", 18)
-				label:SetTextColor(255/255, 105/255, 6/255)
-				label:SetText(list.label)
-
-				-- attach below previous item
-				if lastItem then
-					label:SetPoint("TOPLEFT", lastItem, "BOTTOMLEFT", 0, -8)
-				else
-					label:SetPoint("TOPLEFT", 0, 0)
-				end
-				lastItem = label
-			end
-
-			-- Create Buttons
-			for i,item in pairs(list.list) do
-				if item.text and item.value then
-					-- create button
-					local button = CreateFrame("Button", item.value.."_Button", child, 'NeatPlatesOptionsListButtonTemplate')
-					button.value = item.value
-					button.tooltipText = item.tooltip
-					button.category = list.value
-					button.options = item.options or {}
-					button.highlight = button:GetHighlightTexture()
-
-					button:SetText(item.text)
-					button:SetScript("OnClick", function(self)
-						OptionsList_ClearSelection(child, {child:GetChildren()})
-						OptionsList_SelectButton(child, self)
-
-						buttonFunc(self)
-					end)
-
-					-- attach below previous item
-					if lastItem then
-						button:SetPoint("TOPLEFT", lastItem, "BOTTOMLEFT", 0, 0)
-					else
-						button:SetPoint("TOPLEFT", 0, 0)
-					end
-					lastItem = button
-				end
-			end
-		end
-
-
-		frame:SetScrollChild(child)
-		frame:SetScript("OnMouseWheel", OnMouseWheelScrollFrame)
-
-		return frame
-	end
-
 	local CustomizationPanel
 	local function CreateQuickCustomizationPanel(frame, parent, profile)
 		-- Things to add:
@@ -394,156 +332,141 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 
 		-- Buttons states
 		local options = {
-  		StyleDropdown = function(self, option) return self.category == "main" end,
-  		EnableCheckbox = function(self, option) return (option.enabled ~= nil or (self.category == "main" and option.enabled ~= false)) end,
-  		AnchorOptions = function(self, option) return option.anchor ~= nil end,
-  		AlignOptions = function(self, option) return option.align ~= nil end,
-  		FontSize = function(self, option) return option.size ~= nil end,
-  		OffsetX = function(self, option) return option.x ~= nil end,
-  		OffsetY = function(self, option) return option.y ~= nil end,
-  		OffsetWidth = function(self, option) return option.width ~= nil or option.w ~= nil end,
-  		OffsetHeight = function(self, option) return option.height ~= nil or option.h ~= nil end,
-  		ImportExport = function(self, option) return self.value == "import" or self.value == "export" end,
-  		ImportButton = function(self, option) return self.value == "import" end,
-  		ResetPrompt = function(self, option) return self.value == "reset" end,
-  		ResetButton = function(self, option) return self.category and self.category ~= "config" end,
+			StyleDropdown = function(self, option) return self.category == "main" end,
+			EnableCheckbox = function(self, option) return (option.enabled ~= nil or (self.category == "main" and option.enabled ~= false)) end,
+			AnchorOptions = function(self, option) return option.anchor ~= nil end,
+			AlignOptions = function(self, option) return option.align ~= nil end,
+			FontSize = function(self, option) return option.size ~= nil end,
+			OffsetX = function(self, option) return option.x ~= nil end,
+			OffsetY = function(self, option) return option.y ~= nil end,
+			OffsetWidth = function(self, option) return option.width ~= nil or option.w ~= nil end,
+			OffsetHeight = function(self, option) return option.height ~= nil or option.h ~= nil end,
+			ImportExport = function(self, option) return self.value == "import" or self.value == "export" end,
+			ImportButton = function(self, option) return self.value == "import" end,
+			ResetPrompt = function(self, option) return self.value == "reset" end,
+			ResetButton = function(self, option) return self.category and self.category ~= "config" end,
 		}
 
 		-- Update Panel Values
 		local function updatePanelValues(self)
 			if not self and not CustomizationPanel.activeFrame then return end
 			if not self then self = CustomizationPanel.activeFrame end
-	  	local theme = NeatPlates:GetTheme()
-	  	local category = "WidgetConfig"
+	  		local theme = NeatPlates:GetTheme()
+	  		local category = "WidgetConfig"
 			if self.category == "main" then
 				category = CustomizationPanel.StyleDropdown:GetValue()
-	  	end
-	  	local current = NeatPlatesHubFunctions.GetCustomizationOption(CustomizationPanel.profile, category, self.value) or {}
-	  	local default = theme[category.."Backup"][self.value] or {}
-
-	  	local getObjectName = function(item)
-	  		local objectName = item.objectName
-	  		if type(objectName) == "table" then
-	  			for i=1, #objectName, 1 do
-	  				if default[objectName[i]] then
-	  					objectName = objectName[i]
-	  					break
-	  				end
-	  			end
 	  		end
-	  		return objectName
-	  	end
+			local current = NeatPlatesHubFunctions.GetCustomizationOption(CustomizationPanel.profile, category, self.value) or {}
+			local default = theme[category.."Backup"][self.value] or {}
 
-	  	local getOptionValue = function(item, defaultValue)
-	  		local objectName = getObjectName(item)
-	  		local value = current[objectName]
-	  		if type(value) == "table" and value.value ~= nil then value = value.value end
-
-	  		if value == nil and defaultValue ~= nil then value = defaultValue
-				elseif value == nil then value = default[objectName] end
-
-	  		return value
-	  	end
-
-	  	-- If not empty
-	  	if next(self) then
-		  	CustomizationPanel.activeFrame = self
-		  	CustomizationPanel.activeOption = self.value
-		  	CustomizationPanel.activeCategory = category
-
-		  	-- Button OnClick
-		  	CustomizationPanel.Title:SetText(L["Theme Customization"].." ("..self:GetText()..")") -- Set Title Text
-		  else
-		  	CustomizationPanel.Title:SetText(L["Theme Customization"]) -- Set Title Text
-		  end
-	  	-- Set Customization Values & Show/Hide Elements
-	  	for k,option in pairs(options) do
-	  		local item = CustomizationPanel[k]
-	  		item.fetching = true -- Prevents 'OnValueChanged' from triggering while setting values.
-	  		if self and option(self, default) then
-	  			local itemType = type(default[getObjectName(item)])
-	  			item:Show()
-	  			item.enabled = true
-
-	  			if itemType == "boolean" then
-	  				item:SetChecked(getOptionValue(item))
-					elseif itemType == "number" then
-	  				-- For Offsets default value to zero instead of actaul value
-	  				if item.objectType == "offset" then
-							item:updateValues(getOptionValue(item, 0))
-	  				else
-							item:updateValues(getOptionValue(item))
-	  				end
-					elseif item.objectName then
-						item:SetValue(getOptionValue(item))
-					elseif self.value == "import" then
-						if item.SetValue then item:SetValue("") end
-					elseif self.value == "export" then
-						item:SetValue(AceSerializer:Serialize(NeatPlatesHubFunctions.GetCustomizationOption(CustomizationPanel.profile)))
+			local getObjectName = function(item)
+				local objectName = item.objectName
+				if type(objectName) == "table" then
+					for i=1, #objectName, 1 do
+						if default[objectName[i]] then
+							objectName = objectName[i]
+							break
+						end
 					end
-	  		else
-	  			item:Hide()
-	  			item.enabled = false
-	  		end
-	  		item.fetching = false
-	  	end
+				end
+				return objectName
+			end
 
-	  	-- Custom Callback
-	  	if listCallback[self.value] and type(listCallback[self.value]) == "function" then listCallback[self.value]() end
-	  end
+			local getOptionValue = function(item, defaultValue)
+				local objectName = getObjectName(item)
+				local value = current[objectName]
+				if type(value) == "table" and value.value ~= nil then value = value.value end
+
+				if value == nil and defaultValue ~= nil then
+					value = defaultValue
+				elseif value == nil then
+					value = default[objectName]
+				end
+
+				return value
+			end
+
+			-- If not empty
+			if next(self) then
+				CustomizationPanel.activeFrame = self
+				CustomizationPanel.activeOption = self.value
+				CustomizationPanel.activeCategory = category
+
+				-- Button OnClick
+				CustomizationPanel.Title:SetText(L["Theme Customization"].." ("..self:GetText()..")") -- Set Title Text
+			else
+				CustomizationPanel.Title:SetText(L["Theme Customization"]) -- Set Title Text
+			end
+			-- Set Customization Values & Show/Hide Elements
+			for k,option in pairs(options) do
+				local item = CustomizationPanel[k]
+				item.fetching = true -- Prevents 'OnValueChanged' from triggering while setting values.
+				if self and option(self, default) then
+					local itemType = type(default[getObjectName(item)])
+					item:Show()
+					item.enabled = true
+
+					if itemType == "boolean" then
+						item:SetChecked(getOptionValue(item))
+						elseif itemType == "number" then
+						-- For Offsets default value to zero instead of actaul value
+						if item.objectType == "offset" then
+								item:updateValues(getOptionValue(item, 0))
+						else
+								item:updateValues(getOptionValue(item))
+						end
+						elseif item.objectName then
+							item:SetValue(getOptionValue(item))
+						elseif self.value == "import" then
+							if item.SetValue then item:SetValue("") end
+						elseif self.value == "export" then
+							item:SetValue(AceSerializer:Serialize(NeatPlatesHubFunctions.GetCustomizationOption(CustomizationPanel.profile)))
+						end
+				else
+					item:Hide()
+					item.enabled = false
+				end
+				item.fetching = false
+			end
+
+			-- Custom Callback
+			if listCallback[self.value] and type(listCallback[self.value]) == "function" then listCallback[self.value]() end
+		end
 
 
 		if not CustomizationPanel then
 			-- Build the actual panel
-			CustomizationPanel = CreateFrame("Frame", "NeatPlatesCustomizationPanel", UIParent, "UIPanelDialogTemplate");
+			CustomizationPanel = CreateFrame("Frame", "NeatPlatesCustomizationPanel", UIParent, "NeatPlatesUIPanelDialogTemplate");
 			CustomizationPanel:Hide()
-		  CustomizationPanel:SetBackdrop({bgFile = "Interface/Tooltips/UI-Tooltip-Background", insets = { left = 2, right = 2, top = 2, bottom = 2 },})
-		  CustomizationPanel:SetBackdropColor(0.06, 0.06, 0.06, .7)
-		  CustomizationPanel:SetWidth(600)
-		  CustomizationPanel:SetHeight(300)
-		  CustomizationPanel:SetPoint("CENTER", UIParent, "CENTER", 0, 0 )
-		  CustomizationPanel:SetFrameStrata("DIALOG")
+			CustomizationPanel:SetBackdrop({bgFile = "Interface/Tooltips/UI-Tooltip-Background", insets = { left = 2, right = 2, top = 2, bottom = 2 },})
+			CustomizationPanel:SetBackdropColor(0.06, 0.06, 0.06, .7)
+			CustomizationPanel:SetWidth(600)
+			CustomizationPanel:SetHeight(300)
+			CustomizationPanel:SetPoint("CENTER", UIParent, "CENTER", 0, 0 )
+			CustomizationPanel:SetFrameStrata("DIALOG")
 
-		  CustomizationPanel:SetMovable(true)
-		  CustomizationPanel:EnableMouse(true)
-		  CustomizationPanel:RegisterForDrag("LeftButton", "RightButton")
-		  CustomizationPanel:SetScript("OnMouseDown", function(self,arg1)
-		    self:StartMoving()
-		  end)
-		  CustomizationPanel:SetScript("OnMouseUp", function(self,arg1)
-		    self:StopMovingOrSizing()
-		  end)
+			CustomizationPanel:SetMovable(true)
+			CustomizationPanel:EnableMouse(true)
+			CustomizationPanel:RegisterForDrag("LeftButton", "RightButton")
+			CustomizationPanel:SetScript("OnMouseDown", function(self,arg1)
+				self:StartMoving()
+			end)
+			CustomizationPanel:SetScript("OnMouseUp", function(self,arg1)
+				self:StopMovingOrSizing()
+			end)
 
-		  -- Create List Items
-		  CustomizationPanel.List = CreateQuickScrollList(CustomizationPanel, "NeatPlatesCustomizationList", list, updatePanelValues)
-		  CustomizationPanel.List:SetWidth(170)
-		  CustomizationPanel.List:SetPoint("TOPLEFT", 15, -29)
+			-- Create List Items
+			CustomizationPanel.List = PanelHelpers.CreateScrollList(CustomizationPanel, "NeatPlatesCustomizationList", list, updatePanelValues)
+			CustomizationPanel.List:SetWidth(170)
+			CustomizationPanel.List:SetPoint("TOPLEFT", 15, -29)
 
-		  local StyleOptions = {
-		  	{ text = L["Default/Healthbar"], value = "Default"  },
+			local StyleOptions = {
+				{ text = L["Default/Healthbar"], value = "Default"  },
 				{ text = L["Headline/Text-Only"], value = "NameOnly"  },
-		  }
-
-		  local AnchorOptions = {
-				{ text = L["CENTER"], value = "CENTER"  },
-				{ text = L["TOP"], value = "TOP"  },
-				{ text = L["LEFT"], value = "LEFT"  },
-				{ text = L["RIGHT"], value = "RIGHT"  },
-				{ text = L["BOTTOM"], value = "BOTTOM"  },
-				{ text = L["TOPLEFT"], value = "TOPLEFT"  },
-				{ text = L["TOPRIGHT"], value = "TOPRIGHT"  },
-				{ text = L["BOTTOMLEFT"], value = "BOTTOMLEFT"  },
-				{ text = L["BOTTOMRIGHT"], value = "BOTTOMRIGHT"  },
 			}
 
-		  local AlignOptions = {
-				{ text = L["LEFT"], value = "LEFT" },
-				{ text = L["CENTER"], value = "CENTER" },
-				{ text = L["RIGHT"], value = "RIGHT" },
-			}
-
-		  -- Create Options
-		  CustomizationPanel.StyleDropdown = PanelHelpers:CreateDropdownFrame("NeatPlatesCustomizationPanel_StyleDropdown", CustomizationPanel, StyleOptions, "Default", L["Style Mode"], true)
+			-- Create Options
+			CustomizationPanel.StyleDropdown = PanelHelpers:CreateDropdownFrame("NeatPlatesCustomizationPanel_StyleDropdown", CustomizationPanel, StyleOptions, "Default", L["Style Mode"], true)
 			CustomizationPanel.StyleDropdown:SetPoint("TOPRIGHT", CustomizationPanel, "TOPRIGHT", -45, -54)
 			CustomizationPanel.StyleDropdown.OnValueChanged = function() updatePanelValues() end
 			CustomizationPanel.EnableCheckbox = PanelHelpers:CreateCheckButton("NeatPlatesOptions_EnableCheckbox", CustomizationPanel, L["Element Enabled"])
@@ -612,7 +535,7 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 			-- Scripts
 			-- Clear selected option
 			CustomizationPanel.ClearSelections = function(self)
-				OptionsList_ClearSelection(self.List.listFrame, {self.List.listFrame:GetChildren()}) -- Clear Selected item
+				self.List.listFrame:ClearSelection({self.List.listFrame:GetChildren()}) -- Clear Selected item
 			end
 
 			-- Reset Prompt Buttons
@@ -694,7 +617,8 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 				if self.fetching then return end
 				local activeOption = CustomizationPanel.activeOption
 				local category = CustomizationPanel.activeCategory
-		  	if activeOption then
+
+		  		if activeOption then
 					for k,v in pairs(CustomizationPanel) do
 						if type(v) == "table" and v.enabled and v.objectName then
 							local valueFunc = v.GetChecked or v.GetValue
@@ -742,14 +666,15 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 				offset = {
 					x = ScalePanel.OffsetX:GetValue(),
 					y = ScalePanel.OffsetY:GetValue(),
-				}
+				},
+				anchor = ScalePanel.AnchorOptions:GetValue()
 			}
 			parent.Callback()
 		end
 
 		if not ScalePanel then
 			-- Build the actual panel
-			ScalePanel = CreateFrame("Frame", "NeatPlatesScalePanel", UIParent, "UIPanelDialogTemplate");
+			ScalePanel = CreateFrame("Frame", "NeatPlatesScalePanel", UIParent, "NeatPlatesUIPanelDialogTemplate");
 
 			--local panel = CreateFrame( "Frame", "OffsetAndScale_InterfaceOptionsPanel", UIParent);
 
@@ -770,7 +695,7 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 			ScalePanel:SetBackdrop({bgFile = "Interface/Tooltips/UI-Tooltip-Background", insets = { left = 2, right = 2, top = 2, bottom = 2 },})
 			ScalePanel:SetBackdropColor(0.06, 0.06, 0.06, .7)
 			ScalePanel:SetWidth(390)
-			ScalePanel:SetHeight(180)
+			ScalePanel:SetHeight(230)
 			ScalePanel:SetPoint("CENTER", UIParent, "CENTER", 0, 0 )
 			ScalePanel:SetFrameStrata("DIALOG")
 
@@ -784,13 +709,17 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 				self:StopMovingOrSizing()
 			end)
 
+			-- Create Anchor dropdown
+			ScalePanel.AnchorOptions = PanelHelpers:CreateDropdownFrame("NeatPlatesScalePanel_AnchorOptions", ScalePanel, AnchorOptions, "CENTER", L["Frame Anchor"], true)
+			ScalePanel.AnchorOptions:SetPoint("TOPLEFT", ScalePanel, "TOPLEFT", 0, -54)
+
 		  -- Create SLiders
 			ScalePanel.ScaleX = PanelHelpers:CreateSliderFrame("NeatPlatesScalePanel_ScaleX", ScalePanel, L["Scale X"], 1, .1, 3, .01, nil, 160)
-			ScalePanel.ScaleX:SetPoint("TOPLEFT", ScalePanel, "TOPLEFT", 20, -54)
+			ScalePanel.ScaleX:SetPoint("TOPLEFT", ScalePanel.AnchorOptions, "BOTTOMLEFT", 20, -25)
 			ScalePanel.ScaleY = PanelHelpers:CreateSliderFrame("NeatPlatesScalePanel_ScaleY", ScalePanel, L["Scale Y"], 1, .1, 3, .01, nil, 160)
 			ScalePanel.ScaleY:SetPoint("TOPLEFT", ScalePanel.ScaleX, "TOPLEFT", 0, -45)
 			ScalePanel.OffsetX = PanelHelpers:CreateSliderFrame("NeatPlatesScalePanel_OffsetX", ScalePanel, L["Offset X"], 0, -50, 50, 1, "ACTUAL", 160, true)
-			ScalePanel.OffsetX:SetPoint("TOPRIGHT", ScalePanel, "TOPRIGHT", -20, -54)
+			ScalePanel.OffsetX:SetPoint("TOPRIGHT", ScalePanel, "TOPRIGHT", -20, -110)
 			ScalePanel.OffsetY = PanelHelpers:CreateSliderFrame("NeatPlatesScalePanel_OffsetY", ScalePanel, L["Offset Y"], 0, -50, 50, 1, "ACTUAL", 160, true)
 			ScalePanel.OffsetY:SetPoint("TOPLEFT", ScalePanel.OffsetX, "TOPLEFT", 0, -45)
 
@@ -811,6 +740,7 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 		ScalePanel.Title:SetText(label)
 
 		-- Create/Update functions
+		ScalePanel.AnchorOptions.OnValueChanged = onChange
 		ScalePanel.ScaleX.Callback = onChange
 		ScalePanel.ScaleY.Callback = onChange
 		ScalePanel.OffsetX.Callback = onChange
@@ -830,6 +760,7 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 		local scale = frame.values
 		--table.foreach(values, print)
 
+		ScalePanel.AnchorOptions:Show()
 		ScalePanel.ScaleX:Show()
 		ScalePanel.ScaleY:Show()
 		ScalePanel.OffsetX:Show()
@@ -838,6 +769,7 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 		ScalePanel.OffsetX:SetMinMaxValues((scale.offset.x or 0) - 50, (scale.offset.x) + 50)
 		ScalePanel.OffsetY:SetMinMaxValues((scale.offset.y or 0) - 50, (scale.offset.y) + 50)
 
+		ScalePanel.AnchorOptions:SetValue(scale.anchor or "TOP") -- This should generally use the value from 'defaults.lua'
 		ScalePanel.ScaleX:SetValue(scale.x or 1)
 		ScalePanel.ScaleY:SetValue(scale.y or 1)
 		ScalePanel.OffsetX:SetValue(scale.offset.x or 0)
@@ -850,6 +782,16 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 
 
 		if options and (options.noScale or options.noPos) then ScalePanel:SetWidth(200) else ScalePanel:SetWidth(390) end
+		if options and options.noAnchor then
+			ScalePanel:SetHeight(180)
+			ScalePanel.AnchorOptions:SetPoint("TOPLEFT", ScalePanel, "TOPLEFT", 0, 0)
+			ScalePanel.OffsetX:SetPoint("TOPRIGHT", ScalePanel, "TOPRIGHT", -20, -54)
+			ScalePanel.AnchorOptions:Hide()
+		else
+			ScalePanel:SetHeight(230)
+			ScalePanel.AnchorOptions:SetPoint("TOPLEFT", ScalePanel, "TOPLEFT", 0, -54)
+			ScalePanel.OffsetX:SetPoint("TOPRIGHT", ScalePanel, "TOPRIGHT", -20, -110)
+		end
 		if options and options.noScale then
 			ScalePanel.ScaleX:Hide()
 			ScalePanel.ScaleY:Hide()
@@ -899,7 +841,7 @@ local function CreateQuickSlider(name, label, mode, width, ... ) --, neighborFra
 	local function CreateQuickEditboxPopup(label, onOkay, highlight)
 		if not EditboxPopup then
 			-- Build the actual panel
-			panel = CreateFrame("Frame", "NeatPlatesEditboxPopup", UIParent, "UIPanelDialogTemplate");
+			panel = CreateFrame("Frame", "NeatPlatesEditboxPopup", UIParent, "NeatPlatesUIPanelDialogTemplate");
 			panel:Hide()
 		  panel:SetBackdrop({bgFile = "Interface/Tooltips/UI-Tooltip-Background", insets = { left = 2, right = 2, top = 2, bottom = 2 },})
 		  panel:SetBackdropColor(0.06, 0.06, 0.06, .7)
@@ -1097,7 +1039,7 @@ local function CreateInterfacePanel( objectName, panelTitle, parentFrameName)
 
 	-- Panel
 	------------------------------
-	local panel = CreateFrame( "Frame", objectName.."_InterfaceOptionsPanel", UIParent);
+	local panel = CreateFrame( "Frame", objectName.."_InterfaceOptionsPanel", UIParent, NeatPlatesBackdrop);
 	panel.objectName = objectName
 	panel:SetBackdrop({	bgFile = "Interface/Tooltips/UI-Tooltip-Background", --bgFile = "Interface/FrameGeneral/UI-Background-Marble",
 						edgeFile = "Interface/Tooltips/UI-Tooltip-Border",
@@ -1122,7 +1064,7 @@ local function CreateInterfacePanel( objectName, panelTitle, parentFrameName)
 
         -- Warnings
         ------------------------------
-	panel.WarningFrame = CreateFrame("Frame", objectName.."WarningFrame", panel )
+	panel.WarningFrame = CreateFrame("Frame", objectName.."WarningFrame", panel, NeatPlatesBackdrop)
 	panel.WarningFrame:SetPoint("LEFT", 16, 0 )
 	panel.WarningFrame:SetPoint("TOP", panel.MainLabel, "BOTTOM", 0, -8 )
         panel.WarningFrame:SetPoint("RIGHT", -16 , 16 )
@@ -1163,7 +1105,7 @@ local function CreateInterfacePanel( objectName, panelTitle, parentFrameName)
 
 	-- Scroll Frame Border
 	------------------------------
-	panel.ScrollFrameBorder = CreateFrame("Frame", objectName.."ScrollFrameBorder", panel.ScrollFrame )
+	panel.ScrollFrameBorder = CreateFrame("Frame", objectName.."ScrollFrameBorder", panel.ScrollFrame, NeatPlatesBackdrop)
 	panel.ScrollFrameBorder:SetPoint("TOPLEFT", -4, 5)
 	panel.ScrollFrameBorder:SetPoint("BOTTOMRIGHT", 3, -5)
 	panel.ScrollFrameBorder:SetBackdrop({bgFile = "Interface/Tooltips/UI-Tooltip-Background",
@@ -1397,7 +1339,7 @@ local function CreateInterfacePanel( objectName, panelTitle, parentFrameName)
 	panel.okay = ClosePanel --function() OnPanelItemChange(panel) end
 	panel.cancel = NeatPlates.Update
 	panel.refresh = RefreshPanel
-        panel:SetScript("OnShow", RefreshPanel)
+    panel:SetScript("OnShow", RefreshPanel)
 	UnlinkButton:SetScript("OnClick", UnLinkPanel)
 
 	InterfaceOptions_AddCategory(panel)

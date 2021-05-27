@@ -1,4 +1,4 @@
-
+﻿
 -- Chinese simplified localisation by Juha
 local L = LibStub("AceLocale-3.0"):NewLocale("NauticusClassic", "zhCN")
 if not L then return; end

@@ -6,6 +6,9 @@ ItemRackSettings = {
 	["Notify"] = "ON",
 	["HideTradables"] = "OFF",
 	["AllowHidden"] = "ON",
+	["minimap"] = {
+		["hide"] = false,
+	},
 	["TinyTooltips"] = "OFF",
 	["NotifyChatAlso"] = "OFF",
 	["MinimapTooltip"] = "ON",

@@ -774,3 +774,21 @@ L["Unstable Flask of the Physician"] = "Unstable Flask of the Physician";
 L["Unstable Flask of the Soldier"] = "Unstable Flask of the Soldier";
 
 L["Chronoboon Displacer"] = "Chronoboon Displacer";
+
+L["Silithyst"] = "Silithyst";
+
+L["Gold"] = "Gold";
+L["level"] = "Level";
+L["realmGold"] = "Realm gold for";
+L["total"] = "Total";
+L["guild"] = "Guild";
+L["bagSlots"] = "Bag slots";
+L["durability"] = "Durability";
+L["items"] = "Items";
+L["ammunition"] = "Ammo";
+L["attunements"] = "Attunements";
+L["currentRaidLockouts"] = "Current Raid Lockouts";
+L["none"] = "None.";
+
+L["dmfDamagePercent"] = "This new DMF buff is at %s%% damage.";
+L["dmfDamagePercentTooltip"] = "NWB detected this as %s damage.";

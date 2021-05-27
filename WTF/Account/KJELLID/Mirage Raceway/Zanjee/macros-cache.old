@@ -1,0 +1,32 @@
+VER 3 0000000001000006 " " "132157"
+END
+VER 3 0000000001000001 " " "132169"
+  
+END
+VER 3 0000000001000007 " " "132223"
+#showtooltip raptor strike
+/cast raptor strike
+/startattack
+END
+VER 3 0000000001000002 " " "132204"
+#showtooltip serpent sting
+/cast serpent sting
+/cast !Auto Shot
+/startattack
+END
+VER 3 0000000001000003 " " "132185"
+#showtooltip hunter's mark
+/petattack
+/cast Hunter's Mark
+END
+VER 3 0000000001000004 " " "132208"
+END
+VER 3 0000000001000009 " " "132115"
+/target The Rake
+END
+VER 3 0000000001000005 " " "132218"
+#showtooltip arcane shot
+/cast arcane shot
+/cast !Auto Shot
+/startattack
+END

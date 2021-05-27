@@ -1,0 +1,11 @@
+OPie_Classic: disabled
+BigWigs_Core: enabled
+BigWigs_Options: enabled
+BigWigs_Plugins: enabled
+WeakAurasCompanion: enabled
+WeakAurasArchive: enabled
+PallyPower: disabled
+Details: disabled
+DruidBarClassic: disabled
+NovaWorldBuffs: disabled
+MoveAnything: disabled

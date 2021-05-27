@@ -1,6 +1,6 @@
-## Interface: 11306
+## Interface: 20501
 ## Title: What's Training?
-## Version: 2.0.0
+## Version: 3.0.0
 ## Author: Sveng
 ## Notes: Shows you what spells are available at your class trainer
 ## SavedVariablesPerCharacter: WT_LearnedPetAbilities, WT_NeedsToOpenBeastTraining
@@ -11,15 +11,15 @@
 Utils.lua
 Cache.lua
 
-Classes\Druid.lua
-Classes\Hunter.lua
-Classes\Mage.lua
-Classes\Paladin.lua
-Classes\Priest.lua
-Classes\Rogue.lua
-Classes\Shaman.lua
-Classes\Warlock.lua
-Classes\Warrior.lua
+Classes\TBC\Druid.lua
+Classes\TBC\Hunter.lua
+Classes\TBC\Mage.lua
+Classes\TBC\Paladin.lua
+Classes\TBC\Priest.lua
+Classes\TBC\Rogue.lua
+Classes\TBC\Shaman.lua
+Classes\TBC\Warlock.lua
+Classes\TBC\Warrior.lua
 
 Localization.lua
 WhatsTrainingUI.lua

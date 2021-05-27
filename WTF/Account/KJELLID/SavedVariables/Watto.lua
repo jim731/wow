@@ -8,10 +8,10 @@ Watto_Options = {
 	},
 	["showtooltipdata"] = false,
 	["usemoneyicons"] = false,
-	["Version"] = "1.7.4",
+	["sellbacklimiter"] = false,
 	["autosellfood"] = false,
 	["fillreagentbank"] = true,
-	["sellbacklimiter"] = false,
+	["Version"] = "1.7.4",
 }
 Watto_ItemList = {
 	["General"] = {
@@ -27,14 +27,20 @@ Watto_ItemList = {
 			["Fermion"] = {
 			},
 		},
+		["Skullflame"] = {
+			["Shapeshifter"] = {
+			},
+			["Ferns"] = {
+			},
+		},
 		["Mirage Raceway"] = {
+			["Zabuji"] = {
+			},
 			["Garluk"] = {
 			},
 		},
-		["Skullflame"] = {
-			["Ferns"] = {
-			},
-			["Shapeshifter"] = {
+		["Firemaw"] = {
+			["Elunari"] = {
 			},
 		},
 	},

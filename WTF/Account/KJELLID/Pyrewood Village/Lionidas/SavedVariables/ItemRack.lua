@@ -1,0 +1,40 @@
+
+ItemRackUser = {
+	["ButtonSpacing"] = 4,
+	["QueuesEnabled"] = {
+	},
+	["Locked"] = "OFF",
+	["MainScale"] = 1,
+	["SetMenuWrapValue"] = 3,
+	["SetMenuWrap"] = "OFF",
+	["Sets"] = {
+		["~CombatQueue"] = {
+			["equip"] = {
+			},
+		},
+		["~Unequip"] = {
+			["equip"] = {
+			},
+		},
+	},
+	["Hidden"] = {
+	},
+	["Alpha"] = 1,
+	["Buttons"] = {
+	},
+	["ItemsUsed"] = {
+		["28788"] = 30,
+	},
+	["Events"] = {
+		["Enabled"] = {
+		},
+		["Set"] = {
+		},
+	},
+	["EnablePerSetQueues"] = "OFF",
+	["EnableQueues"] = "ON",
+	["EnableEvents"] = "ON",
+	["MenuScale"] = 0.85,
+	["Queues"] = {
+	},
+}

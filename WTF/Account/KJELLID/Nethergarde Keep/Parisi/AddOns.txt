@@ -54,3 +54,5 @@ Leatrix_Plus: enabled
 pfUI: enabled
 WeakAurasCompanion: enabled
 WeakAurasArchive: enabled
+Inventorian: disabled
+Watto: disabled

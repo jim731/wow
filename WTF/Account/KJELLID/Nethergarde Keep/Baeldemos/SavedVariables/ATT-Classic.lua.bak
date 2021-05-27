@@ -1,0 +1,5 @@
+
+ATTClassicSettingsPerCharacter = {
+	["Filters"] = {
+	},
+}

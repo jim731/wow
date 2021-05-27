@@ -13,12 +13,12 @@ local SetTheme = NeatPlatesInternal.SetTheme	-- Use the protected version
 local version = GetAddOnMetadata("NeatPlates", "version")
 local versionString = "|cFF666666"..version
 
-local NeatPlatesInterfacePanel = PanelHelpers:CreatePanelFrame( "NeatPlatesInterfacePanel", "NeatPlates", nil )
+local PanelHelpers = NeatPlatesUtility.PanelHelpers
+local NeatPlatesInterfacePanel = PanelHelpers:CreatePanelFrame( "NeatPlatesInterfacePanel", "NeatPlates", nil, NeatPlatesBackdrop)
 InterfaceOptions_AddCategory(NeatPlatesInterfacePanel);
 
 local CallIn = NeatPlatesUtility.CallIn
 local copytable = NeatPlatesUtility.copyTable
-local PanelHelpers = NeatPlatesUtility.PanelHelpers
 local RGBToHex = NeatPlatesUtility.RGBToHex
 
 -- Localized fonts
@@ -67,13 +67,7 @@ local ActiveProfile = "None"
 NeatPlatesSettings = {
 	DefaultProfile = L["Default"],
 
-	GlobalAuraList = "",
-	GlobalAuraLookup = {},
-	GlobalAuraPriority = {},
-
-	GlobalEmphasizedAuraList = "",
-	GlobalEmphasizedAuraLookup = {},
-	GlobalEmphasizedAuraPriority = {},
+	GlobalAdditonalAuras = {},
 }
 
 NeatPlatesOptions = {
@@ -89,10 +83,12 @@ NeatPlatesOptions = {
 	EmulatedTargetPlate = false,
 	DisableCastBars = false,
 	ForceBlizzardFont = false,
-	HealthFrequent = true,
 	BlizzardScaling = false,
+	BlizzardNameVisibility = false,
+	BlizzardWidgets = true,
 	OverrideOutline = 1,
 	EnforceRequiredCVars = true,
+	ForceHealthUpdates = false,
 
 	NameplateClickableHeight = 1,
 	NameplateClickableWidth = 1,
@@ -177,8 +173,9 @@ end
 local function SetNameplateVisibility(cvar, options)
 	local inCombat = UnitAffectingCombat("player")
 	local inInstance, instanceType = IsInInstance()
+				instanceType = instanceType or "scenario"
 	local instanceOptions = (options.Dungeon or options.Raid or options.Battleground or options.Arena or options.Scenario)
-	local instanceTypes = {party = options.Dungeon, raid = options.Raid, pvp = options.Battleground}
+	local instanceTypes = {party = options.Dungeon, raid = options.Raid, pvp = options.Battleground, arena = options.Arena, scenario = options.Scenario}
 	local enable
 
 	-- Instance Automation
@@ -226,9 +223,11 @@ local ThemeDropdownMenuItems = {}
 
 local function ApplyAutomationSettings()
 	SetCastBars(not NeatPlatesOptions.DisableCastBars)
-	NeatPlates.OverrideFonts( NeatPlatesOptions.ForceBlizzardFont)
-	NeatPlates:SetHealthUpdateMethod(NeatPlatesOptions.HealthFrequent)
-	NeatPlates:ToggleEmulatedTargetPlate(NeatPlatesOptions.EmulatedTargetPlate)
+	NeatPlates.OverrideFonts(NeatPlatesOptions.ForceBlizzardFont)
+	NeatPlates.ToggleHealthTicker(NeatPlatesOptions.ForceHealthUpdates)
+	if NEATPLATES_IS_CLASSIC then
+		NeatPlates:ToggleEmulatedTargetPlate(NeatPlatesOptions.EmulatedTargetPlate)
+	end
 
 	if NeatPlatesOptions._EnableMiniButton then
 		NeatPlatesUtility:CreateMinimapButton()
@@ -276,13 +275,29 @@ local function ApplyPanelSettings()
 	--local theme = NeatPlatesThemeList[NeatPlatesInternal.activeThemeName]
 
 	-- Global Aura Filter Lists
-	NeatPlatesHubHelpers.ConvertAuraListTable(NeatPlatesSettings.GlobalAuraList, NeatPlatesSettings.GlobalAuraLookup, NeatPlatesSettings.GlobalAuraPriority)
-	NeatPlatesHubHelpers.ConvertAuraListTable(NeatPlatesSettings.GlobalEmphasizedAuraList, NeatPlatesSettings.GlobalEmphasizedAuraLookup, NeatPlatesSettings.GlobalEmphasizedAuraPriority)
+	-- if NeatPlatesSettings.GlobalAuraList and not NeatPlatesSettings.GlobalAdditonalAuras then NeatPlatesHubHelpers.ConvertAuraListTable(NeatPlatesSettings.GlobalAuraList, NeatPlatesSettings.GlobalAuraLookup, NeatPlatesSettings.GlobalAuraPriority) end
+	-- if NeatPlatesSettings.GlobalEmphasizedAuraList and not NeatPlatesSettings.GlobalAdditonalAuras then NeatPlatesHubHelpers.ConvertAuraListTable(NeatPlatesSettings.GlobalEmphasizedAuraList, NeatPlatesSettings.GlobalEmphasizedAuraLookup, NeatPlatesSettings.GlobalEmphasizedAuraPriority) end
+
+	-- Convert old aura lists to new format
+	if NeatPlatesSettings.GlobalAuraLookup and NeatPlatesSettings.GlobalEmphasizedAuraLookup and NeatPlatesSettings.GlobalAdditonalAura then
+		NeatPlatesUtility.ConvertOldAuraListToAuraTable(NeatPlatesSettings.GlobalAdditonalAuras, NeatPlatesSettings.GlobalAuraLookup, NeatPlatesSettings.GlobalEmphasizedAuraLookup)
+
+		-- Cleanup old vars
+		-- NeatPlatesSettings.GlobalAuraList = nil
+		NeatPlatesSettings.GlobalAuraLookup = nil
+		NeatPlatesSettings.GlobalAuraPriority = nil
+		-- NeatPlatesSettings.GlobalEmphasizedAuraList = nil
+		NeatPlatesSettings.GlobalEmphasizedAuraLookup = nil
+		NeatPlatesSettings.GlobalEmphasizedAuraPriority = nil
+	end
 
 	-- Load Hub Profile
 	ActiveProfile = NeatPlatesSettings.DefaultProfile
 
 	local currentSpec = 1
+	if not NEATPLATES_IS_CLASSIC then
+		currentSpec = GetSpecialization()
+	end
 
 	if currentSpec == 4 then
 		ActiveProfile = NeatPlatesOptions.FourthSpecProfile
@@ -316,7 +331,7 @@ local function GetCVarValues(panel)
 		NameplateTargetClamp = (function() if GetCVar("nameplateTargetRadialPosition") == "1" then return true else return false end end)(),
 		NameplateStacking = (function() if GetCVar("nameplateMotion") == "1" then return true else return false end end)(),
 		NameplateFriendlyNPCs = (function() if GetCVar("nameplateShowFriendlyNPCs") == "1" then return true else return false end end)(),
-		-- NameplateMaxDistance = GetCVar("nameplateMaxDistance"),
+		NameplateMaxDistance = GetCVar("nameplateMaxDistance"),
 		NameplateOccludedAlphaMult = GetCVar("nameplateOccludedAlphaMult"),
 		NameplateMinAlpha = GetCVar("nameplateMinAlpha"),
 		NameplateMaxAlpha = GetCVar("nameplateMaxAlpha"),
@@ -342,21 +357,29 @@ local function GetPanelValues(panel)
 
 	NeatPlatesOptions.FriendlyAutomation = panel.FriendlyAutomation:GetValue()
 	NeatPlatesOptions.EnemyAutomation = panel.EnemyAutomation:GetValue()
-	NeatPlatesOptions.EmulatedTargetPlate = panel.EmulatedTargetPlate:GetChecked()
 	NeatPlatesOptions.DisableCastBars = panel.DisableCastBars:GetChecked()
 	NeatPlatesOptions.ForceBlizzardFont = panel.ForceBlizzardFont:GetChecked()
-	NeatPlatesOptions.HealthFrequent = panel.HealthFrequent:GetChecked()
 	NeatPlatesOptions.BlizzardScaling = panel.BlizzardScaling:GetChecked()
+	NeatPlatesOptions.BlizzardNameVisibility = panel.BlizzardNameVisibility:GetChecked()
+	NeatPlatesOptions.BlizzardWidgets = panel.BlizzardWidgets:GetChecked()
 	NeatPlatesOptions.OverrideOutline = panel.OverrideOutline:GetValue()
 	NeatPlatesOptions.EnforceRequiredCVars = panel.EnforceRequiredCVars:GetChecked()
+	NeatPlatesOptions.ForceHealthUpdates = panel.ForceHealthUpdates:GetChecked()
 	NeatPlatesOptions.NameplateClickableWidth = panel.NameplateClickableWidth:GetValue()
 	NeatPlatesOptions.NameplateClickableHeight = panel.NameplateClickableHeight:GetValue()
 	--NeatPlatesOptions.PrimaryProfile = panel.FirstSpecDropdown:GetValue()
 
 	NeatPlatesOptions.FirstSpecProfile = panel.FirstSpecDropdown:GetValue()
+	if not NEATPLATES_IS_CLASSIC then
+		NeatPlatesOptions.SecondSpecProfile = panel.SecondSpecDropdown:GetValue()
+		NeatPlatesOptions.ThirdSpecProfile = panel.ThirdSpecDropdown:GetValue()
+		NeatPlatesOptions.FourthSpecProfile = panel.FourthSpecDropdown:GetValue()
+	else
+		NeatPlatesOptions.EmulatedTargetPlate = panel.EmulatedTargetPlate:GetChecked()
+	end
 
-	NeatPlatesSettings.GlobalAuraList = panel.GlobalAuraEditBox:GetValue()
-	NeatPlatesSettings.GlobalEmphasizedAuraList = panel.GlobalEmphasizedAuraEditBox:GetValue()
+	-- NeatPlatesSettings.GlobalAuraList = panel.GlobalAuraEditBox:GetValue()
+	-- NeatPlatesSettings.GlobalEmphasizedAuraList = panel.GlobalEmphasizedAuraEditBox:GetValue()
 end
 
 
@@ -364,21 +387,31 @@ local function SetPanelValues(panel)
 	panel.ActiveThemeDropdown:SetValue(NeatPlatesOptions.ActiveTheme)
 
 	panel.FirstSpecDropdown:SetValue(NeatPlatesOptions.FirstSpecProfile)
+	if not NEATPLATES_IS_CLASSIC then
+		panel.SecondSpecDropdown:SetValue(NeatPlatesOptions.SecondSpecProfile)
+		panel.ThirdSpecDropdown:SetValue(NeatPlatesOptions.ThirdSpecProfile)
+		panel.FourthSpecDropdown:SetValue(NeatPlatesOptions.FourthSpecProfile)
+	else
+		panel.EmulatedTargetPlate:SetChecked(NeatPlatesOptions.EmulatedTargetPlate)
+	end
 
-	panel.EmulatedTargetPlate:SetChecked(NeatPlatesOptions.EmulatedTargetPlate)
 	panel.DisableCastBars:SetChecked(NeatPlatesOptions.DisableCastBars)
 	panel.ForceBlizzardFont:SetChecked(NeatPlatesOptions.ForceBlizzardFont)
-	panel.HealthFrequent:SetChecked(NeatPlatesOptions.HealthFrequent)
 	panel.BlizzardScaling:SetChecked(NeatPlatesOptions.BlizzardScaling)
+	panel.BlizzardNameVisibility:SetChecked(NeatPlatesOptions.BlizzardNameVisibility)
+	panel.BlizzardWidgets:SetChecked(NeatPlatesOptions.BlizzardWidgets)
 	panel.OverrideOutline:SetValue(NeatPlatesOptions.OverrideOutline)
 	panel.EnforceRequiredCVars:SetChecked(NeatPlatesOptions.EnforceRequiredCVars)
+	panel.ForceHealthUpdates:SetChecked(NeatPlatesOptions.ForceHealthUpdates)
 	panel.NameplateClickableWidth:SetValue(NeatPlatesOptions.NameplateClickableWidth)
 	panel.NameplateClickableHeight:SetValue(NeatPlatesOptions.NameplateClickableHeight)
 	panel.FriendlyAutomation:SetValue(NeatPlatesOptions.FriendlyAutomation)
 	panel.EnemyAutomation:SetValue(NeatPlatesOptions.EnemyAutomation)
 
-	panel.GlobalAuraEditBox:SetValue(NeatPlatesSettings.GlobalAuraList)
-	panel.GlobalEmphasizedAuraEditBox:SetValue(NeatPlatesSettings.GlobalEmphasizedAuraList)
+	-- panel.GlobalAuraEditBox:SetValue(NeatPlatesSettings.GlobalAuraList)
+	-- panel.GlobalEmphasizedAuraEditBox:SetValue(NeatPlatesSettings.GlobalEmphasizedAuraList)
+
+	panel.GlobalAdditonalAuras:SetValue(NeatPlatesSettings.GlobalAdditonalAuras)
 
 	-- CVars
 	GetCVarValues(panel)
@@ -408,7 +441,57 @@ local function OnRefresh(panel)
 	if not panel then return end
 
 	SetPanelValues(panel)
-	panel.FirstSpecLabel:SetText(L["Active Profile"])
+
+	if NEATPLATES_IS_CLASSIC then
+		panel.FirstSpecLabel:SetText(L["Active Profile"])
+	else
+		------------------------
+		-- Spec Notes
+		------------------------
+		local currentSpec = GetSpecialization()
+
+		------------------------
+		-- First Spec Details
+		------------------------
+		local id, name = GetSpecializationInfo(1)
+
+		if name then
+			if currentSpec == 1 then name = name.." ("..L["Active"]..")" end
+			panel.FirstSpecLabel:SetText(name)
+		end
+		------------------------
+		-- Second Spec Details
+		------------------------
+		local id, name = GetSpecializationInfo(2)
+
+		if name then
+			if currentSpec == 2 then name = name.." ("..L["Active"]..")" end
+			panel.SecondSpecLabel:SetText(name)
+		end
+		------------------------
+		-- Third Spec Details
+		------------------------
+		local id, name = GetSpecializationInfo(3)
+
+		if name then
+			if currentSpec == 3 then name = name.." ("..L["Active"]..")" end
+			panel.ThirdSpecLabel:SetText(name)
+			panel.ThirdSpecLabel:Show()
+			panel.ThirdSpecDropdown:Show()
+		end
+		------------------------
+		-- Fourth Spec Details
+		------------------------
+		local id, name = GetSpecializationInfo(4)
+
+		if name then
+			if currentSpec == 4 then name = name.." ("..L["Active"]..")" end
+			panel.FourthSpecLabel:SetText(name)
+			panel.FourthSpecLabel:Show()
+			panel.FourthSpecDropdown:Show()
+		end
+	end
+
 end
 
 
@@ -501,7 +584,7 @@ local function BuildInterfacePanel(panel)
 
 	-- Scroll Frame Border
 	------------------------------
-	panel.ScrollFrameBorder = CreateFrame("Frame", "NeatPlatesScrollFrameBorder", panel.ScrollFrame )
+	panel.ScrollFrameBorder = CreateFrame("Frame", "NeatPlatesScrollFrameBorder", panel.ScrollFrame, NeatPlatesBackdrop)
 	panel.ScrollFrameBorder:SetPoint("TOPLEFT", -4, 5)
 	panel.ScrollFrameBorder:SetPoint("BOTTOMRIGHT", 3, -5)
 	panel.ScrollFrameBorder:SetBackdrop({bgFile = "Interface/Tooltips/UI-Tooltip-Background",
@@ -539,7 +622,7 @@ local function BuildInterfacePanel(panel)
 	---------------
 	-- Column 1
 	---------------
-	-- Spec 1
+-- Spec 1
 	panel.FirstSpecLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
 	panel.FirstSpecLabel:SetPoint("TOPLEFT", panel.ProfileLabel,"BOTTOMLEFT", 0, -8)
 	panel.FirstSpecLabel:SetWidth(170)
@@ -549,6 +632,45 @@ local function BuildInterfacePanel(panel)
 	panel.FirstSpecDropdown = PanelHelpers:CreateDropdownFrame("NeatPlatesFirstSpecDropdown", panel, HubProfileList, NeatPlatesSettings.DefaultProfile, nil, true)
 	panel.FirstSpecDropdown:SetPoint("TOPLEFT", panel.FirstSpecLabel, "BOTTOMLEFT", -20, -2)
 
+	if not NEATPLATES_IS_CLASSIC then
+		-- Spec 3
+		panel.ThirdSpecLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+		panel.ThirdSpecLabel:SetPoint("TOPLEFT", panel.FirstSpecDropdown,"BOTTOMLEFT", 20, -8)
+		panel.ThirdSpecLabel:SetWidth(170)
+		panel.ThirdSpecLabel:SetJustifyH("LEFT")
+		panel.ThirdSpecLabel:SetText(L["Third Spec"])
+		panel.ThirdSpecLabel:Hide()
+
+		panel.ThirdSpecDropdown = PanelHelpers:CreateDropdownFrame("NeatPlatesThirdSpecDropdown", panel, HubProfileList, NeatPlatesSettings.DefaultProfile, nil, true)
+		panel.ThirdSpecDropdown:SetPoint("TOPLEFT", panel.ThirdSpecLabel, "BOTTOMLEFT", -20, -2)
+		panel.ThirdSpecLabel:Hide()
+
+		---------------
+		-- Column 2
+		---------------
+		-- Spec 2
+		panel.SecondSpecLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+		panel.SecondSpecLabel:SetPoint("TOPLEFT", panel.FirstSpecLabel,"TOPLEFT", 150, 0)
+		panel.SecondSpecLabel:SetWidth(170)
+		panel.SecondSpecLabel:SetJustifyH("LEFT")
+		panel.SecondSpecLabel:SetText(L["Second Spec"])
+
+		panel.SecondSpecDropdown = PanelHelpers:CreateDropdownFrame("NeatPlatesSecondSpecDropdown", panel, HubProfileList, NeatPlatesSettings.DefaultProfile, nil, true)
+		panel.SecondSpecDropdown:SetPoint("TOPLEFT",panel.SecondSpecLabel, "BOTTOMLEFT", -20, -2)
+
+		-- Spec 4
+		panel.FourthSpecLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+		panel.FourthSpecLabel:SetPoint("TOPLEFT", panel.SecondSpecDropdown,"BOTTOMLEFT", 20, -8)
+		panel.FourthSpecLabel:SetWidth(170)
+		panel.FourthSpecLabel:SetJustifyH("LEFT")
+		panel.FourthSpecLabel:SetText(L["Fourth Spec"])
+		panel.FourthSpecLabel:Hide()
+
+		panel.FourthSpecDropdown = PanelHelpers:CreateDropdownFrame("NeatPlatesFourthSpecDropdown", panel, HubProfileList, NeatPlatesSettings.DefaultProfile, nil, true)
+		panel.FourthSpecDropdown:SetPoint("TOPLEFT",panel.FourthSpecLabel, "BOTTOMLEFT", -20, -2)
+		panel.FourthSpecDropdown:Hide()
+	end
+
 
 	----------------------------------------------
 	-- Profile Management
@@ -557,7 +679,11 @@ local function BuildInterfacePanel(panel)
 	panel.ProfileManagementLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
 	panel.ProfileManagementLabel:SetFont(font, 22)
 	panel.ProfileManagementLabel:SetText(L["Profile Management"])
-	panel.ProfileManagementLabel:SetPoint("TOPLEFT", panel.FirstSpecDropdown, "BOTTOMLEFT", 20, -20)
+	if NEATPLATES_IS_CLASSIC then
+		panel.ProfileManagementLabel:SetPoint("TOPLEFT", panel.FirstSpecDropdown, "BOTTOMLEFT", 20, -20)
+	else
+		panel.ProfileManagementLabel:SetPoint("TOPLEFT", panel.ThirdSpecDropdown, "BOTTOMLEFT", 20, -20)
+	end
 	panel.ProfileManagementLabel:SetTextColor(255/255, 105/255, 6/255)
 
 	-- Profile Name
@@ -642,7 +768,7 @@ local function BuildInterfacePanel(panel)
 	panel.AutoShowEnemyLabel:SetJustifyH("LEFT")
 	panel.AutoShowEnemyLabel:SetText(L["Enemy Nameplates"]..':')
 
-	panel.EnemyAutomation = PanelHelpers:CreateMultiStateOptions("Enemy", {"Combat", "Dungeon", "Raid", "Battleground", "World"}, {["show"] = "|cFF60E025", ["hide"] = "|cFFFF1100"}, panel.AutoShowEnemyLabel:GetStringWidth(), panel)
+	panel.EnemyAutomation = PanelHelpers:CreateMultiStateOptions("Enemy", {"Combat", "Dungeon", "Raid", "Battleground", "Arena", "Scenario", "World"}, {["show"] = "|cFF60E025", ["hide"] = "|cFFFF1100"}, panel.AutoShowEnemyLabel:GetStringWidth(), panel)
 	panel.EnemyAutomation:SetPoint("TOPLEFT", panel.AutoShowEnemyLabel, "BOTTOMLEFT", 0, -12)
 
 
@@ -656,7 +782,7 @@ local function BuildInterfacePanel(panel)
 	panel.AutoShowFriendlyLabel:SetJustifyH("LEFT")
 	panel.AutoShowFriendlyLabel:SetText(L["Friendly Nameplates"]..':')
 
-	panel.FriendlyAutomation = PanelHelpers:CreateMultiStateOptions("Friendly", {"Combat", "Dungeon", "Raid", "Battleground", "World"}, {["show"] = "|cFF60E025", ["hide"] = "|cFFFF1100"}, panel.AutoShowFriendlyLabel:GetStringWidth(), panel)
+	panel.FriendlyAutomation = PanelHelpers:CreateMultiStateOptions("Friendly", {"Combat", "Dungeon", "Raid", "Battleground", "Arena", "Scenario", "World"}, {["show"] = "|cFF60E025", ["hide"] = "|cFFFF1100"}, panel.AutoShowFriendlyLabel:GetStringWidth(), panel)
 	panel.FriendlyAutomation:SetPoint("TOPLEFT", panel.AutoShowFriendlyLabel, "BOTTOMLEFT", 0, -12)
 
 	panel.AutomationTip = PanelHelpers:CreateTipBox("NeatPlatesOptions_GlobalAuraTip", green..L["Show"]..white.." || "..red..L["Hide"]..white.." || "..L["No Automation"], panel, "BOTTOMLEFT", panel.FriendlyAutomation, "TOPRIGHT", 0, 0)
@@ -671,31 +797,34 @@ local function BuildInterfacePanel(panel)
 	panel.GeneralAuraLabel:SetPoint("TOPLEFT", panel.EnemyAutomation, "BOTTOMLEFT", 0, -20)
 	panel.GeneralAuraLabel:SetTextColor(255/255, 105/255, 6/255)
 
-	-- Global Additional Auras
+	-- -- Global Additional Auras
 	panel.GlobalAuraLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
 	panel.GlobalAuraLabel:SetPoint("TOPLEFT", panel.GeneralAuraLabel, "BOTTOMLEFT", 0, -8)
 	panel.GlobalAuraLabel:SetWidth(190)
 	panel.GlobalAuraLabel:SetJustifyH("LEFT")
 	panel.GlobalAuraLabel:SetText(L["Additional Auras"]..':')
 
-	panel.GlobalAuraEditBox = PanelHelpers.CreateEditBox("NeatPlatesOptions_GlobalAuraEditBox", nil, nil, panel, panel.GlobalAuraLabel, 16, 0)
-	panel.GlobalAuraEditBox:SetWidth(200)
-	PanelHelpers.CreateEditBoxButton(panel.GlobalAuraEditBox, function() OnOkay(_panel) end)
+	-- panel.GlobalAuraEditBox = PanelHelpers.CreateEditBox("NeatPlatesOptions_GlobalAuraEditBox", nil, nil, panel, panel.GlobalAuraLabel, 16, 0)
+	-- panel.GlobalAuraEditBox:SetWidth(200)
+	-- PanelHelpers.CreateEditBoxButton(panel.GlobalAuraEditBox, function() OnOkay(_panel) end)
 
-	panel.GlobalAuraTip = PanelHelpers:CreateTipBox("NeatPlatesOptions_GlobalAuraTip", L["AURA_TIP"], panel, "BOTTOMRIGHT", panel.GlobalAuraEditBox, "TOPRIGHT", 6, 0)
 
-	-- Global Emphasized Auras
-	panel.GlobalEmphasizedAuraLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
-	panel.GlobalEmphasizedAuraLabel:SetPoint("TOPLEFT", panel.GlobalAuraLabel, "TOPRIGHT", 64, 0)
-	panel.GlobalEmphasizedAuraLabel:SetWidth(170)
-	panel.GlobalEmphasizedAuraLabel:SetJustifyH("LEFT")
-	panel.GlobalEmphasizedAuraLabel:SetText(L["Emphasized Auras"]..':')
+	-- -- Global Emphasized Auras
+	-- panel.GlobalEmphasizedAuraLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+	-- panel.GlobalEmphasizedAuraLabel:SetPoint("TOPLEFT", panel.GlobalAuraLabel, "TOPRIGHT", 64, 0)
+	-- panel.GlobalEmphasizedAuraLabel:SetWidth(170)
+	-- panel.GlobalEmphasizedAuraLabel:SetJustifyH("LEFT")
+	-- panel.GlobalEmphasizedAuraLabel:SetText(L["Emphasized Auras"]..':')
 
-	panel.GlobalEmphasizedAuraEditBox = PanelHelpers.CreateEditBox("NeatPlatesOptions_GlobalEmphasizedAuraEditBox", nil, nil, panel, panel.GlobalEmphasizedAuraLabel, 264, 0)
-	panel.GlobalEmphasizedAuraEditBox:SetWidth(200)
-	PanelHelpers.CreateEditBoxButton(panel.GlobalEmphasizedAuraEditBox, function() OnOkay(_panel) end)
+	-- panel.GlobalEmphasizedAuraEditBox = PanelHelpers.CreateEditBox("NeatPlatesOptions_GlobalEmphasizedAuraEditBox", nil, nil, panel, panel.GlobalEmphasizedAuraLabel, 264, 0)
+	-- panel.GlobalEmphasizedAuraEditBox:SetWidth(200)
+	-- PanelHelpers.CreateEditBoxButton(panel.GlobalEmphasizedAuraEditBox, function() OnOkay(_panel) end)
 
-	panel.GlobalEmphasizedAuraTip = PanelHelpers:CreateTipBox("NeatPlatesOptions_GlobalEmphasizedAuraTip", L["AURA_TIP"], panel, "BOTTOMRIGHT", panel.GlobalEmphasizedAuraEditBox, "TOPRIGHT", 6, 0)
+	-- panel.GlobalEmphasizedAuraTip = PanelHelpers:CreateTipBox("NeatPlatesOptions_GlobalEmphasizedAuraTip", L["AURA_TIP"], panel, "BOTTOMRIGHT", panel.GlobalEmphasizedAuraEditBox, "TOPRIGHT", 6, 0)
+
+	panel.GlobalAdditonalAuras = PanelHelpers:CreateAuraManagement("GlobalAdditonalAuras", panel, 500, 150)
+	panel.GlobalAdditonalAuras:SetPoint("TOPLEFT", panel.GlobalAuraLabel, "BOTTOMLEFT", 0, -10)
+	panel.GlobalAuraTip = PanelHelpers:CreateTipBox("NeatPlatesOptions_GlobalAuraTip", L["AURA_TIP"], panel, "BOTTOMRIGHT", panel.GlobalAdditonalAuras, "TOPRIGHT", 6, 0)
 
 	----------------------------------------------
 	-- Other Options
@@ -704,39 +833,60 @@ local function BuildInterfacePanel(panel)
 	panel.OtherOptionsLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
 	panel.OtherOptionsLabel:SetFont(font, 22)
 	panel.OtherOptionsLabel:SetText(L["Other Options"])
-	panel.OtherOptionsLabel:SetPoint("TOPLEFT", panel.GlobalAuraEditBox, "BOTTOMLEFT", 0, -20)
+	-- panel.OtherOptionsLabel:SetPoint("TOPLEFT", panel.GlobalAuraEditBox, "BOTTOMLEFT", 0, -20)
+	panel.OtherOptionsLabel:SetPoint("TOPLEFT", panel.GlobalAdditonalAuras, "BOTTOMLEFT", 0, -30)
 	panel.OtherOptionsLabel:SetTextColor(255/255, 105/255, 6/255)
 
-	-- Emulated Target Plate
-	panel.EmulatedTargetPlate = PanelHelpers:CreateCheckButton("NeatPlatesOptions_EmulatedTargetPlate", panel, L["Emulate Target Nameplate"].."*")
-	panel.EmulatedTargetPlate:SetPoint("TOPLEFT", panel.OtherOptionsLabel, "BOTTOMLEFT", 0, -8)
-	panel.EmulatedTargetPlate:SetScript("OnClick", function(self) NeatPlates:ToggleEmulatedTargetPlate(self:GetChecked()) end)
-	panel.EmulatedTargetPlate.tooltipText = L["This feature is highly experimental, use on your own risk"]
+	if NEATPLATES_IS_CLASSIC then
+		-- Emulated Target Plate
+		panel.EmulatedTargetPlate = PanelHelpers:CreateCheckButton("NeatPlatesOptions_EmulatedTargetPlate", panel, L["Emulate Target Nameplate"].."*")
+		panel.EmulatedTargetPlate:SetPoint("TOPLEFT", panel.OtherOptionsLabel, "BOTTOMLEFT", 0, -8)
+		panel.EmulatedTargetPlate:SetScript("OnClick", function(self) NeatPlates:ToggleEmulatedTargetPlate(self:GetChecked()) end)
+		panel.EmulatedTargetPlate.tooltipText = L["This feature is highly experimental, use on your own risk"]
+	end
 
 	-- Cast Bars
 	panel.DisableCastBars = PanelHelpers:CreateCheckButton("NeatPlatesOptions_DisableCastBars", panel, L["Disable Cast Bars"])
-	panel.DisableCastBars:SetPoint("TOPLEFT", panel.EmulatedTargetPlate, "TOPLEFT", 0, -25)
+	if NEATPLATES_IS_CLASSIC then
+		panel.DisableCastBars:SetPoint("TOPLEFT", panel.EmulatedTargetPlate, "BOTTOMLEFT", 0, -8)
+	else
+		panel.DisableCastBars:SetPoint("TOPLEFT", panel.OtherOptionsLabel, "BOTTOMLEFT", 0, -8)
+	end
 	panel.DisableCastBars:SetScript("OnClick", function(self) SetCastBars(not self:GetChecked()) end)
+
+	-- ForceHealthUpdates
+	panel.ForceHealthUpdates = PanelHelpers:CreateCheckButton("NeatPlatesOptions_ForceHealthUpdates", panel, L["Force Health Updates"])
+	panel.ForceHealthUpdates:SetPoint("TOPLEFT", panel.DisableCastBars, "TOPLEFT", 0, -25)
+	panel.ForceHealthUpdates:SetScript("OnClick", function(self) NeatPlates.ToggleHealthTicker( self:GetChecked()) end)
+	panel.ForceHealthUpdates.tooltipText = L["Forces health to update every .25sec, try this if you are having health update issues"]
 
 	-- ForceBlizzardFont
 	panel.ForceBlizzardFont = PanelHelpers:CreateCheckButton("NeatPlatesOptions_ForceBlizzardFont", panel, L["Force Multi-Lingual Font (Requires /reload)"])
-	panel.ForceBlizzardFont:SetPoint("TOPLEFT", panel.DisableCastBars, "TOPLEFT", 0, -25)
+	panel.ForceBlizzardFont:SetPoint("TOPLEFT", panel.ForceHealthUpdates, "TOPLEFT", 0, -25)
 	panel.ForceBlizzardFont:SetScript("OnClick", function(self) NeatPlates.OverrideFonts( self:GetChecked()) end)
 
-	-- Frequent Health Updates
-	panel.HealthFrequent = PanelHelpers:CreateCheckButton("NeatPlatesOptions_HealthFrequent", panel, L["Use Frequent Health Updates"])
-	panel.HealthFrequent:SetPoint("TOPLEFT", panel.ForceBlizzardFont, "TOPLEFT", 0, -25)
-	panel.HealthFrequent:SetScript("OnClick", function(self) NeatPlates:SetHealthUpdateMethod(self:GetChecked()) end)
-	panel.HealthFrequent.tooltipText = L["Might resolve some issues with health not updating properly"]
 
 	-- Blizzard Scaling
 	panel.BlizzardScaling = PanelHelpers:CreateCheckButton("NeatPlatesOptions_BlizzardScaling", panel, L["Use Blizzard Scaling"])
-	panel.BlizzardScaling:SetPoint("TOPLEFT", panel.HealthFrequent, "TOPLEFT", 0, -25)
+	panel.BlizzardScaling:SetPoint("TOPLEFT", panel.ForceBlizzardFont, "TOPLEFT", 0, -25)
 	panel.BlizzardScaling.tooltipText = L["Allows some CVars to work(Might require a /reload)"]
+	panel.BlizzardScaling:SetScript("OnClick", function() end) -- Empty function beacuse Shadowlands requires it now?
+
+	-- Blizzard Scaling
+	panel.BlizzardNameVisibility = PanelHelpers:CreateCheckButton("NeatPlatesOptions_BlizzardNameVisibility", panel, L["Use Blizzard Name Visibility"])
+	panel.BlizzardNameVisibility:SetPoint("TOPLEFT", panel.BlizzardScaling, "TOPLEFT", 0, -25)
+	panel.BlizzardNameVisibility.tooltipText = L["Allows some CVars to work(Might require a /reload)"]
+	panel.BlizzardNameVisibility:SetScript("OnClick", function() end) -- Empty function beacuse Shadowlands requires it now?
+
+	-- Blizzard Bar Widgets
+	panel.BlizzardWidgets = PanelHelpers:CreateCheckButton("NeatPlatesOptions_BlizzardWidgets", panel, L["Use Blizzard Bar Widgets"])
+	panel.BlizzardWidgets:SetPoint("TOPLEFT", panel.BlizzardNameVisibility, "TOPLEFT", 0, -25)
+	panel.BlizzardWidgets.tooltipText = L["Use default blizzard bar widgets where applicable rather than the simpler widget bar built into NeatPlates (Might require a /reload)"]
+	panel.BlizzardWidgets:SetScript("OnClick", function() end) -- Empty function beacuse Shadowlands requires it now?
 
 	-- Override Outline Style
 	panel.OverrideOutlineLabel = panel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
-	panel.OverrideOutlineLabel:SetPoint("TOPLEFT", panel.BlizzardScaling,"BOTTOMLEFT", 0, -8)
+	panel.OverrideOutlineLabel:SetPoint("TOPLEFT", panel.BlizzardWidgets,"BOTTOMLEFT", 0, -8)
 	panel.OverrideOutlineLabel:SetWidth(170)
 	panel.OverrideOutlineLabel:SetJustifyH("LEFT")
 	panel.OverrideOutlineLabel:SetText(L["Outline Override"]..':')
@@ -754,6 +904,7 @@ local function BuildInterfacePanel(panel)
 	panel.EnforceRequiredCVars = PanelHelpers:CreateCheckButton("NeatPlatesOptions_EnforceRequiredCVars", panel, L["Enforce required CVars"])
 	panel.EnforceRequiredCVars.tooltipText = L["Helps ensure that everything is working as intended by enforcing certain CVars"]
 	panel.EnforceRequiredCVars:SetPoint("TOPLEFT", panel.CVarsLabel, "BOTTOMLEFT", 0, -8)
+	panel.EnforceRequiredCVars:SetScript("OnClick", function() end) -- Empty function beacuse Shadowlands requires it now?
 
 	panel.NameplateTargetClamp = PanelHelpers:CreateCheckButton("NeatPlatesOptions_NameplateTargetClamp", panel, L["Always keep Target Nameplate on Screen"])
 	panel.NameplateTargetClamp:SetPoint("TOPLEFT", panel.EnforceRequiredCVars, "TOPLEFT", 0, -25)
@@ -767,13 +918,12 @@ local function BuildInterfacePanel(panel)
 	panel.NameplateFriendlyNPCs:SetPoint("TOPLEFT", panel.NameplateStacking, "TOPLEFT", 0, -25)
 	panel.NameplateFriendlyNPCs:SetScript("OnClick", function(self) SetCVarValue(self, "nameplateShowFriendlyNPCs", true) end)
 
-	-- Disabled until blizzard fixes their shit, if ever...
-	-- panel.NameplateMaxDistance = PanelHelpers:CreateSliderFrame("NeatPlatesOptions_NameplateMaxDistance", panel, L["Nameplate Max Distance"], 60, 10, 100, 1, "ACTUAL", 250)
-	-- panel.NameplateMaxDistance:SetPoint("TOPLEFT", panel.NameplateStacking, "TOPLEFT", 10, -50)
-	-- panel.NameplateMaxDistance.Callback = function(self) SetCVarValue(self, "nameplateMaxDistance") end
+	panel.NameplateMaxDistance = PanelHelpers:CreateSliderFrame("NeatPlatesOptions_NameplateMaxDistance", panel, L["Nameplate Max Distance"], 41, 0, 41, 1, "ACTUAL", 170)
+	panel.NameplateMaxDistance:SetPoint("TOPLEFT", panel.NameplateFriendlyNPCs, "TOPLEFT", 10, -50)
+	panel.NameplateMaxDistance.Callback = function(self) SetCVarValue(self, "nameplateMaxDistance") end
 
 	panel.NameplateOccludedAlphaMult = PanelHelpers:CreateSliderFrame("NeatPlatesOptions_NameplateOccludedAlphaMult", panel, L["Occluded Alpha Multiplier"], 0.4, 0, 1, 0.01, "ACTUAL", 170)
-	panel.NameplateOccludedAlphaMult:SetPoint("TOPLEFT", panel.NameplateFriendlyNPCs, "TOPLEFT", 10, -50)
+	panel.NameplateOccludedAlphaMult:SetPoint("TOPLEFT", panel.NameplateMaxDistance, "TOPLEFT", 0, -50)
 	panel.NameplateOccludedAlphaMult.Callback = function(self) SetCVarValue(self, "nameplateOccludedAlphaMult") end
 	panel.NameplateOccludedAlphaMult.tooltipText = L["The opacity multiplier for units occluded by line of sight"]
 
@@ -831,13 +981,6 @@ local function BuildInterfacePanel(panel)
 	ResetButton:SetWidth(155)
 	ResetButton:SetText(L["Reset Configuration"])
 
-	-- Clear Spell DB
-	-- Reset
-	local ClearSpellDB = CreateFrame("Button", "NeatPlatesOptions_ClearSpellDB", panel, "NeatPlatesPanelButtonTemplate")
-	ClearSpellDB:SetPoint("TOPLEFT", ResetButton, "TOPRIGHT", 0, 0)
-	ClearSpellDB:SetWidth(155)
-	ClearSpellDB:SetText(L["Clear Spell Database"])
-
 
 	-- Update Functions
 	_panel.okay = OnOkay
@@ -845,6 +988,11 @@ local function BuildInterfacePanel(panel)
 	panel.ActiveThemeDropdown.OnValueChanged = OnValueChange
 
 	panel.FirstSpecDropdown.OnValueChanged = OnValueChange
+	if not NEATPLATES_IS_CLASSIC then
+		panel.SecondSpecDropdown.OnValueChanged = OnValueChange
+		panel.ThirdSpecDropdown.OnValueChanged = OnValueChange
+		panel.FourthSpecDropdown.OnValueChanged = OnValueChange
+	end
 
 
 	local createNewProfile = function(profileName)
@@ -923,7 +1071,9 @@ local function BuildInterfacePanel(panel)
 	-- Reset Button
 	ResetButton:SetScript("OnClick", function()
 		SetCVar("nameplateShowEnemies", 1)
+		SetCVar("threatWarning", 3)		-- Required for threat/aggro detection
 		SetCVar("nameplateMinScale", 1)
+		SetCVar("showQuestTrackingTooltips", 1)
 
 		if IsShiftKeyDown() then
 			NeatPlatesOptions = wipe(NeatPlatesOptions)
@@ -940,19 +1090,19 @@ local function BuildInterfacePanel(panel)
 		end
 
 	end)
-
-	-- Clear Spell DB Button
-	ClearSpellDB:SetScript("OnClick", function()
-		NeatPlatesSpellDB = wipe(NeatPlatesSpellDB)
-		NeatPlates.BuildTextureDB()
-		print(orange.."NeatPlates: "..red..L["Cleared Spell Database of entries."]);
-	end)
 end
 
 -------------------------------------------------------------------------------------
 -- Auto-Loader
 -------------------------------------------------------------------------------------
 local panelevents = {}
+if not NEATPLATES_IS_CLASSIC then
+	function panelevents:ACTIVE_TALENT_GROUP_CHANGED(self)
+		--print("Panel:Talent Group Changed")
+		ApplyPanelSettings()
+		--OnRefresh(NeatPlatesInterfacePanel)
+	end
+end
 
 function panelevents:PLAYER_ENTERING_WORLD()
 	--print("Panel:Player Entering World")
@@ -977,8 +1127,9 @@ function panelevents:PLAYER_ENTERING_WORLD()
 	NeatPlatesHubFunctions.ApplyRequiredCVars(NeatPlatesOptions)
 
 	-- Nameplate automation in case of instance
-	SetNameplateVisibility("nameplateShowEnemies", NeatPlatesOptions.EnemyAutomation)
-	SetNameplateVisibility("nameplateShowFriends", NeatPlatesOptions.FriendlyAutomation)
+	local inInstance, instanceType = IsInInstance()
+	SetNameplateVisibility("nameplateShowEnemies", NeatPlatesOptions.EnemyAutomation, false, instanceType == "party" or instanceType == "raid")
+	SetNameplateVisibility("nameplateShowFriends", NeatPlatesOptions.FriendlyAutomation, false, instanceType == "party" or instanceType == "raid")
 end
 
 function panelevents:PLAYER_REGEN_ENABLED()
@@ -1003,14 +1154,12 @@ function panelevents:PLAYER_LOGIN()
 		SetCVar("nameplateShowAll", 1)		--
 
 		SetCVar("nameplateMinScale", 1)
+		SetCVar("showQuestTrackingTooltips", 1)
 
 		SetCVar("nameplateShowEnemies", 1)
+		SetCVar("threatWarning", 3)		-- Required for threat/aggro detection
 		NeatPlatesOptions.WelcomeShown = true
 
-		--NeatPlatesOptions.FirstSpecProfile = Role2Profile(1)
-		--NeatPlatesOptions.SecondSpecProfile = Role2Profile(2)
-		--NeatPlatesOptions.ThirdSpecProfile = Role2Profile(3)
-		--NeatPlatesOptions.FourthSpecProfile = Role2Profile(4)
 		NeatPlatesOptions.FirstSpecProfile = NeatPlatesSettings.DefaultProfile
 		NeatPlatesOptions.SecondSpecProfile = NeatPlatesSettings.DefaultProfile
 		NeatPlatesOptions.ThirdSpecProfile = NeatPlatesSettings.DefaultProfile
@@ -1039,6 +1188,15 @@ end
 SLASH_NeatPlates1 = '/NeatPlates'
 SLASH_NeatPlates2 = '/np'
 SlashCmdList['NeatPlates'] = slash_NeatPlates;
+
+SLASH_NeatPlatesDebug1 = '/npdebug'
+SlashCmdList['NeatPlatesDebug'] = function(arg)
+	arg = string.lower(arg)
+
+	if arg == "quest" then
+		NeatPlatesWidgets.DebugQuests()
+	end
+end;
 
 
 

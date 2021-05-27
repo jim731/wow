@@ -14,7 +14,7 @@ DruidBarKey = {
 	},
 	["DontShiftBack"] = false,
 	["Minimap"] = false,
-	["currentmana"] = 169,
+	["currentmana"] = 67,
 	["Enabled"] = true,
 	["HideInCaster"] = true,
 	["tempH"] = 15,
@@ -26,7 +26,7 @@ DruidBarKey = {
 		1, -- [4]
 	},
 	["width"] = 121.999984741211,
-	["maxmana"] = 169,
+	["maxmana"] = 67,
 	["subtractmana"] = 0,
 	["bgstrata"] = "BORDER",
 	["Graphics"] = true,

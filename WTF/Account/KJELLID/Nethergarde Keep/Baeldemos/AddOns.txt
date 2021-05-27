@@ -1,0 +1,9 @@
+OPie_Classic: disabled
+BigWigs_Core: enabled
+BigWigs_Options: enabled
+BigWigs_Plugins: enabled
+WeakAurasCompanion: enabled
+WeakAurasArchive: enabled
+WeaponSwingTimer: disabled
+BugSack: disabled
+!BugGrabber: disabled

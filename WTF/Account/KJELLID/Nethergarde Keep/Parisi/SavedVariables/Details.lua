@@ -7,7 +7,7 @@ _detalhes_database = {
 		["tabelas"] = {
 		},
 	},
-	["last_version"] = "v1.13.6.216",
+	["last_version"] = "v1.13.7.217",
 	["SoloTablesSaved"] = {
 		["Mode"] = 1,
 	},
@@ -15,7 +15,7 @@ _detalhes_database = {
 	},
 	["on_death_menu"] = true,
 	["nick_tag_cache"] = {
-		["nextreset"] = 1617619489,
+		["nextreset"] = 1622048729,
 		["last_version"] = 11,
 	},
 	["last_instance_id"] = 0,
@@ -58,13 +58,73 @@ _detalhes_database = {
 			["author"] = "Details! Team",
 			["alwaysshowme"] = true,
 		},
+		["DETAILS_PLUGIN_STREAM_OVERLAY"] = {
+			["font_color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["is_first_run"] = false,
+			["arrow_color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				0.5, -- [4]
+			},
+			["main_frame_size"] = {
+				300, -- [1]
+				500.000030517578, -- [2]
+			},
+			["minimap"] = {
+				["minimapPos"] = 160,
+				["radius"] = 160,
+				["hide"] = false,
+			},
+			["arrow_anchor_x"] = 0,
+			["row_texture"] = "Details Serenity",
+			["font_size"] = 10,
+			["main_frame_locked"] = false,
+			["use_spark"] = true,
+			["enabled"] = false,
+			["arrow_size"] = 10,
+			["arrow_anchor_y"] = 0,
+			["row_spacement"] = 21,
+			["main_frame_color"] = {
+				0, -- [1]
+				0, -- [2]
+				0, -- [3]
+				0.2, -- [4]
+			},
+			["author"] = "Details! Team",
+			["arrow_texture"] = "Interface\\CHATFRAME\\ChatFrameExpandArrow",
+			["row_color"] = {
+				0.1, -- [1]
+				0.1, -- [2]
+				0.1, -- [3]
+				0.4, -- [4]
+			},
+			["y"] = -1.525878906250e-05,
+			["x"] = 3.05175781250e-05,
+			["font_face"] = "Friz Quadrata TT",
+			["per_second"] = {
+				["enabled"] = false,
+				["point"] = "CENTER",
+				["scale"] = 1,
+				["font_shadow"] = true,
+				["y"] = -1.525878906250e-05,
+				["x"] = -3.05175781250e-05,
+				["attribute_type"] = 1,
+				["update_speed"] = 0.05,
+				["size"] = 32,
+			},
+			["point"] = "CENTER",
+			["main_frame_strata"] = "LOW",
+			["row_height"] = 20,
+			["scale"] = 1,
+		},
 	},
-	["announce_prepots"] = {
-		["enabled"] = true,
-		["channel"] = "SELF",
-		["reverse"] = false,
-	},
-	["last_day"] = "27",
+	["last_day"] = "11",
 	["cached_talents"] = {
 		["Player-4456-01C21F39"] = {
 			{
@@ -510,12 +570,17 @@ _detalhes_database = {
 			}, -- [49]
 		},
 	},
+	["announce_prepots"] = {
+		["enabled"] = true,
+		["channel"] = "SELF",
+		["reverse"] = false,
+	},
 	["benchmark_db"] = {
 		["frame"] = {
 		},
 	},
 	["character_data"] = {
-		["logons"] = 6,
+		["logons"] = 8,
 	},
 	["combat_id"] = 0,
 	["savedStyles"] = {
@@ -539,8 +604,8 @@ _detalhes_database = {
 			["attribute"] = 1,
 			["pos"] = {
 				["normal"] = {
-					["y"] = -113.777801513672,
-					["x"] = 256.000122070313,
+					["y"] = -293.135833740234,
+					["x"] = 603.518432617188,
 					["w"] = 310.000061035156,
 					["h"] = 157.999984741211,
 				},
@@ -678,7 +743,7 @@ _detalhes_database = {
 			}, -- [4]
 		},
 	},
-	["combat_counter"] = 12,
+	["combat_counter"] = 16,
 	["announce_firsthit"] = {
 		["enabled"] = true,
 		["channel"] = "SELF",

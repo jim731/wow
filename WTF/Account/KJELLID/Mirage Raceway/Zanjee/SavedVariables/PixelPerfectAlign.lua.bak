@@ -1,0 +1,16 @@
+
+pixelPerfectAlignSaved = {
+	["showMinimapIcon"] = true,
+	["addonVersion"] = "v1.10.01",
+	["numX"] = 6,
+	["addonHash"] = "b7d344b",
+	["lineLength"] = 15,
+	["showSplash"] = 0,
+	["startWithGridOn"] = false,
+	["numY"] = 0,
+	["buttonPos"] = {
+		"BOTTOMLEFT", -- [1]
+		999.348266601563, -- [2]
+		670.024658203125, -- [3]
+	},
+}

@@ -5,6 +5,7 @@
 
 local L = LibStub("AceLocale-3.0"):GetLocale("NovaInstanceTracker");
 local maxRecordsKept = 300;
+local maxTradesKept = 3000;
 NIT.maxRecordsShown = 300;
 
 NIT.options = {
@@ -531,6 +532,7 @@ NIT.optionDefaults = {
 		timeStringType = "medium",
 		showLockoutTime = true,
 		maxRecordsKept = maxRecordsKept,
+		maxTradesKept = maxTradesKept,
 		instanceResetMsg = true;
 		enteredMsg = true;
 		timeStampFormat = 12,

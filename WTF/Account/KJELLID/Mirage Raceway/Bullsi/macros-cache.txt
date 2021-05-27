@@ -1,0 +1,97 @@
+VER 3 0000000001000040 " " "132157"
+#showtooltip ice barbed spear
+/equipslot 16 ice barbed spear
+END
+VER 3 000000000100002B " " "132355"
+#showtooltip mortal strike
+/cast mortal strike
+/startattack
+END
+VER 3 000000000100003A " " "135893"
+#showtooltip firebreather
+/equipslot 16 firebreather
+/equipslot 17 shizzle's drizzle blocker
+END
+VER 3 0000000001000031 " BAT" "132350"
+#showtooltip mocking blow
+/cast battle stance
+/cast mocking blow
+END
+VER 3 0000000001000030 " BAT" "132336"
+#showtooltip retaliation
+/equipslot 16 ice barbed spear
+/cast battle stance
+/cast retaliation
+END
+VER 3 0000000001000033 " BAT" "136105"
+#showtooltip thunder clap
+/cast battle stance
+/cast thunder clap
+END
+VER 3 0000000001000034 " BAT" "132306"
+#showtooltip sweeping strikes
+/cast battle stance
+/cast sweeping strikes
+END
+VER 3 0000000001000041 " BAT" "132337"
+#showtooltip charge
+/cast battle stance
+/cast charge
+END
+VER 3 000000000100003B " BAT" "132321"
+#showtooltip overpower
+/cast battle stance
+/cast overpower
+END
+VER 3 0000000001000023 " BER" "132307"
+#showtooltip intercept
+/cast berserker stance
+/cast intercept
+END
+VER 3 000000000100003C " BER" "132369"
+#showtooltip whirlwind
+/cast berserker stance
+/cast whirlwind
+/startattack
+END
+VER 3 000000000100002C " BER" "INV_GAUNTLETS_04"
+#showtooltip pummel
+/cast berserker stance
+/cast pummel
+END
+VER 3 000000000100002E " BER" "136009"
+#showtooltip berserker rage
+/cast berserker stance
+/cast berserker rage
+END
+VER 3 0000000001000032 " DEF" "132357"
+#showtooltip shield bash
+/equipslot 16 firebreather
+/equipslot 17 shizzle's drizzle blocker
+/cast defensive stance
+/cast shield bash
+END
+VER 3 000000000100002F " DEF" "132362"
+#showtooltip shield wall
+/cast defensive stance
+/equipslot 16 firebreather
+/equipslot 17 shizzle's drizzle blocker
+/cast shield wall
+END
+VER 3 0000000001000035 " DEF" "132343"
+#showtooltip disarm
+/startattack
+/cast defensive stance
+/cast disarm
+END
+VER 3 000000000100003E "BAND" "132154"
+#showtooltip intimidating shout
+/cast intimidating shout
+/cast heavy runecloth bandage
+END
+VER 3 000000000100003F "CAMP" "132316"
+#showtooltip hamstring
+/target xxx
+/cast hamstring
+/startattack
+END

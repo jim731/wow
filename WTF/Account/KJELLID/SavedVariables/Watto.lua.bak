@@ -17,12 +17,6 @@ Watto_ItemList = {
 	["General"] = {
 	},
 	["PerChar"] = {
-		["Skullflame"] = {
-			["Ferns"] = {
-			},
-			["Shapeshifter"] = {
-			},
-		},
 		["Nethergarde Keep"] = {
 			["Parisi"] = {
 			},
@@ -31,6 +25,18 @@ Watto_ItemList = {
 			["Ganado"] = {
 			},
 			["Fermion"] = {
+			},
+		},
+		["Mirage Raceway"] = {
+			["Zabuji"] = {
+			},
+			["Garluk"] = {
+			},
+		},
+		["Skullflame"] = {
+			["Ferns"] = {
+			},
+			["Shapeshifter"] = {
 			},
 		},
 	},

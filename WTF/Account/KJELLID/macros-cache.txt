@@ -1,29 +1,42 @@
+VER 3 0000000000000051 " " "132353"
+#showtooltip revenge
+/cast revenge
+/startattack
+END
 VER 3 0000000000000015 " " "132311"
 #showtooltip passive
 /stopcasting
 /stopattacking
 END
-VER 3 0000000000000012 " " "INV_Weapon_Rifle_05."
-#showtooltip shoot gun
-/cast shoot gun
-/startattack
+VER 3 0000000000000054 " " "136013"
+#showtooltip shoot
+/castsequence reset=2 !Shoot, null
 END
-VER 3 0000000000000024 " " "INV_Weapon_Bow_05."
-#showtooltip shoot bow
-/cast shoot bow
+VER 3 0000000000000055 " " "136108"
+#showtooltip attack
 /startattack
 END
 VER 3 0000000000000019 " " "trade_fishing"
 #showtooltip fishing
-/equipslot 16 Blump Family Fishing Pole
+/equipslot 16 fishing pole
 /cast fishing
 END
-VER 3 000000000000004E " " "132316"
+VER 3 0000000000000012 "  " "132153"
+#showtooltip shoot gun
+/cast shoot gun
+/startattack
+END
+VER 3 0000000000000024 "  " "INV_Weapon_Bow_05."
+#showtooltip shoot bow
+/cast shoot bow
+/startattack
+END
+VER 3 000000000000004E " BAT" "132316"
 #showtooltip hamstring
 /cast battle stance
 /cast hamstring
 END
-VER 3 000000000000004F " " "132155"
+VER 3 000000000000004F " BAT" "132155"
 #showtooltip rend
 /cast battle stance
 /cast rend
@@ -31,20 +44,25 @@ END
 VER 3 000000000000004C "ATT" "INV_MISC_QUESTIONMARK"
 /att
 END
+VER 3 0000000000000053 "BER" "132109"
+#showtooltip recklessness
+/cast berserker stance
+/cast recklessness
+END
 VER 3 000000000000001D "chicken" "135996"
 /chicken
-END
-VER 3 0000000000000049 "Decursive" "INV_MISC_QUESTIONMARK"
-/script DecursiveRootTable.Dcr:Println('No spell available')
 END
 VER 3 000000000000002D "details" "INV_MISC_QUESTIONMARK"
 /details toggle
 END
+VER 3 0000000000000058 "fclear" "INV_MISC_QUESTIONMARK"
+/clearfocus
+END
+VER 3 0000000000000059 "focus" "INV_MISC_QUESTIONMARK"
+/focus
+END
 VER 3 000000000000004B "FTA" "INV_MISC_QUESTIONMARK"
 /yell FOR THE ALLIANCE!!
-END
-VER 3 0000000000000046 "guide" "INV_MISC_QUESTIONMARK"
-/guidelime
 END
 VER 3 000000000000001E "hello" "INV_MISC_QUESTIONMARK"
 /p hello
@@ -58,11 +76,24 @@ END
 VER 3 0000000000000048 "quartz" "INV_MISC_QUESTIONMARK"
 /quartz
 END
+VER 3 0000000000000056 "reload" "INV_MISC_QUESTIONMARK"
+/reload
+END
 VER 3 0000000000000047 "SUF" "INV_MISC_QUESTIONMARK"
 /suf
 END
+VER 3 0000000000000057 "target" "INV_MISC_QUESTIONMARK"
+/target thurman
+w
+END
+VER 3 000000000000005A "tfocus" "INV_MISC_QUESTIONMARK"
+/target focus
+END
 VER 3 0000000000000011 "thanks" "INV_MISC_QUESTIONMARK"
 /thanks
+END
+VER 3 0000000000000052 "TSM" "INV_MISC_QUESTIONMARK"
+/tsm
 END
 VER 3 0000000000000029 "WST" "INV_MISC_QUESTIONMARK"
 /wst

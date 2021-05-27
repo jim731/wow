@@ -76,7 +76,7 @@ HandyNotes_Guild: enabled
 HandyNotes_NPCs (Classic): enabled
 HandyNotes_WorldMapButton: enabled
 Immersion: enabled
-Inventorian: enabled
+Inventorian: disabled
 ItemRack: enabled
 ItemRackOptions: enabled
 ItemTooltipProfessionIcons: enabled
@@ -132,7 +132,7 @@ Spy: enabled
 TotemTimers: disabled
 TrinketMenu: disabled
 TwitchEmotes: enabled
-Watto: enabled
+Watto: disabled
 WeakAuras: enabled
 WeakAurasModelPaths: enabled
 WeakAurasOptions: enabled

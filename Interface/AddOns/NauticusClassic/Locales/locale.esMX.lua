@@ -1,4 +1,4 @@
-
+﻿
 -- Spanish localisation by StiviS
 local L = LibStub("AceLocale-3.0"):NewLocale("NauticusClassic", "esMX")
 if not L then return; end

@@ -1,0 +1,12 @@
+BigWigs_Core: enabled
+BigWigs_Options: enabled
+BigWigs_Plugins: enabled
+OPie_Classic: disabled
+WeakAurasCompanion: enabled
+WeakAurasArchive: enabled
+LFG113: disabled
+LFG: enabled
+Immersion: disabled
+NovaInstanceTracker: disabled
+NovaWorldBuffs: disabled
+MoveAnything: disabled

@@ -1,2 +1,4 @@
 OPie_Classic: disabled
 pfUI: enabled
+Inventorian: disabled
+Watto: disabled

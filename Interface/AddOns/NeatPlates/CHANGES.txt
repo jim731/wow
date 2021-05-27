@@ -1,12 +1,12 @@
-lightweight tag 4eb9e966d39267a91e5780d4718b794d7603ddd9 1.13.5.24
-Author:	Luxocracy <luxor355@gmail.com>
-Date:	Wed Dec 9 17:44:43 2020 +0100
+lightweight tag 67971c83481c5e7cbf72e36292670bab7a673644 2.5.1.17
+Author:	Luxocracy <Luxocracy@users.noreply.github.com>
+Date:	Mon May 24 18:43:24 2021 +0200
 
-commit 4eb9e966d39267a91e5780d4718b794d7603ddd9
-Author: Luxocracy <luxor355@gmail.com>
-Date:   Wed Dec 9 17:43:59 2020 +0100
+commit 67971c83481c5e7cbf72e36292670bab7a673644
+Author: Luxocracy <Luxocracy@users.noreply.github.com>
+Date:   Mon May 24 18:43:24 2021 +0200
 
-    Minor priority fix for additional auras
+    Fixed clickable size not being set correctly at startup
     
-    - Minor priority fix for additional auras
+    - Fixed clickable size not being set correctly at startup
 

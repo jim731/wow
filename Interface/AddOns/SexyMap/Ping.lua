@@ -1,8 +1,4 @@
 
-if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
-	return
-end
-
 local _, sm = ...
 sm.ping = {}
 
@@ -65,7 +61,7 @@ end
 function mod:OnEnable()
 	sm.core:RegisterModuleOptions("Ping", options, L["Ping"])
 
-	pingFrame = CreateFrame("Frame", "SexyMapPingFrame", Minimap)
+	pingFrame = CreateFrame("Frame", "SexyMapPingFrame", Minimap, "BackdropTemplate")
 	pingFrame:SetBackdrop(sm.backdrop)
 	pingFrame:SetBackdropColor(0,0,0,0.8)
 	pingFrame:SetBackdropBorderColor(0,0,0,0.6)
@@ -87,10 +83,10 @@ function mod:OnEnable()
 	anim:SetStartDelay(3)
 
 	pingFrame:SetScript("OnEvent", function(_, _, unit)
-		local class = select(2, UnitClass(unit))
+		local _, class = UnitClass(unit)
 		local color
 		if class then
-			color = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class]
+			color = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class] or GRAY_FONT_COLOR
 		else
 			color = GRAY_FONT_COLOR
 		end
@@ -98,7 +94,7 @@ function mod:OnEnable()
 			DEFAULT_CHAT_FRAME:AddMessage(("%s: |cFF%02x%02x%02x%s|r"):format(L["Ping"], color.r * 255, color.g * 255, color.b * 255, UnitName(unit)))
 		else
 			pingFrame.name:SetFormattedText("|cFF%02x%02x%02x%s|r", color.r * 255, color.g * 255, color.b * 255, UnitName(unit))
-			pingFrame:SetWidth(pingFrame.name:GetStringWidth() + 14)
+			pingFrame:SetWidth(pingFrame.name:GetUnboundedStringWidth() + 12)
 			pingFrame:SetHeight(pingFrame.name:GetStringHeight() + 10)
 			animGroup:Stop()
 			pingFrame:Show()

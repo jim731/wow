@@ -1,8 +1,4 @@
 
-if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
-	return
-end
-
 local _, sm = ...
 sm.buttons = {}
 
@@ -14,17 +10,21 @@ local moving, ButtonFadeOut
 
 local animFrames = {}
 local blizzButtons = {
-	GameTimeFrame = L["Day/Night Indicator"],
-	MinimapZoneTextButton = L["Zone Text"],
+	GameTimeFrame = L["Calendar"],
+	MiniMapTracking = L["Tracking Button"],
+	SexyMapZoneTextButton = L["Zone Text"],
 	MinimapZoomIn = L["Zoom In Button"],
 	MinimapZoomOut = L["Zoom Out Button"],
 	MiniMapWorldMapButton = L["Map Button"],
 	TimeManagerClockButton = L["Clock"],
 }
 local dynamicButtons = {
-	MiniMapTrackingFrame = L["Tracking Button (When Available)"],
+	--GuildInstanceDifficulty = L["Guild Dungeon Difficulty Indicator (When Available)"],
+	--MiniMapChallengeMode = L["Challenge Mode Button (When Available)"],
+	--MiniMapInstanceDifficulty = L["Dungeon Difficulty Indicator (When Available)"],
 	MiniMapMailFrame = L["New Mail Indicator (When Available)"],
 	MiniMapBattlefieldFrame = L["Queue Status (PvP/LFG) Button (When Available)"],
+	--GarrisonLandingPageMinimapButton = L["Garrison Button (When Available)"],
 }
 
 local options = {
@@ -177,15 +177,15 @@ function mod:OnInitialize(profile)
 			radius = 10,
 			dragPositions = {},
 			visibilitySettings = {
+				GameTimeFrame = "never",
 				MinimapZoomIn = "never",
 				MinimapZoomOut = "never",
 				MiniMapWorldMapButton = "never",
-				MinimapZoneTextButton = "always",
+				SexyMapZoneTextButton = "always",
 				TimeManagerClockButton = "always",
 				MiniMapMailFrame = "always",
-				GameTimeFrame = "never",
-				MiniMapTrackingFrame = "always",
 				MiniMapBattlefieldFrame = "always",
+				GarrisonLandingPageMinimapButton = "always",
 			},
 			allowDragging = true,
 			lockDragging = false,
@@ -194,11 +194,6 @@ function mod:OnInitialize(profile)
 	end
 
 	self.db = profile.buttons
-
-	-- XXX temp Jan 2020
-	if not self.db.visibilitySettings.MiniMapBattlefieldFrame then
-		self.db.visibilitySettings.MiniMapBattlefieldFrame = "always"
-	end
 end
 
 function mod:OnEnable()
@@ -230,22 +225,6 @@ function mod:OnEnable()
 	highlight:ClearAllPoints()
 	highlight:SetPoint("TOPLEFT", MiniMapWorldMapButton, "TOPLEFT", 2, -2)
 
-	local icon, overlay = MiniMapTrackingFrame:GetRegions()
-	MiniMapTrackingFrame:SetSize(31,31)
-	MiniMapTrackingFrame:SetFrameStrata("MEDIUM")
-	MiniMapTrackingFrame:SetFrameLevel(8)
-	icon:ClearAllPoints()
-	icon:SetPoint("TOPLEFT", 8, -6)
-	icon:SetSize(17,17)
-	icon:SetDrawLayer("ARTWORK")
-	overlay:ClearAllPoints() -- Border
-	overlay:SetSize(53,53)
-	overlay:SetPoint("TOPLEFT")
-	local background = MiniMapTrackingFrame:CreateTexture(nil, "BACKGROUND")
-	background:SetSize(20, 20)
-	background:SetTexture(136467) --"Interface\\Minimap\\UI-Minimap-Background"
-	background:SetPoint("TOPLEFT", 7, -5)
-
 	sm.core:RegisterModuleOptions("Buttons", options, L["Buttons"])
 
 	C_Timer.After(1, mod.StartFrameGrab)
@@ -258,11 +237,33 @@ end
 local OnFinished, KillAnimation
 do
 	local fadeStop = false -- Use a variable to prevent fadeout/in when moving the mouse around minimap/icons
+	local restoreGarrisonButtonAnimation = false
+	local restoreLFGButtonAnimation = false
 
 	OnFinished = function(anim)
+		-- Work around issues with buttons that have a pulse/fade ring animation.
+		--if restoreGarrisonButtonAnimation and anim:GetParent():GetName() == "GarrisonLandingPageMinimapButton" then
+		--	anim:GetParent().MinimapLoopPulseAnim:Play()
+		--	restoreGarrisonButtonAnimation = false
+		--end
+		--if restoreLFGButtonAnimation and anim:GetParent():GetName() == "QueueStatusMinimapButton" then
+		--	anim:GetParent().EyeHighlightAnim:Play()
+		--	restoreLFGButtonAnimation = false
+		--end
 	end
 
 	KillAnimation = function(n, f)
+		-- Work around issues with buttons that have a pulse/fade ring animation.
+		--if n == "GarrisonLandingPageMinimapButton" and (f.MinimapLoopPulseAnim:IsPlaying() or restoreGarrisonButtonAnimation) then
+		--	restoreGarrisonButtonAnimation = true
+		--	f.MinimapLoopPulseAnim:Stop()
+		--	return f.MinimapLoopPulseAnim
+		--end
+		--if n == "QueueStatusMinimapButton" and (f.EyeHighlightAnim:IsPlaying() or restoreLFGButtonAnimation) then
+		--	restoreLFGButtonAnimation = true
+		--	f.EyeHighlightAnim:Stop()
+		--	return f.EyeHighlightAnim
+		--end
 	end
 
 	local OnEnter = function()
@@ -295,6 +296,7 @@ do
 		for i = 1, #animFrames do
 			local f = animFrames[i]
 			local n = f:GetName()
+
 			if not mod.db.visibilitySettings[n] or mod.db.visibilitySettings[n] == "hover" then
 				f.sexyMapFadeOut:Play()
 
@@ -303,6 +305,8 @@ do
 		end
 	end
 
+	local hideFrame = CreateFrame("Frame") -- Dummy frame we use for hiding buttons to prevent other addons re-showing them
+	hideFrame:Hide()
 	function mod:NewFrame(f)
 		local n = f:GetName()
 		-- Only add Blizz buttons & LibDBIcon buttons
@@ -318,32 +322,53 @@ do
 			f.sexyMapFadeOut:SetToFinalAlpha(true)
 
 			-- Work around issues with buttons that have a pulse/fade ring animation.
-			-- These frames are parented to MinimapCluster, if the map scale is changed they won't drag properly, so we parent to Minimap
-			-- Parented to MinimapCluster
-			if n == "MinimapZoneTextButton" then
-				f:SetParent(Minimap)
-			end
+			--if n == "GarrisonLandingPageMinimapButton" or n == "QueueStatusMinimapButton" then
+			--	f.sexyMapFadeOut:SetScript("OnFinished", OnFinished)
+			--end
+			---- These frames are parented to MinimapCluster, if the map scale is changed they won't drag properly, so we parent to Minimap
+			--if n == "MiniMapInstanceDifficulty" or n == "GuildInstanceDifficulty" or n == "MiniMapChallengeMode" then
+			--	f:ClearAllPoints()
+			--	f:SetParent(Minimap)
+			--	f:SetPoint("CENTER", Minimap, "CENTER", -60, 55)
+			--end
 
 			animFrames[#animFrames+1] = f
 
 			-- Configure fading
-			if mod.db.controlVisibility then
+			if n == "TimeManagerClockButton" then -- This is disgusting but have to work around other addons messing with it
+				hooksecurefunc(f, "SetParent", function(self)
+					local vis = mod.db.visibilitySettings[n] or "hover"
+					if vis == "always" then
+						sm.core.button.SetParent(self, Minimap)
+						self:SetAlpha(1)
+					elseif vis == "never" then
+						sm.core.button.SetParent(self, hideFrame)
+					else
+						sm.core.button.SetParent(self, Minimap)
+						self:SetAlpha(0)
+					end
+				end)
+				f:SetParent(Minimap) -- Run the hook
+			elseif mod.db.controlVisibility then
 				self:ChangeFrameVisibility(f, mod.db.visibilitySettings[n] or "hover")
 			end
 
 			-- Don't add config or moving capability to the Zone Text and Clock buttons, handled in their own modules
-			if n ~= "MinimapZoneTextButton" and n ~= "TimeManagerClockButton" then
+			if n ~= "SexyMapZoneTextButton" and n ~= "TimeManagerClockButton" then
 				self:AddButtonOptions(n)
 
-				self:MakeMovable(f)
+				-- Configure dragging
+				--if n == "MiniMapTracking" then
+				--	self:MakeMovable(MiniMapTrackingButton, f)
+				--else
+					self:MakeMovable(f)
+				--end
 			end
 		end
 		f:HookScript("OnEnter", OnEnter)
 		f:HookScript("OnLeave", OnLeave)
 	end
 
-	local hideFrame = CreateFrame("Frame") -- Dummy frame we use for hiding buttons to prevent other addons re-showing them
-	hideFrame:Hide()
 	local frameParents = {} -- Store the original button parents for restoration
 	function mod:ChangeFrameVisibility(frame, vis)
 		if vis == "always" then
@@ -475,7 +500,7 @@ do
 				local f = animFrames[i]
 				local n = f:GetName()
 				-- Don't move the Clock or Zone Text when changing shape/preset
-				if n ~= "MinimapZoneTextButton" and n ~= "TimeManagerClockButton" then
+				if n ~= "SexyMapZoneTextButton" and n ~= "TimeManagerClockButton" then
 					local x, y = f:GetCenter()
 					local angle = mod.db.dragPositions[n] or getCurrentAngle(f:GetParent(), x, y)
 					if angle then
@@ -493,13 +518,25 @@ end
 
 do
 	local tbl = {
-		Minimap, MinimapZoneTextButton, MiniMapTrackingFrame, TimeManagerClockButton, GameTimeFrame,
-		MinimapZoomIn, MinimapZoomOut, MiniMapWorldMapButton, MiniMapMailFrame, MiniMapBattlefieldFrame
+		Minimap, MiniMapTracking, TimeManagerClockButton, GameTimeFrame,
+		MinimapZoomIn, MinimapZoomOut, MiniMapWorldMapButton,
+		MiniMapMailFrame, MiniMapBattlefieldFrame
 	}
 
 	function mod:AddButton(_, button)
 		self:NewFrame(button)
 	end
+
+	--local function CheckCalendar()
+	--	local vis = mod.db.visibilitySettings.GameTimeFrame
+	--	if not vis or vis == "hover" then
+	--		if C_Calendar.GetNumPendingInvites() < 1 then
+	--			mod:ChangeFrameVisibility(GameTimeFrame, "hover")
+	--		else
+	--			mod:ChangeFrameVisibility(GameTimeFrame, "always")
+	--		end
+	--	end
+	--end
 
 	function mod:StartFrameGrab()
 		for i = 1, #tbl do
@@ -511,6 +548,13 @@ do
 			mod:NewFrame(ldbi:GetMinimapButton(ldbiTbl[i]))
 		end
 		ldbi.RegisterCallback(mod, "LibDBIcon_IconCreated", "AddButton")
+
+		-- If calendar is set to "hover" and we have pending invites, force show it
+		--local frame = CreateFrame("Frame")
+		--frame:SetScript("OnEvent", CheckCalendar)
+		--frame:RegisterEvent("CALENDAR_UPDATE_PENDING_INVITES")
+		--frame:RegisterEvent("CALENDAR_ACTION_PENDING")
+		--CheckCalendar()
 
 		mod.StartFrameGrab = nil
 	end

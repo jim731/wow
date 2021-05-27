@@ -302,6 +302,7 @@ if (wt.currentClass == "WARLOCK") then
     local function isKnown(merchantIndex)
         scan:ClearLines()
         local link = GetMerchantItemLink(merchantIndex)
+        if (not link) then return false end
         scan:SetHyperlink(link)
         local lines = scan:NumLines()
         for i = lines, 1, -1 do
@@ -333,6 +334,7 @@ if (wt.currentClass == "WARLOCK") then
         [6328] = true
     }
     local function updateMerchantFrame()
+        if (IsAddOnLoaded('GrimoireKeeper')) then return end
         local guid = UnitGUID("npc")
         if (guid == nil) then return end
         local npcId = select(6, strsplit("-", guid))

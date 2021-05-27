@@ -6,34 +6,36 @@ local L = LibStub("AceLocale-3.0"):GetLocale("NeatPlates")
 
 -- Widget Helpers
 local WidgetLib = NeatPlatesWidgets
+local copytable = NeatPlatesUtility.copyTable
 
 local CreateThreatLineWidget = WidgetLib.CreateThreatLineWidget
 local CreateAuraWidget = WidgetLib.CreateAuraWidget
+local CreateArenaWidget = WidgetLib.CreateArenaWidget
 local CreateClassWidget = WidgetLib.CreateClassWidget
---local CreateRangeWidget = WidgetLib.CreateRangeWidget
+local CreateRangeWidget = WidgetLib.CreateRangeWidget
 local CreateComboPointWidget = WidgetLib.CreateComboPointWidget
 local CreateTotemIconWidget = WidgetLib.CreateTotemIconWidget
---local CreateAbsorbWidget = WidgetLib.CreateAbsorbWidget
---local CreateQuestWidget = WidgetLib.CreateQuestWidget
+local CreateAbsorbWidget = WidgetLib.CreateAbsorbWidget
+local CreateQuestWidget = WidgetLib.CreateQuestWidget
 local CreateThreatPercentageWidget = WidgetLib.CreateThreatPercentageWidget
 
---NeatPlatesHubDefaults.WidgetRangeMode = 1
---NeatPlatesHubMenus.RangeModes = {
---				{ text = L["Simple"]} ,
---				{ text = L["Advanced"]} ,
---			}
+NeatPlatesHubDefaults.WidgetRangeMode = 1
+NeatPlatesHubMenus.RangeModes = {
+				{ text = L["Simple"]} ,
+				{ text = L["Advanced"]} ,
+			}
 
---NeatPlatesHubDefaults.WidgetRangeStyle = 1
---NeatPlatesHubMenus.RangeStyles = {
---				{ text = L["Line"]} ,
---				{ text = L["Icon"]} ,
---			}
+NeatPlatesHubDefaults.WidgetRangeStyle = 1
+NeatPlatesHubMenus.RangeStyles = {
+				{ text = L["Line"]} ,
+				{ text = L["Icon"]} ,
+			}
 
---NeatPlatesHubDefaults.WidgetRangeUnits = 2
---NeatPlatesHubMenus.RangeUnits = {
---				{ text = L["Target Only"]} ,
---				{ text = L["All Units"]} ,
---			}
+NeatPlatesHubDefaults.WidgetRangeUnits = 2
+NeatPlatesHubMenus.RangeUnits = {
+				{ text = L["Target Only"]} ,
+				{ text = L["All Units"]} ,
+			}
 
 NeatPlatesHubDefaults.WidgetAbsorbMode = 1
 NeatPlatesHubMenus.AbsorbModes = {
@@ -59,6 +61,14 @@ NeatPlatesHubMenus.PrimaryAuraFilters = {
 				{ text = L["Show None"],  } ,
 				{ text = L["Show Mine"],  } ,
 				{ text = L["Show All"],  } ,
+			}
+
+NeatPlatesHubDefaults.WidgetComboPoints = 1
+NeatPlatesHubMenus.ComboPointsModes = {
+				{ text = L["Enemy Units"],  } ,
+				{ text = L["Friendly Units"],  } ,
+				{ text = L["All Units"],  } ,
+				{ text = L["None"],  } ,
 			}
 
 NeatPlatesHubDefaults.WidgetComboPointsStyle = 2
@@ -337,6 +347,11 @@ NeatPlatesHubMenus.WidgetOptions = {
 		value = "ClassIcon",
 		tooltip = L["ClassIcon_tooltip"],
 	},
+	{
+		text = L["ArenaIcon"],
+		value = "ArenaWidget",
+		tooltip = L["ArenaIcon_tooltip"],
+	},
 }
 
 
@@ -401,15 +416,27 @@ local AURA_TYPE_COLORS = {
 
 
 
-local function GetPrefixPriority(aura)
+local function GetPrefixPriority(aura, auraType)
+	if not auraType then auraType = "normal" end
+
+	local filter, priority
+
 	local spellid = tostring(aura.spellid)
 	local name = aura.name
 
-	-- Lookup using the Prefix & Priority Lists
-	local prefix = LocalVars.WidgetDebuffLookup[spellid] or LocalVars.WidgetDebuffLookup[name] or NeatPlatesSettings.GlobalAuraLookup[spellid] or NeatPlatesSettings.GlobalAuraLookup[name]
-	local priority = LocalVars.WidgetDebuffPriority[spellid] or LocalVars.WidgetDebuffPriority[name] or NeatPlatesSettings.GlobalAuraPriority[spellid] or NeatPlatesSettings.GlobalAuraPriority[name]
+	local function lookup(auraTable)
+		for i,a in pairs(auraTable) do
+			if (a.name == name or a.name == spellid) and auraType == a.type then
+				return a.filter, i
+			end
+		end
+	end
 
-	return prefix, priority
+	filter, priority = lookup(LocalVars.WidgetAdditionalAuras)
+	if not filter and not priority then
+		filter, priority = lookup(NeatPlatesSettings.GlobalAdditonalAuras)
+	end
+	return filter, priority -- prefix/filter, priority
 end
 
 local function GetAuraColor(aura)
@@ -418,26 +445,21 @@ local function GetAuraColor(aura)
 end
 
 local DebuffPrefixModes = {
-	-- All
-	function(aura)
+	["all"] = function(aura)
 		return true
 	end,
-	-- My
-	function(aura)
+	["my"] = function(aura)
 		if aura.caster == "player" or aura.caster == "pet" then return true end
 	end,
-	-- Other
-	function(aura)
-		--print(aura.caster, aura.name)
-		if (aura.caster ~= "player" or aura.caster ~= "pet") then return true end
-	end,
-	-- CC
-	function(aura)
-		--return true, .5, .4, 0
-		return true, 1, 1, 0
-	end,
-	-- NOT
-	function(aura)
+	-- ["other"] = function(aura)
+	-- 	--print(aura.caster, aura.name)
+	-- 	if (aura.caster ~= "player" or aura.caster ~= "pet") then return true end
+	-- end,
+	-- ["cc"] = function(aura)
+	-- 	--return true, .5, .4, 0
+	-- 	return true, 1, 1, 0
+	-- end,
+	["not"] = function(aura)
 		return false
 	end
 }
@@ -465,7 +487,7 @@ local function SmartFilterMode(aura)
 	if prefix then
 		local show = DebuffPrefixModes[prefix](aura)
 
-		--print(aura.name, show, prefix, priority)
+		-- print(aura.name, show, prefix, priority)
 		if show == true then
 			return true, (priority or 20)		-- , r, g, b
 		else
@@ -508,16 +530,16 @@ local function TrackDispelType(dispelType)
 end
 
 local function DebuffFilter(aura)
-	---- Purgeable Buff
-	--if LocalVars.WidgetBuffPurgeable and aura.effect == "HELPFUL" and aura.type == "Magic" and aura.reaction == 1 then
-	--	local color = LocalVars.ColorBuffPurgeable
-	--	return true, 10, color.r, color.g, color.b, color.a
-	--end
-	---- Sootheable Enrage Buff
-	--if LocalVars.WidgetBuffEnrage and aura.effect == "HELPFUL" and aura.type == "" and aura.reaction == 1 then
-	--	local color = LocalVars.ColorBuffEnrage
-	--	return true, 10, color.r, color.g, color.b, color.a
-	--end
+	-- Purgeable Buff
+	if LocalVars.WidgetBuffPurgeable and aura.effect == "HELPFUL" and aura.type == "Magic" and aura.reaction == 1 then
+		local color = LocalVars.ColorBuffPurgeable
+		return true, 10, color.r, color.g, color.b, color.a
+	end
+	-- Sootheable Enrage Buff
+	if LocalVars.WidgetBuffEnrage and aura.effect == "HELPFUL" and aura.type == "" and aura.reaction == 1 then
+		local color = LocalVars.ColorBuffEnrage
+		return true, 10, color.r, color.g, color.b, color.a
+	end
 	-- Dispellable Debuff
 	if (LocalVars.WidgetAuraTrackDispelFriendly and aura.reaction == AURA_TARGET_FRIENDLY) then
 		if (aura.effect == "HARMFUL" and TrackDispelType(aura.type)) then
@@ -530,13 +552,8 @@ local function DebuffFilter(aura)
 end
 
 local function EmphasizedFilter(aura)
-	local spellid = tostring(aura.spellid)
-	local name = aura.name
+	local prefix, priority = GetPrefixPriority(aura, "emphasized")
 	local r, g, b = GetAuraColor(aura)
-
-	-- Lookup using the Prefix & Priority Lists
-	local prefix = LocalVars.EmphasizedAuraLookup[spellid] or LocalVars.EmphasizedAuraLookup[name] or NeatPlatesSettings.GlobalEmphasizedAuraLookup[spellid] or NeatPlatesSettings.GlobalEmphasizedAuraLookup[name]
-	local priority = LocalVars.EmphasizedAuraPriority[spellid] or LocalVars.EmphasizedAuraPriority[name] or NeatPlatesSettings.GlobalEmphasizedAuraPriority[spellid] or NeatPlatesSettings.GlobalEmphasizedAuraPriority[name]
 
 	if prefix and priority then
 		local show = DebuffPrefixModes[prefix](aura)
@@ -562,11 +579,21 @@ end
 -- Widget Initializers
 ---------------------------------------------------------------------------------------------------------
 
+local function SetWidgetPoints(widget, rel, config)
+	if widget.SetCustomPoint then
+		widget:SetCustomPoint(config.anchor or "TOP", rel, config.anchorRel or config.anchor or "TOP", config.x or 0, config.y or 0)
+	else
+		widget:ClearAllPoints()
+		widget:SetPoint(config.anchor or "TOP", rel, config.anchorRel or config.anchor or "TOP", config.x or 0, config.y or 0)
+	end
+end
+
 local function InitWidget( widgetName, extended, config, createFunction, enabled)
 	local widget = extended.widgets[widgetName]
 
 	if enabled and createFunction and config then
 		--[[ Data from Themes passed to parent ]] --
+		extended.widgetParent.config = config
 		if config.h ~= nil then extended.widgetParent._height = config.h end
 		if config.h ~= nil then extended.widgetParent._width = config.w end
 		if config.o ~= nil then extended.widgetParent._orientation = config.o else extended.widgetParent._orientation = "HORIZONTAL" end
@@ -578,13 +605,8 @@ local function InitWidget( widgetName, extended, config, createFunction, enabled
 			extended.widgets[widgetName] = widget
 		end
 
-		if widget.SetCustomPoint then
-			widget:SetCustomPoint(config.anchor or "TOP", extended, config.anchorRel or config.anchor or "TOP", config.x or 0, config.y or 0)
-		else
-			widget:ClearAllPoints()
-			widget:SetPoint(config.anchor or "TOP", extended, config.anchorRel or config.anchor or "TOP", config.x or 0, config.y or 0)
-		end
-		
+		SetWidgetPoints(widget, extended, config)
+
 	elseif widget and widget.Hide then
 		widget:Hide()
 	end
@@ -600,57 +622,78 @@ local function OnInitializeWidgets(extended, configTable)
 
 	local EnableClassWidget = (LocalVars.ClassEnemyIcon or LocalVars.ClassPartyIcon)
 	local EnableTotemWidget = LocalVars.WidgetTotemIcon
-	local EnableComboWidget = LocalVars.WidgetComboPoints
+	local EnableComboWidget = LocalVars.WidgetComboPoints ~= 4
 	local EnableThreatWidget = LocalVars.WidgetThreatIndicator
 	local EnableAuraWidget = LocalVars.WidgetDebuff
-	--local EnableAbsorbWidget = LocalVars.WidgetAbsorbIndicator
-	--local EnableQuestWidget = LocalVars.WidgetQuestIcon
+	local EnableArenaWidget = LocalVars.WidgetArenaIcon
+	local EnableAbsorbWidget = LocalVars.WidgetAbsorbIndicator
+	local EnableQuestWidget = LocalVars.WidgetQuestIcon
 	local EnableThreatPercentageWidget = LocalVars.WidgetThreatPercentage
-	--local EnableRangeWidget = LocalVars.WidgetRangeIndicator
+	local EnableRangeWidget = LocalVars.WidgetRangeIndicator
+
+	if NEATPLATES_IS_CLASSIC then
+		EnableAbsorbWidget = false
+	end
 
 	InitWidget( "ClassWidgetHub", extended, configTable.ClassIcon, CreateClassWidget, EnableClassWidget)
 	InitWidget( "TotemWidgetHub", extended, configTable.TotemIcon, CreateTotemIconWidget, EnableTotemWidget)
 	InitWidget( "ComboWidgetHub", extended, configTable.ComboWidget, CreateComboPointWidget, EnableComboWidget)
 	InitWidget( "ThreatWidgetHub", extended, configTable.ThreatLineWidget, CreateThreatLineWidget, EnableThreatWidget)
-	--InitWidget( "AbsorbWidgetHub", extended, configTable.AbsorbWidget, CreateAbsorbWidget, EnableAbsorbWidget)
-	--InitWidget( "QuestWidgetHub", extended, configTable.QuestWidget, CreateQuestWidget, EnableQuestWidget)
+	InitWidget( "AbsorbWidgetHub", extended, configTable.AbsorbWidget, CreateAbsorbWidget, EnableAbsorbWidget)
+	InitWidget( "QuestWidgetHub", extended, configTable.QuestWidget, CreateQuestWidget, EnableQuestWidget)
 	InitWidget( "ThreatPercentageWidgetHub", extended, configTable.ThreatPercentageWidget, CreateThreatPercentageWidget, EnableThreatPercentageWidget)
-	--InitWidget( "RangeWidgetHub", extended, configTable.RangeWidget, CreateRangeWidget, EnableRangeWidget)
+	InitWidget( "RangeWidgetHub", extended, configTable.RangeWidget, CreateRangeWidget, EnableRangeWidget)
+	InitWidget( "ArenaWidgetHub", extended, configTable.ArenaWidget, CreateArenaWidget, EnableArenaWidget)
 
-	if EnableComboWidget and configTable.DebuffWidgetPlus then
-		InitWidget( "AuraWidgetHub", extended, configTable.DebuffWidgetPlus, CreateAuraWidget, EnableAuraWidget)
-	else
-		InitWidget( "AuraWidgetHub", extended, configTable.DebuffWidget, CreateAuraWidget, EnableAuraWidget)
-	end
+	InitWidget( "AuraWidgetHub", extended, configTable.DebuffWidget, CreateAuraWidget, EnableAuraWidget)
 
 end
 
 local function OnContextUpdateDelegate(extended, unit)
 	local widgets = extended.widgets
+	local EnableComboWidget =  widgets.ComboWidgetHub and (LocalVars.WidgetComboPoints == 3 or (LocalVars.WidgetComboPoints == 1 and unit.reaction ~= "FRIENDLY") or (LocalVars.WidgetComboPoints == 2 and unit.reaction == "FRIENDLY"))
 
-	if LocalVars.WidgetComboPoints and widgets.ComboWidgetHub then
-		widgets.ComboWidgetHub:UpdateContext(unit) end
+	if EnableComboWidget then
+		widgets.ComboWidgetHub:UpdateContext(unit)
+	elseif widgets.ComboWidgetHub then
+		widgets.ComboWidgetHub:Hide()
+	end
 
 	if LocalVars.WidgetThreatIndicator and widgets.ThreatWidgetHub then
 		widgets.ThreatWidgetHub:UpdateContext(unit) end		-- Tug-O-Threat
 
 	if LocalVars.WidgetDebuff and widgets.AuraWidgetHub then
-		widgets.AuraWidgetHub:UpdateContext(unit) end
+		-- Reposition if combo widget is enabled for some themes
+		local config = copytable(extended.widgetParent.config)
+		if EnableComboWidget and unit.isTarget then
+			config.anchor = config.anchor2 or config.anchor
+			config.anchorRel = config.anchorRel2 or config.anchorRel
+			config.x = config.x2 or config.x
+			config.y = config.y2 or config.y
+		end
+
+		SetWidgetPoints(widgets.AuraWidgetHub, extended, config)
+		widgets.AuraWidgetHub:UpdateContext(unit)
+	end
+
 
 	if LocalVars.WidgetDebuff and widgets.AuraWidget then
 		widgets.AuraWidget:UpdateContext(unit) end
 
-	--if LocalVars.WidgetAbsorbIndicator and widgets.AbsorbWidgetHub then
-	--	widgets.AbsorbWidgetHub:UpdateContext(unit) end
+	if LocalVars.WidgetAbsorbIndicator and widgets.AbsorbWidgetHub then
+		widgets.AbsorbWidgetHub:UpdateContext(unit) end
 
 	if LocalVars.WidgetThreatPercentage and widgets.ThreatPercentageWidgetHub then
 		widgets.ThreatPercentageWidgetHub:UpdateContext(unit) end
 
-	--if LocalVars.WidgetRangeIndicator and widgets.RangeWidgetHub then
-	--	widgets.RangeWidgetHub:UpdateContext(unit) end
+	if LocalVars.WidgetRangeIndicator and widgets.RangeWidgetHub then
+		widgets.RangeWidgetHub:UpdateContext(unit) end
 
-	--if LocalVars.WidgetQuestIcon and widgets.QuestWidgetHub then
-	--	widgets.QuestWidgetHub:UpdateContext(unit, extended) end
+	if LocalVars.WidgetArenaIcon and widgets.ArenaWidgetHub then
+		widgets.ArenaWidgetHub:UpdateContext(unit) end
+
+	if LocalVars.WidgetQuestIcon and widgets.QuestWidgetHub then
+		widgets.QuestWidgetHub:UpdateContext(unit, extended) end
 end
 
 local function OnUpdateDelegate(extended, unit)
@@ -660,9 +703,9 @@ local function OnUpdateDelegate(extended, unit)
 		widgets.ClassWidgetHub:Update(unit, LocalVars.ClassPartyIcon)
 	end
 
-	--if widgets.QuestWidgetHub and LocalVars.WidgetQuestIcon then
-	--	widgets.QuestWidgetHub:Update(unit)
-	--end
+	if widgets.QuestWidgetHub and LocalVars.WidgetQuestIcon then
+		widgets.QuestWidgetHub:Update(unit)
+	end
 
 	if LocalVars.WidgetTotemIcon and widgets.TotemWidgetHub then
 		widgets.TotemWidgetHub:Update(unit)
@@ -698,17 +741,17 @@ local function OnVariableChange(vars)
 	--	NeatPlatesWidgets.SetClassWidgetOptions(LocalVars)
 	--end
 
-	--if LocalVars.WidgetPandemic then
-	--	NeatPlatesWidgets.SetPandemic(LocalVars.WidgetPandemic, LocalVars.ColorPandemic)
-	--end
+	if LocalVars.WidgetPandemic then
+		NeatPlatesWidgets.SetPandemic(LocalVars.WidgetPandemic, LocalVars.ColorPandemic)
+	end
 
-	--if LocalVars.WidgetPandemic or LocalVars.WidgetBuffPurgeable or LocalVars.WidgetBuffEnrage then
-	--	NeatPlatesWidgets.SetBorderTypes(LocalVars.BorderPandemic, LocalVars.BorderBuffPurgeable, LocalVars.BorderBuffEnrage)
-	--end
+	if LocalVars.WidgetPandemic or LocalVars.WidgetBuffPurgeable or LocalVars.WidgetBuffEnrage then
+		NeatPlatesWidgets.SetBorderTypes(LocalVars.BorderPandemic, LocalVars.BorderBuffPurgeable, LocalVars.BorderBuffEnrage)
+	end
 
-	--if LocalVars.WidgetRangeIndicator then
-	--	NeatPlatesWidgets.SetRangeWidgetOptions(LocalVars)
-	--end
+	if LocalVars.WidgetRangeIndicator then
+		NeatPlatesWidgets.SetRangeWidgetOptions(LocalVars)
+	end
 end
 HubData.RegisterCallback(OnVariableChange)
 

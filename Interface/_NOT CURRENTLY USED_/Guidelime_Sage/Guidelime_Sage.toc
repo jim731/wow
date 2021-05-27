@@ -1,0 +1,70 @@
+## Title: Guidelime_Sage
+## Author: Sage
+## Version: 1.0
+## Interface: 20501
+## Dependencies: Guidelime
+## Notes: Sage Guide: Classic WoW Leveling Guide (Alliance 1-60) for Guidelime
+
+Sage_Guide_1-10_Dun_Morogh.lua
+Sage_Guide_1-10_Elwynn_Forest.lua
+Sage_Guide_1-11_Teldrassil.lua
+Sage_Guide_10-12_Loch_Modan.lua
+Sage_Guide_11-15_Darkshore.lua
+Sage_Guide_12-14_Westfall.lua
+Sage_Guide_14-17_Loch_Modan.lua
+Sage_Guide_17-19_Darkshore.lua
+Sage_Guide_19-20_Redridge.lua
+Sage_Guide_20-21_Duskwood.lua
+Sage_Guide_21-22_Redridge.lua
+Sage_Guide_22-23_Duskwood.lua
+Sage_Guide_23-24_Wetlands.lua
+Sage_Guide_24-25_Ashenvale.lua
+Sage_Guide_25-28_Wetlands.lua
+Sage_Guide_28-30_Duskwood.lua
+Sage_Guide_30-31_Hillsbrad.lua
+Sage_Guide_31-32_Thousand_Needles.lua
+Sage_Guide_32-33_Hillsbrad.lua
+Sage_Guide_32-32_Stranglethorn.lua
+Sage_Guide_33-35_Desolace.lua
+Sage_Guide_35-36_Dustwallow.lua
+Sage_Guide_36-37_Stranglethorn.lua
+Sage_Guide_37-38_Alterac.lua
+Sage_Guide_38-39_Arathi.lua
+Sage_Guide_39-40_Badlands.lua
+Sage_Guide_40-42_Stranglethorn.lua
+Sage_Guide_42-43_Swamp_of_Sorrows.lua
+Sage_Guide_43-44_Tanaris.lua
+Sage_Guide_44-46_Feralas.lua
+Sage_Guide_46-48_Searing_Gorge.lua
+Sage_Guide_46-46_Hinterlands.lua
+Sage_Guide_48-49_Tanaris.lua
+Sage_Guide_48-48_Blasted_Lands.lua
+Sage_Guide_49-50_Felwood.lua
+Sage_Guide_49-49_Feralas.lua
+Sage_Guide_50-51_Western_Plaguelands.lua
+Sage_Guide_50-50_Azshara.lua
+Sage_Guide_51-53_Un'goro_Crater.lua
+Sage_Guide_51-51_Burning_Steppes.lua
+Sage_Guide_51-51_Stranglethorn_Vale.lua
+Sage_Guide_53-54_Winterspring.lua
+Sage_Guide_53-53_Feralas,_Felwood.lua
+Sage_Guide_54-55_Plaguelands.lua
+Sage_Guide_54-54_Burning_Steppes.lua
+Sage_Guide_55-56_Winterspring.lua
+Sage_Guide_55-55_Loose_Ends.lua
+Sage_Guide_56-57_Plaguelands.lua
+Sage_Guide_57-58_Blackrock_Depths.lua
+Sage_Guide_58-59_Silithus.lua
+Sage_Guide_59-60_Winterspring.lua
+Sage_Guide_Blackrock_Depths.lua
+Sage_Guide_Lower_Blackrock_Spire.lua
+Sage_Guide_Uldaman.lua
+Sage_Guide_Zul'Farrak.lua
+Sage_Guide_Ahn'Qiraj_20.lua
+Sage_Guide_Ahn'Qiraj_40.lua
+Sage_Guide_Blackwing_Lair.lua
+Sage_Guide_Molten_Core.lua
+Sage_Guide_Naxxramas.lua
+Sage_Guide_Onyxia's_Lair.lua
+Sage_Guide_World_Bosses.lua
+Sage_Guide_Zul'Gurub.lua

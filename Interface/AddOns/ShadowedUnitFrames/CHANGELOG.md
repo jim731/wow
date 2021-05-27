@@ -1,6 +1,6 @@
 # Shadowed Unit Frames
 
-## [v4.2.3-Classic](https://github.com/Nevcairiel/ShadowedUnitFrames/tree/v4.2.3-Classic) (2019-12-29)
-[Full Changelog](https://github.com/Nevcairiel/ShadowedUnitFrames/compare/v4.2.2-Classic...v4.2.3-Classic)
+## [v4.3.1-classic-1-gf597a16](https://github.com/Nevcairiel/ShadowedUnitFrames/tree/f597a16c762ad9bb25ba5323c31957c2b398c01e) (2021-05-21)
+[Full Changelog](https://github.com/Nevcairiel/ShadowedUnitFrames/compare/v4.3.1-classic...f597a16c762ad9bb25ba5323c31957c2b398c01e) [Previous Releases](https://github.com/Nevcairiel/ShadowedUnitFrames/releases)
 
-- Added support for showing enemy buffs via LibClassicDurations  
+- Only try hiding the FocusFrame if its present  

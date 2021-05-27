@@ -1,6 +1,6 @@
 
 PawnOptions = {
-	["LastVersion"] = 2.0417,
+	["LastVersion"] = 2.0418,
 	["ItemLevels"] = {
 		[7] = {
 			["ID"] = 6540,
@@ -48,8 +48,8 @@ PawnOptions = {
 			["Link"] = "|cff1eff00|Hitem:5212::::::::15:::::::|h[Blazing Wand]|h|r",
 		},
 	},
-	["LastPlayerFullName"] = "Parisi-Nethergarde Keep",
 	["AutoSelectScales"] = false,
+	["LastPlayerFullName"] = "Parisi-Nethergarde Keep",
 }
 PawnMrRobotScaleProviderOptions = nil
 PawnClassicScaleProviderOptions = {

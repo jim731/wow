@@ -1,0 +1,5 @@
+VER 3 0000000001000001 " " "135959"
+#showtooltip judgement
+/cast judgement
+/startattack
+END

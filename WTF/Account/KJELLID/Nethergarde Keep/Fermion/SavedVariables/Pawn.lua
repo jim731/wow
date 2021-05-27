@@ -1,18 +1,16 @@
 
 PawnOptions = {
-	["LastVersion"] = 2.0418,
-	["LastPlayerFullName"] = "Fermion-Nethergarde Keep",
-	["AutoSelectScales"] = false,
+	["LastVersion"] = 2.05,
 	["ItemLevels"] = {
 		{
-			["ID"] = 9664,
-			["Level"] = 45,
-			["Link"] = "|cff1eff00|Hitem:9664::::::::49:::11::::|h[Sentinel's Guard]|h|r",
+			["ID"] = 10749,
+			["Level"] = 54,
+			["Link"] = "|cff0070dd|Hitem:10749::::::::56:::11::::|h[Avenguard Helm]|h|r",
 		}, -- [1]
 		{
-			["ID"] = 10824,
-			["Level"] = 44,
-			["Link"] = "|cff0070dd|Hitem:10824::::::::49:::11::::|h[Amberglow Talisman]|h|r",
+			["ID"] = 15799,
+			["Level"] = 58,
+			["Link"] = "|cff1eff00|Hitem:15799::::::::60:::11::::|h[Heroic Commendation Medal]|h|r",
 		}, -- [2]
 		{
 			["ID"] = 9476,
@@ -21,64 +19,63 @@ PawnOptions = {
 		}, -- [3]
 		nil, -- [4]
 		{
-			["ID"] = 14768,
-			["Level"] = 44,
-			["Link"] = "|cff1eff00|Hitem:14768::::::::49:::1::::|h[Ravager's Armor]|h|r",
+			["ID"] = 21322,
+			["Level"] = 58,
+			["Link"] = "|cff1eff00|Hitem:21322::::::::57:::11::::|h[Ursa's Embrace]|h|r",
 		}, -- [5]
 		{
-			["ID"] = 14918,
-			["Level"] = 47,
-			["Link"] = "|cff1eff00|Hitem:14918::::::695:1388335616:49:::::::|h[Jade Belt of the Tiger]|h|r",
+			["ID"] = 15709,
+			["Level"] = 58,
+			["Link"] = "|cff1eff00|Hitem:15709::::::::57:::11::::|h[Gearforge Girdle]|h|r",
 		}, -- [6]
 		{
-			["ID"] = 10330,
-			["Level"] = 43,
-			["Link"] = "|cff0070dd|Hitem:10330:18:::::::49:::1::::|h[Scarlet Leggings]|h|r",
+			["ID"] = 21316,
+			["Level"] = 55,
+			["Link"] = "|cff1eff00|Hitem:21316::::::::55:::11::::|h[Leggings of the Ursa]|h|r",
 		}, -- [7]
 		{
-			["ID"] = 9637,
-			["Level"] = 45,
-			["Link"] = "|cff1eff00|Hitem:9637::::::::49:::11::::|h[Shinkicker Boots]|h|r",
+			["ID"] = 12426,
+			["Level"] = 59,
+			["Link"] = "|cff1eff00|Hitem:12426::::::::54:::::::|h[Imperial Plate Boots]|h|r",
 		}, -- [8]
 		{
-			["ID"] = 6722,
-			["Level"] = 30,
-			["Link"] = "|cff1eff00|Hitem:6722::::::::49:::11::::|h[Beastial Manacles]|h|r",
+			["ID"] = 12425,
+			["Level"] = 54,
+			["Link"] = "|cff1eff00|Hitem:12425::::::::54:::::::|h[Imperial Plate Bracers]|h|r",
 		}, -- [9]
 		{
-			["ID"] = 10331,
-			["Level"] = 38,
-			["Link"] = "|cff1eff00|Hitem:10331::::::::49:::1::::|h[Scarlet Gauntlets]|h|r",
+			["ID"] = 14846,
+			["Level"] = 50,
+			["Link"] = "|cff1eff00|Hitem:14846::::::::53:::::::|h[Sunscale Gauntlets]|h|r",
 		}, -- [10]
 		{
-			["ID"] = 9533,
-			["Level"] = 47,
+			["ID"] = 18400,
+			["Level"] = 57,
 			["AlsoFitsIn"] = 12,
-			["Link"] = "|cff0070dd|Hitem:9533::::::::49:::11::::|h[Masons Fraternity Ring]|h|r",
+			["Link"] = "|cff1eff00|Hitem:18400::::::::60:::11::::|h[Ring of Living Stone]|h|r",
 		}, -- [11]
 		{
-			["ID"] = 9533,
-			["Level"] = 47,
+			["ID"] = 10780,
+			["Level"] = 55,
 			["AlsoFitsIn"] = 11,
-			["Link"] = "|cff0070dd|Hitem:9533::::::::50:::11::::|h[Masons Fraternity Ring]|h|r",
+			["Link"] = "|cff1eff00|Hitem:10780::::::::57:::11::::|h[Mark of Hakkar]|h|r",
 		}, -- [12]
 		nil, -- [13]
 		nil, -- [14]
 		{
-			["ID"] = 10776,
-			["Level"] = 42,
-			["Link"] = "|cff0070dd|Hitem:10776::::::::49:::1::::|h[Silky Spider Cape]|h|r",
+			["ID"] = 16342,
+			["Level"] = 63,
+			["Link"] = "|cff0070dd|Hitem:16342::::::::60:::14::::|h[Sergeant's Cape]|h|r",
 		}, -- [15]
 		{
-			["ID"] = 6829,
-			["Level"] = 44,
-			["AlsoFitsIn"] = 17,
-			["Link"] = "|cff0070dd|Hitem:6829::::::::49:::11::::|h[Sword of Serenity]|h|r",
+			["ID"] = 19106,
+			["Level"] = 63,
+			["Link"] = "|cff0070dd|Hitem:19106::::::::52:::11::::|h[Ice Barbed Spear]|h|r",
 		}, -- [16]
 		{
-			["ID"] = 4652,
-			["Level"] = 45,
-			["Link"] = "|cff1eff00|Hitem:4652::::::::49:::11::::|h[Salbac Shield]|h|r",
+			["ID"] = 11915,
+			["Level"] = 55,
+			["Link"] = "|cff1eff00|Hitem:11915::::::::55:::11::::|h[Shizzle's Drizzle Blocker]|h|r",
 		}, -- [17]
 		{
 			["ID"] = 10508,
@@ -86,6 +83,8 @@ PawnOptions = {
 			["Link"] = "|cff1eff00|Hitem:10508::::::::49:::::::|h[Mithril Blunderbuss]|h|r",
 		}, -- [18]
 	},
+	["AutoSelectScales"] = false,
+	["LastPlayerFullName"] = "Fermion-Nethergarde Keep",
 }
 PawnMrRobotScaleProviderOptions = nil
 PawnClassicScaleProviderOptions = {

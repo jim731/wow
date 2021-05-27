@@ -1,9 +1,4 @@
 
-if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
-	print("|cFF33FF99SexyMap|r: You're trying to run the Classic version of SexyMap on a live server.")
-	return
-end
-
 local name, sm = ...
 sm.core = {}
 
@@ -13,13 +8,16 @@ local L = sm.L
 sm.backdrop = {
 	bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
 	edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-	insets = {left = 4, top = 4, right = 4, bottom = 4},
+	insets = {left = 4, top = 4, right = 4, bottom = 4}, -- Change the Clock/Coords/ZoneText clamp if this is changed
 	edgeSize = 16,
 	tile = true,
 }
 
 mod.frame = CreateFrame("Frame")
-mod.frame:Show()
+mod.button = CreateFrame("Button")
+mod.font = mod.button:CreateFontString()
+mod.frame:Hide()
+mod.button:Hide()
 mod.deepCopyHash = function(t)
 	local nt = {}
 	for k, v in pairs(t) do
@@ -31,6 +29,9 @@ mod.deepCopyHash = function(t)
 	end
 	return nt
 end
+mod.frame:SetScript("OnEvent", function(_, event, ...)
+	mod[event](sm, ...)
+end)
 
 mod.options = {
 	type = "group",
@@ -194,9 +195,9 @@ mod.options = {
 			name = L["Use Global Profile"],
 			width = "full",
 			confirm = function(info, v)
-				if v and SexyMapClassicDB.global then
+				if v and SexyMap2DB.global then
 					return L["A global profile already exists. You will be switched over to it and your UI will be reloaded, are you sure?"]
-				elseif v and not SexyMapClassicDB.global then
+				elseif v and not SexyMap2DB.global then
 					return L["No global profile exists. Your current profile will be copied over and used as the global profile, are you sure? This will also reload your UI."]
 				elseif not v then
 					return L["Are you sure you want to switch back to using a character specific profile? This will reload your UI."]
@@ -204,18 +205,18 @@ mod.options = {
 			end,
 			get = function()
 				local char = (UnitName("player").."-"..GetRealmName())
-				return type(SexyMapClassicDB[char]) == "string"
+				return type(SexyMap2DB[char]) == "string"
 			end,
 			set = function(info, v)
 				local char = (UnitName("player").."-"..GetRealmName())
 				if v then
-					if not SexyMapClassicDB.global then
-						SexyMapClassicDB.global = mod.deepCopyHash(SexyMapClassicDB[char])
+					if not SexyMap2DB.global then
+						SexyMap2DB.global = mod.deepCopyHash(SexyMap2DB[char])
 					end
-					SexyMapClassicDB[char] = "global"
+					SexyMap2DB[char] = "global"
 					ReloadUI()
 				else
-					SexyMapClassicDB[char] = nil
+					SexyMap2DB[char] = nil
 					ReloadUI()
 				end
 			end,
@@ -228,7 +229,7 @@ mod.options = {
 			confirmText = L["Copying this profile will reload your UI, are you sure?"],
 			values = function()
 				local tbl = {}
-				for k,v in pairs(SexyMapClassicDB) do
+				for k,v in pairs(SexyMap2DB) do
 					if k ~= "presets" and k ~= "global" and k ~= (UnitName("player").."-"..GetRealmName()) and type(v) == "table" then
 						tbl[k]=k
 					end
@@ -237,15 +238,15 @@ mod.options = {
 			end,
 			set = function(info, v)
 				local char = (UnitName("player").."-"..GetRealmName())
-				SexyMapClassicDB[char] = mod.deepCopyHash(SexyMapClassicDB[v])
+				SexyMap2DB[char] = mod.deepCopyHash(SexyMap2DB[v])
 				ReloadUI()
 			end,
 			disabled = function()
 				local char = (UnitName("player").."-"..GetRealmName())
-				if type(SexyMapClassicDB[char]) == "string" then
+				if type(SexyMap2DB[char]) == "string" then
 					return true
 				end
-				for k,v in pairs(SexyMapClassicDB) do
+				for k,v in pairs(SexyMap2DB) do
 					if k ~= "presets" and k ~= "global" and k ~= char and type(v) == "table" then
 						return false
 					end
@@ -261,7 +262,7 @@ mod.options = {
 			confirmText = L["Really delete this profile?"],
 			values = function()
 				local tbl = {}
-				for k,v in pairs(SexyMapClassicDB) do
+				for k,v in pairs(SexyMap2DB) do
 					if k ~= "presets" and k ~= "global" and k ~= (UnitName("player").."-"..GetRealmName()) and type(v) == "table" then
 						tbl[k]=k
 					end
@@ -269,14 +270,14 @@ mod.options = {
 				return tbl
 			end,
 			set = function(info, v)
-				SexyMapClassicDB[v] = nil
+				SexyMap2DB[v] = nil
 			end,
 			disabled = function()
 				local char = (UnitName("player").."-"..GetRealmName())
-				if type(SexyMapClassicDB[char]) == "string" then
+				if type(SexyMap2DB[char]) == "string" then
 					return true
 				end
-				for k,v in pairs(SexyMapClassicDB) do
+				for k,v in pairs(SexyMap2DB) do
 					if k ~= "presets" and k ~= "global" and k ~= char and type(v) == "table" then
 						return false
 					end
@@ -292,12 +293,12 @@ mod.options = {
 			order = 20,
 			func = function()
 				local char = UnitName("player").."-"..GetRealmName()
-				SexyMapClassicDB[char] = nil
+				SexyMap2DB[char] = nil
 				ReloadUI()
 			end,
 			disabled = function()
 				local char = (UnitName("player").."-"..GetRealmName())
-				if type(SexyMapClassicDB[char]) == "string" then
+				if type(SexyMap2DB[char]) == "string" then
 					return true
 				end
 			end,
@@ -307,23 +308,54 @@ mod.options = {
 
 function mod:ADDON_LOADED(addon)
 	if addon == "SexyMap" then
-		if type(SexyMapClassicDB) ~= "table" then
-			SexyMapClassicDB = {}
+		mod.frame:UnregisterEvent("ADDON_LOADED")
+
+		if type(SexyMap2DB) ~= "table" then
+			SexyMap2DB = {}
 		end
 
+		-- XXX 9.0.1
+		for character, tbl in next, SexyMap2DB do
+			if tbl.borders and tbl.borders.backdrop and tbl.borders.backdrop.settings then
+				local tex = tbl.borders.backdrop.settings.bgFile
+				if type(tex) == "string" then
+					if tex == "Interface\\Addons\\SexyMap\\media\\rusticbg" then
+						tbl.borders.backdrop.settings.bgFile = 249644
+					elseif tex == "Interface\\Addons\\SexyMap\\media\\ruinsbg" then
+						tbl.borders.backdrop.settings.bgFile = 191258
+					end
+				end
+			end
+		end
+		if SexyMap2DB.presets then
+			for name, tbl in next, SexyMap2DB.presets do
+				if tbl.backdrop and tbl.backdrop.settings then
+					local tex = tbl.backdrop.settings.bgFile
+					if type(tex) == "string" then
+						if tex == "Interface\\Addons\\SexyMap\\media\\rusticbg" then
+							tbl.backdrop.settings.bgFile = 249644
+						elseif tex == "Interface\\Addons\\SexyMap\\media\\ruinsbg" then
+							tbl.backdrop.settings.bgFile = 191258
+						end
+					end
+				end
+			end
+		end
+		-- XXX end
+
 		local char = UnitName("player").."-"..GetRealmName()
-		if not SexyMapClassicDB[char] then
-			SexyMapClassicDB[char] = {}
+		if not SexyMap2DB[char] then
+			SexyMap2DB[char] = {}
 		end
 
 		local dbToDispatch
-		if type(SexyMapClassicDB[char]) == "string" then
-			if not SexyMapClassicDB.global then
-				SexyMapClassicDB.global = {}
+		if type(SexyMap2DB[char]) == "string" then
+			if not SexyMap2DB.global then
+				SexyMap2DB.global = {}
 			end
-			dbToDispatch = SexyMapClassicDB.global
+			dbToDispatch = SexyMap2DB.global
 		else
-			dbToDispatch = SexyMapClassicDB[char]
+			dbToDispatch = SexyMap2DB[char]
 		end
 
 		if not dbToDispatch.core then
@@ -347,13 +379,14 @@ function mod:ADDON_LOADED(addon)
 			end
 		end
 
-		mod.frame:UnregisterEvent("ADDON_LOADED")
-		mod.frame:RegisterEvent("PLAYER_LOGIN")
 		mod.ADDON_LOADED = nil
 	end
 end
+mod.frame:RegisterEvent("ADDON_LOADED")
 
 function mod:PLAYER_LOGIN()
+	mod.frame:UnregisterEvent("PLAYER_LOGIN")
+
 	-- Setup config
 	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable(name, mod.options, true)
 	LibStub("AceConfigDialog-3.0"):AddToBlizOptions(name)
@@ -383,20 +416,63 @@ function mod:PLAYER_LOGIN()
 		sm[mod.loadModules[i]]:OnEnable()
 		sm[mod.loadModules[i]].OnEnable = nil
 	end
-	mod.loadModules = nil
 
-	mod.frame:UnregisterEvent("PLAYER_LOGIN")
 	mod.PLAYER_LOGIN = nil
 end
+mod.frame:RegisterEvent("PLAYER_LOGIN")
+
+-- Hopefully temporary workaround for string size functions returning 0 for foreign fonts at PLAYER_LOGIN on a cold boot
+function mod:LOADING_SCREEN_DISABLED()
+	mod.frame:UnregisterEvent("LOADING_SCREEN_DISABLED")
+
+	if not mod.PLAYER_LOGIN then -- Only if PLAYER_LOGIN has fired before LOADING_SCREEN_DISABLED
+		for i=1, #mod.loadModules do
+			local module = sm[mod.loadModules[i]]
+			if module and module.OnLoadingScreenOver then
+				sm[mod.loadModules[i]]:OnLoadingScreenOver()
+				sm[mod.loadModules[i]].OnLoadingScreenOver = nil
+			end
+		end
+		mod.loadModules = nil
+	end
+
+	mod.LOADING_SCREEN_DISABLED = nil
+end
+mod.frame:RegisterEvent("LOADING_SCREEN_DISABLED")
+
+if mod.frame.GetFrameStrata(Minimap) ~= "LOW" then
+	mod.frame.SetFrameStrata(Minimap, "LOW") -- Blizz Defaults patch 9.0.1 Minimap.xml
+end
+if mod.frame.GetFrameLevel(Minimap) ~= 2 then
+	mod.frame.SetFrameLevel(Minimap, 2) -- Blizz Defaults patch 9.0.1 Minimap.xml
+end
+
+-- Prevent the damage caused by automagic fuckery when a frame changes parent by locking the strata/level in place
+mod.frame.SetFixedFrameStrata(Minimap, true)
+mod.frame.SetFixedFrameLevel(Minimap, true)
+mod.frame.SetParent(Minimap, UIParent)
+-- Prevent some addons doing dumb things that breaks SexyMap. #175
+hooksecurefunc(Minimap, "SetParent", function()
+	mod.frame.SetParent(Minimap, UIParent)
+end)
 
 -- Make sure the various minimap buttons follow the minimap
 -- We do this before login to prevent button placement issues
 MinimapBackdrop:ClearAllPoints()
-MinimapBackdrop:SetParent(Minimap)
 MinimapBackdrop:SetPoint("CENTER", Minimap, "CENTER", -8, -23)
 
 function mod:SetupMap()
 	local Minimap = Minimap
+
+	-- Hide the Minimap during a pet battle
+	mod.frame:RegisterEvent("PET_BATTLE_OPENING_START")
+	mod.PET_BATTLE_OPENING_START = function()
+		Minimap:Hide()
+	end
+	mod.frame:RegisterEvent("PET_BATTLE_CLOSE")
+	mod.PET_BATTLE_CLOSE = function()
+		Minimap:Show()
+	end
 
 	-- Hide the Minimap during combat. Remove the comments (--) to enable.
 	--mod.frame:RegisterEvent("PLAYER_REGEN_DISABLED")
@@ -457,7 +533,6 @@ function mod:SetupMap()
 	MinimapBorderTop:Hide()
 	Minimap:RegisterForDrag("LeftButton")
 	Minimap:SetClampedToScreen(mod.db.clamp)
-	Minimap:SetFrameStrata("LOW")
 	Minimap:SetScale(mod.db.scale or 1)
 	Minimap:SetMovable(not mod.db.lock)
 
@@ -470,17 +545,10 @@ function mod:SetupMap()
 
 	if mod.db.point then
 		Minimap:ClearAllPoints()
-		Minimap:SetParent(UIParent)
 		Minimap:SetPoint(mod.db.point, UIParent, mod.db.relpoint, mod.db.x, mod.db.y)
-		Minimap:SetFrameStrata("LOW")
 	end
 	self.SetupMap = nil
 end
-
-mod.frame:RegisterEvent("ADDON_LOADED")
-mod.frame:SetScript("OnEvent", function(_, event, ...)
-	mod[event](sm, ...)
-end)
 
 function mod:RegisterModuleOptions(modName, optionTbl, displayName)
 	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable(name..modName, optionTbl, true)

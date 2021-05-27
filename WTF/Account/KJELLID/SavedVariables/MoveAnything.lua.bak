@@ -1,13 +1,84 @@
 
 MADB = {
-	["noBags"] = false,
-	["characters"] = {
-	},
+	["noMMMW"] = false,
+	["closeGUIOnEscape"] = false,
 	["alwaysShowNudger"] = false,
 	["tooltips"] = true,
-	["profiles"] = {
-	},
-	["noMMMW"] = false,
 	["playSound"] = false,
-	["closeGUIOnEscape"] = false,
+	["profiles"] = {
+		["default"] = {
+			["name"] = "default",
+			["frames"] = {
+				["GuildBankItemTooltipMover"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						0, -- [3]
+						0, -- [4]
+					},
+					["name"] = "GuildBankItemTooltipMover",
+					["pos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						636.04833984375, -- [4]
+						-730.8645401000977, -- [5]
+					},
+				},
+				["BagItemTooltipMover"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						0, -- [3]
+						0, -- [4]
+					},
+					["name"] = "BagItemTooltipMover",
+					["pos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						635.2568359375, -- [4]
+						-731.6548767089844, -- [5]
+					},
+				},
+				["UIErrorsFrame"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						0, -- [4]
+						-121.9999923706055, -- [5]
+					},
+					["name"] = "UIErrorsFrame",
+					["pos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						3.0517578125e-05, -- [4]
+						-122, -- [5]
+					},
+				},
+				["TooltipMover"] = {
+					["orgPos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						0, -- [3]
+						0, -- [4]
+					},
+					["name"] = "TooltipMover",
+					["pos"] = {
+						"TOP", -- [1]
+						"UIParent", -- [2]
+						"TOP", -- [3]
+						636.83837890625, -- [4]
+						-730.864616394043, -- [5]
+					},
+				},
+			},
+		},
+	},
+	["characters"] = {
+	},
+	["noBags"] = false,
+	["frameListRows"] = 18,
 }

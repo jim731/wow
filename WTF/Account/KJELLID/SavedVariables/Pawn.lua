@@ -8,19 +8,26 @@ PawnCommon = {
 	["ShowValuesForUpgradesOnly"] = true,
 	["ShowItemLevelUpgrades"] = false,
 	["ShownGettingStarted"] = true,
-	["IgnoreGemsWhileLeveling"] = true,
+	["Debug"] = false,
 	["ColorTooltipBorder"] = true,
 	["ShowTooltipIcons"] = true,
 	["Digits"] = 1,
 	["ShowSocketingAdvisor"] = true,
-	["ShowSpecIcons"] = true,
-	["LastVersion"] = 2.0418,
-	["ButtonPosition"] = 2,
-	["ShowLootUpgradeAdvisor"] = true,
-	["ShowQuestUpgradeAdvisor"] = true,
 	["Scales"] = {
 		["\"Classic\":WARRIOR2"] = {
 			["PerCharacterOptions"] = {
+				["Craftingmats-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Bankmoomoo-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
+				["Bullsi-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
+				["Craftmateria-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 				["Garluk-Mirage Raceway"] = {
 					["Visible"] = true,
 				},
@@ -41,6 +48,12 @@ PawnCommon = {
 				["Parisi-Nethergarde Keep"] = {
 					["Visible"] = true,
 				},
+				["Clothguy-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Hemos-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "3fc6ea",
 			["LocalizedName"] = "Mage: Frost",
@@ -55,6 +68,12 @@ PawnCommon = {
 		},
 		["\"Classic\":WARLOCK2"] = {
 			["PerCharacterOptions"] = {
+				["Various-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Korloc-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "8787ed",
 			["LocalizedName"] = "Warlock: Demonology",
@@ -70,6 +89,12 @@ PawnCommon = {
 		["\"Classic\":MAGE1"] = {
 			["PerCharacterOptions"] = {
 				["Parisi-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Clothguy-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Hemos-Mirage Raceway"] = {
 					["Visible"] = true,
 				},
 			},
@@ -89,6 +114,12 @@ PawnCommon = {
 				["Parisi-Nethergarde Keep"] = {
 					["Visible"] = true,
 				},
+				["Clothguy-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Hemos-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "3fc6ea",
 			["LocalizedName"] = "Mage: Fire",
@@ -103,6 +134,12 @@ PawnCommon = {
 		},
 		["\"Classic\":PALADIN2"] = {
 			["PerCharacterOptions"] = {
+				["Nahfan-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
+				["Lanayria-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "f48cba",
 			["LocalizedName"] = "Paladin: Protection",
@@ -117,6 +154,12 @@ PawnCommon = {
 		},
 		["\"Classic\":HUNTER2"] = {
 			["PerCharacterOptions"] = {
+				["Elunari-Firemaw"] = {
+					["Visible"] = true,
+				},
+				["Zanjee-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "aad372",
 			["LocalizedName"] = "Hunter: Marksmanship",
@@ -131,6 +174,12 @@ PawnCommon = {
 		},
 		["\"Classic\":PRIEST1"] = {
 			["PerCharacterOptions"] = {
+				["Consumables-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Zabuji-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "ffffff",
 			["LocalizedName"] = "Priest: Discipline",
@@ -145,6 +194,18 @@ PawnCommon = {
 		},
 		["\"Classic\":WARRIOR3"] = {
 			["PerCharacterOptions"] = {
+				["Craftingmats-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Bankmoomoo-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
+				["Bullsi-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
+				["Craftmateria-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 				["Garluk-Mirage Raceway"] = {
 					["Visible"] = true,
 				},
@@ -162,6 +223,12 @@ PawnCommon = {
 		},
 		["\"Classic\":WARLOCK3"] = {
 			["PerCharacterOptions"] = {
+				["Various-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Korloc-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "8787ed",
 			["LocalizedName"] = "Warlock: Destruction",
@@ -176,6 +243,12 @@ PawnCommon = {
 		},
 		["\"Classic\":PRIEST3"] = {
 			["PerCharacterOptions"] = {
+				["Consumables-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Zabuji-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "ffffff",
 			["LocalizedName"] = "Priest: Shadow",
@@ -190,6 +263,9 @@ PawnCommon = {
 		},
 		["\"Classic\":SHAMAN2"] = {
 			["PerCharacterOptions"] = {
+				["Baeldemos-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "f48cba",
 			["LocalizedName"] = "Shaman: Enhancement",
@@ -204,6 +280,12 @@ PawnCommon = {
 		},
 		["\"Classic\":HUNTER3"] = {
 			["PerCharacterOptions"] = {
+				["Elunari-Firemaw"] = {
+					["Visible"] = true,
+				},
+				["Zanjee-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "aad372",
 			["LocalizedName"] = "Hunter: Survival",
@@ -218,6 +300,12 @@ PawnCommon = {
 		},
 		["\"Classic\":HUNTER1"] = {
 			["PerCharacterOptions"] = {
+				["Elunari-Firemaw"] = {
+					["Visible"] = true,
+				},
+				["Zanjee-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "aad372",
 			["LocalizedName"] = "Hunter: Beast Mastery",
@@ -232,6 +320,18 @@ PawnCommon = {
 		},
 		["\"Classic\":WARRIOR1"] = {
 			["PerCharacterOptions"] = {
+				["Craftingmats-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Bankmoomoo-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
+				["Bullsi-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
+				["Craftmateria-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 				["Garluk-Mirage Raceway"] = {
 					["Visible"] = true,
 				},
@@ -249,6 +349,9 @@ PawnCommon = {
 		},
 		["\"Classic\":SHAMAN1"] = {
 			["PerCharacterOptions"] = {
+				["Baeldemos-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "f48cba",
 			["LocalizedName"] = "Shaman: Elemental",
@@ -263,6 +366,9 @@ PawnCommon = {
 		},
 		["\"Classic\":SHAMAN3"] = {
 			["PerCharacterOptions"] = {
+				["Baeldemos-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "f48cba",
 			["LocalizedName"] = "Shaman: Restoration",
@@ -277,6 +383,12 @@ PawnCommon = {
 		},
 		["\"Classic\":PALADIN3"] = {
 			["PerCharacterOptions"] = {
+				["Nahfan-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
+				["Lanayria-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "f48cba",
 			["LocalizedName"] = "Paladin: Retribution",
@@ -293,6 +405,9 @@ PawnCommon = {
 			["Color"] = "fff468",
 			["LocalizedName"] = "Rogue: Off Hand",
 			["PerCharacterOptions"] = {
+				["Equipment-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["DoNotShow1HUpgrades"] = false,
 			["ClassID"] = 4,
@@ -303,6 +418,9 @@ PawnCommon = {
 		},
 		["\"Classic\":DRUID3"] = {
 			["PerCharacterOptions"] = {
+				["Cowski-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 				["Bushwick-Nethergarde Keep"] = {
 					["Visible"] = true,
 				},
@@ -320,6 +438,9 @@ PawnCommon = {
 		},
 		["\"Classic\":DRUID2"] = {
 			["PerCharacterOptions"] = {
+				["Cowski-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 				["Bushwick-Nethergarde Keep"] = {
 					["Visible"] = true,
 				},
@@ -337,6 +458,12 @@ PawnCommon = {
 		},
 		["\"Classic\":WARLOCK1"] = {
 			["PerCharacterOptions"] = {
+				["Various-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Korloc-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "8787ed",
 			["LocalizedName"] = "Warlock: Affliction",
@@ -351,6 +478,9 @@ PawnCommon = {
 		},
 		["\"Classic\":DRUID4"] = {
 			["PerCharacterOptions"] = {
+				["Cowski-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 				["Bushwick-Nethergarde Keep"] = {
 					["Visible"] = true,
 				},
@@ -368,6 +498,9 @@ PawnCommon = {
 		},
 		["\"Classic\":ROGUE2"] = {
 			["PerCharacterOptions"] = {
+				["Equipment-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "fff468",
 			["LocalizedName"] = "Rogue: Combat",
@@ -382,6 +515,9 @@ PawnCommon = {
 		},
 		["\"Classic\":ROGUE3"] = {
 			["PerCharacterOptions"] = {
+				["Equipment-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "fff468",
 			["LocalizedName"] = "Rogue: Subtlety",
@@ -396,6 +532,9 @@ PawnCommon = {
 		},
 		["\"Classic\":DRUID1"] = {
 			["PerCharacterOptions"] = {
+				["Cowski-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 				["Bushwick-Nethergarde Keep"] = {
 					["Visible"] = true,
 				},
@@ -413,6 +552,12 @@ PawnCommon = {
 		},
 		["\"Classic\":PALADIN1"] = {
 			["PerCharacterOptions"] = {
+				["Nahfan-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
+				["Lanayria-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "f48cba",
 			["LocalizedName"] = "Paladin: Holy",
@@ -427,6 +572,9 @@ PawnCommon = {
 		},
 		["\"Classic\":ROGUE1"] = {
 			["PerCharacterOptions"] = {
+				["Equipment-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "fff468",
 			["LocalizedName"] = "Rogue: Assassination",
@@ -441,6 +589,12 @@ PawnCommon = {
 		},
 		["\"Classic\":PRIEST2"] = {
 			["PerCharacterOptions"] = {
+				["Consumables-Nethergarde Keep"] = {
+					["Visible"] = true,
+				},
+				["Zabuji-Mirage Raceway"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "ffffff",
 			["LocalizedName"] = "Priest: Holy",
@@ -454,5 +608,10 @@ PawnCommon = {
 			["SpecID"] = 2,
 		},
 	},
-	["Debug"] = false,
+	["LastVersion"] = 2.0503,
+	["ButtonPosition"] = 2,
+	["ShowLootUpgradeAdvisor"] = true,
+	["ShowQuestUpgradeAdvisor"] = true,
+	["ShowSpecIcons"] = true,
+	["IgnoreGemsWhileLeveling"] = true,
 }

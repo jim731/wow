@@ -6,10 +6,11 @@ end
 
 
 -- INTERFACE
+Lang["Credits"] = "Ein großes DANKESCHÖN an meine Gilde |cffffd100<Divine Heresy>|r für Ihre Unterstützung bei der Entwicklung und dem Test des Addons, und danke an |cffffd100Bushido @ Pyrewood Village|r für die Hilfe bei TBC!\n\nVielen, vielen dank auch an die Übersetzer:\n  - Deutsche Übersetzung: |cffffd100Sumaya @ Razorfen DE|r\n  - Russische Übersetzung: |cffffd100Greymarch Gilde @ Flamegor RU|r\n  - Spanische Übersetzung: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Chinesische Übersetzung: |cffffd100ly395842562|r und |cffffd100Icyblade|r\n  - Koreanische Übersetzung: |cffffd100Drix @ Azshara KR|r\n\n/Hug von Cixi/Gaya @ Remulos Horde"
 Lang["Mini"] = "Mini"
 Lang["Maxi"] = "Maxi"
-Lang["Version"] = "Attune ##VERSION## von Cixi@Remulos"
-Lang["Splash"] = "v.##VERSION## by Cixi@Remulos. Gib /attune ein um zu starten."
+Lang["Version"] = "Attune v.##VERSION## von Cixi@Remulos"
+Lang["Splash"] = "v.##VERSION## von Cixi@Remulos. Gib /attune ein um zu starten."
 Lang["Survey"] = "Umfrage"
 Lang["Guild"] = "Gilde"
 Lang["Party"] = "Gruppe"
@@ -65,12 +66,70 @@ Lang["Help3"] = "Um deinen Gildenfortschritt zu sehen, klicke auf |cfffff700surv
 Lang["Help4"] = "Du erhälst Fortschrittsdaten von jedem Gildenmitglied mit diesem Addon"
 Lang["Help5"] = "Wenn du genug Informationen gesammelt hast, klicke auf |cfffff700export|r um den Gildenfortschritt zu exportieren"
 Lang["Help6"] = "Daten können auf |cfffff700https://warcraftratings.com/attune/upload|r hochgeladen werden"
-Lang["Credits"] = "Ein großes DANKESCHÖN an meine Gilde |cffffd100<Divine Heresy>|r für Ihre Unterstützung bei der Entwicklung und dem Test des Addons, und danke an |cffffd100Bushido @ Pyrewood Village|r für die Hilfe bei TBC!\n\nVielen, vielen dank auch an die Übersetzer:\n  - Deutsche Übersetzung: |cffffd100Sumaya @ Razorfen DE|r\n  - Russische Übersetzung: |cffffd100Greymarch Gilde @ Flamegor RU|r\n\n/Hug von Cixi/Gaya @ Remulos Horde"
 Lang["Survey_DESC"] = "Führt eine Statusumfrage aus (für Spieler mit dem Addon)"
 Lang["Export_DESC"] = "Exportiert deine Attune Daten für die Website"
 Lang["Toggle_DESC"] = "Umschalten zwischen Umfrageergebnissen und Zugangsquests"
 --Lang["PreferredLocale_TEXT"] = "Preferred Language"
 --Lang["PreferredLocale_DESC"] = "Select the language you want to see Attune in. Changes to this will require a reload to take effect."
+--v220
+Lang["My Toons"] = "Meine Twinks"
+Lang["No Target"] = "Sie haben kein Ziel"
+Lang["No Response From"] = "Keine Antwort von ##PLAYER##"
+Lang["Sync Request From"] = "Neue Attune Synchronisierungsanforderung von:\n\n##PLAYER##"
+Lang["Could be slow"] = "Abhängig von der Datenmenge, die Sie haben, kann dies ein sehr langsamer Prozess sein"
+Lang["Accept"] = "Akzeptieren"
+Lang["Reject"] = "Ablehnen"
+Lang["Busy right now"] = "##PLAYER## ist gerade beschäftigt, versuchen Sie es später noch einmal."
+Lang["Sending Sync Request"] = "Senden einer Synchronisierungsanforderung an ##PLAYER##"
+Lang["Request accepted, sending data to "] = "Anfrage angenommen, Daten an ##PLAYER## senden"
+Lang["Received request from"] = "Anfrage von ##PLAYER## erhalten"
+Lang["Request rejected"] = "Antrag abgelehnt"
+Lang["Sync over"] = "Die Synchronisierung dauerte ##DURATION##"
+Lang["Syncing Attune data with"] = "Synchronisieren von Attune-Daten mit ##PLAYER##"
+Lang["Cannot sync while another sync is in progress"] = "Unmöglich, während eine weitere Synchronisierung ausgeführt wird"
+Lang["Sync with target"] = "Mit Ziel synchronisieren"
+Lang["Show Profiles"] = "Profile anzeigen"
+Lang["Show Progress"] = "Fortschritt anzeigen"
+Lang["Status"] = "Status"
+Lang["Role"] = "Rolle"
+Lang["Last Surveyed"] = "Zuletzt befragt"
+Lang['Seconds ago'] = "##DURATION## vor"
+Lang["Main"] = "Main"
+Lang["Alt"] = "Twink"
+Lang["Tank"] = "Tank"
+Lang["Healer"] = "Healer"
+Lang["Melee DPS"] = "Nahkampf-DPS"
+Lang["Ranged DPS"] = "Fernkampf-DPS"
+Lang["Bank"] = "Bank"
+Lang["DelAlts_TEXT"] = "Alle Twinks löschen"
+Lang["DelAlts_DESC"] = "Löschen Sie alle Informationen zu Spielern, die als Alts markiert sind"
+Lang["DelAlts_CONF"] = "Wirklich alle Twinks löschen?"
+Lang["DelAlts_DONE"] = "Alle Twinks gelöscht"
+Lang["DelUnspecified_TEXT"] = "Nicht angegeben löschen"
+Lang["DelUnspecified_DESC"] = "Löschen Sie alle Informationen zu Spielern mit einem nicht angegebenen Main/Twink Status"
+Lang["DelUnspecified_CONF"] = "Löschen Sie wirklich alle Zeichen mit einem nicht angegebenen Main/Twink Status?"
+Lang["DelUnspecified_DONE"] = "Alle nicht angegebenen Main/Twink Status wurden gelöscht"
+--v221
+Lang["Open Raid Planner"] = "Öffne Raid Planer"
+Lang["Unspecified"] = "unbekannt"
+Lang["Empty"] = "Leer"
+Lang["Guildies only"] = "Nur Gildenmitglieder zeigen"
+Lang["Show Alts"] = "Zeige Twinks"
+Lang["Show Mains"] = "Zeige Mains"
+Lang["Show Unspecified"] = "Zeige unbekannt"
+Lang["Show Unattuned"] = "Zeige Spieler ohne Zugang"
+Lang["Raid spots"] = "##SIZE## Raid Plätze"
+Lang["Group Number"] = "Gruppe ##NUMBER##"
+Lang["Move to next group"] = "    Schiebe in nächste Gruppe"
+Lang["Remove from raid"] = "  Aus Raid entfernen"
+Lang["Select a raid and click on players to add them in"] = "Wähle den Raid und klicke auf Spieler um sie hinzuzufügen"
+--v224
+Lang["Enter a new name for this raid group"] = "Geben Sie einen neuen Namen für diese Schlachtzugsgruppe ein"
+Lang["Save"] = "Speichern"
+--v226
+Lang["Invite"] = "Einladen"
+Lang["Send raid invites to all listed players?"] = "Raid-Einladungen an alle aufgelisteten Spieler senden?"
+Lang["External link"] = "Link zu einer Online-Datenbank"
 
 
 -- OPTIONS
@@ -143,6 +202,7 @@ Lang["OnlyOne_Desc"] = "Nur ein Spieler der Gruppe muss den Schlüssel haben. Ei
 Lang["Heroic_Desc"] = "Alle Mitglieder der Gruppe müssen sowohl den Ruf als auch den Schlüssel haben um die Instanz zu betreten"
 Lang["NB_Desc"] = "Nur ein Mitglied des Raids benötigt die Urne um den Schrecken der Nacht zu beschwören."
 Lang["BT_Desc"] = "Alle Mitglieder des Raids müssen das Medaillion von Karabor dabei haben um den Raid zu betreten."
+Lang["BM_Desc"] = "Alle Mitglieder der Gruppe müssen die Questkette abschließen, um in die Instanz einzusteigen." 
 
 
 -- GENERIC
@@ -273,6 +333,9 @@ Lang["The Steamvault"] = "Die Dampfkammer"
 Lang["Slave Pens"] = "Die Sklavenunterkünfte"
 Lang["Gruul's Lair"] = "Gruuls Unterschlupf"
 Lang["Magtheridon's Lair"] = "Magtheridons Kammer"
+Lang["Zul'Aman"] = "Zul'Aman"
+Lang["Sunwell Plateau"] = "Sonnenbrunnenplateau"
+
 
 
 -- ITEMS
@@ -404,9 +467,9 @@ Lang["Q2_6502"] = "Ihr müsst das Blut des schwarzen Großdrachen-Helden von Gen
 Lang["Q1_7761"] = "Blackhands Befehl"			-- https://de.classic.wowhead.com/quest=7761
 Lang["Q2_7761"] = "Das war ja vielleicht mal ein dummer Orc. Es sieht so aus, als müsstet Ihr dieses Brandzeichen finden, um an das Mal von Drakkisath zu gelangen. Damit sollte sich die Befehlskugel aktivieren lassen.\n\nDem Brief zufolge, wird das Brandzeichen von General Drakkisath bewacht. Vielleicht solltet Ihr diesem Hinweis nachgehen. "
 Lang["Q1_9121"] = "Die Zitadelle des Schreckens - Naxxramas" 	-- https://de.classic.wowhead.com/quest=9121
-Lang["Q2_9122"] = "Erzmagierin Angela Dosantos bei der Kapelle des hoffnungsvollen Lichts in den östlichen Pestländern möchte 5 Arkankristalle, 2 Nexuskristalle, 1 rechtschaffene Kugel und 60 Goldstücke. Euer Ruf bei der Argentumdämmerung muss außerdem wohlwollend sein."
+Lang["Q2_9121"] = "Erzmagierin Angela Dosantos bei der Kapelle des hoffnungsvollen Lichts in den östlichen Pestländern möchte 5 Arkankristalle, 2 Nexuskristalle, 1 rechtschaffene Kugel und 60 Goldstücke. Euer Ruf bei der Argentumdämmerung muss außerdem wohlwollend sein."
 Lang["Q1_9122"] = "Die Zitadelle des Schreckens - Naxxramas"			-- https://de.classic.wowhead.com/quest=9122
-Lang["Q2_9121"] = "Erzmagierin Angela Dosantos bei der Kapelle des hoffnungsvollen Lichts in den östlichen Pestländern möchte 2 Arkankristalle, 1 Nexuskristall und 30 Goldstücke. Euer Ruf bei der Argentumdämmerung muss außerdem respektvoll sein. "
+Lang["Q2_9122"] = "Erzmagierin Angela Dosantos bei der Kapelle des hoffnungsvollen Lichts in den östlichen Pestländern möchte 2 Arkankristalle, 1 Nexuskristall und 30 Goldstücke. Euer Ruf bei der Argentumdämmerung muss außerdem respektvoll sein. "
 Lang["Q1_9123"] = "Die Zitadelle des Schreckens - Naxxramas"			-- https://de.classic.wowhead.com/quest=9123
 Lang["Q2_9123"] = "Erzmagierin Angela Dosantos bei der Kapelle des hoffnungsvollen Lichts in den östlichen Pestländern wird Euch die arkane Tarnung kostenfrei gewähren. Euer Ruf bei der Argentumdämmerung muss ehrfürchtig sein. "
 Lang["Q1_8286"] = "Was uns morgen erwartet"			-- https://de.classic.wowhead.com/quest=8286

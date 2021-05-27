@@ -52,3 +52,7 @@ Details_TinyThreat: enabled
 Details_Streamer: enabled
 Leatrix_Plus: enabled
 pfUI: enabled
+Inventorian: disabled
+Watto: disabled
+WeakAurasCompanion: enabled
+WeakAurasArchive: enabled

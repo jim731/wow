@@ -1,0 +1,10 @@
+
+AutoCarrotDB = {
+	["buttonScale"] = 1,
+	["mithrilSpurs"] = true,
+	["swimHelm"] = true,
+	["button"] = false,
+	["swimBelt"] = true,
+	["ridingGloves"] = true,
+	["enabled"] = true,
+}

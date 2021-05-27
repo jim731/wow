@@ -1,4 +1,4 @@
-
+﻿
 -- constants
 local ARROW = " ‹–› " -- ascii 139, 150, 155
 

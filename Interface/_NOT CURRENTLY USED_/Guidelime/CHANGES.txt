@@ -1,0 +1,18 @@
+tag 278659811025ae18e16e482d1a34f744b179af4b v2.007
+Author:	max-ri <51713394+max-ri@users.noreply.github.com>
+Date:	Wed May 19 15:41:36 2021 +0200
+
+v2.007
+
+commit f34aadbb132f862e51f94a0a972c58e38887b719
+Author: max-ri <51713394+max-ri@users.noreply.github.com>
+Date:   Wed May 19 15:41:36 2021 +0200
+
+    v2.007
+
+commit 73b5d9aada8ae7c585abbefed719a8ff8a24f8c5
+Author: max-ri <51713394+max-ri@users.noreply.github.com>
+Date:   Wed May 19 14:39:47 2021 +0200
+
+    Update DSB's 1-13 Blood Elf.lua
+

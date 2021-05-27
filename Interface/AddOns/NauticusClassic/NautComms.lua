@@ -1,4 +1,4 @@
-
+﻿
 -- declare colour codes for console messages
 local RED     = "|cffff0000"
 local GREEN   = "|cff00ff00"

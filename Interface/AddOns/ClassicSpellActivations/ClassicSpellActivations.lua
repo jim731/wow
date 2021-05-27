@@ -3,7 +3,7 @@ local addonName, ns = ...
 local f = CreateFrame("Frame", "ClassicSpellActivations") --, UIParent)
 
 f:SetScript("OnEvent", function(self, event, ...)
-	return self[event](self, event, ...)
+    return self[event](self, event, ...)
 end)
 
 local UnitGUID = UnitGUID
@@ -18,6 +18,7 @@ local activations = {}
 
 local LocalizedOverpower = GetSpellInfo(7384)
 local LocalizedRevenge = GetSpellInfo(6572)
+local LocalizedRampage = GetSpellInfo(29801)
 local LocalizedRiposte = GetSpellInfo(14251)
 local LocalizedCounterattack = GetSpellInfo(19306)
 -- local LocalizedExecute = GetSpellInfo(20662)
@@ -37,18 +38,27 @@ local spellNamesByID = {
     [11600] = "Revenge",
     [11601] = "Revenge",
     [25288] = "Revenge",
+    [25269] = "Revenge",
+    [30357] = "Revenge",
+
+    [29801] = "Rampage",
+    [30030] = "Rampage",
+    [30033] = "Rampage",
 
     [14251] = "Riposte",
 
     [19306] = "Counterattack",
     [20909] = "Counterattack",
     [20910] = "Counterattack",
+    [27067] = "Counterattack",
 
     [20662] = "Execute",
     [20661] = "Execute",
     [20660] = "Execute",
     [20658] = "Execute",
     [5308] = "Execute",
+    [25234] = "Execute",
+    [25236] = "Execute",
 
     [686] = "ShadowBolt",
     [695] = "ShadowBolt",
@@ -60,11 +70,13 @@ local spellNamesByID = {
     [11660] = "ShadowBolt",
     [11661] = "ShadowBolt",
     [25307] = "ShadowBolt",
+    [27209] = "ShadowBolt",
 
     [1495] = "MongooseBite",
     [14269] = "MongooseBite",
     [14270] = "MongooseBite",
     [14271] = "MongooseBite",
+    [36916] = "MongooseBite",
 
     [879] = "Exorcism",
     [5614] = "Exorcism",
@@ -72,10 +84,12 @@ local spellNamesByID = {
     [10312] = "Exorcism",
     [10313] = "Exorcism",
     [10314] = "Exorcism",
+    [27138] = "Exorcism",
 
     [24275] = "HammerOfWrath",
     [24274] = "HammerOfWrath",
     [24239] = "HammerOfWrath",
+    [27180] = "HammerOfWrath",
 }
 
 f:RegisterEvent("PLAYER_LOGIN")
@@ -115,6 +129,17 @@ function f:PLAYER_LOGIN()
             end)
         end
 
+        if IsAddOnLoaded("Dominos") then
+            local dominosPrefix = "DominosActionButton"
+            for i = 1, 72 do
+                local btnName = dominosPrefix..i
+                local btn = _G[btnName]
+                if btn then
+                    self:RegisterForActivations(btn)
+                end
+            end
+        end
+
         -- if Neuron then
         --     for i,bar in ipairs(Neuron.BARIndex) do
         --         for btnID, btn in pairs(bar.buttons) do
@@ -146,18 +171,27 @@ function f:SPELLS_CHANGED()
     if class == "WARRIOR" then
         self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
         self:SetScript("OnUpdate", self.timerOnUpdate)
-        if ns.findHighestRank("Overpower") and ns.findHighestRank("Revenge") then
-            local CheckOverpower = ns.CheckOverpower
-            local CheckRevenge = ns.CheckRevenge
-            procCombatLog = function(...)
+
+        local hasOverpower = ns.findHighestRank("Overpower")
+        local hasRevenge = ns.findHighestRank("Revenge")
+        local hasRampage = ns.findHighestRank("Rampage")
+
+        local CheckOverpower = ns.CheckOverpower
+        local CheckRevenge = ns.CheckRevenge
+        local CheckRampage = ns.CheckRampage
+        procCombatLog = function(...)
+            if hasOverpower then
                 CheckOverpower(...)
+            end
+            if hasRevenge then
                 CheckRevenge(...)
             end
-        elseif ns.findHighestRank("Overpower") then
-            procCombatLog = ns.CheckOverpower
-        elseif ns.findHighestRank("Revenge") then
-            procCombatLog = ns.CheckRevenge
-        else
+            if hasRampage then
+                CheckRampage(...)
+            end
+        end
+
+        if not hasOverpower and not hasRevenge and not hasRampage then
             self:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
             self:SetScript("OnUpdate", nil)
         end
@@ -254,31 +288,31 @@ local ActionButton_ShowOverlayGlow = _G.ActionButton_ShowOverlayGlow
 local ActionButton_HideOverlayGlow = _G.ActionButton_HideOverlayGlow
 function ns.UpdateOverlayGlow(self)
     local spellType, id, subType  = GetActionInfo(self.action);
-	if ( spellType == "spell" and IsSpellOverlayed(id) ) then
-		ActionButton_ShowOverlayGlow(self);
-	elseif ( spellType == "macro" ) then
-		local spellId = GetMacroSpell(id);
-		if ( spellId and IsSpellOverlayed(spellId) ) then
-			ActionButton_ShowOverlayGlow(self);
-		else
-			ActionButton_HideOverlayGlow(self);
-		end
-	else
-		ActionButton_HideOverlayGlow(self);
-	end
+    if ( spellType == "spell" and IsSpellOverlayed(id) ) then
+        ActionButton_ShowOverlayGlow(self);
+    elseif ( spellType == "macro" ) then
+        local spellId = GetMacroSpell(id);
+        if ( spellId and IsSpellOverlayed(spellId) ) then
+            ActionButton_ShowOverlayGlow(self);
+        else
+            ActionButton_HideOverlayGlow(self);
+        end
+    else
+        ActionButton_HideOverlayGlow(self);
+    end
 end
 
 function ns.LAB_UpdateOverlayGlow(self)
-	local spellId = self:GetSpellId()
-	if spellId and IsSpellOverlayed(spellId) then
-		if LBG then
+    local spellId = self:GetSpellId()
+    if spellId and IsSpellOverlayed(spellId) then
+        if LBG then
             LBG.ShowOverlayGlow(self)
         end
-	else
-		if LBG then
+    else
+        if LBG then
             LBG.HideOverlayGlow(self)
         end
-	end
+    end
 end
 
 function f:FanoutEvent(event, ...)
@@ -292,14 +326,15 @@ end
 
 local reverseSpellRanks = {
     Overpower = { 11585, 11584, 7887, 7384 },
-    Revenge = { 25288, 11601, 11600, 7379, 6574, 6572 },
+    Revenge = { 30357, 5269, 25288, 11601, 11600, 7379, 6574, 6572 },
+    Rampage = { 30033, 30030, 29801},
     Riposte = { 14251 },
-    Counterattack = { 20910, 20909, 19306 },
-    Execute = { 20662, 20661, 20660, 20658, 5308 },
-    ShadowBolt = { 25307, 11661, 11660, 11659, 7641, 1106, 1088, 705, 695, 686 },
-    MongooseBite = { 14271, 14270, 14269, 1495 },
-    Exorcism = { 10314, 10313, 10312, 5615, 5614, 879 },
-    HammerOfWrath = { 24239, 24274, 24275 },
+    Counterattack = { 27067, 20910, 20909, 19306 },
+    Execute = { 25236, 25234, 20662, 20661, 20660, 20658, 5308 },
+    ShadowBolt = { 27209, 25307, 11661, 11660, 11659, 7641, 1106, 1088, 705, 695, 686 },
+    MongooseBite = { 36916, 14271, 14270, 14269, 1495 },
+    Exorcism = { 27138, 10314, 10313, 10312, 5615, 5614, 879 },
+    HammerOfWrath = { 27180, 24239, 24274, 24275 },
 }
 function ns.findHighestRank(spellName)
     for _, spellID in ipairs(reverseSpellRanks[spellName]) do
@@ -359,12 +394,12 @@ function f:COMBAT_LOG_EVENT_UNFILTERED(event)
     local timestamp, eventType, hideCaster,
     srcGUID, srcName, srcFlags, srcFlags2,
     dstGUID, dstName, dstFlags, dstFlags2,
-    arg1, arg2, arg3, arg4, arg5 = CombatLogGetCurrentEventInfo()
+    arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10 = CombatLogGetCurrentEventInfo()
 
     local isSrcPlayer = bit_band(srcFlags, AFFILIATION_MINE) == AFFILIATION_MINE
     local isDstPlayer = dstGUID == UnitGUID("player")
 
-    procCombatLog(eventType, isSrcPlayer, isDstPlayer, arg1, arg2, arg3, arg4, arg5)
+    procCombatLog(eventType, isSrcPlayer, isDstPlayer, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
 end
 
 -----------------
@@ -436,6 +471,23 @@ function ns.CheckRevenge(eventType, isSrcPlayer, isDstPlayer, ...)
         local spellName = select(2, ...)
         if spellName == LocalizedRevenge then
             f:Deactivate("Revenge")
+        end
+    end
+end
+
+function ns.CheckRampage(eventType, isSrcPlayer, isDstPlayer, ...)
+    if isSrcPlayer then
+        if eventType == "SWING_DAMAGE" or eventType == "SPELL_DAMAGE" then
+            local isCrit
+            if eventType == "SWING_DAMAGE" then
+                isCrit = select(7, ...)
+            elseif eventType == "SPELL_DAMAGE" then
+                isCrit = select(10, ...)
+            end
+            if isCrit == true then
+                f:Activate("Rampage", 5)
+            end
+
         end
     end
 end

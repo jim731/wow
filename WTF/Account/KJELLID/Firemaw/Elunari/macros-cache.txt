@@ -1,0 +1,24 @@
+VER 3 0000000001000004 " " "132208"
+END
+VER 3 0000000001000005 " " "132218"
+#showtooltip arcane shot
+/cast arcane shot
+/startattack
+END
+VER 3 0000000001000006 " " "132157"
+END
+VER 3 0000000001000001 " " "132169"
+  
+END
+VER 3 0000000001000007 " " "132223"
+#showtooltip raptor strike
+/cast raptor strike
+/startattack
+END
+VER 3 0000000001000002 " " "132204"
+#showtooltip serpent sting
+/cast serpent sting
+/startattack
+END
+VER 3 0000000001000003 " " "132212"
+END

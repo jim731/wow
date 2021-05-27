@@ -7,19 +7,10 @@
 	frame.Cooldown:SetHideCountdownNumbers(true)
 	--]]
 
-local L = LibStub("AceLocale-3.0"):GetLocale("NeatPlates")
-local LibClassicDurations = LibStub("LibClassicDurations", true)
-local LCDUnitAura = function() end
-if LibClassicDurations then
-    LibClassicDurations:Register("NeatPlates")
-    LCDUnitAura = LibClassicDurations.UnitAuraWithBuffs
-end
-
 
 NeatPlatesWidgets.DebuffWidgetBuild = 2
 
 local PlayerGUID = UnitGUID("player")
-local PlayerClass = select(2, UnitClass("player"))
 local PolledHideIn = NeatPlatesWidgets.PolledHideIn
 local FilterFunction = function() return 1 end
 local AuraMonitor = CreateFrame("Frame")
@@ -49,6 +40,7 @@ local AuraAlignment = "BOTTOMLEFT"
 local EmphasizedScaleOptions = {x = 1, y = 1, offset = {x = 0, y = 0}}
 local PreciseAuraThreshold = 0
 local BuffSeparationMode = 1
+local HideInHeadlineMode = false
 
 local function DummyFunction() end
 
@@ -61,15 +53,12 @@ local AuraSortFunction = function() end
 local AuraHookFunction
 local AuraCache = {}
 local AuraBaseDuration = {}
-local AuraExpiration = {}
 
 local AURA_TARGET_HOSTILE = 1
 local AURA_TARGET_FRIENDLY = 2
 
 local AURA_TYPE_BUFF = 1
 local AURA_TYPE_DEBUFF = 6
-
-local ComboPoints = 0
 
 local ButtonGlow = LibStub("LibButtonGlow-1.0")
 local ButtonGlowEnabled = {
@@ -144,41 +133,6 @@ local function ClearAuraCache(unitid)
 	if unitid then AuraCache[unitid] = nil end
 end
 
----- Combat logging for aura applications in Classic
---local function EventCombatLog(...)
---	local _,event,_,sourceGUID,sourceName,sourceFlags,_,destGUID,destName,_,_,spellID,spellName = CombatLogGetCurrentEventInfo()
---	local points = 0
-
---	-- Tracking Aura Durations
---	if event == "SPELL_CAST_SUCCESS" then ComboPoints = GetComboPoints("player", "target") end
-
---	if event == "SPELL_AURA_APPLIED" or event == "SPELL_AURA_REFRESH" then
---		--if ComboPoints > GetComboPoints("player", "target") then points = ComboPoints end
---		spellID = select(7, GetSpellInfo(spellName))
---		--local desc = GetSpellDescription(spellID)
---		local duration, expiration
-
---		-- Lib workaround until NPC abilities get properly implemented
---		local spell = LibClassicDurations.spells[spellID]
---		if not spell then
---			spell = LibClassicDurations.npc_spells[spellID]
---			if spell then spell = {duration = spell} end
---		end
---		if spell then
---			duration = spell.duration
---		end
-
---		if duration and type(duration) ~= "function" and duration > 0 then
---			expiration = GetTime()+duration
-
---			AuraExpiration[destGUID] = AuraExpiration[destGUID] or {}
---			AuraExpiration[destGUID][sourceGUID] = AuraExpiration[destGUID][sourceGUID] or {}
---			AuraExpiration[destGUID][sourceGUID][spellID] = {expiration = expiration, duration = duration}
---		end
-
---	end
---end
-
 -----------------------------------------------------
 -- Function Reference Lists
 -----------------------------------------------------
@@ -187,7 +141,6 @@ local AuraEvents = {
 	--["UNIT_TARGET"] = EventUnitTarget,
 	["UNIT_AURA"] = EventUnitAura,
 	["NAME_PLATE_UNIT_REMOVED"] = ClearAuraCache,
-	--["COMBAT_LOG_EVENT_UNFILTERED"]  = EventCombatLog,
 }
 
 local function AuraEventHandler(frame, event, ...)
@@ -226,11 +179,37 @@ end
 
 local function UpdateAuraHighlighting(frame, aura)
 		local r, g, b, a = aura.r, aura.g, aura.b, aura.a
-		if r then
+		local glowType = aura.type
+		local expiration = aura.expiration-GetTime()
+		local pandemicThreshold = aura.duration and aura.expiration and aura.effect == "HARMFUL" and aura.duration > 0 and expiration <= aura.baseduration*0.3
+		local removeGlow = true
+	-- Pandemic and other Hightlighting
+		if (aura.effect == "HELPFUL" and ButtonGlowEnabled[aura.type]) or (PandemicEnabled and pandemicThreshold and ButtonGlowEnabled["Pandemic"]) then
+			removeGlow = false
+			frame.BorderHighlight:Hide()
+			frame.Border:Hide()
+			ButtonGlow.ShowOverlayGlow(frame)
+			frame.__LBGoverlay:SetFrameLevel(frame:GetFrameLevel() or 65)
+		elseif PandemicEnabled and pandemicThreshold then
+			frame.BorderHighlight:SetVertexColor(PandemicColor.r,PandemicColor.g,PandemicColor.b,PandemicColor.a)
+			frame.BorderHighlight:Show()
+			frame.Border:Hide()
+		elseif r then
 			frame.BorderHighlight:SetVertexColor(r, g or 1, b or 1, a or 1)
 			frame.BorderHighlight:Show()
 			frame.Border:Hide()
 		else frame.BorderHighlight:Hide(); frame.Border:Show() end
+
+		-- Remove ButtonGlow if appropriate
+		if frame.__LBGoverlay and removeGlow then ButtonGlow.HideOverlayGlow(frame) end
+
+		if PandemicEnabled and not pandemicThreshold and aura.duration > 0 then
+			local timeLeft = math.max(expiration-aura.baseduration*0.3, 0);
+			if timeLeft > 0 then
+				if frame.PandemicTimer then frame.PandemicTimer:Cancel() end
+				frame.PandemicTimer = C_Timer.NewTimer(timeLeft, function() UpdateAuraHighlighting(frame, aura) end)
+			end
+		end
 end
 
 local function UpdateIcon(frame, aura)
@@ -278,7 +257,6 @@ end
 
 local function UpdateIconGrid(frame, unitid)
 		if not unitid then return end
-		local unitGUID = UnitGUID(unitid)
 
 		local unitReaction
 		if UnitIsFriend("player", unitid) then unitReaction = AURA_TARGET_FRIENDLY
@@ -308,28 +286,19 @@ local function UpdateIconGrid(frame, unitid)
 			local aura = {}
 
 			do
-				local name, icon, stacks, auraType, duration, expiration, caster, canStealOrPurge, nameplateShowPersonal, spellid = LCDUnitAura(unitid, auraIndex, auraFilter)		-- UnitaAura
-				local casterGUID
+				local name, icon, stacks, auraType, duration, expiration, caster, canStealOrPurge, nameplateShowPersonal, spellid = UnitAura(unitid, auraIndex, auraFilter)		-- UnitaAura
 
 				aura.name = name
 				aura.texture = icon
 				aura.stacks = stacks
 				aura.type = auraType
 				aura.effect = auraFilter
+				aura.duration = duration
 				aura.reaction = unitReaction
+				aura.expiration = expiration
 				aura.caster = caster
 				aura.spellid = spellid
 				aura.unit = unitid 		-- unitid of the plate
-				aura.expiration = expiration
-				aura.duration = duration
-
-				--if aura.duration == 0 and aura.expiration == 0 then
-				--	if caster then casterGUID = UnitGUID(caster) end
-				--	if AuraExpiration[unitGUID] and AuraExpiration[unitGUID][casterGUID] and AuraExpiration[unitGUID][casterGUID][spellid] then
-				--		aura.duration = AuraExpiration[unitGUID][casterGUID][spellid].duration
-				--		aura.expiration = AuraExpiration[unitGUID][casterGUID][spellid].expiration
-				--	end
-				--end
 
 				-- Pandemic Base duration
 				if spellid and caster == "player" then
@@ -485,7 +454,7 @@ local function UpdateIconGrid(frame, unitid)
 		EmphasizedAuraCount = math.max(1, EmphasizedAuraCount) -- Make sure we aren't setting 0 as this can detach the frame...
 
 		-- Set Height/Width of Aura Frames
-		frame:SetHeight(DisplayedRows*16 + (DisplayedRows-1)*8) -- Set Height of the parent for easier alignment of the Emphasized aura.
+		if DisplayedRows > 0 then frame:SetHeight(DisplayedRows*16 + (DisplayedRows-1)*8) else frame:SetHeight(2) end -- Set Height of the parent for easier alignment of the Emphasized aura.
 		frame.emphasized:SetWidth(EmphasizedAuraCount * AuraWidth)
 end
 
@@ -517,7 +486,8 @@ local function ClearWidgetContext(frame)
 end
 
 local function ExpireFunction(icon)
-	UpdateWidget(icon.Parent)
+	-- UpdateWidget(icon.Parent)
+	UpdateIcon(icon) -- Won't re-arrange auras to fill empty slots, but at least it won't show and hopefully will prevent script timeouts from the expire function (This function is really just a backup that rarely gets run anyways)
 end
 
 -------------------------------------------------------------
@@ -703,7 +673,7 @@ local function UpdateEmphasizedIconConfig(frame)
 	local auraLimit = MaxEmphasizedAuras
 	frame:SetScale(EmphasizedAuraScale)
 	frame:ClearAllPoints()
-	frame:SetPoint("BOTTOM", frame:GetParent(), "TOP", EmphasizedScaleOptions.offset.x, 2 + EmphasizedScaleOptions.offset.y)
+	frame:SetPoint("BOTTOM", frame:GetParent(), EmphasizedScaleOptions.anchor or "TOP", EmphasizedScaleOptions.offset.x, 2 + EmphasizedScaleOptions.offset.y)
 
 	if iconTable then
 		-- Create Icons
@@ -730,6 +700,12 @@ local function UpdateWidgetConfig(frame)
 end
 
 local function UpdateWidgetOffset(frame, x, y)
+	x = x or frame.lastOffset.x
+	y = y or frame.lastOffset.y
+	frame.lastOffset = {
+		x = x,
+		y = y
+	}
 	local config = frame.lastConfig
 	frame:ClearAllPoints()
 	frame:SetPoint(config.anchor or "TOP", config.relFrame, config.anchorRel or config.anchor or "TOP", config.x or 0, (config.y or 0) + (y or 0))
@@ -779,6 +755,10 @@ local function CreateAuraWidget(parent, style)
 	frame.UpdateTarget = UpdateWidgetTarget
 	frame.SetCustomPoint = SetCustomPoint
 	frame.UpdateOffset = UpdateWidgetOffset
+
+	-- Various stored data
+	frame.lastConfig = {}
+	frame.lastOffset = {}
 
 	-- Emphasized Functions
 	frame.emphasized.SetAura = function(frame, auras)
@@ -864,21 +844,21 @@ local function SetAuraOptions(LocalVars)
 	BuffSeparationMode = LocalVars.BuffSeparationMode
 end
 
---local function SetPandemic(enabled, color)
---	PandemicEnabled = enabled
---	PandemicColor = color
---end
+local function SetPandemic(enabled, color)
+	PandemicEnabled = enabled
+	PandemicColor = color
+end
 
---local function SetBorderTypes(pandemic, magic, enrage)
---	if pandemic == 2 then pandemic = true else pandemic = false end
---	if magic == 2 then magic = true else magic = false end
---	if enrage == 2 then enrage = true else enrage = false end
---	ButtonGlowEnabled = {
---		["Pandemic"] = pandemic,
---		["Magic"] = magic,
---		[""] = enrage,
---	}
---end
+local function SetBorderTypes(pandemic, magic, enrage)
+	if pandemic == 2 then pandemic = true else pandemic = false end
+	if magic == 2 then magic = true else magic = false end
+	if enrage == 2 then enrage = true else enrage = false end
+	ButtonGlowEnabled = {
+		["Pandemic"] = pandemic,
+		["Magic"] = magic,
+		[""] = enrage,
+	}
+end
 
 local function SetSpacerSlots(amount)
 	SpacerSlots = math.min(amount, DebuffColumns-1)
@@ -902,8 +882,8 @@ NeatPlatesWidgets.SetAuraFilter = SetAuraFilter
 NeatPlatesWidgets.SetEmphasizedAuraFilter = SetEmphasizedAuraFilter
 NeatPlatesWidgets.SetAuraOptions = SetAuraOptions
 
---NeatPlatesWidgets.SetPandemic = SetPandemic
---NeatPlatesWidgets.SetBorderTypes = SetBorderTypes
+NeatPlatesWidgets.SetPandemic = SetPandemic
+NeatPlatesWidgets.SetBorderTypes = SetBorderTypes
 NeatPlatesWidgets.SetSpacerSlots = SetSpacerSlots
 NeatPlatesWidgets.SetEmphasizedSlots = SetEmphasizedSlots
 

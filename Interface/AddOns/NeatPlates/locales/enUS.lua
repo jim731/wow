@@ -43,9 +43,12 @@ L["Other Options"] = true
 L["Emulate Target Nameplate"] = true
 L["Disable Cast Bars"] = true
 L["Force Multi-Lingual Font (Requires /reload)"] = true
+L["Force Health Updates"] = true
+L["Forces health to update every .25sec, try this if you are having health update issues"] = true
 L["Use Frequent Health Updates"] = true
 L["Use Blizzard Scaling"] = true
 L["Use Blizzard Name Visibility"] = true
+L["Use Blizzard Bar Widgets"] = true
 L["Outline Override"] = true
 	L["Thin Outline"] = true
 	L["Thick Outline"] = true
@@ -57,7 +60,7 @@ L["Enforce required CVars"] = true
 L["Always keep Target Nameplate on Screen"] = true
 L["Stacking Nameplates"] = true
 L["Show Friendly NPCs Nameplates"] = true
-L["Max Distance"] = true
+L["Nameplate Max Distance"] = true
 L["Occluded Alpha Multiplier"] = true
 L["The opacity multiplier for units occluded by line of sight"] = true -- Tooltip
 L["Minimum Alpha"] = true
@@ -175,6 +178,7 @@ L["Friendly Subtext"] = true
 L["Additional settings"] = true
 	L["Show Unit Level"] = true
 	L["Show Unit Title"] = true
+	L["Replace Unit Name with Arena ID"] = true
 	L["Show Friendly Unit Powerbar"] = true
 	L["Show Enemy Unit Powerbar"] = true
 	L["Show Different Server Indicator (*)"] = true
@@ -182,6 +186,8 @@ L["Additional settings"] = true
 	L["Show Subtext in Bar View"] = true -- Not in use?
 	L["Show Status Text on Target & Mouseover"] = true
 	L["Show Status Text on Active/Damaged Units"] = true
+	L["Health Percent Precision"] = true
+
 	L["Use Custom Target Color"] = true
 	L["Use Custom Focus Color"] = true
 	L["Use Custom Mouseover Color"] = true
@@ -275,7 +281,7 @@ L["Include Dispellable Debuffs on Friendly Units"] = true
 
 -- Aura Help Config Help Tip
 -- Important to not translate the prefixes.('My', 'All', 'Not')
-L["AURA_TIP"] = "Tip: |cffCCCCCCAuras should be listed with the exact name, or a spell ID number. You can use the prefixes, 'My' or 'All', to distinguish personal damage spells from global crowd control spells. The prefix 'Not' may be used to blacklist an aura.  Auras at the top of the list will get displayed before lower ones."
+L["AURA_TIP"] = "Tip: |cffCCCCCCAuras should be listed with the exact name, or a spell ID number. You can change the filter mode to distinguish personal damage spells from global crowd control spells or simply exclude an aura completely. Auras at the top of the list will get displayed before lower ones."
 L["HITBOX_TIP"] = "Tip: |cffCCCCCCNameplates will be displayed with a green overlay while editing these values to help visualize the size of the area."
 
 ------------------------------
@@ -513,7 +519,9 @@ L["Class Icon"] = true
 L["Class Icon Scale Options"] = true
 L["Show Totem Art"] = true
 L["Show Quest Icon on Units"] = true
-L["Show Personal Resource on Target"] = true
+L["Show Personal Resource"] = true
+	L["Enemy Units"] = true
+	L["Friendly Units"] = true
 L["Personal Resource Style"] = true
 	L["Blizzlike"] = true
 	L["NeatPlates"] = true
@@ -573,16 +581,16 @@ L["spelltext"] = "Castbar Spell Text"
 L["spelltarget"] = "Castbar Spell Target"
 L["healthbar"] = "Healthbar"
 L["powerbar"] = "Powerbar"
---L["targetindicator_arrowleft"] = 
---L["targetindicator_arrowright"] = 
+--L["targetindicator_arrowleft"] =
+--L["targetindicator_arrowright"] =
 L["threatborder"] = "Threat Glow"
 L["healthborder"] = "Healthbar Border"
 L["skullicon"] = "Skull Icon"
 L["durationtext"] = "Duration/Cast time Text"
 L["castborder"] = "Castbar Border"
---L["targetindicator_arrowsides"] = 
+--L["targetindicator_arrowsides"] =
 L["highlight"] = "Highlight"
---L["targetindicator_arrowtop"] = 
+--L["targetindicator_arrowtop"] =
 --L["rangeindicator"] = "Range Indicator"
 L["raidicon"] = "Raid Icon"
 L["ComboWidget"] = "Personal Resource Widget"
@@ -590,7 +598,6 @@ L["AbsorbWidget"] = "Absorb Widget"
 L["QuestWidgetNameOnly"] = "Quest Widget(Headline View)"
 L["ThreatPercentageWidget"] = "Threat Percent Widget"
 L["DebuffWidget"] = "Aura Widget"
---L["DebuffWidgetPlus"] = "Aura Widget(Combo Points)"
 L["ThreatLineWidget"] = "Threat Line Widget"
 L["TotemIcon"] = "Totem Icon"
 --L["ThreatWheelWidget"] = "Threat Wheel Widget"
@@ -649,7 +656,6 @@ L["AbsorbWidget_tooltip"] = "The absorb overlay for healthbars" -- Unify all thi
 L["QuestWidgetNameOnly_tooltip"] = "Quest icon for 'Headline-view'"
 L["ThreatPercentageWidget_tooltip"] = "The threat percentage text"
 L["DebuffWidget_tooltip"] = "Aura widget"
---L["DebuffWidgetPlus_tooltip"] = "Same as 'Aura Widget', but used when combo points are enabled(Not all themes use this)"
 L["ThreatLineWidget_tooltip"] = "The 'Tug-o-Threat' widget"
 L["TotemIcon_tooltip"] = "The totem icon"
 --L["ThreatWheelWidget_tooltip"] = "Placeholder Tooltip"
@@ -681,6 +687,20 @@ L["TOPRIGHT"] = true
 L["BOTTOMLEFT"] = true
 L["BOTTOMRIGHT"] = true
 
+
+-- Aura management
+L["New Aura"] = true
+L["Mine only"] = true
+L["Anyones"] = true
+L["Exclude"] = true
+L["Emphasized"] = true
+L["Priority"] = true
+L["Aura Name/ID"] = true
+L["Aura Filter"] = true
+L["Aura Type"] = true
+L["Filter"] = true
+L["Type"] = true
+L["Empty aura"] = true
 
 
 ------------------------------
@@ -726,6 +746,7 @@ L["Offset Y"] = true
 -- Main Panel
 L["Might resolve some issues with health not updating properly"] = true
 L["Allows some CVars to work(Might require a /reload)"] = true
+L["Use default blizzard bar widgets where applicable rather than the simpler widget bar built into NeatPlates (Might require a /reload)"] = true
 L["CVars could not applied due to combat"] = true
 L["This feature is highly experimental, use on your own risk"] = true
 
@@ -759,6 +780,8 @@ L["When aura durations should start to display tenths of a second"] = true
 -- Warnings about unfinished stuff
 L["powerbar_unfinished_warning"] = "The powerbar still has some overlap issues with some themes,\nyou might need to adjust this yourself in the 'Theme Customization'"
 
+-- General warnings
+L["Some settings could not be applied properly due to certain combat restrictions."] = true
 
 -- Classic Specific
 L["Couldn't update the targets role."] = true

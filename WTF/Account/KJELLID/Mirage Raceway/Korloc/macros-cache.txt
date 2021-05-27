@@ -1,0 +1,4 @@
+VER 3 0000000001000001 " " "132223"
+#showtooltip attack
+/startattack
+END

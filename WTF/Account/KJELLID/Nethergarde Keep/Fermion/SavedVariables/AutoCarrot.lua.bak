@@ -1,13 +1,13 @@
 
 AutoCarrotDB = {
 	["enabled"] = true,
-	["swimBelt"] = true,
-	["trinketId"] = 2820,
-	["buttonScale"] = 1,
-	["mithrilSpurs"] = true,
 	["ridingGloves"] = true,
-	["button"] = false,
-	["beltId"] = 14918,
+	["trinketId"] = 17774,
 	["swimHelm"] = true,
-	["headId"] = 9664,
+	["mithrilSpurs"] = true,
+	["headId"] = 10749,
+	["button"] = false,
+	["beltId"] = 15709,
+	["buttonScale"] = 1,
+	["swimBelt"] = true,
 }

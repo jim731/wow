@@ -1,0 +1,7 @@
+
+HealCommSettings = {
+	["profileKeys"] = {
+		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+	},
+}

@@ -4,8 +4,11 @@ Quartz3DB = {
 		["Swing"] = {
 			["profiles"] = {
 				["Default"] = {
-					["remainingtext"] = false,
+					["swinggap"] = 1,
+					["swingheight"] = 5,
 					["durationtext"] = false,
+					["remainingtext"] = false,
+					["swingposition"] = "bottom",
 				},
 			},
 		},
@@ -18,29 +21,39 @@ Quartz3DB = {
 		["Pet"] = {
 			["profiles"] = {
 				["Default"] = {
-					["x"] = 176.543594360352,
 					["y"] = 74.0246734619141,
+					["x"] = 176.543594360352,
 				},
 			},
+		},
+		["EnemyCasts"] = {
 		},
 		["Player"] = {
 			["profiles"] = {
 				["Default"] = {
+					["h"] = 31,
 					["nametextx"] = 0,
-					["w"] = 454,
+					["w"] = 220,
 					["hideicon"] = true,
-					["font"] = "FORCED SQUARE",
+					["x"] = 644,
 					["border"] = "None",
-					["fontsize"] = 20,
-					["texture"] = "Flat",
-					["x"] = 527,
-					["nametextposition"] = "center",
+					["fontsize"] = 13,
 					["hidetimetext"] = true,
-					["y"] = 122,
+					["nametextposition"] = "center",
+					["font"] = "FORCED SQUARE",
+					["texture"] = "Minimalist",
+					["y"] = 227,
 				},
 			},
 		},
 		["GCD"] = {
+		},
+		["Focus"] = {
+			["profiles"] = {
+				["Default"] = {
+					["x"] = 658.5185546875,
+				},
+			},
 		},
 		["Target"] = {
 			["profiles"] = {
@@ -50,38 +63,53 @@ Quartz3DB = {
 				},
 			},
 		},
-		["Range"] = {
-		},
 		["Mirror"] = {
+		},
+		["Range"] = {
 		},
 		["Latency"] = {
 		},
 	},
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Default",
+		["Bullsi - Mirage Raceway"] = "Default",
+		["Raremats - Nethergarde Keep"] = "Default",
+		["Hemos - Mirage Raceway"] = "Default",
+		["Elunari - Firemaw"] = "Default",
+		["Craftmateria - Mirage Raceway"] = "Default",
+		["Clothguy - Nethergarde Keep"] = "Default",
+		["Consumables - Nethergarde Keep"] = "Default",
+		["Parisi - Nethergarde Keep"] = "Default",
+		["Garluk - Mirage Raceway"] = "Default",
+		["Zanjee - Mirage Raceway"] = "Default",
+		["Consooms - Mirage Raceway"] = "Default",
+		["Lionidas - Pyrewood Village"] = "Default",
 		["Shapeshifter - Skullflame"] = "Default",
 		["Various - Nethergarde Keep"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
+		["Baeldemos - Nethergarde Keep"] = "Default",
+		["Lanayria - Mirage Raceway"] = "Default",
+		["Korloc - Mirage Raceway"] = "Default",
 		["Ferns - Skullflame"] = "Default",
-		["Parisi - Nethergarde Keep"] = "Default",
-		["Garluk - Mirage Raceway"] = "Default",
+		["Equipment - Mirage Raceway"] = "Default",
+		["Bankmoomoo - Mirage Raceway"] = "Default",
+		["Zabuji - Mirage Raceway"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Default",
-		["Raremats - Nethergarde Keep"] = "Default",
+		["Nahfan - Mirage Raceway"] = "Default",
+		["Cowski - Mirage Raceway"] = "Default",
+		["Craftingmats - Nethergarde Keep"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
 			["modules"] = {
-				["Swing"] = false,
-				["Buff"] = false,
-				["Pet"] = false,
-				["Player"] = false,
-				["GCD"] = false,
 				["Target"] = false,
-				["Mirror"] = false,
+				["GCD"] = false,
+				["Buff"] = false,
 				["Timer"] = false,
+				["Mirror"] = false,
+				["Pet"] = false,
 				["Latency"] = false,
 			},
-			["hidesamwise"] = false,
 			["castingcolor"] = {
 				0.254901960784314, -- [1]
 				0.333333333333333, -- [2]

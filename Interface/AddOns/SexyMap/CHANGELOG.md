@@ -1,7 +1,8 @@
 # SexyMap
 
-## [v5-classic](https://github.com/funkydude/SexyMap/tree/v5-classic) (2020-01-14)
-[Full Changelog](https://github.com/funkydude/SexyMap/compare/v4-classic...v5-classic)
+## [v3-bcc](https://github.com/funkydude/SexyMap/tree/v3-bcc) (2021-05-19)
+[Full Changelog](https://github.com/funkydude/SexyMap/compare/v2-bcc...v3-bcc) [Previous Releases](https://github.com/funkydude/SexyMap/releases)
 
-- Buttons: Add support for the MiniMapBattlefieldFrame, closes #111  
-- bump toc  
+- Movers: Support BCC objective frame  
+- Remove old compat code  
+- Remove project ID checks  

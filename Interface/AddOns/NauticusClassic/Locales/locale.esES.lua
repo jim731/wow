@@ -1,4 +1,4 @@
-
+﻿
 -- Spanish localisation by StiviS
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0")
 local L = AceLocale:NewLocale("NauticusClassic", "esES")

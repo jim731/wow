@@ -82,6 +82,7 @@ NeatPlatesHubDefaults = {
 	--OpacityFullMouseover = false,			-- Deprecated 6.13
 
 	OpacitySpotlightSpell = false,			-- Added 6.14
+	OpacitySpotlightSpellInt = false,
 	OpacitySpotlightMouseover = false,		-- Added 6.14
 	OpacitySpotlightRaidMarked = false,		-- Added 6.14
 
@@ -143,6 +144,8 @@ NeatPlatesHubDefaults = {
 	TextShowOnlyOnTargets = false,
 	TextShowServerIndicator = true,
 	TextShowUnitTitle = false,
+	TextUnitNameArenaID = false,
+	TextHealthPercentPrecision = 0,
 	CustomTargetColor = false,
 	CustomFocusColor = false,
 	CustomMouseoverColor = false,
@@ -159,8 +162,7 @@ NeatPlatesHubDefaults = {
 	---------------------------------------
 	ThreatMode = 1,
 	ThreatGlowEnable = true,
-	SafeColorSolo = false,
-	ThreatSoloEnable = false,
+	ThreatSoloEnable = true,
 	ColorShowPartyAggro = false,
 	ColorPartyAggroBar = false,
 	ColorPartyAggroGlow = true,
@@ -215,14 +217,6 @@ NeatPlatesHubDefaults = {
 	ColorNormalSpellCast = { r = 252/255, g = 140/255, b = 0, },
 	ColorUnIntpellCast = { r = 0.5137243866920471, g = 0.7529395222663879, b = 0.7647042274475098, },
 	ColorIntpellCast = { r = 1, g = 0, b = 0, },
-	ColorSchoolPhysical = { r = 0.5137243866920471, g = 0.7529395222663879, b = 0.7647042274475098, },
-	ColorSchoolHoly = {r = 1, g = 0.9, b = 0.5},
-	ColorSchoolFire = {r = 1, g = 0.5, b = 0},
-	ColorSchoolNature = {r = 0.3, g = 1, b = 0.3},
-	ColorSchoolFrost = {r = 0.5, g = 1, b = 1},
-	ColorSchoolShadow = {r = 0.5, g = 0.5, b = 1},
-	ColorSchoolArcane = {r = 1, g = 0.5, b = 1},
-	ColorCastBySchool = true,
 	SpellCastEnableEnemy = true,
 	SpellCastEnableFriendly = false,
 	IntCastEnable = true,
@@ -258,7 +252,7 @@ NeatPlatesHubDefaults = {
 	ClassPartyIcon = false,
 	ClassIconScaleOptions = {x = 1, y = 1, offset = {x = 0, y = 0}},
 	WidgetTotemIcon = false,
-	WidgetComboPoints = true,
+	WidgetComboPoints = 1,
 	WidgetComboPointsStyle = 1,
 	WidgetComboPointsScaleOptions = {x = 1, y = 1, offset = {x = 0, y = 0}},
 	WidgetThreatIndicator = true,
@@ -279,6 +273,7 @@ NeatPlatesHubDefaults = {
 	WidgetAbsorbMode = 1,
 	WidgetQuestIcon = false,
 	WidgetThreatPercentage = false,
+	WidgetArenaIcon = false,
 
 	-- Aura Widget
 	---------------------------------------
@@ -288,16 +283,26 @@ NeatPlatesHubDefaults = {
 	--WidgetAllAuras = false,
 	--WidgetMyDebuff = true,
 	--WidgetMyBuff = false,
+	WidgetPandemic = false,
+	ColorPandemic = {r = 0.9, g = 0.15, b = 0.15, a = 1}, -- Red
+	BorderPandemic = 1,
+	WidgetBuffPurgeable = false,
+	ColorBuffPurgeable = {r = 0, g = 0.4, b = 1, a = 1}, -- Medium Blue
+	BorderBuffPurgeable = 1,
+	WidgetBuffEnrage = false,
+	ColorBuffEnrage = {r = 1, g = 0, b = 0.2, a = 1}, -- Medium Red
+	BorderBuffEnrage = 1,
 	SpacerSlots = 1,
 	AuraScale = 1,
 	EmphasizedAuraScale = 2,
 	WidgetAuraScaleOptions = {x = 1, y = 1, offset = {x = 0, y = 0}},
-	WidgetEmphasizedAuraScaleOptions = {x = 1, y = 1, offset = {x = 0, y = 0}},
+	WidgetEmphasizedAuraScaleOptions = {x = 1, y = 1, offset = {x = 0, y = 0}, anchor = "TOP"},
 	EmphasizedSlots = 1,
 	PreciseAuraThreshold = 10,
-	WidgetDebuffTrackList = "My Rake\nMy Rip\nMy Moonfire\nAll 339\nMy Regrowth\nMy Rejuvenation\nNot Facepalm Bolt",
-	WidgetDebuffLookup = {},
-	WidgetDebuffPriority = {},
+	WidgetAdditionalAuras = {},
+	-- WidgetDebuffTrackList = "My Rake\nMy Rip\nMy Moonfire\nAll 339\nMy Regrowth\nMy Rejuvenation\nNot Facepalm Bolt",
+	-- WidgetDebuffLookup = {},
+	-- WidgetDebuffPriority = {},
 	WidgetAuraTrackDispelFriendly = false,
 	WidgetAuraTrackCurse = true,
 	WidgetAuraTrackDisease = true,
@@ -306,9 +311,9 @@ NeatPlatesHubDefaults = {
 	WidgetAuraSort = 1,
 	WidgetAuraAlignment = 1,
 	BuffSeparationMode = 1,
-	EmphasizedAuraList = "",
-	EmphasizedAuraLookup = {},
-	EmphasizedAuraPriority = {},
+	-- EmphasizedAuraList = "",
+	-- EmphasizedAuraLookup = {},
+	-- EmphasizedAuraPriority = {},
 	EmphasizedUnique = true,
 	HideCooldownSpiral = false,
 	HideAuraDuration = false,

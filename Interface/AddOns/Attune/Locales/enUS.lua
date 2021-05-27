@@ -6,9 +6,10 @@ end
 
 
 -- INTERFACE
+Lang["Credits"] = "A huge thank you to my guild |cffffd100<Divine Heresy>|r for their support and understanding while I test the addon, and heaps of kudos to |cffffd100Bushido @ Pyrewood Village|r for the help on TBC!\n\n Also, many, many thanks to the translators:\n  - German translation: |cffffd100Sumaya @ Razorfen DE|r\n  - Russian translation: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - Spanish translation: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Chinese translation: |cffffd100ly395842562|r and |cffffd100Icyblade|r\n  - Korean translation: |cffffd100Drix @ Azshara KR|r\n\n/Hug from Cixi/Gaya @ Remulos Horde"
 Lang["Mini"] = "Mini"
 Lang["Maxi"] = "Maxi"
-Lang["Version"] = "Attune ##VERSION## by Cixi@Remulos"
+Lang["Version"] = "Attune v.##VERSION## by Cixi@Remulos"
 Lang["Splash"] = "v.##VERSION## by Cixi@Remulos. Type /attune to start."
 Lang["Survey"] = "Survey"
 Lang["Guild"] = "Guild"
@@ -65,12 +66,70 @@ Lang["Help3"] = "To survey the progress of your guild, click |cfffff700survey|r 
 Lang["Help4"] = "You will then receive progress data from any guild member with the addon."
 Lang["Help5"] = "Once you have enough information, click |cfffff700export|r to export the guild progress"
 Lang["Help6"] = "Data can be uploaded to |cfffff700https://warcraftratings.com/attune/upload|r"
-Lang["Credits"] = "A huge thank you to my guild |cffffd100<Divine Heresy>|r for their support and understanding while I test the addon, and heaps of kudos to |cffffd100Bushido @ Pyrewood Village|r for the help on TBC!\n\n Also, many, many thanks to the translators:\n  - German translation: |cffffd100Sumaya @ Razorfen DE|r\n  - Russian translation: |cffffd100Greymarch Guild @ Flamegor RU|r\n\n/Hug from Cixi/Gaya @ Remulos Horde"
 Lang["Survey_DESC"] = "Run an attunement survey (for people with the addon)"
 Lang["Export_DESC"] = "Export your Attune data to the website"
 Lang["Toggle_DESC"] = "Toggle between attunements and survey results"
 --Lang["PreferredLocale_TEXT"] = "Preferred Language"
 --Lang["PreferredLocale_DESC"] = "Select the language you want to see Attune in. Changes to this will require a reload to take effect."
+--v220
+Lang["My Toons"] = "My Toons"
+Lang["No Target"] = "You do not have a target"
+Lang["No Response From"] = "No response from ##PLAYER##"
+Lang["Sync Request From"] = "New Attune Sync request from:\n\n##PLAYER##"
+Lang["Could be slow"] = "Depending on the amount of data you have, this could be a very slow process"
+Lang["Accept"] = "Accept"
+Lang["Reject"] = "Reject"
+Lang["Busy right now"] = "##PLAYER## is busy right now, try again later"
+Lang["Sending Sync Request"] = "Sending Sync Request to ##PLAYER##"
+Lang["Request accepted, sending data to "] = "Request accepted, sending data to ##PLAYER##"
+Lang["Received request from"] = "Received request from ##PLAYER##"
+Lang["Request rejected"] = "Request rejected"
+Lang["Sync over"] = "Sync over, took ##DURATION##"
+Lang["Syncing Attune data with"] = "Syncing Attune data with ##PLAYER##"
+Lang["Cannot sync while another sync is in progress"] = "Cannot sync while another sync is in progress"
+Lang["Sync with target"] = "Sync with target"
+Lang["Show Profiles"] = "Show Profiles"
+Lang["Show Progress"] = "Back to Progress"
+Lang["Status"] = "Status"
+Lang["Role"] = "Role"
+Lang["Last Surveyed"] = "Last Surveyed"
+Lang['Seconds ago'] = "##DURATION## ago"
+Lang["Main"] = "Main"
+Lang["Alt"] = "Alt"
+Lang["Tank"] = "Tank"
+Lang["Healer"] = "Healer"
+Lang["Melee DPS"] = "Melee DPS"
+Lang["Ranged DPS"] = "Ranged DPS"
+Lang["Bank"] = "Bank"
+Lang["DelAlts_TEXT"] = "Delete all Alts"
+Lang["DelAlts_DESC"] = "Delete all the information about players marked as Alts"
+Lang["DelAlts_CONF"] = "Really delete all Alts?"
+Lang["DelAlts_DONE"] = "All Alts deleted"
+Lang["DelUnspecified_TEXT"] = "Delete Unspecified"
+Lang["DelUnspecified_DESC"] = "Delete all the information about players with an unspecified Main/Alt status"
+Lang["DelUnspecified_CONF"] = "Really delete all characters with an unspecified Main/Alt status?"
+Lang["DelUnspecified_DONE"] = "All unspecified Main/Alt statuses deleted"
+--v221
+Lang["Open Raid Planner"] = "Open Raid Planner"
+Lang["Unspecified"] = "Unspecified"
+Lang["Empty"] = "Empty"
+Lang["Guildies only"] = "Show Guildies only"
+Lang["Show Mains"] = "Show Mains"
+Lang["Show Unspecified"] = "Show Unspecified"
+Lang["Show Alts"] = "Show Alts"
+Lang["Show Unattuned"] = "Show Unattuned"
+Lang["Raid spots"] = "##SIZE## Raid spots"
+Lang["Group Number"] = "Group ##NUMBER##"
+Lang["Move to next group"] = "    Move to the next group"
+Lang["Remove from raid"] = "  Remove from raid"
+Lang["Select a raid and click on players to add them in"] = "Select a raid and click on players to add them in"
+--v224
+Lang["Enter a new name for this raid group"] = "Enter a new name for this raid group"
+Lang["Save"] = "Save"
+--v226
+Lang["Invite"] = "Invite"
+Lang["Send raid invites to all listed players?"] = "Send raid invites to all listed players?"
+Lang["External link"] = "Link to an online database"
 
 
 -- OPTIONS
@@ -92,7 +151,7 @@ Lang["ShowGuildies_TEXT"] = "Show list of guild members at each attunement step.
 Lang["ShowGuildies_DESC"] = "Displays in the step tooltip a list of guild members that are currently at that attunement step.\nAdjust the max number of guildies to list on each attunement step if needed."
 Lang["ShowAltsInstead_TEXT"] = "Show list of alts instead of guild members"
 Lang["ShowAltsInstead_DESC"] = "The step tooltips will display any of your alts that are currently at that attunement step instead of guildies."
-Lang["ClearAll_TEXT"] = "Clear ALL results"
+Lang["ClearAll_TEXT"] = "Delete ALL results"
 Lang["ClearAll_DESC"] = "Delete all the gathered information about other players."
 Lang["ClearAll_CONF"] = "Really delete ALL results?"
 Lang["ClearAll_DONE"] = "All results deleted."
@@ -143,6 +202,7 @@ Lang["OnlyOne_Desc"] = "Only one person in the group needs to have this key. A r
 Lang["Heroic_Desc"] = "All members of the group need to have the rep and key in order to zone into the Heroic dungeons."
 Lang["NB_Desc"] = "Only one member of the raid group needs to have the Blackened Urn in order to summon Nightbane."
 Lang["BT_Desc"] = "All members of the raid group need to have the Medallion of Karabor in order to zone into the raid instance."
+Lang["BM_Desc"] = "All members of the group need to complete the quest chain in order to zone into the instance." 
 
 
 -- GENERIC
@@ -273,6 +333,9 @@ Lang["The Steamvault"] = "The Steamvault"
 Lang["Slave Pens"] = "Slave Pens"
 Lang["Gruul's Lair"] = "Gruul's Lair"
 Lang["Magtheridon's Lair"] = "Magtheridon's Lair"
+Lang["Zul'Aman"] = "Zul'Aman"
+Lang["Sunwell Plateau"] = "Sunwell Plateau"
+
 
 
 -- ITEMS
@@ -342,324 +405,324 @@ Lang["I_32649"] = "Medaillon of Karabor"			-- https://www.thegeekcrusade-serveur
 Lang["Q1_7848"] = "Attunement to the Core"			-- https://www.thegeekcrusade-serveur.com/db/?quest=7848
 Lang["Q2_7848"] = "Venture to the Molten Core entry portal in Blackrock Depths and recover a Core Fragment. Return to Lothos Riftwaker in Blackrock Mountain when you have recovered the Core Fragment."
 Lang["Q1_4903"] = "Warlord's Command"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4903
-Lang["Q2_4903"] = "Slay Highlord Omokk, War Master Voone, and Overlord Wyrmthalak. Recover Important Blackrock Documents. Return to Warlord Goretooth in Kargath when the mission has been accomplished."
+Lang["Q2_4903"] = "Slay Highlord Omokk, War Master Voone, and Overlord Wyrmthalak. Recover Important Blackrock Documents. Return to Warlord Goretooth in Kargath when the mission has been accomplished."
 Lang["Q1_4941"] = "Eitrigg's Wisdom"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4941
-Lang["Q2_4941"] = "Speak with Eitrigg in Orgrimmar. When you have discussed matters with Eitrigg, seek council from Thrall.\n\nYou recall having seen Eitrigg in Thrall's chamber."
+Lang["Q2_4941"] = "Speak with Eitrigg in Orgrimmar. When you have discussed matters with Eitrigg, seek council from Thrall.\n\nYou recall having seen Eitrigg in Thrall's chamber."
 Lang["Q1_4974"] = "For The Horde!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4974
-Lang["Q2_4974"] = "Travel to Blackrock Spire and slay Warchief Rend Blackhand. Take his head and return to Orgrimmar."
+Lang["Q2_4974"] = "Travel to Blackrock Spire and slay Warchief Rend Blackhand. Take his head and return to Orgrimmar."
 Lang["Q1_6566"] = "What the Wind Carries"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6566
-Lang["Q2_6566"] = "Listen to Thrall."
+Lang["Q2_6566"] = "Listen to Thrall."
 Lang["Q1_6567"] = "The Champion of the Horde"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6567
-Lang["Q2_6567"] = "Seek out Rexxar. The Warchief has instructed you as to his whereabouts. Search the paths of Desolace, between the Stonetalon Mountains and Feralas."
+Lang["Q2_6567"] = "Seek out Rexxar. The Warchief has instructed you as to his whereabouts. Search the paths of Desolace, between the Stonetalon Mountains and Feralas."
 Lang["Q1_6568"] = "The Testament of Rexxar"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6568
-Lang["Q2_6568"] = "Deliver Rexxar's Letter to Myranda the Hag in the Western Plaguelands."
+Lang["Q2_6568"] = "Deliver Rexxar's Letter to Myranda the Hag in the Western Plaguelands."
 Lang["Q1_6569"] = "Oculus Illusions"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6569
-Lang["Q2_6569"] = "Travel to Blackrock Spire and collect 20 Black Dragonspawn Eyes. Return to Myranda the Hag when the task is complete."
+Lang["Q2_6569"] = "Travel to Blackrock Spire and collect 20 Black Dragonspawn Eyes. Return to Myranda the Hag when the task is complete."
 Lang["Q1_6570"] = "Emberstrife"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6570
-Lang["Q2_6570"] = "Travel to the Wyrmbog in Dustwallow Marsh and seek out Emberstrife's Den. Once inside, wear the Amulet of Draconic Subversion and speak with Emberstrife."
+Lang["Q2_6570"] = "Travel to the Wyrmbog in Dustwallow Marsh and seek out Emberstrife's Den. Once inside, wear the Amulet of Draconic Subversion and speak with Emberstrife."
 Lang["Q1_6584"] = "The Test of Skulls, Chronalis"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6584
-Lang["Q2_6584"] = "Guarding the Caverns of Time in the Tanaris Desert is Chronalis, child of Nozdormu. Destroy him and return his skull to Emberstrife."
+Lang["Q2_6584"] = "Guarding the Caverns of Time in the Tanaris Desert is Chronalis, child of Nozdormu. Destroy him and return his skull to Emberstrife."
 Lang["Q1_6582"] = "The Test of Skulls, Scryer"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6582
-Lang["Q2_6582"] = "You must find the blue dragonflight drake champion, Scryer, and slay him. Pry his skull from his corpse and return it to Emberstrife. \n\nYou know that Scryer can be found in Winterspring."
+Lang["Q2_6582"] = "You must find the blue dragonflight drake champion, Scryer, and slay him. Pry his skull from his corpse and return it to Emberstrife. \n\nYou know that Scryer can be found in Winterspring."
 Lang["Q1_6583"] = "The Test of Skulls, Somnus"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6583
-Lang["Q2_6583"] = "Destroy the drake champion of the Green Flight, Somnus. Take his skull and return it to Emberstrife."
+Lang["Q2_6583"] = "Destroy the drake champion of the Green Flight, Somnus. Take his skull and return it to Emberstrife."
 Lang["Q1_6585"] = "The Test of Skulls, Axtroz"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6585
-Lang["Q2_6585"] = "Travel to Grim Batol and track down Axtroz, drake champion of the Red Flight. Destroy him and take his skull. Return the skull to Emberstrife."
+Lang["Q2_6585"] = "Travel to Grim Batol and track down Axtroz, drake champion of the Red Flight. Destroy him and take his skull. Return the skull to Emberstrife."
 Lang["Q1_6601"] = "Ascension..."			-- https://www.thegeekcrusade-serveur.com/db/?quest=6601
-Lang["Q2_6601"] = "It would appear as if the charade is over. You know that the Amulet of Draconic Subversion that Myranda the Hag created for you will not function inside Blackrock Spire. Perhaps you should find Rexxar and explain your predicament. Show him the Dull Drakefire Amulet. Hopefully he will know what to do next."
+Lang["Q2_6601"] = "It would appear as if the charade is over. You know that the Amulet of Draconic Subversion that Myranda the Hag created for you will not function inside Blackrock Spire. Perhaps you should find Rexxar and explain your predicament. Show him the Dull Drakefire Amulet. Hopefully he will know what to do next."
 Lang["Q1_6602"] = "Blood of the Black Dragon Champion"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6602
-Lang["Q2_6602"] = "Travel to Blackrock Spire and slay General Drakkisath. Gather his blood and return it to Rexxar."
+Lang["Q2_6602"] = "Travel to Blackrock Spire and slay General Drakkisath. Gather his blood and return it to Rexxar."
 Lang["Q1_4182"] = "Dragonkin Menace"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4182
-Lang["Q2_4182"] = "Slay 15 Black Broodlings, 10 Black Dragonspawn, 4 Black Wyrmkin and 1 Black Drake. Return to Helendis Riverhorn when the task is complete."
+Lang["Q2_4182"] = "Slay 15 Black Broodlings, 10 Black Dragonspawn, 4 Black Wyrmkin and 1 Black Drake. Return to Helendis Riverhorn when the task is complete."
 Lang["Q1_4183"] = "The True Masters"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4183
-Lang["Q2_4183"] = "Travel to Lakeshire and deliver Helendis Riverhorn's Letter to Magistrate Solomon."
+Lang["Q2_4183"] = "Travel to Lakeshire and deliver Helendis Riverhorn's Letter to Magistrate Solomon."
 Lang["Q1_4184"] = "The True Masters"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4184
-Lang["Q2_4184"] = "Travel to Stormwind and deliver Solomon's Plea to Highlord Bolvar Fordragon.\n\nBolvar resides in Stormwind Keep."
+Lang["Q2_4184"] = "Travel to Stormwind and deliver Solomon's Plea to Highlord Bolvar Fordragon.\n\nBolvar resides in Stormwind Keep."
 Lang["Q1_4185"] = "The True Masters"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4185
-Lang["Q2_4185"] = "Speak with Highlord Bolvar Fordragon after speaking with Lady Katrana Prestor."
+Lang["Q2_4185"] = "Speak with Highlord Bolvar Fordragon after speaking with Lady Katrana Prestor."
 Lang["Q1_4186"] = "The True Masters"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4186
-Lang["Q2_4186"] = "Take Bolvar's Decree to Magistrate Solomon in Lakeshire."
+Lang["Q2_4186"] = "Take Bolvar's Decree to Magistrate Solomon in Lakeshire."
 Lang["Q1_4223"] = "The True Masters"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4223
-Lang["Q2_4223"] = "Speak with Marshal Maxwell in the Burning Steppes."
+Lang["Q2_4223"] = "Speak with Marshal Maxwell in the Burning Steppes."
 Lang["Q1_4224"] = "The True Masters"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4224
-Lang["Q2_4224"] = "Speak with Ragged John to learn of Marshal Windsor's fate and return to Marshal Maxwell when you have completed this task.\n\nYou recall Marshal Maxwell telling you to search for him in a cave to the north."
+Lang["Q2_4224"] = "Speak with Ragged John to learn of Marshal Windsor's fate and return to Marshal Maxwell when you have completed this task.\n\nYou recall Marshal Maxwell telling you to search for him in a cave to the north."
 Lang["Q1_4241"] = "Marshal Windsor"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4241
-Lang["Q2_4241"] = "Travel to Blackrock Mountain in the northwest and enter Blackrock Depths. Find out what became of Marshal Windsor.\n\nYou recall Ragged John talking about Windsor being dragged off to a prison."
+Lang["Q2_4241"] = "Travel to Blackrock Mountain in the northwest and enter Blackrock Depths. Find out what became of Marshal Windsor.\n\nYou recall Ragged John talking about Windsor being dragged off to a prison."
 Lang["Q1_4242"] = "Abandoned Hope"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4242
-Lang["Q2_4242"] = "Give Marshal Maxwell the bad news."
+Lang["Q2_4242"] = "Give Marshal Maxwell the bad news."
 Lang["Q1_4264"] = "A Crumpled Up Note"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4264
-Lang["Q2_4264"] = "You may have just stumbled on to something that Marshal Windsor would be interested in seeing. There may be hope, after all."
+Lang["Q2_4264"] = "You may have just stumbled on to something that Marshal Windsor would be interested in seeing. There may be hope, after all."
 Lang["Q1_4282"] = "A shred of Hope"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4282
-Lang["Q2_4282"] = "Return Marshal Windsor's Lost Information.\n\nMarshal Windsor believes that the information is being held by Golem Lord Argelmach and General Angerforge."
+Lang["Q2_4282"] = "Return Marshal Windsor's Lost Information.\n\nMarshal Windsor believes that the information is being held by Golem Lord Argelmach and General Angerforge."
 Lang["Q1_4322"] = "Jail Break"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4322
-Lang["Q2_4322"] = "Help Marshal Windsor get his gear back and free his friends. Return to Marshal Maxwell if you succeed."
+Lang["Q2_4322"] = "Help Marshal Windsor get his gear back and free his friends. Return to Marshal Maxwell if you succeed."
 Lang["Q1_6402"] = "Stormwind Rendezvous"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6402
-Lang["Q2_6402"] = "Travel to Stormwind City and venture to the city gates. Speak with Squire Rowe so that he may let Marshal Windsor know that you have arrived."
+Lang["Q2_6402"] = "Travel to Stormwind City and venture to the city gates. Speak with Squire Rowe so that he may let Marshal Windsor know that you have arrived."
 Lang["Q1_6403"] = "The Great Masquerade"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6403
-Lang["Q2_6403"] = "Follow Reginald Windsor through Stormwind. Protect him from harm!"
+Lang["Q2_6403"] = "Follow Reginald Windsor through Stormwind. Protect him from harm!"
 Lang["Q1_6501"] = "The Dragon's Eye"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6501
-Lang["Q2_6501"] = "You must search the world for a being capable of restoring the power to the Fragment of the Dragon's Eye. The only information you possess about such a being is that they exist."
+Lang["Q2_6501"] = "You must search the world for a being capable of restoring the power to the Fragment of the Dragon's Eye. The only information you possess about such a being is that they exist."
 Lang["Q1_6502"] = "Drakefire Amulet"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6502
-Lang["Q2_6502"] = "You must retrieve the Blood of the Black Dragon Champion from General Drakkisath. Drakkisath can be found in his throne room behind the Halls of Ascension in Blackrock Spire."
+Lang["Q2_6502"] = "You must retrieve the Blood of the Black Dragon Champion from General Drakkisath. Drakkisath can be found in his throne room behind the Halls of Ascension in Blackrock Spire."
 Lang["Q1_7761"] = "Blackhand's Command"			-- https://www.thegeekcrusade-serveur.com/db/?quest=7761
-Lang["Q2_7761"] = "That is one stupid orc. It would appear as if you need to find this brand and gain the Mark of Drakkisath in order to access the Orb of Command.\n\nThe letter indicates that General Drakkisath guards the brand. Perhaps you should investigate."
+Lang["Q2_7761"] = "That is one stupid orc. It would appear as if you need to find this brand and gain the Mark of Drakkisath in order to access the Orb of Command.\n\nThe letter indicates that General Drakkisath guards the brand. Perhaps you should investigate."
 Lang["Q1_9121"] = "The Dread Citadel - Naxxramas"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9121
-Lang["Q2_9122"] = "Archmage Angela Dosantos at Light's Hope Chapel in the Eastern Plaguelands wants 2 Arcane Crystals, 1 Nexus Crystal and 30 gold pieces. You must also be Revered with the Argent Dawn."
+Lang["Q2_9121"] = "Archmage Angela Dosantos at Light's Hope Chapel in the Eastern Plaguelands wants 5 Arcane Crystals, 2 Nexus Crystals, 1 Righteous Orb and 60 gold pieces. You must also be Honored with the Argent Dawn."
 Lang["Q1_9122"] = "The Dread Citadel - Naxxramas"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9122
-Lang["Q2_9121"] = "Archmage Angela Dosantos at Light's Hope Chapel in the Eastern Plaguelands wants 5 Arcane Crystals, 2 Nexus Crystals, 1 Righteous Orb and 60 gold pieces. You must also be Honored with the Argent Dawn."
+Lang["Q2_9122"] = "Archmage Angela Dosantos at Light's Hope Chapel in the Eastern Plaguelands wants 2 Arcane Crystals, 1 Nexus Crystal and 30 gold pieces. You must also be Revered with the Argent Dawn."
 Lang["Q1_9123"] = "The Dread Citadel - Naxxramas"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9123
-Lang["Q2_9123"] = "Archmage Angela Dosantos at Light's Hope Chapel in the Eastern Plaguelands will grant you Arcane Cloaking at no cost. You must be Exalted with the Argent Dawn."
+Lang["Q2_9123"] = "Archmage Angela Dosantos at Light's Hope Chapel in the Eastern Plaguelands will grant you Arcane Cloaking at no cost. You must be Exalted with the Argent Dawn."
 Lang["Q1_8286"] = "What Tomorrow Brings"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8286
-Lang["Q2_8286"] = "Venture to the Caverns of Time in Tanaris and find Anachronos, Brood of Nozdormu."
+Lang["Q2_8286"] = "Venture to the Caverns of Time in Tanaris and find Anachronos, Brood of Nozdormu."
 Lang["Q1_8288"] = "Only One May Rise"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8288
-Lang["Q2_8288"] = "Return the Head of the Broodlord Lashlayer to Baristolth of the Shifting Sands at Cenarion Hold in Silithus."
+Lang["Q2_8288"] = "Return the Head of the Broodlord Lashlayer to Baristolth of the Shifting Sands at Cenarion Hold in Silithus."
 Lang["Q1_8301"] = "The Path of the Righteous"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8301
-Lang["Q2_8301"] = "Collect 200 Silithid Carapace Fragments and return to Baristolth."
+Lang["Q2_8301"] = "Collect 200 Silithid Carapace Fragments and return to Baristolth."
 Lang["Q1_8303"] = "Anachronos"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8303
-Lang["Q2_8303"] = "Seek out Anachronos at the Caverns of Time in Tanaris."
+Lang["Q2_8303"] = "Seek out Anachronos at the Caverns of Time in Tanaris."
 Lang["Q1_8305"] = "Long Forgotten Memories"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8305
-Lang["Q2_8305"] = "Locate the Crystalline Tear in Silithus and gaze into its depths."
+Lang["Q2_8305"] = "Locate the Crystalline Tear in Silithus and gaze into its depths."
 Lang["Q1_8519"] = "A Pawn on the Eternal Board"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8519
-Lang["Q2_8519"] = "Learn all that you can of the past, then speak with Anachronos at the Caverns of Time in Tanaris."
+Lang["Q2_8519"] = "Learn all that you can of the past, then speak with Anachronos at the Caverns of Time in Tanaris."
 Lang["Q1_8555"] = "The Charge of the Dragonflights"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8555
-Lang["Q2_8555"] = "Eranikus, Vaelastrasz, and Azuregos... No doubt you know of these dragons, mortal. It is no coincidence, then, that they have played such influential roles as watchers of our world.\n\nUnfortunately (and my own naivety is partially to blame) whether by agents of the Old Gods or betrayal by those that would call them friend, each guardian has fallen to tragedy. The extent of which has fueled my own distrust towards your kind.\n\nSeek them out... And prepare yourself for the worst."
+Lang["Q2_8555"] = "Eranikus, Vaelastrasz, and Azuregos... No doubt you know of these dragons, mortal. It is no coincidence, then, that they have played such influential roles as watchers of our world.\n\nUnfortunately (and my own naivety is partially to blame) whether by agents of the Old Gods or betrayal by those that would call them friend, each guardian has fallen to tragedy. The extent of which has fueled my own distrust towards your kind.\n\nSeek them out... And prepare yourself for the worst."
 Lang["Q1_8730"] = "Nefarius's Corruption"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8730
-Lang["Q2_8730"] = "Slay Nefarian and recover the Red Scepter Shard. Return the Red Scepter Shard to Anachronos at the Caverns of Time in Tanaris. You have 5 hours to complete this task."
+Lang["Q2_8730"] = "Slay Nefarian and recover the Red Scepter Shard. Return the Red Scepter Shard to Anachronos at the Caverns of Time in Tanaris. You have 5 hours to complete this task."
 Lang["Q1_8733"] = "Eranikus, Tyrant of the Dream"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8733
-Lang["Q2_8733"] = "Travel to the continent of Teldrassil and find Malfurion's agent somewhere outside the walls of Darnassus."
+Lang["Q2_8733"] = "Travel to the continent of Teldrassil and find Malfurion's agent somewhere outside the walls of Darnassus."
 Lang["Q1_8734"] = "Tyrande and Remulos"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8734
-Lang["Q2_8734"] = "Travel to the Moonglade and speak to Keeper Remulos."
+Lang["Q2_8734"] = "Travel to the Moonglade and speak to Keeper Remulos."
 Lang["Q1_8735"] = "The Nightmare's Corruption"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8735
-Lang["Q2_8735"] = "Travel to the four Emerald Dream portals in Azeroth and collect a Fragment of the Nightmare's Corruption from each. Return to Keeper Remulos in the Moonglade when you have completed this task."
+Lang["Q2_8735"] = "Travel to the four Emerald Dream portals in Azeroth and collect a Fragment of the Nightmare's Corruption from each. Return to Keeper Remulos in the Moonglade when you have completed this task."
 Lang["Q1_8736"] = "The Nightmare Manifests"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8736
-Lang["Q2_8736"] = "Defend Nighthaven from Eranikus. Do not let Keeper Remulos perish. Do not slay Eranikus. Defend yourself. Await Tyrande."
+Lang["Q2_8736"] = "Defend Nighthaven from Eranikus. Do not let Keeper Remulos perish. Do not slay Eranikus. Defend yourself. Await Tyrande."
 Lang["Q1_8741"] = "The Champion Returns"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8741
-Lang["Q2_8741"] = "Take the Green Scepter Shard to Anachronos at the Caverns of Time in Tanaris."
+Lang["Q2_8741"] = "Take the Green Scepter Shard to Anachronos at the Caverns of Time in Tanaris."
 Lang["Q1_8575"] = "Azuregos's Magical Ledger"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8575
-Lang["Q2_8575"] = "Deliver Azuregos's Magical Ledger to Narain Soothfancy in Tanaris."
+Lang["Q2_8575"] = "Deliver Azuregos's Magical Ledger to Narain Soothfancy in Tanaris."
 Lang["Q1_8576"] = "Translating the Ledger"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8576
-Lang["Q2_8576"] = "First things first! We need to figure out what Azuregos wrote in this ledger.\n\nYou say that he's told you to make an arcanite buoy and that this is the schematic? Strange that he would write this in Draconic. That old goat knows I can't read this nonsense.\n\nIf this is going to work, I'm going to need my scrying goggles, a five hundred pound chicken and volume II of 'Draconic for Dummies.' Not necessarily in that order."
+Lang["Q2_8576"] = "First things first! We need to figure out what Azuregos wrote in this ledger.\n\nYou say that he's told you to make an arcanite buoy and that this is the schematic? Strange that he would write this in Draconic. That old goat knows I can't read this nonsense.\n\nIf this is going to work, I'm going to need my scrying goggles, a five hundred pound chicken and volume II of 'Draconic for Dummies.' Not necessarily in that order."
 Lang["Q1_8597"] = "Draconic for Dummies"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8597
-Lang["Q2_8597"] = "Find Narain Soothfancy's book, buried on an island in the South Seas."
+Lang["Q2_8597"] = "Find Narain Soothfancy's book, buried on an island in the South Seas."
 Lang["Q1_8599"] = "Love Song for Narain"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8599
-Lang["Q2_8599"] = "Take Meridith's Love Letter to Narain Soothfancy in Tanaris."
+Lang["Q2_8599"] = "Take Meridith's Love Letter to Narain Soothfancy in Tanaris."
 Lang["Q1_8598"] = "rAnS0m"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8598
-Lang["Q2_8598"] = "Return the Ransom Letter to Narain Soothfancy in Tanaris."
+Lang["Q2_8598"] = "Return the Ransom Letter to Narain Soothfancy in Tanaris."
 Lang["Q1_8606"] = "Decoy!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8606
-Lang["Q2_8606"] = "Narain Soothfancy in Tanaris wants you to travel to Winterspring and place the Bag of Gold at the drop off point documented by the booknappers."
+Lang["Q2_8606"] = "Narain Soothfancy in Tanaris wants you to travel to Winterspring and place the Bag of Gold at the drop off point documented by the booknappers."
 Lang["Q1_8620"] = "The Only Prescription"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8620
-Lang["Q2_8620"] = "Recover the 8 lost chapters of Draconic for Dummies and combine them with the Magical Book Binding and return the completed book of Draconic for Dummies: Volume II to Narain Soothfancy in Tanaris."
+Lang["Q2_8620"] = "Recover the 8 lost chapters of Draconic for Dummies and combine them with the Magical Book Binding and return the completed book of Draconic for Dummies: Volume II to Narain Soothfancy in Tanaris."
 Lang["Q1_8584"] = "Never Ask Me About My Business"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8584
-Lang["Q2_8584"] = "Narain Soothfancy in Tanaris wants you to speak with Dirge Quickcleave in Gadgetzan."
+Lang["Q2_8584"] = "Narain Soothfancy in Tanaris wants you to speak with Dirge Quickcleave in Gadgetzan."
 Lang["Q1_8585"] = "The Isle of Dread!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8585
-Lang["Q2_8585"] = "Recover Lakmaeran's Carcass and 20 Chimaerok Tenderloins for Dirge Quickcleave in Tanaris."
+Lang["Q2_8585"] = "Recover Lakmaeran's Carcass and 20 Chimaerok Tenderloins for Dirge Quickcleave in Tanaris."
 Lang["Q1_8586"] = "Dirge's Kickin' Chimaerok Chops"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8586
-Lang["Q2_8586"] = "Dirge Quickcleave in Gadgetzan wants you to bring him 20 Goblin Rocket Fuel and 20 Deeprock Salt."
+Lang["Q2_8586"] = "Dirge Quickcleave in Gadgetzan wants you to bring him 20 Goblin Rocket Fuel and 20 Deeprock Salt."
 Lang["Q1_8587"] = "Return to Narain"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8587
-Lang["Q2_8587"] = "Deliver the 500 Pound Chicken to Narain Soothfancy in Tanaris."
+Lang["Q2_8587"] = "Deliver the 500 Pound Chicken to Narain Soothfancy in Tanaris."
 Lang["Q1_8577"] = "Stewvul, Ex-B.F.F."			-- https://www.thegeekcrusade-serveur.com/db/?quest=8577
-Lang["Q2_8577"] = "Narain Soothfancy wants you to find his ex-best friend forever (BFF), Stewvul, and take back the scrying goggles that Stewvul stole from him."
+Lang["Q2_8577"] = "Narain Soothfancy wants you to find his ex-best friend forever (BFF), Stewvul, and take back the scrying goggles that Stewvul stole from him."
 Lang["Q1_8578"] = "Scrying Goggles? No Problem!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8578
-Lang["Q2_8578"] = "Find Narain's Scrying Goggles and return them to Narain Soothfancy in Tanaris."
+Lang["Q2_8578"] = "Find Narain's Scrying Goggles and return them to Narain Soothfancy in Tanaris."
 Lang["Q1_8728"] = "The Good News and The Bad News"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8728
-Lang["Q2_8728"] = "Narain Soothfancy in Tanaris wants you to bring him 20 Arcanite Bars, 10 Elementium Ore, 10 Azerothian Diamonds, and 10 Blue Sapphires."
+Lang["Q2_8728"] = "Narain Soothfancy in Tanaris wants you to bring him 20 Arcanite Bars, 10 Elementium Ore, 10 Azerothian Diamonds, and 10 Blue Sapphires."
 Lang["Q1_8729"] = "The Wrath of Neptulon"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8729
-Lang["Q2_8729"] = "Use the Arcanite Buoy at the Swirling Maelstrom at the Bay of Storms in Azshara."
+Lang["Q2_8729"] = "Use the Arcanite Buoy at the Swirling Maelstrom at the Bay of Storms in Azshara."
 Lang["Q1_8742"] = "The Might of Kalimdor"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8742
-Lang["Q2_8742"] = "A thousand years has passed and just as it was fated, one stands before me. One who shall lead their people to a new age.\n\nThe Old God trembles. Oh yes, it fears your faith. Shatter the prophecy of C'Thun.\n\nIt knows you come, champion - and with you comes the might of Kalimdor. You have only to let me know when you are prepared and I shall grant you the Scepter of the Shifting Sands."
+Lang["Q2_8742"] = "A thousand years has passed and just as it was fated, one stands before me. One who shall lead their people to a new age.\n\nThe Old God trembles. Oh yes, it fears your faith. Shatter the prophecy of C'Thun.\n\nIt knows you come, champion - and with you comes the might of Kalimdor. You have only to let me know when you are prepared and I shall grant you the Scepter of the Shifting Sands."
 Lang["Q1_8745"] = "Treasure of the Timeless One"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8745
-Lang["Q2_8745"] = "Greetings, champion. I am Jonathan, keeper of the sacred gong and eternal watcher of the Bronze Flight.\n\nI have been empowered by the Timeless One himself to grant you an item of your choosing from his timeless treasure trove. May it aid you in your battles against C'Thun."
+Lang["Q2_8745"] = "Greetings, champion. I am Jonathan, keeper of the sacred gong and eternal watcher of the Bronze Flight.\n\nI have been empowered by the Timeless One himself to grant you an item of your choosing from his timeless treasure trove. May it aid you in your battles against C'Thun."
 
 
 -- QUESTS - TBC
 Lang["Q1_10755"] = "Entry Into the Citadel"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10755
-Lang["Q2_10755"] = "Bring the Primed Key Mold to Nazgrel at Thrallmar in Hellfire Peninsula."
+Lang["Q2_10755"] = "Bring the Primed Key Mold to Nazgrel at Thrallmar in Hellfire Peninsula."
 Lang["Q1_10756"] = "Grand Master Rohok"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10756
-Lang["Q2_10756"] = "Bring the Primed Key Mold to Rohok in Thrallmar."
+Lang["Q2_10756"] = "Bring the Primed Key Mold to Rohok in Thrallmar."
 Lang["Q1_10757"] = "Rohok's Request"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10757
-Lang["Q2_10757"] = "Bring 4 Fel Iron Bars, 2 Arcane Dust and 4 Motes of Fire to Rohok at Thrallmar in Hellfire Peninsula."
+Lang["Q2_10757"] = "Bring 4 Fel Iron Bars, 2 Arcane Dust and 4 Motes of Fire to Rohok at Thrallmar in Hellfire Peninsula."
 Lang["Q1_10758"] = "Hotter than Hell"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10758
-Lang["Q2_10758"] = "Destroy a Fel Reaver in Hellfire Peninsula and plunge the Unfired Key Mold into its remains. Bring the Charred Key Mold to Rohok in Thrallmar."
+Lang["Q2_10758"] = "Destroy a Fel Reaver in Hellfire Peninsula and plunge the Unfired Key Mold into its remains. Bring the Charred Key Mold to Rohok in Thrallmar."
 Lang["Q1_10754"] = "Entry Into the Citadel"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10754
-Lang["Q2_10754"] = "Bring the Primed Key Mold to Force Commander Danath at Honor Hold in Hellfire Peninsula."
+Lang["Q2_10754"] = "Bring the Primed Key Mold to Force Commander Danath at Honor Hold in Hellfire Peninsula."
 Lang["Q1_10762"] = "Grand Master Dumphry"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10762
-Lang["Q2_10762"] = "Bring the Primed Key Mold to Dumphry in Honor Hold."
+Lang["Q2_10762"] = "Bring the Primed Key Mold to Dumphry in Honor Hold."
 Lang["Q1_10763"] = "Dumphry's Request"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10763
-Lang["Q2_10763"] = "Bring 4 Fel Iron Bars, 2 Arcane Dust and 4 Motes of Fire to Dumphry at Honor Hold in Hellfire Peninsula."
+Lang["Q2_10763"] = "Bring 4 Fel Iron Bars, 2 Arcane Dust and 4 Motes of Fire to Dumphry at Honor Hold in Hellfire Peninsula."
 Lang["Q1_10764"] = "Hotter than Hell"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10764
-Lang["Q2_10764"] = "Destroy a Fel Reaver in Hellfire Peninsula and plunge the Unfired Key Mold into its remains. Bring the Charred Key Mold to Dumphry in Honor Hold."
+Lang["Q2_10764"] = "Destroy a Fel Reaver in Hellfire Peninsula and plunge the Unfired Key Mold into its remains. Bring the Charred Key Mold to Dumphry in Honor Hold."
 Lang["Q1_10279"] = "To The Master's Lair"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10279
-Lang["Q2_10279"] = "Speak to Andormu at the Caverns of Time."
+Lang["Q2_10279"] = "Speak to Andormu at the Caverns of Time."
 Lang["Q1_10277"] = "The Caverns of Time"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10277
-Lang["Q2_10277"] = "Andormu at the Caverns of Time has asked that you follow the Custodian of Time around the cavern."
+Lang["Q2_10277"] = "Andormu at the Caverns of Time has asked that you follow the Custodian of Time around the cavern."
 Lang["Q1_10282"] = "Old Hillsbrad"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10282
-Lang["Q2_10282"] = "Andormu at the Caverns of Time has asked that you venture to Old Hillsbrad and speak with Erozion."
+Lang["Q2_10282"] = "Andormu at the Caverns of Time has asked that you venture to Old Hillsbrad and speak with Erozion."
 Lang["Q1_10283"] = "Taretha's Diversion"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10283
-Lang["Q2_10283"] = "Travel to Durnholde Keep and set 5 incendiary charges at the barrels located inside each of the internment lodges using the Pack of Incendiary Bombs given to you by Erozion."
+Lang["Q2_10283"] = "Travel to Durnholde Keep and set 5 incendiary charges at the barrels located inside each of the internment lodges using the Pack of Incendiary Bombs given to you by Erozion."
 Lang["Q1_10284"] = "Escape from Durnholde"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10284
-Lang["Q2_10284"] = "When you are ready to proceed, let Thrall know. Follow Thrall out of Durnholde Keep and help him free Taretha and fulfill his destiny."
+Lang["Q2_10284"] = "When you are ready to proceed, let Thrall know. Follow Thrall out of Durnholde Keep and help him free Taretha and fulfill his destiny."
 Lang["Q1_10285"] = "Return to Andormu"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10285
-Lang["Q2_10285"] = "Return to the child Andormu at the Caverns of Time in the Tanaris desert."
+Lang["Q2_10285"] = "Return to the child Andormu at the Caverns of Time in the Tanaris desert."
 Lang["Q1_10205"] = "Warp-Raider Nesaad"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10205
-Lang["Q2_10205"] = "Kill Warp-Raider Nesaad and then return to Nether-Stalker Khay'ji at Area 52 in the Netherstorm."
+Lang["Q2_10205"] = "Kill Warp-Raider Nesaad and then return to Nether-Stalker Khay'ji at Area 52 in the Netherstorm."
 Lang["Q1_10266"] = "Request for Assistance"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10266
-Lang["Q2_10266"] = "Seek out and offer your services to Gahruj. He is located at the Midrealm Post inside Eco-Dome Midrealm in the Netherstorm."
+Lang["Q2_10266"] = "Seek out and offer your services to Gahruj. He is located at the Midrealm Post inside Eco-Dome Midrealm in the Netherstorm."
 Lang["Q1_10267"] = "Rightful Repossession"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10267
-Lang["Q2_10267"] = "Collect 10 Boxes of Surveying Equipment and return them to Gahruj at the Midrealm Post inside Eco-Dome Midrealm in the Netherstorm."
+Lang["Q2_10267"] = "Collect 10 Boxes of Surveying Equipment and return them to Gahruj at the Midrealm Post inside Eco-Dome Midrealm in the Netherstorm."
 Lang["Q1_10268"] = "An Audience with the Prince"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10268
-Lang["Q2_10268"] = "Deliver the Surveying Equipment to the Image of Nexus-Prince Haramad at the Stormspire in the Netherstorm."
+Lang["Q2_10268"] = "Deliver the Surveying Equipment to the Image of Nexus-Prince Haramad at the Stormspire in the Netherstorm."
 Lang["Q1_10269"] = "Triangulation Point One"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10269
-Lang["Q2_10269"] = "Use the Triangulation Device to point your way toward the first triangulation point. Once you have found it, report the location to Dealer Hazzin at the Protectorate Watchpost on the Manaforge Ultris island in the Netherstorm."
+Lang["Q2_10269"] = "Use the Triangulation Device to point your way toward the first triangulation point. Once you have found it, report the location to Dealer Hazzin at the Protectorate Watchpost on the Manaforge Ultris island in the Netherstorm."
 Lang["Q1_10275"] = "Triangulation Point Two"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10275
-Lang["Q2_10275"] = "Use the Triangulation Device to point your way toward the second triangulation point. Once you have found it, report the location to Wind Trader Tuluman at Tuluman's Landing, just on the other side of the bridge from the Manaforge Ara island in the Netherstorm."
+Lang["Q2_10275"] = "Use the Triangulation Device to point your way toward the second triangulation point. Once you have found it, report the location to Wind Trader Tuluman at Tuluman's Landing, just on the other side of the bridge from the Manaforge Ara island in the Netherstorm."
 Lang["Q1_10276"] = "Full Triangle"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10276
-Lang["Q2_10276"] = "Recover the Ata'mal Crystal and deliver it to the Image of Nexus-Prince Haramad at the Stormspire in the Netherstorm."
+Lang["Q2_10276"] = "Recover the Ata'mal Crystal and deliver it to the Image of Nexus-Prince Haramad at the Stormspire in the Netherstorm."
 Lang["Q1_10280"] = "Special Delivery to Shattrath City"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10280
-Lang["Q2_10280"] = "Deliver the Ata'mal Crystal to A'dal on the Terrace of Light in Shattrath City."
+Lang["Q2_10280"] = "Deliver the Ata'mal Crystal to A'dal on the Terrace of Light in Shattrath City."
 Lang["Q1_10704"] = "How to Break Into the Arcatraz"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10704
-Lang["Q2_10704"] = "A'dal has tasked you with the recovery of the Top and Bottom Shards of the Arcatraz Key. Return them to him, and he will fashion them into the Key to the Arcatraz for you."
+Lang["Q2_10704"] = "A'dal has tasked you with the recovery of the Top and Bottom Shards of the Arcatraz Key. Return them to him, and he will fashion them into the Key to the Arcatraz for you."
 Lang["Q1_9824"] = "Arcane Disturbances"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9824
-Lang["Q2_9824"] = "Use the Violet Scrying Crystal near underground sources of water in the Master's Cellar and return to Archmage Alturus outside of Karazhan."
+Lang["Q2_9824"] = "Use the Violet Scrying Crystal near underground sources of water in the Master's Cellar and return to Archmage Alturus outside of Karazhan."
 Lang["Q1_9825"] = "Restless Activity"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9825
-Lang["Q2_9825"] = "Bring 10 Ghostly Essences to Archmage Alturus outside of Karazhan."
+Lang["Q2_9825"] = "Bring 10 Ghostly Essences to Archmage Alturus outside of Karazhan."
 Lang["Q1_9826"] = "Contact from Dalaran"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9826
-Lang["Q2_9826"] = "Bring Alturus's Report to Archmage Cedric in the outskirts of Dalaran."
+Lang["Q2_9826"] = "Bring Alturus's Report to Archmage Cedric in the outskirts of Dalaran."
 Lang["Q1_9829"] = "Khadgar"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9829
-Lang["Q2_9829"] = "Deliver Alturus's Report to Khadgar in Shattrath City in Terokkar Forest."
+Lang["Q2_9829"] = "Deliver Alturus's Report to Khadgar in Shattrath City in Terokkar Forest."
 Lang["Q1_9831"] = "Entry Into Karazhan"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9831
-Lang["Q2_9831"] = "Khadgar wants you to enter the Shadow Labyrinth at Auchindoun and retrieve the First Key Fragment from an Arcane Container hidden there."
+Lang["Q2_9831"] = "Khadgar wants you to enter the Shadow Labyrinth at Auchindoun and retrieve the First Key Fragment from an Arcane Container hidden there."
 Lang["Q1_9832"] = "The Second and Third Fragments"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9832
-Lang["Q2_9832"] = "Obtain the Second Key Fragment from an Arcane Container inside Coilfang Reservoir and the Third Key Fragment from an Arcane Container inside Tempest Keep. Return to Khadgar in Shattrath City after you've completed this task."
+Lang["Q2_9832"] = "Obtain the Second Key Fragment from an Arcane Container inside Coilfang Reservoir and the Third Key Fragment from an Arcane Container inside Tempest Keep. Return to Khadgar in Shattrath City after you've completed this task."
 Lang["Q1_9836"] = "The Master's Touch"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9836
-Lang["Q2_9836"] = "Go into the Caverns of Time and convince Medivh to enable your Restored Apprentice's Key."
+Lang["Q2_9836"] = "Go into the Caverns of Time and convince Medivh to enable your Restored Apprentice's Key."
 Lang["Q1_9837"] = "Return to Khadgar"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9837
-Lang["Q2_9837"] = "Return to Khadgar in Shattrath City and show him the Master's Key."
+Lang["Q2_9837"] = "Return to Khadgar in Shattrath City and show him the Master's Key."
 Lang["Q1_9630"] = "Medivh's Journal"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9630
-Lang["Q2_9630"] = "Archmage Alturus at Deadwind Pass wants you go into Karazhan and speak to Wravien."
+Lang["Q2_9630"] = "Archmage Alturus at Deadwind Pass wants you go into Karazhan and speak to Wravien."
 Lang["Q1_9638"] = "In Good Hands"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9638
-Lang["Q2_9638"] = "Speak to Gradav at the Guardian's Library in Karazhan."
+Lang["Q2_9638"] = "Speak to Gradav at the Guardian's Library in Karazhan."
 Lang["Q1_9639"] = "Kamsis"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9639
-Lang["Q2_9639"] = "Speak to Kamsis at the Guardian's Library in Karazhan."
+Lang["Q2_9639"] = "Speak to Kamsis at the Guardian's Library in Karazhan."
 Lang["Q1_9640"] = "The Shade of Aran"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9640
-Lang["Q2_9640"] = "Obtain Medivh's Journal and return to Kamsis at the Guardian's Library in Karazhan."
+Lang["Q2_9640"] = "Obtain Medivh's Journal and return to Kamsis at the Guardian's Library in Karazhan."
 Lang["Q1_9645"] = "The Master's Terrace"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9645
-Lang["Q2_9645"] = "Go to the Master's Terrace in Karazhan and read Medivh's Journal. Return to Archmage Alturus with Medivh's Journal after completing this task."
+Lang["Q2_9645"] = "Go to the Master's Terrace in Karazhan and read Medivh's Journal. Return to Archmage Alturus with Medivh's Journal after completing this task."
 Lang["Q1_9680"] = "Digging Up the Past"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9680
-Lang["Q2_9680"] = "Archmage Alturus wants you to go to the mountains south of Karazhan in Deadwind Pass and retrieve a Charred Bone Fragment."
+Lang["Q2_9680"] = "Archmage Alturus wants you to go to the mountains south of Karazhan in Deadwind Pass and retrieve a Charred Bone Fragment."
 Lang["Q1_9631"] = "A Colleague's Aid"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9631
-Lang["Q2_9631"] = "Take the Charred Bone Fragment to Kalynna Lathred at Area 52 in Netherstorm."
+Lang["Q2_9631"] = "Take the Charred Bone Fragment to Kalynna Lathred at Area 52 in Netherstorm."
 Lang["Q1_9637"] = "Kalynna's Request"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9637
-Lang["Q2_9637"] = "Kalynna Lathred wants you to retrieve the Tome of Dusk from Grand Warlock Nethekurse in the Shattered Halls of Hellfire Citadel and the Book of Forgotten Names from Darkweaver Syth in the Sethekk Halls in Auchindoun."
+Lang["Q2_9637"] = "Kalynna Lathred wants you to retrieve the Tome of Dusk from Grand Warlock Nethekurse in the Shattered Halls of Hellfire Citadel and the Book of Forgotten Names from Darkweaver Syth in the Sethekk Halls in Auchindoun."
 Lang["Q1_9644"] = "Nightbane"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9644
-Lang["Q2_9644"] = "Go to the Master's Terrace in Karazhan and use Kalynna's Urn to summon Nightbane. Retrieve the Faint Arcane Essence from Nightbane's corpse and bring it to Archmage Alturus."
+Lang["Q2_9644"] = "Go to the Master's Terrace in Karazhan and use Kalynna's Urn to summon Nightbane. Retrieve the Faint Arcane Essence from Nightbane's corpse and bring it to Archmage Alturus."
 Lang["Q1_10901"] = "The Cudgel of Kar'desh"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10901
-Lang["Q2_10901"] = "Skar'this the Heretic in the heroic Slave Pens of Coilfang Reservoir wants you to bring him the Earthen Signet and the Blazing Signet."
+Lang["Q2_10901"] = "Skar'this the Heretic in the heroic Slave Pens of Coilfang Reservoir wants you to bring him the Earthen Signet and the Blazing Signet."
 Lang["Q1_10900"] = "The Mark of Vashj"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10900
 Lang["Q2_10900"] = ""
 Lang["Q1_10681"] = "The Hand of Gul'dan"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10681
-Lang["Q2_10681"] = "Speak with Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley."
+Lang["Q2_10681"] = "Speak with Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley."
 Lang["Q1_10458"] = "Enraged Spirits of Fire and Earth"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10458
-Lang["Q2_10458"] = "Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley wants you to use the Totem of Spirits to capture 8 Earthen Souls and 8 Fiery Souls."
+Lang["Q2_10458"] = "Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley wants you to use the Totem of Spirits to capture 8 Earthen Souls and 8 Fiery Souls."
 Lang["Q1_10480"] = "Enraged Spirits of Water"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10480
-Lang["Q2_10480"] = "Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley wants you to use the Totem of Spirits to capture 5 Watery Souls."
+Lang["Q2_10480"] = "Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley wants you to use the Totem of Spirits to capture 5 Watery Souls."
 Lang["Q1_10481"] = "Enraged Spirits of Air"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10481
-Lang["Q2_10481"] = "Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley wants you to use the Totem of Spirits to capture 10 Airy Souls."
+Lang["Q2_10481"] = "Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley wants you to use the Totem of Spirits to capture 10 Airy Souls."
 Lang["Q1_10513"] = "Oronok Torn-heart"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10513
-Lang["Q2_10513"] = "Seek out Oronok Torn-heart on the Shattered Shelf - north of Coilskar Cistern."
+Lang["Q2_10513"] = "Seek out Oronok Torn-heart on the Shattered Shelf - north of Coilskar Cistern."
 Lang["Q1_10514"] = "I Was A Lot Of Things..."			-- https://www.thegeekcrusade-serveur.com/db/?quest=10514
-Lang["Q2_10514"] = "Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley wants you to recover 10 Shadowmoon Tubers from the Shattered Plains."
+Lang["Q2_10514"] = "Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley wants you to recover 10 Shadowmoon Tubers from the Shattered Plains."
 Lang["Q1_10515"] = "A Lesson Learned"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10515
-Lang["Q2_10515"] = "Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley wants you to destroy 10 Ravenous Flayer Eggs on the Shattered Plains."
+Lang["Q2_10515"] = "Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley wants you to destroy 10 Ravenous Flayer Eggs on the Shattered Plains."
 Lang["Q1_10519"] = "The Cipher of Damnation - Truth and History"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10519
-Lang["Q2_10519"] = "Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley wants you to listen to his story. Speak to Oronok to begin hearing his story."
+Lang["Q2_10519"] = "Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley wants you to listen to his story. Speak to Oronok to begin hearing his story."
 Lang["Q1_10521"] = "Grom'tor, Son of Oronok"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10521
-Lang["Q2_10521"] = "Find Grom'tor, Son of Oronok at Coilskar Point in Shadowmoon Valley."
+Lang["Q2_10521"] = "Find Grom'tor, Son of Oronok at Coilskar Point in Shadowmoon Valley."
 Lang["Q1_10527"] = "Ar'tor, Son of Oronok"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10527
-Lang["Q2_10527"] = "Find Ar'tor, Son of Oronok at Illidari Point in Shadowmoon Valley."
+Lang["Q2_10527"] = "Find Ar'tor, Son of Oronok at Illidari Point in Shadowmoon Valley."
 Lang["Q1_10546"] = "Borak, Son of Oronok"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10546
-Lang["Q2_10546"] = "Find Borak, Son of Oronok near Eclipse Point in Shadowmoon Valley."
+Lang["Q2_10546"] = "Find Borak, Son of Oronok near Eclipse Point in Shadowmoon Valley."
 Lang["Q1_10522"] = "The Cipher of Damnation - Grom'tor's Charge"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10522
-Lang["Q2_10522"] = "Grom'tor, Son of Oronok at Coilskar Point in Shadowmoon Valley wants you to recover the First Fragment of the Cipher of Damnation."
+Lang["Q2_10522"] = "Grom'tor, Son of Oronok at Coilskar Point in Shadowmoon Valley wants you to recover the First Fragment of the Cipher of Damnation."
 Lang["Q1_10528"] = "Demonic Crystal Prisons"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10528
-Lang["Q2_10528"] = "Seek out and slay Painmistress Gabrissa at Illidari Point and return to the corpse of Ar'tor, Son of Oronok with the Crystalline Key."
+Lang["Q2_10528"] = "Seek out and slay Painmistress Gabrissa at Illidari Point and return to the corpse of Ar'tor, Son of Oronok with the Crystalline Key."
 Lang["Q1_10547"] = "Of Thistleheads and Eggs..."			-- https://www.thegeekcrusade-serveur.com/db/?quest=10547
-Lang["Q2_10547"] = "Borak, Son of Oronok at the bridge north of Eclipse Point wants you to find a Rotten Arakkoa Egg and deliver it to Tobias the Filth Gorger in Shattrath City, located in northwest Terokkar Forest."
+Lang["Q2_10547"] = "Borak, Son of Oronok at the bridge north of Eclipse Point wants you to find a Rotten Arakkoa Egg and deliver it to Tobias the Filth Gorger in Shattrath City, located in northwest Terokkar Forest."
 Lang["Q1_10523"] = "The Cipher of Damnation - The First Fragment Recovered"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10523
-Lang["Q2_10523"] = "Take Grom'tor's Lockbox to Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley."
+Lang["Q2_10523"] = "Take Grom'tor's Lockbox to Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley."
 Lang["Q1_10537"] = "Lohn'goron, Bow of the Torn-heart"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10537
-Lang["Q2_10537"] = "The Spirit of Ar'tor at Illidari Point in Shadowmoon Valley wants you to recover Lohn'goron, Bow of the Torn-heart from the demons of the area."
+Lang["Q2_10537"] = "The Spirit of Ar'tor at Illidari Point in Shadowmoon Valley wants you to recover Lohn'goron, Bow of the Torn-heart from the demons of the area."
 Lang["Q1_10550"] = "The Bundle of Bloodthistle"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10550
-Lang["Q2_10550"] = "Take the Bundle of Bloodthistle back to Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley."
+Lang["Q2_10550"] = "Take the Bundle of Bloodthistle back to Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley."
 Lang["Q1_10540"] = "The Cipher of Damnation - Ar'tor's Charge"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10540
-Lang["Q2_10540"] = "The Spirit of Ar'tor at Illidari Point in Shadowmoon Valley wants you to recover the Second Fragment of the Cipher of Damnation from Veneratus the Many.\n\nCreatures attacked or damaged by the Spirit Hunter will not yield loot or experience."
+Lang["Q2_10540"] = "The Spirit of Ar'tor at Illidari Point in Shadowmoon Valley wants you to recover the Second Fragment of the Cipher of Damnation from Veneratus the Many.\n\nCreatures attacked or damaged by the Spirit Hunter will not yield loot or experience."
 Lang["Q1_10570"] = "To Catch A Thistlehead"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10570
-Lang["Q2_10570"] = "Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley wants you to recover the Stormrage Missive."
+Lang["Q2_10570"] = "Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley wants you to recover the Stormrage Missive."
 Lang["Q1_10576"] = "The Shadowmoon Shuffle"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10576
-Lang["Q2_10576"] = "Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley wants you to recover 6 pieces of Eclipsion Armor."
+Lang["Q2_10576"] = "Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley wants you to recover 6 pieces of Eclipsion Armor."
 Lang["Q1_10577"] = "What Illidan Wants, Illidan Gets..."			-- https://www.thegeekcrusade-serveur.com/db/?quest=10577
-Lang["Q2_10577"] = "Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley wants you to Deliver Illidan's Message to Grand Commander Ruusk at Eclipse Point."
+Lang["Q2_10577"] = "Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley wants you to Deliver Illidan's Message to Grand Commander Ruusk at Eclipse Point."
 Lang["Q1_10578"] = "The Cipher of Damnation - Borak's Charge"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10578
-Lang["Q2_10578"] = "Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley wants you to recover the Third Part of the Cipher of Damnation from Ruul the Darkener."
+Lang["Q2_10578"] = "Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley wants you to recover the Third Part of the Cipher of Damnation from Ruul the Darkener."
 Lang["Q1_10541"] = "The Cipher of Damnation - The Second Fragment Recovered"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10541
-Lang["Q2_10541"] = "Take Ar'tor's Lockbox to Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley."
+Lang["Q2_10541"] = "Take Ar'tor's Lockbox to Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley."
 Lang["Q1_10579"] = "The Cipher of Damnation - The Third Fragment Recovered"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10579
-Lang["Q2_10579"] = "Take Borak's Lockbox to Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley."
+Lang["Q2_10579"] = "Take Borak's Lockbox to Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley."
 Lang["Q1_10588"] = "The Cipher of Damnation"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10588
-Lang["Q2_10588"] = "Use the Cipher of Damnation at the Altar of Damnation to summon Cyrukh the Firelord.\n\nDestroy Cyrukh the Firelord and then speak with Earthmender Torlok, also found at the Altar of Damnation."
+Lang["Q2_10588"] = "Use the Cipher of Damnation at the Altar of Damnation to summon Cyrukh the Firelord.\n\nDestroy Cyrukh the Firelord and then speak with Earthmender Torlok, also found at the Altar of Damnation."
 Lang["Q1_10883"] = "The Tempest Key"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10883
-Lang["Q2_10883"] = "Speak with A'dal in Shattrath City."
+Lang["Q2_10883"] = "Speak with A'dal in Shattrath City."
 Lang["Q1_10884"] = "Trial of the Naaru: Mercy"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10884
-Lang["Q2_10884"] = "A'dal in Shattrath City wants you to recover the Unused Axe of the Executioner from the Shattered Halls of Hellfire Citadel.\n\nThis quest must be completed in Heroic dungeon difficulty."
+Lang["Q2_10884"] = "A'dal in Shattrath City wants you to recover the Unused Axe of the Executioner from the Shattered Halls of Hellfire Citadel.\n\nThis quest must be completed in Heroic dungeon difficulty."
 Lang["Q1_10885"] = "Trial of the Naaru: Strength"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10885
-Lang["Q2_10885"] = "A'dal in Shattrath City wants you to recover Kalithresh's Trident and Murmur's Essence.\n\nThis quest must be completed in Heroic dungeon difficulty."
+Lang["Q2_10885"] = "A'dal in Shattrath City wants you to recover Kalithresh's Trident and Murmur's Essence.\n\nThis quest must be completed in Heroic dungeon difficulty."
 Lang["Q1_10886"] = "Trial of the Naaru: Tenacity"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10886
-Lang["Q2_10886"] = "A'dal in Shattrath City wants you to rescue Millhouse Manastorm from the Arcatraz of Tempest Keep.\n\nThis quest must be completed in Heroic dungeon difficulty."
+Lang["Q2_10886"] = "A'dal in Shattrath City wants you to rescue Millhouse Manastorm from the Arcatraz of Tempest Keep.\n\nThis quest must be completed in Heroic dungeon difficulty."
 Lang["Q1_10888"] = "Trial of the Naaru: Magtheridon"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10888
-Lang["Q2_10888"] = "A'dal in Shattrath City wants you to slay Magtheridon."
+Lang["Q2_10888"] = "A'dal in Shattrath City wants you to slay Magtheridon."
 Lang["Q1_10680"] = "The Hand of Gul'dan"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10680
-Lang["Q2_10680"] = "Speak with Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley."
+Lang["Q2_10680"] = "Speak with Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley."
 Lang["Q1_10445"] = "The Vials of Eternity"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10445
-Lang["Q2_10445"] = "Soridormi at Caverns of Time wants you to retrieve Vashj's Vial Remnant from Lady Vashj at Coilfang Reservoir and Kael's Vial Remnant from Kael'thas Sunstrider at Tempest Keep."
+Lang["Q2_10445"] = "Soridormi at Caverns of Time wants you to retrieve Vashj's Vial Remnant from Lady Vashj at Coilfang Reservoir and Kael's Vial Remnant from Kael'thas Sunstrider at Tempest Keep."
 Lang["Q1_10568"] = "Tablets of Baa'ri"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10568
-Lang["Q2_10568"] = "Anchorite Ceyla at the Altar of Sha'tar wants you to collect 12 Baa'ri Tablets from the ground and from Ashtongue Workers at the Ruins of Baa'ri.\n\nCompleting quests with the Aldor will cause your Scryers reputation level to decrease."
+Lang["Q2_10568"] = "Anchorite Ceyla at the Altar of Sha'tar wants you to collect 12 Baa'ri Tablets from the ground and from Ashtongue Workers at the Ruins of Baa'ri.\n\nCompleting quests with the Aldor will cause your Scryers reputation level to decrease."
 Lang["Q1_10683"] = "Tablets of Baa'ri"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10683
-Lang["Q2_10683"] = "Arcanist Thelis at the Sanctum of the Stars wants you to collect 12 Baa'ri Tablets from the ground and from Ashtongue Workers at the Ruins of Baa'ri.\n\nCompleting quests with the Scryers will cause your Aldor reputation level to decrease."
+Lang["Q2_10683"] = "Arcanist Thelis at the Sanctum of the Stars wants you to collect 12 Baa'ri Tablets from the ground and from Ashtongue Workers at the Ruins of Baa'ri.\n\nCompleting quests with the Scryers will cause your Aldor reputation level to decrease."
 Lang["Q1_10571"] = "Oronu the Elder"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10571
-Lang["Q2_10571"] = "Anchorite Ceyla at the Altar of Sha'tar wants you to obtain the Orders from Akama from Oronu the Elder at the Ruins of Baa'ri.\n\nCompleting quests for the Aldor will cause your Scryers reputation level to decrease."
+Lang["Q2_10571"] = "Anchorite Ceyla at the Altar of Sha'tar wants you to obtain the Orders from Akama from Oronu the Elder at the Ruins of Baa'ri.\n\nCompleting quests for the Aldor will cause your Scryers reputation level to decrease."
 Lang["Q1_10684"] = "Oronu the Elder"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10684
-Lang["Q2_10684"] = "Arcanist Thelis at the Sanctum of the Stars wants you to obtain the Orders from Akama from Oronu the Elder at the Ruins of Baa'ri.\n\nCompleting quests for the Scryers will cause your Aldor reputation level to decrease."
+Lang["Q2_10684"] = "Arcanist Thelis at the Sanctum of the Stars wants you to obtain the Orders from Akama from Oronu the Elder at the Ruins of Baa'ri.\n\nCompleting quests for the Scryers will cause your Aldor reputation level to decrease."
 Lang["Q1_10574"] = "The Ashtongue Corruptors"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10574
-Lang["Q2_10574"] = "Obtain the four medallion fragments from Haalum, Eykenen, Lakaan and Uylaru and return to Anchorite Ceyla at the Altar of Sha'tar in Shadowmoon Valley.\n\nPerforming quests for the Aldor will cause your Scryers reputation level to decrease."
+Lang["Q2_10574"] = "Obtain the four medallion fragments from Haalum, Eykenen, Lakaan and Uylaru and return to Anchorite Ceyla at the Altar of Sha'tar in Shadowmoon Valley.\n\nPerforming quests for the Aldor will cause your Scryers reputation level to decrease."
 Lang["Q1_10685"] = "The Ashtongue Corruptors"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10685
-Lang["Q2_10685"] = "Obtain the four medallion fragments from Haalum, Eykenen, Lakaan and Uylaru and return to Arcanist Thelis at the Sanctum of the Stars in Shadowmoon Valley.\n\nPerforming quests for the Scryers will cause your Aldor reputation level to decrease."
+Lang["Q2_10685"] = "Obtain the four medallion fragments from Haalum, Eykenen, Lakaan and Uylaru and return to Arcanist Thelis at the Sanctum of the Stars in Shadowmoon Valley.\n\nPerforming quests for the Scryers will cause your Aldor reputation level to decrease."
 Lang["Q1_10575"] = "The Warden's Cage"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10575
-Lang["Q2_10575"] = "Anchorite Ceyla wants you to enter the Warden's Cage, south of the Ruins of Baa'ri and interrogate Sanoru on Akama's whereabouts.\n\nCompleting quests for the Aldor will cause your Scryers reputation to decrease."
+Lang["Q2_10575"] = "Anchorite Ceyla wants you to enter the Warden's Cage, south of the Ruins of Baa'ri and interrogate Sanoru on Akama's whereabouts.\n\nCompleting quests for the Aldor will cause your Scryers reputation to decrease."
 Lang["Q1_10686"] = "The Warden's Cage"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10686
-Lang["Q2_10686"] = "Arcanist Thelis wants you to enter the Warden's Cage, south of the Ruins of Baa'ri and interrogate Sanoru on Akama's whereabouts.\n\nCompleting quests for the Scryers will cause your Aldor reputation to decrease."
+Lang["Q2_10686"] = "Arcanist Thelis wants you to enter the Warden's Cage, south of the Ruins of Baa'ri and interrogate Sanoru on Akama's whereabouts.\n\nCompleting quests for the Scryers will cause your Aldor reputation to decrease."
 Lang["Q1_10622"] = "Proof of Allegiance"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10622
-Lang["Q2_10622"] = "Slay Zandras at the Warden's Cage in Shadowmoon Valley and return to Sanoru."
+Lang["Q2_10622"] = "Slay Zandras at the Warden's Cage in Shadowmoon Valley and return to Sanoru."
 Lang["Q1_10628"] = "Akama"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10628
-Lang["Q2_10628"] = "Speak to Akama inside the hidden chamber in the Warden's Cage."
+Lang["Q2_10628"] = "Speak to Akama inside the hidden chamber in the Warden's Cage."
 Lang["Q1_10705"] = "Seer Udalo"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10705
-Lang["Q2_10705"] = "Find Seer Udalo inside the Arcatraz in Tempest Keep."
+Lang["Q2_10705"] = "Find Seer Udalo inside the Arcatraz in Tempest Keep."
 Lang["Q1_10706"] = "A Mysterious Portent"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10706
-Lang["Q2_10706"] = "Return to Akama at the Warden's Cage in Shadowmoon Valley."
+Lang["Q2_10706"] = "Return to Akama at the Warden's Cage in Shadowmoon Valley."
 Lang["Q1_10707"] = "The Ata'mal Terrace"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10707
-Lang["Q2_10707"] = "Go to the top of the Atam'al Terrace in Shadowmoon Valley and obtain the Heart of Fury. Return to Akama at the Warden's Cage in Shadowmoon Valley when you've completed this task."
+Lang["Q2_10707"] = "Go to the top of the Atam'al Terrace in Shadowmoon Valley and obtain the Heart of Fury. Return to Akama at the Warden's Cage in Shadowmoon Valley when you've completed this task."
 Lang["Q1_10708"] = "Akama's Promise"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10708
-Lang["Q2_10708"] = "Bring the Medallion of Karabor to A'dal in Shattrath City."
+Lang["Q2_10708"] = "Bring the Medallion of Karabor to A'dal in Shattrath City."
 Lang["Q1_10944"] = "The Secret Compromised"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10944
-Lang["Q2_10944"] = "Travel to the Warden's Cage in Shadowmoon Valley and speak to Akama."
+Lang["Q2_10944"] = "Travel to the Warden's Cage in Shadowmoon Valley and speak to Akama."
 Lang["Q1_10946"] = "Ruse of the Ashtongue"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10946
-Lang["Q2_10946"] = "Travel into Tempest Keep and slay Al'ar while wearing the Ashtongue Cowl. Return to Akama in Shadowmoon Valley once you've completed this task."
+Lang["Q2_10946"] = "Travel into Tempest Keep and slay Al'ar while wearing the Ashtongue Cowl. Return to Akama in Shadowmoon Valley once you've completed this task."
 Lang["Q1_10947"] = "An Artifact From the Past"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10947
-Lang["Q2_10947"] = "Go to the Caverns of Time in Tanaris and gain access to the Battle of Mount Hyjal. Once inside, defeat Rage Winterchill and bring the Time-Phased Phylactery to Akama in Shadowmoon Valley."
+Lang["Q2_10947"] = "Go to the Caverns of Time in Tanaris and gain access to the Battle of Mount Hyjal. Once inside, defeat Rage Winterchill and bring the Time-Phased Phylactery to Akama in Shadowmoon Valley."
 Lang["Q1_10948"] = "The Hostage Soul"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10948
-Lang["Q2_10948"] = "Travel to Shattrath City to tell A'dal about Akama's request."
+Lang["Q2_10948"] = "Travel to Shattrath City to tell A'dal about Akama's request."
 Lang["Q1_10949"] = "Entry Into the Black Temple"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10949
-Lang["Q2_10949"] = "Travel to the entrance to the Black Temple in Shadowmoon Valley and speak to Xi'ri."
+Lang["Q2_10949"] = "Travel to the entrance to the Black Temple in Shadowmoon Valley and speak to Xi'ri."
 Lang["Q1_10985"] = "A Distraction for Akama"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10985
-Lang["Q2_10985"] = "Ensure that Akama and Maiev enter the Black Temple in Shadowmoon Valley after Xi'ri's forces create a distraction."
+Lang["Q2_10985"] = "Ensure that Akama and Maiev enter the Black Temple in Shadowmoon Valley after Xi'ri's forces create a distraction."
 	
 
 -- NPC

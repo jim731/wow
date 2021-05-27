@@ -6,9 +6,10 @@ end
 
 
 -- INTERFACE
+Lang["Credits"] = "Un énorme MERCI à ma guilde |cffffd100<Divine Heresy>|r pour leur support et patience pendant que je teste l'addon, et merci à |cffffd100Bushido @ Pyrewood Village|r pour l'aide sur TBC!\n\nMerci aussi beaucoup aux traducteurs:\n  - Traduction allemande: |cffffd100Sumaya @ Razorfen DE|r\n  - Traduction russe: |cffffd100Guilde Greymarch @ Flamegor RU|r\n  - Traduction espagnole: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Traduction chinoise: |cffffd100ly395842562|r et |cffffd100Icyblade|r\n  - Traduction coréenne: |cffffd100Drix @ Azshara KR|r\n\n/Hug de la part Cixi/Gaya @ Remulos Horde"
 Lang["Mini"] = "Mini"
 Lang["Maxi"] = "Maxi"
-Lang["Version"] = "Attune ##VERSION## par Cixi@Remulos"
+Lang["Version"] = "Attune v.##VERSION## par Cixi@Remulos"
 Lang["Splash"] = "v.##VERSION## par Cixi@Remulos. Tapez /attune pour commencer."
 Lang["Survey"] = "Sondage"
 Lang["Guild"] = "Guilde"
@@ -65,12 +66,70 @@ Lang["Help3"] = "Pour voir l'avancement des votre guilde, clickez |cfffff700Sond
 Lang["Help4"] = "Vous verrez la progression des chacun des membres de votre guilde ayant l'addon."
 Lang["Help5"] = "Une fois que vous avez assez d'info, clickez |cfffff700Exporter|r pour exporter l'avancement"
 Lang["Help6"] = "Les données peuvent etre publiées via |cfffff700https://warcraftratings.com/attune/upload|r"
-Lang["Credits"] = "Un énorme MERCI à ma guilde |cffffd100<Divine Heresy>|r pour leur support et patience pendant que je teste l'addon, et merci à |cffffd100Bushido @ Pyrewood Village|r pour l'aide sur TBC!\n\nMerci aussi beaucoup aux traducteurs:\n  - Traduction allemande: |cffffd100Sumaya @ Razorfen DE|r\n  - Traduction russe: |cffffd100Guilde Greymarch @ Flamegor RU|r\n\n/Hug de la part Cixi/Gaya @ Remulos Horde"
 Lang["Survey_DESC"] = "Run an attunement survey (for people with the addon)"
 Lang["Export_DESC"] = "Export your Attune data to the website"
 Lang["Toggle_DESC"] = "Toggle between attunements and survey results"
 --Lang["PreferredLocale_TEXT"] = "Preferred Language"
 --Lang["PreferredLocale_DESC"] = "Select the language you want to see Attune in. Changes to this will require a reload to take effect."
+--v220
+Lang["My Toons"] = "Mes Persos"
+Lang["No Target"] = "Vous n'avez pas de target"
+Lang["No Response From"] = "Pas de réponse de ##PLAYER##"
+Lang["Sync Request From"] = "Nouvelle requête Attune Sync de:\n\n##PLAYER##"
+Lang["Could be slow"] = "Selon la quantité de données ques vous avez, cela peut prendre longtemps"
+Lang["Accept"] = "Accepter"
+Lang["Reject"] = "Rejeter"
+Lang["Busy right now"] = "##PLAYER## est occupé, réessayez plus tard"
+Lang["Sending Sync Request"] = "Requête Sync envoyée à ##PLAYER##"
+Lang["Request accepted, sending data to "] = "Requête acceptée, envoi de données à ##PLAYER##"
+Lang["Received request from"] = "Requête reçue de ##PLAYER##"
+Lang["Request rejected"] = "Requête rejectée"
+Lang["Sync over"] = "Sync terminée, durée ##DURATION##"
+Lang["Syncing Attune data with"] = "Synchro des données Attune avec ##PLAYER##"
+Lang["Cannot sync while another sync is in progress"] = "Impossible, une synchro est déjà en cours"
+Lang["Sync with target"] = "Synchro avec target"
+Lang["Show Profiles"] = "Voir Profils"
+Lang["Show Progress"] = "Voir Avancement"
+Lang["Status"] = "Statut"
+Lang["Role"] = "Role"
+Lang["Last Surveyed"] = "Dernier sondage"
+Lang['Seconds ago'] = "il y a ##DURATION##"
+Lang["Main"] = "Main"
+Lang["Alt"] = "Alt"
+Lang["Tank"] = "Tank"
+Lang["Healer"] = "Healer"
+Lang["Melee DPS"] = "DD Mêlée"
+Lang["Ranged DPS"] = "DD Ranged"
+Lang["Bank"] = "Banque"
+Lang["DelAlts_TEXT"] = "Effacer tous les Alts"
+Lang["DelAlts_DESC"] = "Effacer toute information recueillie sur des Alts"
+Lang["DelAlts_CONF"] = "Vraiment effacer tous les Alts?"
+Lang["DelAlts_DONE"] = "Tous Alts effacés."
+Lang["DelUnspecified_TEXT"] = "Effacer tous les sans-statut"
+Lang["DelUnspecified_DESC"] = "Effacer toute information recueillie sur des persos sans statut Main/Alt"
+Lang["DelUnspecified_CONF"] = "Vraiment effacer tous les sans-statut?"
+Lang["DelUnspecified_DONE"] = "Tous sans-statut effacés"
+--v221
+Lang["Open Raid Planner"] = "Ouvrir le Raid Planner"
+Lang["Unspecified"] = "Non specifié"
+Lang["Empty"] = "Vide"
+Lang["Guildies only"] = "Limiter a la guilde"
+Lang["Show Mains"] = "Montrer les Mains"
+Lang["Show Unspecified"] = "Montrer les non-specifiés"
+Lang["Show Alts"] = "Montrer les Alts"
+Lang["Show Unattuned"] = "Montrer les sans-accès"
+Lang["Raid spots"] = "##SIZE## places dans le Raid"
+Lang["Group Number"] = "Groupe ##NUMBER##"
+Lang["Move to next group"] = "    Delplacer dans le groupe suivant"
+Lang["Remove from raid"] = "  Enlever du"
+Lang["Select a raid and click on players to add them in"] = "Choisissez un raid puis clickez sur un joueur pour l'ajouter"
+--v224
+Lang["Enter a new name for this raid group"] = "Saisissez un nom pour ce groupe raid"
+Lang["Save"] = "Sauvegarder"
+--v226
+Lang["Invite"] = "Inviter"
+Lang["Send raid invites to all listed players?"] = "Inviter tous les joueurs listés a joindre le raid?"
+Lang["External link"] = "Lien vers une base de données en ligne"
 
 
 -- OPTIONS
@@ -143,6 +202,7 @@ Lang["OnlyOne_Desc"] = "Un seul membre du groupe a besoin d'avoir accès pour ou
 Lang["Heroic_Desc"] = "Tous les membres du groupe doivent avoir la réputation requise ainsi que la clé pour entrer dans un donjon en mode héroïque."
 Lang["NB_Desc"] = "Un seul membre du raid a besoin d'avoir l'Urne Noircie pour invoquer Plaie-de-nuit."
 Lang["BT_Desc"] = "Tous les membres du raid doivent avoir le Medallion de Karabor pour entrer dans l'instance."
+Lang["BM_Desc"] = "Tous les membres du groupe doivent completer ces quêtes pour entrer dans l'instance." 
 
 
 -- GENERIC
@@ -273,6 +333,9 @@ Lang["The Steamvault"] = "Le Caveau de la vapeur"
 Lang["Slave Pens"] = "Les enclos aux esclaves"
 Lang["Gruul's Lair"] = "Repaire de Gruul"
 Lang["Magtheridon's Lair"] = "Le repaire de Magtheridon"
+Lang["Zul'Aman"] = "Zul'Aman"
+Lang["Sunwell Plateau"] = "Plateau du Puits de soleil"
+
 
 
 -- ITEMS
@@ -466,9 +529,9 @@ Lang["Q2_8728"] = "Narain Divinambolesque, en Tanaris, veut que vous lui apporti
 Lang["Q1_8729"] = "Le courroux de Neptulon"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8729
 Lang["Q2_8729"] = "Utilisez la Bouée d’arcanite au Maelström tourbillonnant dans la Baie des tempêtes en Azshara."
 Lang["Q1_8742"] = "La puissance de Kalimdor"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8742
-Lang["Q2_8742"] = "Devant moi se tient la personne qui va guider son peuple vers une nouvelle ère.\n\nL'Ancien Dieu tremble. Oh oui, il a peur de votre foi. Brisez la prophecie de C'Thun.\n\nIl sait que vous venez, champion - et avec vous toute la puissance de Kalimdor. Dites moi quand vous etes pret et je vous donnerai le Sceptre des Sables changeants."
+Lang["Q2_8742"] = "Devant moi se tient la personne qui va guider son peuple vers une nouvelle ère.\n\nL'Ancien Dieu tremble. Oh oui, il a peur de votre foi. Brisez la prophecie de C'Thun.\n\nIl sait que vous venez, champion - et avec vous toute la puissance de Kalimdor. Dites moi quand vous etes pret et je vous donnerai le Sceptre des Sables changeants."
 Lang["Q1_8745"] = "Le trésor de l'Intemporel"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8745
-Lang["Q2_8745"] = "Bienvenu, champion. Je suis Jonathan, guardien du gong sacré.\n\nL'Intemporel m'a donné le pouvoir de vous récompenser avec un objet de son trésor eternel. Qu'il vous aide dans votre lutte contre C'Thun."
+Lang["Q2_8745"] = "Bienvenu, champion. Je suis Jonathan, guardien du gong sacré.\n\nL'Intemporel m'a donné le pouvoir de vous récompenser avec un objet de son trésor eternel. Qu'il vous aide dans votre lutte contre C'Thun."
 
 
 -- QUESTS - TBC
@@ -664,15 +727,15 @@ Lang["Q2_10985"] = "Assurez-vous qu'Akama et Maiev pénètrent bien dans le Temp
 
 -- NPC
 Lang["N1_9196"] = "Généralissime Omokk"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9196
-Lang["N2_9196"] = "Omokk est le premier boss au Bas de Pic Rochenoire."
+Lang["N2_9196"] = "Omokk est le premier boss au Bas de Pic Rochenoire."
 Lang["N1_9237"] = "Maître de guerre Voone"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9237
-Lang["N2_9237"] = "Voone est un boss a l'interieur du Bas de Pic Rochenoire."
+Lang["N2_9237"] = "Voone est un boss a l'interieur du Bas de Pic Rochenoire."
 Lang["N1_9568"] = "Seigneur Wyrmthalak"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9568
 Lang["N2_9568"] = "Seigneur Wyrmthalak est le dernier boss du Bas du Pic de Rochenoire."
 Lang["N1_10429"] = "Chef de guerre Rend Main-noire"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10429
-Lang["N2_10429"] = "Rend Main-noire est le 6ème boss au Sommet du Pic Rochenoire. Dal'rend, communement appelé Rend, est le chef de la Horde noire."
+Lang["N2_10429"] = "Rend Main-noire est le 6ème boss au Sommet du Pic Rochenoire. Dal'rend, communement appelé Rend, est le chef de la Horde noire."
 Lang["N1_10182"] = "Rexxar"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10182
-Lang["N2_10182"] = "<Champion de la Horde>\n\nSe promène du sud de Serres-Rocheuses jusqu'au nord de Féralas."
+Lang["N2_10182"] = "<Champion de la Horde>\n\nSe promène du sud de Serres-Rocheuses jusqu'au nord de Féralas."
 Lang["N1_8197"] = "Chronalis"	-- https://www.thegeekcrusade-serveur.com/db/?npc=8197
 Lang["N2_8197"] = "Chronalis du Vol de Bronze.\n\nSe trouve a l'entrée des Grottes du Temps."
 Lang["N1_10664"] = "Clairvoyant"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10664

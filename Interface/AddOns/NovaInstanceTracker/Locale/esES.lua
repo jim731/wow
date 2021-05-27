@@ -3,39 +3,39 @@ if (not L) then
 	return;
 end
 
-L["noTimer"] = "No timer"; --No timer
-L["noCurrentTimer"] = "No current timer"; --No current timer
-L["noActiveTimers"] = "No active timers";	--No active timers
-L["second"] = "second"; --Second (singular).
-L["seconds"] = "seconds"; --Seconds (plural).
-L["minute"] = "minute"; --Minute (singular).
-L["minutes"] = "minutes"; --Minutes (plural).
-L["hour"] = "hour"; --Hour (singular).
-L["hours"] = "hours"; --Hours (plural).
-L["day"] = "day"; --Day (singular).
-L["days"] = "days"; --Days (plural).
+L["noTimer"] = "Sin temporizador"; --No timer
+L["noCurrentTimer"] = "Sin temporizador activo"; --No current timer
+L["noActiveTimers"] = "Sin temporizadores activos";	--No active timers
+L["second"] = "segundo"; --Second (singular).
+L["seconds"] = "segundos"; --Seconds (plural).
+L["minute"] = "minuto"; --Minute (singular).
+L["minutes"] = "minutos"; --Minutes (plural).
+L["hour"] = "hora"; --Hour (singular).
+L["hours"] = "horas"; --Hours (plural).
+L["day"] = "día"; --Day (singular).
+L["days"] = "días"; --Days (plural).
 L["secondMedium"] = "sec"; --Second (singular).
 L["secondsMedium"] = "secs"; --Seconds (plural).
 L["minuteMedium"] = "min"; --Minute (singular).
 L["minutesMedium"] = "mins"; --Minutes (plural).
-L["hourMedium"] = "hour"; --Hour (singular).
-L["hoursMedium"] = "hours"; --Hours (plural).
-L["dayMedium"] = "day"; --Day (singular).
-L["daysMedium"] = "days"; --Days (plural).
+L["hourMedium"] = "hora"; --Hour (singular).
+L["hoursMedium"] = "horas"; --Hours (plural).
+L["dayMedium"] = "día"; --Day (singular).
+L["daysMedium"] = "días"; --Days (plural).
 L["secondShort"] = "s"; --Used in short timers like 1m30s (single letter only, usually the first letter of seconds).
 L["minuteShort"] = "m"; --Used in short timers like 1m30s (single letter only, usually the first letter of minutes).
 L["hourShort"] = "h"; --Used in short timers like 1h30m (single letter only, usually the first letter of hours).
 L["dayShort"] = "d"; --Used in short timers like 1d8h (single letter only, usually the first letter of days).
-L["startsIn"] = "Starts in %s"; --"Starts in 1hour".
-L["endsIn"] = "Ends in %s"; --"Ends in 1hour".
-L["versionOutOfDate"] = "Nova Instance Tracker is out of date, please update at https://www.curseforge.com/wow/addons/nova-instance-tracker";
-L["Options"] = "Options";
-L["Reset Data"] = "Reset Data"; --A button to Reset data.
+L["startsIn"] = "Empieza en %s"; --"Starts in 1hour".
+L["endsIn"] = "Acaba en %s"; --"Ends in 1hour".
+L["versionOutOfDate"] = "Nova Instance Tracker está desactualizado, por favor actualiza en https://www.curseforge.com/wow/addons/nova-instance-tracker";
+L["Options"] = "Opciones";
+L["Reset Data"] = "Reiniciar datos"; --A button to Reset data.
 
 L["Error"] = "Error";
-L["delete"] = "Delete";
-L["confirmInstanceDeletion"] = "Confirm Instance Deletion";
-L["confirmCharacterDeletion"] = "Confirm Character Deletion";
+L["delete"] = "Borrar";
+L["confirmInstanceDeletion"] = "Confirmar borrado de Instancia";
+L["confirmCharacterDeletion"] = "Confirmar borrado de Personaje";
 
 -------------
 ---Config---
@@ -45,259 +45,259 @@ L["confirmCharacterDeletion"] = "Confirm Character Deletion";
 --Desc can be any length.
 
 ---General Options---
-L["generalHeaderDesc"] = "General Options";
+L["generalHeaderDesc"] = "Opciones Generales";
 
-L["chatColorTitle"] = "Chat Msg Color";
-L["chatColorDesc"] = "What color should the msgs in chat be?";
+L["chatColorTitle"] = "Color Msg Chat";
+L["chatColorDesc"] = "De qué color deberían ser los msgs en el chat?";
 
-L["resetColorsTitle"] = "Reset Colors";
-L["resetColorsDesc"] = "Reset colors back to default.";
+L["resetColorsTitle"] = "Reiniciar Colores";
+L["resetColorsDesc"] = "Reiniciar Colores a predeterminados.";
 
-L["timeStampFormatTitle"] = "Time Stamp Format";
-L["timeStampFormatDesc"] = "Set which timestamp format to use, 12 hour (1:23pm) or 24 hour (13:23).";
+L["timeStampFormatTitle"] = "Formato de tiempo";
+L["timeStampFormatDesc"] = "Establece que formato de tiempo se usa, 12 horas (1:23pm) o 24 horas (13:23).";
 
-L["timeStampZoneTitle"] = "Local Time / Server Time";
-L["timeStampZoneDesc"] = "Use local time or server time for timestamps?";
+L["timeStampZoneTitle"] = "Hora Local / Hora del Servidor";
+L["timeStampZoneDesc"] = "Usar la hora Local o la del Servidor para los sellos de tiempo?";
 
-L["minimapButtonTitle"] = "Show Minimap Button";
-L["minimapButtonDesc"] = "Show the NIT button the minimap?";
+L["minimapButtonTitle"] = "Mostrar botón en el Minimapa";
+L["minimapButtonDesc"] = "Mostrar el botón de NIT en el Minimapa?";
 
 ---Sounds---
-L["soundsHeaderDesc"] = "Sounds";
+L["soundsHeaderDesc"] = "Sonidos";
 
-L["soundsTextDesc"] = "Set sound to \"None\" to disable.";
+L["soundsTextDesc"] = "Establecer sonido a \"None\" para deshabilitar.";
 
-L["disableAllSoundsTitle"] = "Disable All Sounds";
-L["disableAllSoundsDesc"] = "Disable all sounds from this addon.";
+L["disableAllSoundsTitle"] = "Deshabilitar Todos los sonidos";
+L["disableAllSoundsDesc"] = "Deshabilita todos los sonidos de este Addon.";
 
-L["extraSoundOptionsTitle"] = "Extra Sound Options";
-L["extraSoundOptionsDesc"] = "Enable this to display all the sounds from all your addons at once in the dropdown lists here.";
+L["extraSoundOptionsTitle"] = "Opciones de sonido extra";
+L["extraSoundOptionsDesc"] = "Habilita esto para mostrar todos los sonidos de todos tus Addons a la vez en las listas desplegables aquí.";
 
-L["notesHeaderDesc"] = "Some Notes:";
-L["notesDesc"] = "This addon does it's best to work out when you can enter more instances but Blizzard's lockout system is sometimes buggy and you can get locked before reaching the correct limit. Sometimes you can only enter 4 per hour, but also sometimes you enter 6 per hour.";
+L["notesHeaderDesc"] = "Algunas notas:";
+L["notesDesc"] = "Este Addon hace que sea más fácil averiguar cuándo puedes acceder a más instancias, pero el sistema de bloqueo de Blizzard a veces tiene errores y puede bloquearse antes de alcanzar el límite correcto. A veces solo puedes acceder 4 por hora, pero también a veces 6 por hora.";
 
-L["logHeaderDesc"] = "Log Window";
+L["logHeaderDesc"] = "Ventana de Log";
 
-L["openInstanceLogFrameTitle"] = "Open Instance Log";
+L["openInstanceLogFrameTitle"] = "Abrir Log de Instancia";
 
-L["logSizeTitle"] = "How many instances shown in log";
-L["logSizeDesc"] = "How many instance do you want to be shown in the log? Max of 300 are stored, 100 is default shown (you can open log with /NIT).";
+L["logSizeTitle"] = "Cuantas Instancias se muestran en Log";
+L["logSizeDesc"] = "Cuantas Instancias quieres que se muestren en el Log? Muestra un máximo de 300, muestra 100 por defecto (puedes abrir el Log con /NIT).";
 
-L["enteredMsgTitle"] = "Instance Entered Msg";
-L["enteredMsgDesc"] = "This will print a msg to your main chat window when you enter an instance with an X icon to delete the new instance from database if you want.";
+L["enteredMsgTitle"] = "Msg de entrada a Instancia";
+L["enteredMsgDesc"] = "Esto muestra un msg a tu ventana de chat principal cuando entras en una Instancia con un icono X para borrar la nueva Instancia de la base de datos si lo necesitas.";
 
 L["instanceResetMsgTitle"] = "Group Instance Reset";
-L["instanceResetMsgDesc"] = "This will show a msg to your party or raid which instances were successfully reset if you are the group leader. Example: \"Wailing Caverns was reset.\"";
+L["instanceResetMsgDesc"] = "Esto mostrará un msg a tu grupo o banda cuando las Instancias sean reiniciadas si eres el lider del grupo. Ejemplo: \"Cueva de los Lamentos se ha reiniciado.\"";
 
-L["showMoneyTradedChatTitle"] = "Gold Traded In Chat";
-L["showMoneyTradedChatDesc"] = "Show in trade when you give or receive gold from someone in the chat window? (Helps keep tack of who you have paid or received gold from in boost groups).";
+L["showMoneyTradedChatTitle"] = "Oro Comerciado en Chat";
+L["showMoneyTradedChatDesc"] = "Mostrar en el comercio cuando das o recibes oro de alguien en la ventana de chat? (Ayuda a no perder de vista a quién le has pagado o recibido oro en los grupos de boost).";
 
-L["instanceStatsHeaderDesc"] = "End of Dungeon Stats Output";
+L["instanceStatsHeaderDesc"] = "Salida de estadísticas de fin de mazmorra";
 
-L["instanceStatsTextDesc"] = "Select here which stats to display to group chat or to your chat window when leaving a dungeon.";
+L["instanceStatsTextDesc"] = "Selecciona aquí que estadísticas se muestran al chat de tu grupo o tu ventana de chat cuando sales de mazmorra.";
 
-L["instanceStatsOutputTitle"] = "Show Stats";
-L["instanceStatsOutputDesc"] = "Show stats about the dungeon when you leave?";
+L["instanceStatsOutputTitle"] = "Mostrar Estadísticas";
+L["instanceStatsOutputDesc"] = "Mostrar estadísticas sobre la mazmorra cuando sales?";
 			
-L["instanceStatsOutputWhereTitle"] = "Show Stats Where";
-L["instanceStatsOutputWhereDesc"] = "Where do you want to show the stats, the chat window to yourself or show the group chat?";
+L["instanceStatsOutputWhereTitle"] = "Donde Mostrar Estadísticas";
+L["instanceStatsOutputWhereDesc"] = "Dónde quieres mostrar las estadísticas, en un chat para tí o en el chat de grupo?";
 
-L["instanceStatsOutputMobCountTitle"] = "Show Mob Count";
-L["instanceStatsOutputMobCountDesc"] = "Show how many mobs were killed while inside dungeon?";
+L["instanceStatsOutputMobCountTitle"] = "Mostrar recuento de Mob";
+L["instanceStatsOutputMobCountDesc"] = "Mostrar cuantos mobs han sido asesinados dentro de la mazmorra?";
 
-L["instanceStatsOutputXPTitle"] = "Show XP";
-L["instanceStatsOutputXPDesc"] = "Show how much experience was earned while inside dungeon?";
+L["instanceStatsOutputXPTitle"] = "Mostrar XP";
+L["instanceStatsOutputXPDesc"] = "Mostrar cuanta experiencia fue adquirida dentro de la mazmorra?";
 
-L["instanceStatsOutputAverageXPTitle"] = "Show Average XP";
-L["instanceStatsOutputAverageXPDesc"] = "Show average XP per kill while inside dungeon?";
+L["instanceStatsOutputAverageXPTitle"] = "Mostrar Promedio XP";
+L["instanceStatsOutputAverageXPDesc"] = "Mostrar promedio de XP por asesinato dentro de la mazmorra?";
 
-L["instanceStatsOutputTimeTitle"] = "Show Time";
-L["instanceStatsOutputTimeDesc"] = "Show how long you spent inside dungeon?";
+L["instanceStatsOutputTimeTitle"] = "Mostrar Tiempo";
+L["instanceStatsOutputTimeDesc"] = "Mostrar cuanto tiempo has empleado dentro de la mazmorra?";
 
-L["instanceStatsOutputGoldTitle"] = "Show Raw Gold";
-L["instanceStatsOutputGoldDesc"] = "Show how much raw gold was looted from mobs while inside dungeon?";
+L["instanceStatsOutputGoldTitle"] = "Mostrar Raw Gold";
+L["instanceStatsOutputGoldDesc"] = "Mostrar cuanto raw gold fue despojado de los mobs dentro de la mazmorra?";
 
-L["instanceStatsOutputAverageGroupLevelDesc"] = "Show Average Level";
-L["instanceStatsOutputAverageGroupLevelTitle"] = "Show the average group level inside dungeon?";
+L["instanceStatsOutputAverageGroupLevelDesc"] = "Mostrar el promedio de nivel del grupo dentro de la mazmorra?";
+L["instanceStatsOutputAverageGroupLevelTitle"] = "Mostrar Promedio de Nivel";
 
-L["showAltsLogTitle"] = "Show Alts";
-L["showAltsLogDesc"] = "Show alts in the instance log?";
+L["showAltsLogTitle"] = "Mostrar Alters";
+L["showAltsLogDesc"] = "Mostrar alters en el Log de Instancia?";
 
-L["timeStringTypeTitle"] = "Time String Format";
-L["timeStringTypeDesc"] = "What time string format to use in the instance log?\n|cFFFFFF00Long:|r 1 minute 30 seconds\n|cFFFFFF00Medium|r: 1 min 30 secs\n|cFFFFFF00Short|r 1m30s";
+L["timeStringTypeTitle"] = "Formato de Tiempo";
+L["timeStringTypeDesc"] = "Que formato de tiempo quieres usar en el Log de Instancia?\n|cFFFFFF00Largo:|r 1 minute 30 seconds\n|cFFFFFF00Medio|r: 1 min 30 secs\n|cFFFFFF00Corto|r 1m30s";
 
-L["showLockoutTimeTitle"] = "Show Lockout Time";
-L["showLockoutTimeDesc"] = "This will show lockout time left in the instance log for instances within the past 24 hours, with this unticked it will show the time entered instead like in older versions.";
+L["showLockoutTimeTitle"] = "Mostrar Tiempo de Bloqueo";
+L["showLockoutTimeDesc"] = "Esto mostrará el tiempo restante de bloqueo en el Log de Instancia para Instancias dentro de las últimas 24 horas, con esto desmarcado, mostrará la hora de entrada en su lugar como en versiones anteriores.";
 
-L["colorsHeaderDesc"] = "Colors"
+L["colorsHeaderDesc"] = "Colores"
 
-L["mergeColorTitle"] = "Instance Merge Color";
-L["mergeColorDesc"] = "What color should the msg in chat be when the same instance as last is detected and the data is merged?";
+L["mergeColorTitle"] = "Color Fusión Instancias";
+L["mergeColorDesc"] = "De que color debería ser el msg en el chat cuando la misma Instancia sea detectada como la última y los datos sean fusionados?";
 
-L["detectSameInstanceTitle"] = "Detect Same Instance";
-L["detectSameInstanceDesc"] = "Auto detect if you re-enter the same instance so the addon doesn't count it as 2 seperate instances?";
+L["detectSameInstanceTitle"] = "Detectar Misma Instancia";
+L["detectSameInstanceDesc"] = "Autodetectar si reentras en la misma Instancia para que el Addon no las cuente como Instancias separadas?";
 
-L["showStatsInRaidTitle"] = "Show Stats In Raid";
-L["showStatsInRaidDesc"] = "Show stats when in a raid? Disable this to only show stats to group when you are in a 5 man party (This option only works when you have group chat as your stats output).";
+L["showStatsInRaidTitle"] = "Mostrar Estadísticas En Banda";
+L["showStatsInRaidDesc"] = "Mostrar estadísticas cuando estás en Banda? Deshabilita esto para mostrar únicamente estadísticas al grupo cuando estás en un grupo de 5 jugadores (Esta opción solo funciona cuando tienes chat de grupo como tu Salida de Estadísticas).";
 
-L["printRaidInsteadTitle"] = "Print While In Raid";
-L["printRaidInsteadDesc"] = "If you have the option to disable sending stats to raid chat then this will print them to your chat window instead so you can still see them.";
+L["printRaidInsteadTitle"] = "Mostrar en Banda";
+L["printRaidInsteadDesc"] = "Si tienes deshabilitada la opción de enviar Estadísticas al chat de Radi entonces esto lo mostrará en tu ventana de chat en su lugar para que aún puedas verlas.";
 
-L["statsOnlyWhenActivityTitle"] = "Only When Activity";
-L["statsOnlyWhenActivityDesc"] = "Only show stats when some activity occured while inside the dungeon? This means only if you killed some mobs, got xp, looted some gold etc. This will make it not show empty stats.";
+L["statsOnlyWhenActivityTitle"] = "Solo cuando hay Actividad";
+L["statsOnlyWhenActivityDesc"] = "Mostrar estadísticas solo cuando haya ocurrido alguna actividad dentro de la mazmorra? Esto significa que solo si has matado algunos mobs, has ganado XP, has despojado algo de oro, etc. Esto hará que no muestre estadísticas vacías.";
 
-L["show24HourOnlyTitle"] = "Show Last 24h Only";
-L["show24HourOnlyDesc"] = "Only show instance from the last 24 hours in the instance log?";
+L["show24HourOnlyTitle"] = "Mostrar Solo Últimas 24h";
+L["show24HourOnlyDesc"] = "Mostrar únicamente las Instancias de las últimas 24 horas en el Log de Instancia?";
 
-L["trimDataHeaderDesc"] = "Data Cleanup";
+L["trimDataHeaderDesc"] = "Limpieza de Datos";
 
-L["trimDataBelowLevelTitle"] = "Maximum Level To Remove";
-L["trimDataBelowLevelDesc"] = "Select maximum level of characters to remove from database, all characters this level and below will be deleted.";
+L["trimDataBelowLevelTitle"] = "Máximo Nivel para Eliminar";
+L["trimDataBelowLevelDesc"] = "Selecciona el máximo nivel de personajes para eliminarlo de la base de datos, todos los personajes que estén en este nivel o por debajo serán eliminados.";
 
-L["trimDataBelowLevelButtonTitle"] = "Remove Characters";
-L["trimDataBelowLevelButtonDesc"] = "Click this button to remove all characters with the selected level and lower from this addon database.";
+L["trimDataBelowLevelButtonTitle"] = "Eliminar Personajes";
+L["trimDataBelowLevelButtonDesc"] = "Haz click en este botón para eliminar todos los personajes de la base de datos del Addon que estén en el nivel seleccionado o por debajo.";
 
-L["trimDataTextDesc"] = "Remove multiple characters from the database:";
-L["trimDataText2Desc"] = "Remove one character from the database:";
+L["trimDataTextDesc"] = "Eliminar múltiples personajes de la base de datos:";
+L["trimDataText2Desc"] = "Eliminar un personaje de la base de datos:";
 
-L["trimDataCharInputTitle"] = "Remove One Character Input";
-L["trimDataCharInputDesc"] = "Type a character here to remove, format as Name-Realm (Case sensitive). Note: This removes buff count data permanently.";
+L["trimDataCharInputTitle"] = "Eliminar un Personaje";
+L["trimDataCharInputDesc"] = "Escribe un personaje aquí para eliminarlo, en formato Nombre-Reino (Sensible a mayúsculas y minúsculas). Nota: Esto elimina los datos del recuento de bufos permanentemente.";
 
-L["trimDataBelowLevelButtonConfirm"] = "Are you sure you want to remove all characters below level %s from the database?";
-L["trimDataCharInputConfirm"] = "Are you sure you want to remove this character %s from the database?";
+L["trimDataBelowLevelButtonConfirm"] = "Estás seguro de que quieres eliminar todos los personajes por debajo del nivel %s de la base de datos?";
+L["trimDataCharInputConfirm"] = "Estás seguro de que quieres eliminar este personaje %s de la base de datos?";
 
-L["trimDataMsg2"] = "Removing all chars below level %s.";
-L["trimDataMsg3"] = "Removed: %s.";
-L["trimDataMsg4"] = "Done, no characters found.";
-L["trimDataMsg5"] = "Done, removed %s characters.";
-L["trimDataMsg6"] = "Please enter a valid Character-Name to delete from database.";
-L["trimDataMsg7"] = "This character name %s doesn't include a realm, please input Name-Realm.";
-L["trimDataMsg8"] = "Error removing %s from the database, character not found (name is case sensitive).";
-L["trimDataMsg9"] = "Removed %s from the database.";
+L["trimDataMsg2"] = "Eliminando todos los personajes por debajo del nivel %s.";
+L["trimDataMsg3"] = "Eliminado: %s.";
+L["trimDataMsg4"] = "Realizado, no se han encontrado personajes.";
+L["trimDataMsg5"] = "Realizado, eliminados %s personajes.";
+L["trimDataMsg6"] = "Por favor, escribe un nombre de personaje válido para eliminar de la base de datos.";
+L["trimDataMsg7"] = "Este nombre de personaje %s no incluye el reino. Por favor escribe Nombre-Reino.";
+L["trimDataMsg8"] = "Error eliminando %s de la base de datos, personaje no encontrado (el nombre es sensible a mayúsculas y minúsculas).";
+L["trimDataMsg9"] = "Eliminado %s de la base de datos.";
 
-L["instanceFrameSelectAltMsg"] = "Select which alt to show if \"Show All Alts\" is unticked.\nOr which alt to colorize if \"Show All Alts\" is ticked.";
+L["instanceFrameSelectAltMsg"] = "Selecciona el personaje que se muestra si \"Show All Alts\" está desmarcado.\nO que Alter colorear si \"Show All Alts\" está marcado.";
 
-L["enteredDungeon"] = "New instance %s %s, click";
-L["enteredDungeon2"] = "if this is not a new instance.";
-L["enteredRaid"] = "New instance %s, this raid doesn't count towards lockout.";
-L["loggedInDungeon"] = "You have logged in inside %s %s, if this is not a new instance click";
-L["loggedInDungeon2"] = "to delete this instance from the database.";
-L["reloadDungeon"] = "UI Reload detected %s, loading last instance data instead of creating new.";
-L["thisHour"] = "this hour";
-L["statsError"] = "Error finding stats for instance id %s.";
+L["enteredDungeon"] = "Nueva Instancia %s %s, click";
+L["enteredDungeon2"] = "si esto no es una nueva Instancia.";
+L["enteredRaid"] = "Nueva Instancia %s, esta banda no cuenta para el bloqueo.";
+L["loggedInDungeon"] = "Has iniciado sesión dentro de %s %s, si esto no es una nueva Instancia haz click";
+L["loggedInDungeon2"] = "para borrar esta Instancia de la base de datos.";
+L["reloadDungeon"] = "Recarga de IU detectada %s, cargando datos de la última Instancia en lugar de crear nuevos.";
+L["thisHour"] = "esta hora";
+L["statsError"] = "Error al buscar estadísticas para la Instancia con ID %s.";
 L["statsMobs"] = "Mobs:";
 L["statsXP"] = "XP:";
-L["statsAverageXP"] = "Average XP/Mob:";
-L["statsRunsPerLevel"] = "Runs per level:";
-L["statsRunsNextLevel"] = "Runs until next level:";
-L["statsTime"] = "Time:";
-L["statsAverageGroupLevel"] = "Average Group Level:";
-L["statsGold"] = "Gold";
-L["sameInstance"] = "Same instance ID as last detected %s, merging database entries.";
-L["deleteInstance"] = "Deleted instance [%s] %s (%s ago) from the database.";
-L["deleteInstanceError"] = "Error deleting %s.";
-L["countString"] = "You have entered %s instances in the past hour and %s in the past 24h";
-L["countStringColorized"] = "You have entered %s %s %s instances in the past hour and %s %s %s in the past 24h";
-L["now"] = "now";
-L["in"] = "in";
-L["active24"] = "24h lockout active";
-L["nextInstanceAvailable"] = "Next instance available";
-L["gave"] = "Gave";
-L["received"] = "Received";
-L["to"] = "to";
-L["from"] = "from";
-L["playersStillInside"] = "has been reset (Players still inside old instance can zone out and enter new).";
-L["gold"] = "gold";
-L["silver"] = "silver";
-L["copper"] = "copper";
-L["newInstanceNow"] = "A new instance can be entered now";
-L["thisHour"] = "this hour";
-L["thisHour24"] = "this 24hours";
-L["openInstanceFrame"] = "Open Instance Frame";
-L["openYourChars"] = "Open Your Characters";
-L["openTradeLog"] = "Open Trade Log";
-L["config"] = "Config";
-L["thisChar"] = "This character";
-L["yourChars"] = "Your Characters";
-L["instancesPastHour"] = "instances in the past hour.";
-L["instancesPastHour24"] = "instances in the past 24h.";
-L["leftOnLockout"] = "left on lockout";
-L["tradeLog"] = "Trade Log";
-L["pastHour"] = "Past hour";
-L["pastHour24"] = "Past 24 hours";
-L["older"] = "Older";
-L["raid"] = "Raid";
-L["alts"] = "Alts";
-L["deleteEntry"] = "Delete entry";
-L["lastHour"] = "Last hour";
-L["lastHour24"] = "Last 24h";
-L["entered"] = "Entered";
-L["ago"] = "ago";
-L["stillInDungeon"] = "Still inside dungeon";
-L["leftOnLockout"] = "left on lockout";
-L["leftOnDailyLockout"] = "left on daily lockout";
-L["noLockout"] = "No lockout for this raid";
-L["unknown"] = "Unknown";
-L["instance"] = "Instance";
-L["timeEntered"] = "Time Entered";
-L["timeLeft"] = "Time Left";
-L["timeInside"] = "Time Inside";
-L["mobCount"] = "Mob Count";
-L["experience"] = "Experience";
+L["statsAverageXP"] = "Promedio XP/Mob:";
+L["statsRunsPerLevel"] = "Runs por nivel:";
+L["statsRunsNextLevel"] = "Runs hasta el siguiente nivel:";
+L["statsTime"] = "Tiempo:";
+L["statsAverageGroupLevel"] = "Nivel Promedio de Grupo:";
+L["statsGold"] = "Oro";
+L["sameInstance"] = "Detectada misma ID de Instancia que la anterior %s, fusionando entradas en la base de datos.";
+L["deleteInstance"] = "Instancia borrada hace [%s] %s (%s) de la base de datos.";
+L["deleteInstanceError"] = "Error al borrar %s.";
+L["countString"] = "Has entrado en %s Instancias en la última hora y en %s en las últimas 24h";
+L["countStringColorized"] = "Has entrado en %s %s %s Instancias en la última hora y %s %s %s en las últimas 24h";
+L["now"] = "ahora";
+L["in"] = "en";
+L["active24"] = "bloqueo de 24h activo";
+L["nextInstanceAvailable"] = "Siguiente Instancia disponible";
+L["gave"] = "Dado";
+L["received"] = "Recibido";
+L["to"] = "a";
+L["from"] = "de";
+L["playersStillInside"] = "se ha reiniciado (Los jugadores que siguen dentro pueden salir y entrar en la nueva).";
+L["gold"] = "oro";
+L["silver"] = "plata";
+L["copper"] = "cobre";
+L["newInstanceNow"] = "Ahora puedes entrar en una nueva Instancia";
+L["thisHour"] = "esta hora";
+L["thisHour24"] = "estas 24horas";
+L["openInstanceFrame"] = "Abrir Marco de Instancia";
+L["openYourChars"] = "Abrir tus Personajes";
+L["openTradeLog"] = "Abrir Log de Comercio";
+L["config"] = "Configuración";
+L["thisChar"] = "Este personaje";
+L["yourChars"] = "Tus Personajes";
+L["instancesPastHour"] = "Instancias en la última hora.";
+L["instancesPastHour24"] = "Instancias en las últimas 24h.";
+L["leftOnLockout"] = "hasta el desbloqueo";
+L["tradeLog"] = "Log de Comercio";
+L["pastHour"] = "Última hora";
+L["pastHour24"] = "Últimas 24 horas";
+L["older"] = "Antiguo";
+L["raid"] = "Banda";
+L["alts"] = "Alters";
+L["deleteEntry"] = "Borrar entrada";
+L["lastHour"] = "Última hora";
+L["lastHour24"] = "Últimas 24h";
+L["entered"] = "Entrado";
+L["ago"] = "atrás";
+L["stillInDungeon"] = "Sigue dentro de la mazmorra";
+L["leftOnLockout"] = "hasta el desbloqueo";
+L["leftOnDailyLockout"] = "hasta el desbloqueo diario";
+L["noLockout"] = "No hay bloqueo para esta Banda";
+L["unknown"] = "Desconocido";
+L["instance"] = "Instancia";
+L["timeEntered"] = "Hora de Entrada";
+L["timeLeft"] = "Hora de Salida";
+L["timeInside"] = "Tiempo dentro";
+L["mobCount"] = "Recuento de Mobs";
+L["experience"] = "Experiencia";
 L["experienceShort"] = "XP";
-L["rawGoldMobs"] = "Raw Gold From Mobs";
-L["enteredLevel"] = "Entered Level";
-L["leftLevel"] = "Left Level";
-L["averageGroupLevel"] = "Average Group Level";
-L["currentLockouts"] = "current lockouts";
-L["repGains"] = "Reputation Gains";
-L["groupMembers"] = "Group Members";
-L["tradesWhileInside"] = "Trades while inside";
-L["noDataInstance"] = "No data available for this instance.";
-L["restedOnlyText"] = "Show Rested Only";
-L["restedOnlyTextTooltip"] = "Only show chars that have rested XP? Untick this to show all alts, even max level and alts with no rested.";
-L["deleteEntry"] = "Delete entry"; --Example: "Delete entry 5";
-L["online"] = "Online";
-L["maximum"] = "Max";
-L["level"] = "Level";
-L["rested"] = "Rested";
+L["rawGoldMobs"] = "Raw Gold de Mobs";
+L["enteredLevel"] = "Nivel de Entrada";
+L["leftLevel"] = "Nivel de Salida";
+L["averageGroupLevel"] = "Promedio de Nivel de Grupo";
+L["currentLockouts"] = "bloqueos actuales";
+L["repGains"] = "Ganancia de Reputación";
+L["groupMembers"] = "Miembros de Grupo";
+L["tradesWhileInside"] = "Comercios estando dentro";
+L["noDataInstance"] = "No hay datos disponibles para esta Instancia.";
+L["restedOnlyText"] = "Mostrar Solo Descansados";
+L["restedOnlyTextTooltip"] = "Mostrar únicamente personajes con descanso de XP? Desmarca esto para mostrar todos los alters, incluso nivel máximo y alters sin descanso.";
+L["deleteEntry"] = "Borrar entrada"; --Example: "Delete entry 5";
+L["online"] = "Conectado";
+L["maximum"] = "Máximo";
+L["level"] = "Nivel";
+L["rested"] = "Descansado";
 L["realmGold"] = "Realm gold for";
 L["total"] = "Total";
-L["guild"] = "Guild";
-L["resting"] = "Resting";
-L["notResting"] = "Not Resting";
-L["rested"] = "Rested";
-L["restedBubbles"] = "Rested Bubbles";
-L["restedState"] = "Rested State";
-L["bagSlots"] = "Bag slots";
-L["durability"] = "Durability";
-L["items"] = "Items";
-L["ammunition"] = "Ammo";
-L["petStatus"] = "Pet Status";
-L["name"] = "Name";
-L["family"] = "Family";
-L["happiness"] = "Happiness";
-L["loyaltyRate"] = "Loyalty rate";
-L["petExperience"] = "Pet XP";
-L["unspentTrainingPoints"] = "Unspent Training points";
-L["professions"] = "Professions";
-L["lastSeenPetDetails"] = "Last seen pet details";
-L["currentPet"] = "Current Pet";
-L["noPetSummoned"] = "No Pet Summoned";
-L["lastSeenPetDetails"] = "Last seen pet details";
-L["noProfessions"] = "No professions found.";
-L["cooldowns"] = "Cooldowns";
-L["left"] = "left"; -- This is left as in "time left";
-L["ready"] = "Ready.";
+L["guild"] = "Hermandad";
+L["resting"] = "Descansando";
+L["notResting"] = "No Descansando";
+L["rested"] = "Descansado";
+L["restedBubbles"] = "Burbujas Descansadas";
+L["restedState"] = "Estado Descansado";
+L["bagSlots"] = "Huecos de Mochila";
+L["durability"] = "Durabilidad";
+L["items"] = "Objetos";
+L["ammunition"] = "Munición";
+L["petStatus"] = "Estado de Mascota";
+L["name"] = "Nombre";
+L["family"] = "Familia";
+L["happiness"] = "Felicidad";
+L["loyaltyRate"] = "Nivel de Lealtad";
+L["petExperience"] = "XP de Mascota";
+L["unspentTrainingPoints"] = "Puntos de instrucción sin usar";
+L["professions"] = "Profesiones";
+L["lastSeenPetDetails"] = "Última vista de Detalles de Mascota";
+L["currentPet"] = "Mascota actual";
+L["noPetSummoned"] = "No hay Mascota invocada";
+L["lastSeenPetDetails"] = "Última vista de Detalles de Mascota";
+L["noProfessions"] = "No se han encontrado profesiones.";
+L["cooldowns"] = "Enfriamientos";
+L["left"] = "restante"; -- This is left as in "time left";
+L["ready"] = "Preparado.";
 L["pvp"] = "PvP";
-L["rank"] = "Rank";
-L["lastWeek"] = "Last week";
+L["rank"] = "Rango";
+L["lastWeek"] = "Última semana";
 L["attunements"] = "Attunements";
-L["currentRaidLockouts"] = "Current Raid Lockouts";
+L["currentRaidLockouts"] = "Bloqueos de Banda Actuales";
 L["none"] = "None.";
 
-L["instanceStatsOutputRunsPerLevelTitle"] = "Runs Per Level";
-L["instanceStatsOutputRunsPerLevelDesc"] = "Show how many runs it will take per level?";
+L["instanceStatsOutputRunsPerLevelTitle"] = "Runs Por Nivel";
+L["instanceStatsOutputRunsPerLevelDesc"] = "Mostrar cuantos Runs se necesitarán por nivel?";
 
-L["instanceStatsOutputRunsNextLevelTitle"] = "Runs Until Next Level";
-L["instanceStatsOutputRunsNextLevelDesc"] = "Show how many more runs you need until your next level?";
+L["instanceStatsOutputRunsNextLevelTitle"] = "Runs hasta el siguiente nivel";
+L["instanceStatsOutputRunsNextLevelDesc"] = "Mostrar cuantos Runs más se necesitan hasta el próximo nivel?";

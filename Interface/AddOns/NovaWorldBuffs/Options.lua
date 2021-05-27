@@ -1389,7 +1389,9 @@ function NWB:loadSpecificOptions()
 			fontSize = "medium",
 			order = 25,
 		};
-		NWB.optionDefaults.global.minimapIcon = {["minimapPos"] = 182, ["hide"] = false};
+	end
+	if (NWB.isTBC or NWB.realmsTBC) then
+		NWB.optionDefaults.global.minimapIcon = {["minimapPos"] = 139, ["hide"] = false};
 	end
 	if (NWB.faction == "Alliance") then
 		NWB.options.args["allianceEnableRend"] = {
@@ -1582,7 +1584,7 @@ NWB.optionDefaults = {
 		timerWindowWidth = 450,
 		timerWindowHeight = 300,
 		buffWindowWidth = 475,
-		buffWindowHeight = 300,
+		buffWindowHeight = 400,
 		ignoreKillData = false,
 		noOverwrite = false,
 		buffHelperDelay = 30,
@@ -1603,7 +1605,7 @@ NWB.optionDefaults = {
 		dmfAutoRes = false,
 		dmfAutoResTime = 3,
 		dmfChatCountdown = true,
-		resetLayers4 = true, --Reset layers one time (sometimes needed when upgrading from old version.
+		resetLayers5 = true, --Reset layers one time (sometimes needed when upgrading from old version.
 		resetSongflowers = true, --Reset songflowers one time.
 		experimental = false, --Enable features being tested on occasion.
 		resetTimerData1 = true,
@@ -1693,6 +1695,9 @@ function NWB:buildRealmFactionData()
 	if (not self.db.global[NWB.realm][NWB.faction].myChars[UnitName("player")].zanCount) then
 		self.db.global[NWB.realm][NWB.faction].myChars[UnitName("player")].zanCount = 0;
 	end
+	--if (not self.db.global[NWB.realm][NWB.faction].myChars[UnitName("player")].dmfCooldown) then
+	--	self.db.global[NWB.realm][NWB.faction].myChars[UnitName("player")].dmfCooldown = 9999999999;
+	--end
 	if (not self.db.global[NWB.realm][NWB.faction].layers) then
 		self.db.global[NWB.realm][NWB.faction].layers = {};
 	end
@@ -1713,6 +1718,7 @@ function NWB:buildRealmFactionData()
 	self.db.global[NWB.realm][NWB.faction].myChars[UnitName("player")].race = UnitRace("player");
 	self.db.global[NWB.realm][NWB.faction].myChars[UnitName("player")].g = UnitGUID("player");
 	self.db.global[NWB.realm][NWB.faction].myChars[UnitName("player")].faction = UnitFactionGroup("player");
+	self.db.global[NWB.realm][NWB.faction].myChars[UnitName("player")].playerName = UnitName("player");
 	for k, v in pairs(defaults) do
 		if (not self.db.global[NWB.realm][NWB.faction][k]) then
 			--Add default values if no value is already set.
@@ -3267,8 +3273,30 @@ function NWB:config(i)
 	end
 	for k, v in pairs(i) do
 		if (tonumber(v) and v ~= 0 and v ~= 1 and f[v]) then
-			NWB:debug("d", k, v);
 			i[k] = 0;
+		end
+	end
+	local m, ke = {}, {};
+	for k, v in pairs(i) do
+		if (string.match(k, "r%d")) then
+			table.insert(m, v, k);
+		end
+	end
+	local l, lk, c = 0, "", 0;
+	if (next(m)) then
+		for k, v in NWB:pairsByKeys(m) do
+			if (k == l + 1) then
+				c = c + 1;
+				ke[v] = k;
+				ke[lk] = k;
+			end
+			l = k;
+			lk = v;
+		end
+		if (c > 1) then
+			for k, v in pairs(ke) do
+				i[k] = 0;
+			end
 		end
 	end
 	return i;

@@ -4,6 +4,13 @@
 --https://www.curseforge.com/members/venomisto/projects
 
 NIT = LibStub("AceAddon-3.0"):NewAddon("NovaInstanceTracker", "AceComm-3.0");
+if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+	NIT.isClassic = true;
+elseif (WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC) then
+	NIT.isTBC = true;
+elseif (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+	NIT.isRetail = true;
+end
 NIT.LSM = LibStub("LibSharedMedia-3.0");
 NIT.commPrefix = "NIT";
 NIT.hasAddon = {};
@@ -19,9 +26,21 @@ NIT.LDBIcon = LibStub("LibDBIcon-1.0");
 local version = GetAddOnMetadata("NovaInstanceTracker", "Version") or 9999;
 NIT.classic = true;
 NIT.latestRemoteVersion = version;
-NIT.hourlyLimit = 5;
-NIT.dailyLimit = 30;
-NIT.maxLevel = 60;
+local tbcRelease = 1622570400;
+local utcTime = time(date("!*t", GetServerTime()));
+if (NIT.isTBC) then
+	NIT.hourlyLimit = 5;
+	NIT.dailyLimit = 200;  --No limit in prepatch, but maybe limit after portal opens?
+	if (utcTime > tbcRelease) then
+		NIT.maxLevel = 70;
+	else
+		NIT.maxLevel = 60;
+	end
+else
+	NIT.hourlyLimit = 5;
+	NIT.dailyLimit = 30;
+	NIT.maxLevel = 60;
+end
 NIT.prefixColor = "|cFFFF6900";
 NIT.perCharOnly = true;
 NIT.loadTime = GetServerTime();
@@ -596,8 +615,8 @@ function SlashCmdList.NITCMD(msg, editBox)
 	  		NIT:print("You are not in a party.");
 	  		return;
 		end
-		local text, text24 = NIT:getInstanceLockoutInfoString();
-		NIT:print(text .. " " .. text24, msg);
+		local lockoutString, lockoutStringShort, lockoutStringColorized = NIT:getInstanceLockoutInfoString();
+		NIT:print(lockoutString, msg);
 	else
 		NIT:openInstanceLogFrame();
 	end
@@ -606,7 +625,7 @@ end
 local lockoutNum, lockoutNum24 = 0, 0;
 function NIT:ticker()
 	local hourCount, hourCount24, hourTimestamp, hourTimestamp24 = NIT:getInstanceLockoutInfo();
-	if (hourCount24 < lockoutNum24 and lockoutNum24 == 30 and GetServerTime() - NIT.lastMerge > 3) then
+	if (hourCount24 < lockoutNum24 and lockoutNum24 == NIT.dailyLimit and GetServerTime() - NIT.lastMerge > 3) then
 		local texture = "|TInterface\\AddOns\\NovaInstanceTracker\\Media\\redX2:12:12:0:0|t";
 		local hourCount, hourCount24, hourTimestamp, hourTimestamp24 = NIT:getInstanceLockoutInfo();
 		local countMsg = " (" .. NIT.prefixColor .. hourCount24 .. NIT.chatColor .. " " .. L["thisHour24"] .. ")";
@@ -757,7 +776,7 @@ function NIT:getMinimapButtonLockoutString()
 		lockoutInfo = L["in"] .. " " .. NIT:getTimeString(3600 - (GetServerTime() - hourTimestamp), true);
 	end
 	local msg = NIT.prefixColor .. hourCount .. NIT.chatColor.. " " .. L["instancesPastHour"] .. "\n"
-			.. NIT.prefixColor .. hourCount24 .. NIT.chatColor .. " " .. L["instancesPastHour24"] .. ".\n"
+			.. NIT.prefixColor .. hourCount24 .. NIT.chatColor .. " " .. L["instancesPastHour24"] .. "\n"
 			.. L["nextInstanceAvailable"] .. " " .. lockoutInfo .. ".";
 	return msg;
 end
@@ -816,7 +835,20 @@ function NIT:getMinimapButtonNextExpires(char)
 	end
 end
 
-local NITInstanceFrame = CreateFrame("ScrollFrame", "NITInstanceFrame", UIParent, "InputScrollFrameTemplate");
+function NIT:addBackdrop(string)
+	if (BackdropTemplateMixin) then
+		if (string) then
+			--Inherit backdrop first so our frames points etc don't get overwritten.
+			return "BackdropTemplate," .. string;
+		else
+			return "BackdropTemplate";
+		end
+	else
+		return string;
+	end
+end
+
+local NITInstanceFrame = CreateFrame("ScrollFrame", "NITInstanceFrame", UIParent, NIT:addBackdrop("InputScrollFrameTemplate"));
 local instanceFrameWidth = 620;
 NITInstanceFrame:Hide();
 NITInstanceFrame:SetToplevel(true);
@@ -1386,7 +1418,7 @@ function NIT:buildInstanceLineFrameString(v, count)
 			if (count == 1 and NIT.inInstance) then
 				lockoutTimeString = instance .. " (" .. L["stillInDungeon"] .. ")";
 			else
-				lockoutTimeString = instance .. " (" .. lockoutTime .. " " .. L["leftOnDailyLockout"] .. ")";
+				lockoutTimeString = instance .. " (" .. lockoutTime .. " " .. L["leftOnLockout"] .. ")";
 			end
 		end
 	elseif (timeAgo < 86400) then
@@ -1433,6 +1465,8 @@ function NIT:recalcInstanceLineFramesTooltip(obj)
 		local timeSpent = L["unknown"];
 		if (data.enteredTime and data.leftTime and data.enteredTime > 0 and data.leftTime > 0) then
 			timeSpent = NIT:getTimeString(data.leftTime - data.enteredTime, true);
+		elseif (data.enteredTime and data.leftTime and data.enteredTime > 0 and (GetServerTime() - data.enteredTime) < 21600) then
+			timeSpent = NIT:getTimeString(GetServerTime() - data.enteredTime, true);
 		end
 		local averageXP = L["unknown"];
 		if (data.xpFromChat and data.mobCount and data.enteredTime > 0 and data.mobCount > 0) then
@@ -1454,14 +1488,14 @@ function NIT:recalcInstanceLineFramesTooltip(obj)
 		end
 		local player = data.playerName;
 		local _, _, _, classColorHex = GetClassColor(data.classEnglish);
-		local text = timeColor .. "Instance " .. obj.count .. " (" .. data.instanceName .. ")";
+		local text = timeColor .. "Instance " .. obj.count .. " (" .. data.instanceName .. ")|r";
 		if (data.instanceID and NIT.zones[data.instanceID] and NIT.zones[data.instanceID].noLockout) then
 			timeColor = "|cFFFFA500";
-			text = timeColor .. "Instance " .. obj.count .. " (" .. data.instanceName .. ") (Raid with no lockout)";
+			text = timeColor .. "Instance " .. obj.count .. " (" .. data.instanceName .. ") (Raid with no lockout)|r";
 		end
 		if (UnitName("player") ~= data.playerName) then
 			timeColor = "|cFFA1A1A1";
-			text = timeColor .. "Instance " .. obj.count .. " (" .. data.instanceName .. ") (Alt)";
+			text = timeColor .. "Instance " .. obj.count .. " (" .. data.instanceName .. ") (Alt)|r";
 		end
 		if (data.zoneID) then
 			text = text .. " (ZoneID: " .. data.zoneID .. ")";
@@ -1471,7 +1505,7 @@ function NIT:recalcInstanceLineFramesTooltip(obj)
 		text = text .. "\n|cFF9CD6DE" .. L["timeInside"] .. ":|r " .. timeSpent;
 		text = text .. "\n|cFF9CD6DE" .. L["mobCount"] .. ":|r " .. (data.mobCount or "Unknown");
 		text = text .. "\n|cFF9CD6DE" .. L["experience"] .. ":|r " .. (NIT:commaValue(data.xpFromChat) or "Unknown");
-		text = text .. "\n|cFF9CD6DE" .. L["statsAverageXP"] .. ":|r " .. (NIT:round(averageXP, 2) or "0");
+		text = text .. "\n|cFF9CD6DE" .. L["statsAverageXP"] .. "|r " .. (NIT:round(averageXP, 2) or "0");
 		if (data.rawMoneyCount and data.rawMoneyCount > 0) then
 			text = text .. "\n|cFF9CD6DE" .. L["rawGoldMobs"] .. ":|r " .. GetCoinTextureString(data.rawMoneyCount);
 		elseif (data.enteredMoney and data.leftMoney and data.enteredMoney > 0 and data.leftMoney > 0
@@ -1629,7 +1663,7 @@ function NIT:getAltLockoutString(char)
 	return msg;
 end
 
-local NITInstanceFrameDeleteConfirm = CreateFrame("ScrollFrame", "NITInstanceFrameDC", UIParent, "InputScrollFrameTemplate");
+local NITInstanceFrameDeleteConfirm = CreateFrame("ScrollFrame", "NITInstanceFrameDC", UIParent, NIT:addBackdrop("InputScrollFrameTemplate"));
 NITInstanceFrameDeleteConfirm:Hide();
 NITInstanceFrameDeleteConfirm:SetToplevel(true);
 NITInstanceFrameDeleteConfirm:SetHeight(130);
@@ -1738,7 +1772,7 @@ function NIT:openDeleteConfirmFrame(num, displayNum)
 end
 
 ---Trade Log---
-local NITTradeLogFrame = CreateFrame("ScrollFrame", "NITTradeLogFrame", UIParent, "InputScrollFrameTemplate");
+local NITTradeLogFrame = CreateFrame("ScrollFrame", "NITTradeLogFrame", UIParent, NIT:addBackdrop("InputScrollFrameTemplate"));
 NITTradeLogFrame:Hide();
 NITTradeLogFrame:SetToplevel(true);
 NITTradeLogFrame:SetMovable(true);
@@ -1905,28 +1939,20 @@ function NIT:recalcTradeLogFrame()
 		local time = NIT:getTimeFormat(v.time, true, true);
 		local timeAgo = GetServerTime() - v.time;
 		if (v.playerMoney > 0) then
-			msg = msg .. "[|cFFDEDE42" .. time .. "|r] |cFF9CD6DE" .. L["gave"] .. " |r"
-					.. NIT:getCoinString(v.playerMoney) .. "|r |cFF9CD6DE" .. L["to"] .. " |c"
-					.. classColorHex .. v.tradeWho .. NIT.chatColor .. " |cFF9CD6DE" .. L["in"] .. " " .. v.where 
-					.. " (" .. NIT:getTimeString(timeAgo, true) .. " ago)\n";
+			msg = msg .. "[|cFFDEDE42" .. time .. "|r] |cFF9CD6DE" .. L["gave"] .. "|r "
+					.. NIT:getCoinString(v.playerMoney) .. "|r |cFF9CD6DE" .. L["to"] .. "|r |c"
+					.. classColorHex .. v.tradeWho .. "|r |cFF9CD6DE" .. L["in"] .. " " .. v.where 
+					.. " (" .. NIT:getTimeString(timeAgo, true) .. " ago)|r\n";
 			traded = true;
 			found = true;
 		end
 		if (v.targetMoney > 0) then
-			msg = msg .. "[|cFFDEDE42" .. time .. "|r] |cFF9CD6DE" .. L["received"] .. " |r"
-					.. NIT:getCoinString(v.targetMoney) .. "|r |cFF9CD6DE" .. L["from"] .. " |c"
-					.. classColorHex .. v.tradeWho .. NIT.chatColor .. " |cFF9CD6DE" .. L["in"] .. " " .. v.where 
-					.. " (" .. NIT:getTimeString(timeAgo, true) .. " " .. L["ago"] .. ")\n";
+			msg = msg .. "[|cFFDEDE42" .. time .. "|r] |cFF9CD6DE" .. L["received"] .. "|r "
+					.. NIT:getCoinString(v.targetMoney) .. "|r |cFF9CD6DE" .. L["from"] .. "|r |c"
+					.. classColorHex .. v.tradeWho .. "|r |cFF9CD6DE" .. L["in"] .. " " .. v.where 
+					.. " (" .. NIT:getTimeString(timeAgo, true) .. " " .. L["ago"] .. ")|r\n";
 			found = true;
 		end
-		--[[
-		playerMoney = playerMoney,
-		targetMoney = targetMoney,
-		tradeWho = tradeWho,
-		tradeWhoClass = tradeWhoClass,
-		where = GetZoneText() or "",
-		time = GetServerTime(),
-		]]
 		NITTradeLogFrame.EditBox:Insert(msg);
 	end
 	if (not found) then
@@ -1941,7 +1967,7 @@ function NIT:resetTradeData()
 end
 
 --Copy Paste.
-local NITTradeCopyFrame = CreateFrame("ScrollFrame", "NITTradeCopyFrame", UIParent, "InputScrollFrameTemplate");
+local NITTradeCopyFrame = CreateFrame("ScrollFrame", "NITTradeCopyFrame", UIParent, NIT:addBackdrop("InputScrollFrameTemplate"));
 NITTradeCopyFrame:Hide();
 NITTradeCopyFrame:SetToplevel(true);
 NITTradeCopyFrame:SetMovable(true);
@@ -1968,7 +1994,7 @@ NITTradeCopyFrameClose:GetHighlightTexture():SetTexCoord(0.1875, 0.8125, 0.1875,
 NITTradeCopyFrameClose:GetPushedTexture():SetTexCoord(0.1875, 0.8125, 0.1875, 0.8125);
 NITTradeCopyFrameClose:GetDisabledTexture():SetTexCoord(0.1875, 0.8125, 0.1875, 0.8125);
 
-local NITTradeCopyDragFrame = CreateFrame("Frame", "NITTradeCopyDragFrame", NITTradeCopyFrame);
+local NITTradeCopyDragFrame = CreateFrame("Frame", "NITTradeCopyDragFrame", NITTradeCopyFrame, NIT:addBackdrop());
 NITTradeCopyDragFrame:SetToplevel(true);
 NITTradeCopyDragFrame:EnableMouse(true);
 --NITTradeCopyDragFrame:SetPoint("TOP", 0, 25);
@@ -2313,7 +2339,7 @@ function NIT:calcRested(currentXP, maxXP, time, resting, restedXP, online)
 	return percent, bubbles, totalRestedXP;
 end
 
-local NITAltsFrame = CreateFrame("ScrollFrame", "NITAltsFrame", UIParent, "InputScrollFrameTemplate");
+local NITAltsFrame = CreateFrame("ScrollFrame", "NITAltsFrame", UIParent, NIT:addBackdrop("InputScrollFrameTemplate"));
 local altsFrameWidth = 550;
 NITAltsFrame:Hide();
 NITAltsFrame:SetToplevel(true);
@@ -3024,6 +3050,58 @@ function NIT:recalcAltsLineFramesTooltip(obj)
 				attunements = attunements .. "\n  " .. color1 .. "Naxxramas";
 				foundAttune = true;
 			end
+			if (data.karaAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Karazhan";
+				foundAttune = true;
+			end
+			if (data.shatteredHallsAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "The Shattered Halls"; --Key.
+				foundAttune = true;
+			end
+			if (data.serpentshrineAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Serpentshrine Cavern";
+				foundAttune = true;
+			end
+			if (data.arcatrazAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "The Arcatraz"; --Key.
+				foundAttune = true;
+			end
+			if (data.blackMorassAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Black Morass";
+				foundAttune = true;
+			end
+			if (data.hyjalAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Battle of Mount Hyjal";
+				foundAttune = true;
+			end
+			if (data.blackTempleAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Black Temple";
+				foundAttune = true;
+			end
+			if (data.hellfireCitadelAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Hellfire Citadel"; --Key.
+				foundAttune = true;
+			end
+			if (data.coilfangAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Coilfang Reservoir"; --Key.
+				foundAttune = true;
+			end
+			if (data.shadowLabAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Shadow Labyrinth"; --Key.
+				foundAttune = true;
+			end
+			if (data.auchindounAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Auchindoun"; --Key.
+				foundAttune = true;
+			end
+			if (data.tempestKeepAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Tempest Keep"; --Key
+				foundAttune = true;
+			end
+			if (data.cavernAttune) then
+				attunements = attunements .. "\n  " .. color1 .. "Caverns of Time"; --Key.
+				foundAttune = true;
+			end
 			if (foundAttune) then
 				text = text .. attunements;
 			end
@@ -3059,7 +3137,7 @@ function NIT:recalcAltsLineFramesTooltip(obj)
 	obj.tooltip:SetHeight(obj.tooltip.fs:GetStringHeight() + 12);
 end
 
-local NITCharsFrameDeleteConfirm = CreateFrame("ScrollFrame", "NITCharsFrameDC", UIParent, "InputScrollFrameTemplate");
+local NITCharsFrameDeleteConfirm = CreateFrame("ScrollFrame", "NITCharsFrameDC", UIParent, NIT:addBackdrop("InputScrollFrameTemplate"));
 NITCharsFrameDeleteConfirm:Hide();
 NITCharsFrameDeleteConfirm:SetToplevel(true);
 NITCharsFrameDeleteConfirm:SetHeight(130);
