@@ -1,12 +1,12 @@
-lightweight tag 67971c83481c5e7cbf72e36292670bab7a673644 2.5.1.17
+lightweight tag 4d3fd9bd540065ad69fb7dce26ed0d6d2a070873 2.5.1.19
 Author:	Luxocracy <Luxocracy@users.noreply.github.com>
-Date:	Mon May 24 18:43:24 2021 +0200
+Date:	Tue Jun 8 11:30:21 2021 +0200
 
-commit 67971c83481c5e7cbf72e36292670bab7a673644
+commit 4d3fd9bd540065ad69fb7dce26ed0d6d2a070873
 Author: Luxocracy <Luxocracy@users.noreply.github.com>
-Date:   Mon May 24 18:43:24 2021 +0200
+Date:   Tue Jun 8 11:29:59 2021 +0200
 
-    Fixed clickable size not being set correctly at startup
+    Locale update
     
-    - Fixed clickable size not being set correctly at startup
+    Locale update
 

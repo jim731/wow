@@ -1,2 +1,0 @@
-
-LoseControlDB = nil

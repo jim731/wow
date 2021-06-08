@@ -1,0 +1,24 @@
+lightweight tag 868c99ee9ea4ac9311ac67a23c5c560d593958c0 2.0.4.TBCC
+Author:	GitHub <noreply@github.com>
+Date:	Fri Jun 4 08:42:40 2021 -0700
+
+commit 868c99ee9ea4ac9311ac67a23c5c560d593958c0
+Author: cdmichaelb <broetjem@gmail.com>
+Date:   Fri Jun 4 08:42:40 2021 -0700
+
+    Update Outfitter.toc
+
+commit e45e09d290b6d228555511b53cf96bb8e2e1eb52
+Author: cdmichaelb <broetjem@gmail.com>
+Date:   Fri Jun 4 08:42:09 2021 -0700
+
+    Update Outfitter.toc
+
+commit 1d21c55a6e17d9445e749fac8fa20fd988eb3019
+Author: cdmichaelb <broetjem@gmail.com>
+Date:   Fri Jun 4 08:41:26 2021 -0700
+
+    UI Fix
+    
+    Fix from @ChristopherNewbound Closes #63
+

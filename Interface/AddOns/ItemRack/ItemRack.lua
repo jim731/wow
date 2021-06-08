@@ -2,7 +2,7 @@ ItemRack = {}
 
 local _
 
-ItemRack.Version = "3.66"
+ItemRack.Version = "3.68"
 
 function ItemRack.IsClassic()
 	return WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
@@ -75,7 +75,11 @@ ItemRackItems = {
 
 ItemRack.Menu = {}
 ItemRack.LockList = {} -- index -2 to 11, flag whether item is tagged already for swap
-ItemRack.BankSlots = { -1,5,6,7,8,9,10 }
+if ItemRack.IsClassic() then
+	ItemRack.BankSlots = { -1,5,6,7,8,9,10 }
+elseif ItemRack.IsBCC() then
+	ItemRack.BankSlots = { -1,5,6,7,8,9,10,11 }
+end
 ItemRack.KnownItems = {} -- cache of known item locations for fast lookup
 
 ItemRack.SlotInfo = {
@@ -173,6 +177,7 @@ function ItemRack.InitEventHandlers()
 	handler.UNIT_SPELLCAST_FAILED = ItemRack.OnCastingStop
 	handler.CHARACTER_POINTS_CHANGED = ItemRack.UpdateClassSpecificStuff
 	handler.PLAYER_TALENT_UPDATE = ItemRack.UpdateClassSpecificStuff
+	handler.PLAYER_ENTERING_WORLD = ItemRack.OnEnterWorld
 --	handler.ACTIVE_TALENT_GROUP_CHANGED = ItemRack.UpdateClassSpecificStuff
 --	handler.PET_BATTLE_OPENING_START = ItemRack.OnEnteringPetBattle
 --	handler.PET_BATTLE_CLOSE = ItemRack.OnLeavingPetBattle
@@ -222,6 +227,10 @@ function ItemRack.OnPlayerLogin()
 	ItemRack.InitCore()
 	ItemRack.InitButtons()
 	ItemRack.InitEvents()
+end
+
+function ItemRack.OnEnterWorld()
+	ItemRack.SetSetBindings()
 end
 
 local loader = CreateFrame("Frame",nil, self, BackdropTemplateMixin and "BackdropTemplate") -- need a new temp frame here, ItemRackFrame is not created yet
@@ -480,10 +489,10 @@ function ItemRack.InitCore()
 	ItemRackFrame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
 	ItemRackFrame:RegisterEvent("UNIT_SPELLCAST_INTERRUPTED")
 	ItemRackFrame:RegisterEvent("UNIT_SPELLCAST_FAILED")
+	ItemRackFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 	--end
 	ItemRack.StartTimer("CooldownUpdate")
 	ItemRack.ReflectAlpha()
-	ItemRack.SetSetBindings()
 
 	SlashCmdList["ItemRack"] = ItemRack.SlashHandler
 	SLASH_ItemRack1 = "/itemrack"
@@ -1916,7 +1925,7 @@ function ItemRack.SetSetBindings()
 			if ItemRackUser.Sets[i].key then
 				buttonName = "ItemRack"..UnitName("player")..GetRealmName()..i
 				button = _G[buttonName] or CreateFrame("Button",buttonName,nil,"SecureActionButtonTemplate")
-				
+
 				button:SetAttribute("type","macro")
 				local macrotext = "/script ItemRack.RunSetBinding(\""..i.."\")\n"
 				for slot = 16, 18 do

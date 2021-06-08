@@ -10,6 +10,13 @@ Quartz3DB = {
 					["remainingtext"] = false,
 					["swingposition"] = "bottom",
 				},
+				["baeldemos"] = {
+					["durationtext"] = false,
+					["swinggap"] = 1,
+					["remainingtext"] = false,
+					["swingposition"] = "bottom",
+					["swingheight"] = 5,
+				},
 			},
 		},
 		["Buff"] = {
@@ -24,6 +31,10 @@ Quartz3DB = {
 					["y"] = 74.0246734619141,
 					["x"] = 176.543594360352,
 				},
+				["baeldemos"] = {
+					["y"] = 74.0246734619141,
+					["x"] = 176.543594360352,
+				},
 			},
 		},
 		["EnemyCasts"] = {
@@ -31,18 +42,32 @@ Quartz3DB = {
 		["Player"] = {
 			["profiles"] = {
 				["Default"] = {
-					["h"] = 31,
+					["h"] = 32,
 					["nametextx"] = 0,
-					["w"] = 220,
+					["w"] = 227,
 					["hideicon"] = true,
-					["x"] = 644,
+					["font"] = "FORCED SQUARE",
 					["border"] = "None",
 					["fontsize"] = 13,
-					["hidetimetext"] = true,
 					["nametextposition"] = "center",
-					["font"] = "FORCED SQUARE",
+					["hidetimetext"] = true,
+					["x"] = 640,
 					["texture"] = "Minimalist",
+					["y"] = 226,
+				},
+				["baeldemos"] = {
+					["nametextposition"] = "center",
+					["texture"] = "Minimalist",
+					["border"] = "None",
+					["hideicon"] = true,
 					["y"] = 227,
+					["h"] = 31,
+					["fontsize"] = 13,
+					["x"] = 644,
+					["font"] = "FORCED SQUARE",
+					["nametextx"] = 0,
+					["w"] = 220,
+					["hidetimetext"] = true,
 				},
 			},
 		},
@@ -51,6 +76,11 @@ Quartz3DB = {
 		["Focus"] = {
 			["profiles"] = {
 				["Default"] = {
+					["y"] = -144.4938659667969,
+					["x"] = -3.69122314453125,
+					["point"] = "CENTER",
+				},
+				["baeldemos"] = {
 					["x"] = 658.5185546875,
 				},
 			},
@@ -58,6 +88,10 @@ Quartz3DB = {
 		["Target"] = {
 			["profiles"] = {
 				["Default"] = {
+					["y"] = 256.320983886719,
+					["x"] = 658.5185546875,
+				},
+				["baeldemos"] = {
 					["y"] = 256.320983886719,
 					["x"] = 658.5185546875,
 				},
@@ -77,32 +111,55 @@ Quartz3DB = {
 		["Hemos - Mirage Raceway"] = "Default",
 		["Elunari - Firemaw"] = "Default",
 		["Craftmateria - Mirage Raceway"] = "Default",
+		["Adsdawad - Pyrewood Village"] = "Default",
 		["Clothguy - Nethergarde Keep"] = "Default",
 		["Consumables - Nethergarde Keep"] = "Default",
 		["Parisi - Nethergarde Keep"] = "Default",
 		["Garluk - Mirage Raceway"] = "Default",
+		["Lionidas - Pyrewood Village"] = "Default",
 		["Zanjee - Mirage Raceway"] = "Default",
 		["Consooms - Mirage Raceway"] = "Default",
-		["Lionidas - Pyrewood Village"] = "Default",
-		["Shapeshifter - Skullflame"] = "Default",
+		["Korloc - Mirage Raceway"] = "Default",
 		["Various - Nethergarde Keep"] = "Default",
+		["Sadsadaddsa - Pyrewood Village"] = "Default",
+		["Shapeshifter - Skullflame"] = "Default",
+		["Baeldemos - Pyrewood Village"] = "Default",
 		["Fermion - Nethergarde Keep"] = "Default",
 		["Baeldemos - Nethergarde Keep"] = "Default",
-		["Lanayria - Mirage Raceway"] = "Default",
-		["Korloc - Mirage Raceway"] = "Default",
+		["Cowski - Mirage Raceway"] = "Default",
+		["Ferns - Mirage Raceway"] = "Default",
 		["Ferns - Skullflame"] = "Default",
 		["Equipment - Mirage Raceway"] = "Default",
 		["Bankmoomoo - Mirage Raceway"] = "Default",
 		["Zabuji - Mirage Raceway"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Default",
 		["Nahfan - Mirage Raceway"] = "Default",
-		["Cowski - Mirage Raceway"] = "Default",
+		["Lanayria - Mirage Raceway"] = "Default",
 		["Craftingmats - Nethergarde Keep"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
 			["modules"] = {
+				["Swing"] = false,
+				["Buff"] = false,
+				["Mirror"] = false,
+				["GCD"] = false,
 				["Target"] = false,
+				["Timer"] = false,
+				["Pet"] = false,
+				["Latency"] = false,
+			},
+			["castingcolor"] = {
+				0.254901960784314, -- [1]
+				0.333333333333333, -- [2]
+				0.525490196078431, -- [3]
+				1, -- [4]
+			},
+		},
+		["baeldemos"] = {
+			["modules"] = {
+				["Target"] = false,
+				["Swing"] = false,
 				["GCD"] = false,
 				["Buff"] = false,
 				["Timer"] = false,

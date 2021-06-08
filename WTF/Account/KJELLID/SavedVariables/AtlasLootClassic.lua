@@ -1,7 +1,7 @@
 
 AtlasLootClassicDB = {
 	["global"] = {
-		["__addonrevision"] = 2020000,
+		["__addonrevision"] = 2030001,
 	},
 	["profileKeys"] = {
 		["Ganado - Nethergarde Keep"] = "Ganado - Nethergarde Keep",
@@ -11,26 +11,30 @@ AtlasLootClassicDB = {
 		["Elunari - Firemaw"] = "Elunari - Firemaw",
 		["Craftmateria - Mirage Raceway"] = "Craftmateria - Mirage Raceway",
 		["Craftingmats - Nethergarde Keep"] = "Craftingmats - Nethergarde Keep",
+		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
+		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 		["Zanjee - Mirage Raceway"] = "Zanjee - Mirage Raceway",
 		["Consooms - Mirage Raceway"] = "Consooms - Mirage Raceway",
-		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
+		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
+		["Baeldemos - Pyrewood Village"] = "Baeldemos - Pyrewood Village",
+		["Sadsadaddsa - Pyrewood Village"] = "Sadsadaddsa - Pyrewood Village",
 		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Baeldemos - Nethergarde Keep"] = "Baeldemos - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
-		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
+		["Ferns - Mirage Raceway"] = "Ferns - Mirage Raceway",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Equipment - Mirage Raceway"] = "Equipment - Mirage Raceway",
 		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
 		["Zabuji - Mirage Raceway"] = "Zabuji - Mirage Raceway",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Korloc - Mirage Raceway"] = "Korloc - Mirage Raceway",
-		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
+		["Adsdawad - Pyrewood Village"] = "Adsdawad - Pyrewood Village",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -59,17 +63,35 @@ AtlasLootClassicDB = {
 		},
 		["Craftingmats - Nethergarde Keep"] = {
 		},
+		["Clothguy - Nethergarde Keep"] = {
+		},
 		["Consumables - Nethergarde Keep"] = {
 		},
 		["Parisi - Nethergarde Keep"] = {
 		},
 		["Garluk - Mirage Raceway"] = {
 		},
+		["Lanayria - Mirage Raceway"] = {
+		},
 		["Zanjee - Mirage Raceway"] = {
 		},
 		["Consooms - Mirage Raceway"] = {
 		},
-		["Clothguy - Nethergarde Keep"] = {
+		["Nahfan - Mirage Raceway"] = {
+		},
+		["Baeldemos - Pyrewood Village"] = {
+			["GUI"] = {
+				["selectedGameVersion"] = 1,
+				["selected"] = {
+					nil, -- [1]
+					"Ragefire", -- [2]
+					nil, -- [3]
+					1, -- [4]
+					0, -- [5]
+				},
+			},
+		},
+		["Sadsadaddsa - Pyrewood Village"] = {
 		},
 		["Cowski - Mirage Raceway"] = {
 		},
@@ -100,7 +122,7 @@ AtlasLootClassicDB = {
 		},
 		["Shapeshifter - Skullflame"] = {
 		},
-		["Nahfan - Mirage Raceway"] = {
+		["Ferns - Mirage Raceway"] = {
 		},
 		["Ferns - Skullflame"] = {
 		},
@@ -109,14 +131,21 @@ AtlasLootClassicDB = {
 		["Bankmoomoo - Mirage Raceway"] = {
 		},
 		["Zabuji - Mirage Raceway"] = {
+			["GUI"] = {
+				["selected"] = {
+					nil, -- [1]
+					"HellfireRamparts", -- [2]
+					[5] = 0,
+				},
+			},
 		},
 		["Bushwick - Nethergarde Keep"] = {
 		},
 		["Korloc - Mirage Raceway"] = {
 		},
-		["Lanayria - Mirage Raceway"] = {
-		},
 		["Lionidas - Pyrewood Village"] = {
+		},
+		["Adsdawad - Pyrewood Village"] = {
 		},
 	},
 }

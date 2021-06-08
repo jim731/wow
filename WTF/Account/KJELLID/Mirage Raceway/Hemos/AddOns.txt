@@ -8,3 +8,5 @@ Watto: disabled
 Spy: disabled
 Inventorian: disabled
 Quartz: enabled
+AtlasQuest: enabled
+LFG113: enabled

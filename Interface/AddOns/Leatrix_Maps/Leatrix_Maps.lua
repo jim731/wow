@@ -1,6 +1,6 @@
 
 	----------------------------------------------------------------------
-	-- 	Leatrix Maps 2.5.37 (26th May 2021)
+	-- 	Leatrix Maps 2.5.40 (8th June 2021)
 	----------------------------------------------------------------------
 
 	-- 10:Func, 20:Comm, 30:Evnt, 40:Panl
@@ -12,8 +12,7 @@
 	local LeaMapsLC, LeaMapsCB, LeaConfigList = {}, {}, {}
 
 	-- Version
-	LeaMapsLC["AddonVer"] = "2.5.37"
-	LeaMapsLC["RestartReq"] = nil
+	LeaMapsLC["AddonVer"] = "2.5.40"
 
 	-- Get locale table
 	local void, Leatrix_Maps = ...
@@ -26,17 +25,6 @@
 			-- Game client is not Wow Classic
 			C_Timer.After(2, function()
 				print(L["LEATRIX MAPS: WRONG VERSION INSTALLED!"])
-			end)
-			return
-		end
-	end
-
-	-- If client restart is required and has not been done, show warning and quit
-	if LeaMapsLC["RestartReq"] then
-		local metaVer = GetAddOnMetadata("Leatrix_Maps", "Version")
-		if metaVer and metaVer ~= LeaMapsLC["AddonVer"] then
-			C_Timer.After(1, function()
-				print(L["NOTICE!|nYou must fully restart your game client before you can use this version of Leatrix Maps."])
 			end)
 			return
 		end
@@ -59,21 +47,21 @@
 		if LeaMapsLC["EnhanceBattleMap"] == "On" then
 
 			-- Group icon texture
-			local partyTexture = "WhiteCircle-RaidBlips"
+			local partyTexture = "Interface\\AddOns\\Leatrix_Maps\\Leatrix_Maps_Icon.blp"
 
 			-- Create configuraton panel
 			local battleFrame = LeaMapsLC:CreatePanel("Enhance battlefield map", "battleFrame")
 
 			-- Add controls
 			LeaMapsLC:MakeTx(battleFrame, "Settings", 16, -72)
-			LeaMapsLC:MakeSL(battleFrame, "BattleGroupIconSize", "Group Icons", "Drag to set the group icon size.", 8, 32, 1, 36, -122, "%.0f")
+			LeaMapsLC:MakeSL(battleFrame, "BattleGroupIconSize", "Group Icons", "Drag to set the group icon size.", 12, 24, 1, 36, -122, "%.0f")
 			LeaMapsLC:MakeSL(battleFrame, "BattlePlayerArrowSize", "Player Arrow", "Drag to set the player arrow size.", 12, 24, 1, 36, -182, "%.0f")
 			LeaMapsLC:MakeSL(battleFrame, "BattleMapSize", "Map Size", "Drag to set the battlefield map size.", 0.5, 3, 0.1, 206, -182, "%.0f")
 
 			-- Add preview texture
 			local prevIcon = battleFrame:CreateTexture(nil, "ARTWORK")
 			prevIcon:SetPoint("CENTER", battleFrame, "TOPLEFT", 240, -132)
-			prevIcon:SetAtlas(partyTexture)
+			prevIcon:SetTexture(partyTexture)
 			prevIcon:SetSize(30,30)
 			prevIcon:SetVertexColor(0.78, 0.61, 0.43, 1)
 
@@ -167,7 +155,7 @@
 
 			-- Function to refresh size slider and update battlefield map if it's loaded
 			local function SetIconSize()
-				LeaMapsCB["BattleGroupIconSize"].f:SetText(LeaMapsLC["BattleGroupIconSize"] .. " (" .. string.format("%.0f%%", LeaMapsLC["BattleGroupIconSize"] / 16 * 100) .. ")")
+				LeaMapsCB["BattleGroupIconSize"].f:SetText(LeaMapsLC["BattleGroupIconSize"] .. " (" .. string.format("%.0f%%", LeaMapsLC["BattleGroupIconSize"] / 12 * 100) .. ")")
 				if IsAddOnLoaded("Blizzard_BattlefieldMap") then FixGroupPin() end
 				prevIcon:SetSize(LeaMapsLC["BattleGroupIconSize"], LeaMapsLC["BattleGroupIconSize"])
 			end
@@ -187,7 +175,7 @@
 
 			-- Reset button click
 			battleFrame.r:HookScript("OnClick", function()
-				LeaMapsLC["BattleGroupIconSize"] = 16
+				LeaMapsLC["BattleGroupIconSize"] = 12
 				LeaMapsLC["BattlePlayerArrowSize"] = 12
 				LeaMapsLC["BattleMapSize"] = 1
 				SetIconSize()
@@ -208,7 +196,7 @@
 			LeaMapsCB["EnhanceBattleMapBtn"]:HookScript("OnClick", function()
 				if IsShiftKeyDown() and IsControlKeyDown() then
 					-- Preset profile
-					LeaMapsLC["BattleGroupIconSize"] = 16
+					LeaMapsLC["BattleGroupIconSize"] = 12
 					LeaMapsLC["BattlePlayerArrowSize"] = 12
 					LeaMapsLC["BattleMapSize"] = 1
 					SetIconSize()
@@ -308,7 +296,7 @@
 		if LeaMapsLC["UseClassIcons"] == "On" then
 
 			local WorldMapUnitPin, WorldMapUnitPinSizes
-			local partyTexture = "WhiteCircle-RaidBlips"
+			local partyTexture = "Interface\\AddOns\\Leatrix_Maps\\Leatrix_Maps_Icon.blp"
 
 			-- Set group icon textures
 			for pin in WorldMapFrame:EnumeratePinsByTemplate("GroupMembersPinTemplate") do
@@ -333,12 +321,12 @@
 			-- Add controls
 			LeaMapsLC:MakeTx(classFrame, "Settings", 16, -72)
 			LeaMapsLC:MakeWD(classFrame, "Set the group icon size.", 16, -92)
-			LeaMapsLC:MakeSL(classFrame, "ClassIconSize", "Group Icons", "Drag to set the group icon size.", 10, 40, 1, 36, -142, "%.0f")
+			LeaMapsLC:MakeSL(classFrame, "ClassIconSize", "Group Icons", "Drag to set the group icon size.", 20, 40, 1, 36, -142, "%.0f")
 
 			-- Add preview texture
 			local prevIcon = classFrame:CreateTexture(nil, "ARTWORK")
 			prevIcon:SetPoint("CENTER", classFrame, "TOPLEFT", 240, -152)
-			prevIcon:SetAtlas(partyTexture)
+			prevIcon:SetTexture(partyTexture)
 			prevIcon:SetSize(30,30)
 			prevIcon:SetVertexColor(0.78, 0.61, 0.43, 1)
 
@@ -793,7 +781,7 @@
 
 			-- Create cursor coordinates frame
 			local cCursor = CreateFrame("Frame", nil, WorldMapFrame)
-			cCursor:SetPoint("BOTTOMLEFT", 73, 7)
+			cCursor:SetPoint("BOTTOMLEFT", 73, 8)
 			cCursor:SetSize(200, 16)
 			cCursor.x = cCursor:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge") 
 			cCursor.x:SetJustifyH"LEFT"
@@ -803,7 +791,7 @@
 
 			-- Create player coordinates frame
 			local cPlayer = CreateFrame("Frame", nil, WorldMapFrame)
-			cPlayer:SetPoint("BOTTOMRIGHT", -46, 7)
+			cPlayer:SetPoint("BOTTOMRIGHT", -46, 8)
 			cPlayer:SetSize(200, 16)
 			cPlayer.x = cPlayer:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge") 
 			cPlayer.x:SetJustifyH"LEFT"
@@ -1137,6 +1125,7 @@
 				},
 				--[[Azuremyst Isle]] [1943] = {
 					{"FlightA", 31.9, 46.4, L["The Exodar"] .. ", " .. L["Azuremyst Isle"], nil, tATex, nil, nil},
+					{"TravelA", 20.3, 54.2, L["Boat to"] .. " " .. L["Auberdine"] .. ", " .. L["Darkshore"], nil, fATex, nil, nil},
 				},
 				--[[Bloodmyst Isle]] [1950] = {
 					{"FlightA", 57.7, 53.9, L["Blood Watch"] .. ", " .. L["Bloodmyst Isle"], nil, tATex, nil, nil},
@@ -1262,6 +1251,7 @@
 					{"FlightA", 36.3, 45.6, L["Auberdine"] .. ", " .. L["Darkshore"], nil, tATex, nil, nil},
 					{"TravelA", 32.4, 43.8, L["Boat to"] .. " " .. L["Menethil Harbor"] .. ", " .. L["Wetlands"], nil, fATex, nil, nil, nil, nil},
 					{"TravelA", 33.2, 40.1, L["Boat to"] .. " " .. L["Rut'theran Village"] .. ", " .. L["Teldrassil"], nil, fATex, nil, nil, nil, nil},
+					{"TravelA", 30.7, 41.0, L["Boat to"] .. " " .. L["Valaar's Berth"] .. ", " .. L["Azuremyst Isle"], nil, fATex, nil, nil},
 				},
 				--[[Ashenvale]] [1440] = {
 					{"Dungeon", 14.5, 14.2, L["Blackfathom Deeps"], L["Dungeon"], dnTex, 22, 24, 19, 20, 28},
@@ -1496,7 +1486,7 @@
 											color = QuestDifficultyColors["difficult"]
 										end
 										color = ConvertRGBtoColorString(color)
-										myPOI["description"] = myPOI["description"] .. color .." (req: " .. dungeonReqLevel .. ")" .. FONT_COLOR_CODE_CLOSE
+										myPOI["description"] = myPOI["description"] .. color .." (" .. L["req"] .. ": " .. dungeonReqLevel .. ")" .. FONT_COLOR_CODE_CLOSE
 									end
 								end
 
@@ -2680,7 +2670,7 @@
 
 				-- More
 				LeaMapsDB["EnhanceBattleMap"] = "On"
-				LeaMapsDB["BattleGroupIconSize"] = 16
+				LeaMapsDB["BattleGroupIconSize"] = 12
 				LeaMapsDB["BattlePlayerArrowSize"] = 12
 				LeaMapsDB["BattleMapSize"] = 1
 				LeaMapsDB["ShowMinimapIcon"] = "On"
@@ -2744,7 +2734,7 @@
 			LeaMapsLC:LoadVarChk("EnlargePlayerArrow", "On")			-- Enlarge player arrow
 			LeaMapsLC:LoadVarNum("PlayerArrowSize", 28, 14, 56)			-- Player arrow size
 			LeaMapsLC:LoadVarChk("UseClassIcons", "On")					-- Use class icons
-			LeaMapsLC:LoadVarNum("ClassIconSize", 20, 10, 40)			-- Class icon size
+			LeaMapsLC:LoadVarNum("ClassIconSize", 20, 20, 40)			-- Class icon size
 			LeaMapsLC:LoadVarChk("UnlockMapFrame", "On")				-- Unlock map frame
 			LeaMapsLC:LoadVarAnc("MapPosA", "CENTER")					-- Map anchor
 			LeaMapsLC:LoadVarAnc("MapPosR", "CENTER")					-- Map relative
@@ -2777,7 +2767,7 @@
 
 			-- More
 			LeaMapsLC:LoadVarChk("EnhanceBattleMap", "Off")				-- Enhance battlefield map
-			LeaMapsLC:LoadVarNum("BattleGroupIconSize", 16, 8, 32)		-- Battlefield group icon size
+			LeaMapsLC:LoadVarNum("BattleGroupIconSize", 12, 12, 24)		-- Battlefield group icon size
 			LeaMapsLC:LoadVarNum("BattlePlayerArrowSize", 12, 12, 24)	-- Battlefield player arrow size
 			LeaMapsLC:LoadVarNum("BattleMapSize", 1, 0.5, 3)			-- Battlefield map size
 			LeaMapsLC:LoadVarChk("ShowMinimapIcon", "On")				-- Show minimap button

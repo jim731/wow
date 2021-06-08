@@ -1,0 +1,6 @@
+AtlasQuest: enabled
+LFG113: enabled
+WeakAurasCompanion: enabled
+WeakAurasArchive: enabled
+PallyPower: disabled
+DruidBarClassic: disabled

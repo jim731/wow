@@ -1364,6 +1364,8 @@ addon.Cooldowns = {
 
     [31687] = { duration = 180, class = "MAGE" }, -- Summon Water Elemental
 
+    [33395] = { duration = 25, class = "MAGE" }, -- Freeze (Water Elemental)
+
     [43987] = { duration = 300, class = "MAGE" }, -- Ritual of Refreshment
 
     --[[ Ice Block Modifiers
@@ -1553,11 +1555,6 @@ addon.Cooldowns = {
 
     -- Warrior
 
-    [72] = { duration = 12, class = "WARRIOR", default = true }, -- Shield Bash (Rank 1)
-        [1671] = { parent = 72 }, -- Shield Bash (Rank 2)
-        [1672] = { parent = 72 }, -- Shield Bash (Rank 3)
-        [29704] = { parent = 72 }, -- Shield Bash (Rank 4)
-
     [100] = { duration = 15, class = "WARRIOR" }, -- Charge (Rank 1)
         [6178] = { parent = 100 }, -- Charge (Rank 2)
         [11578] = { parent = 100 }, -- Charge (Rank 3)
@@ -1681,6 +1678,10 @@ addon.Cooldowns = {
 
     [6552] = { duration = 10, class = "WARRIOR", default = true }, -- Pummel (Rank 1)
         [6554] = { parent = 6552 }, -- Pummel (Rank 2)
+        [72] = { parent = 6552, duration = 12 }, -- Shield Bash (Rank 1)
+        [1671] = { parent = 6552, duration = 12 }, -- Shield Bash (Rank 2)
+        [1672] = { parent = 6552, duration = 12 }, -- Shield Bash (Rank 3)
+        [29704] = { parent = 6552, duration = 12 }, -- Shield Bash (Rank 4)
 
     [6572] = { duration = 5, class = "WARRIOR" }, -- Revenge (Rank 1)
         [6574] = { parent = 6572 }, -- Revenge (Rank 2)

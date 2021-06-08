@@ -780,9 +780,9 @@ Bartender4DB = {
 							["fadeoutdelay"] = 0,
 							["position"] = {
 								["y"] = 33,
-								["x"] = 337,
+								["x"] = 369,
 								["point"] = "BOTTOM",
-								["scale"] = 0.850000023841858,
+								["scale"] = 0.8500000238418579,
 							},
 							["version"] = 3,
 							["fadeout"] = true,
@@ -791,29 +791,29 @@ Bartender4DB = {
 						{
 							["fadeoutdelay"] = 0,
 							["position"] = {
-								["y"] = -39,
-								["x"] = -34,
+								["y"] = -6,
+								["x"] = -33,
 								["point"] = "RIGHT",
-								["scale"] = 0.850000023841858,
+								["scale"] = 0.8500000238418579,
 							},
-							["version"] = 3,
+							["fadeoutalpha"] = 0,
 							["rows"] = 12,
 							["fadeout"] = true,
-							["fadeoutalpha"] = 0,
+							["version"] = 3,
 						}, -- [3]
 						{
-							["fadeoutdelay"] = 0,
+							["version"] = 3,
 							["position"] = {
 								["y"] = 170,
 								["x"] = -197,
 								["point"] = "BOTTOM",
 								["scale"] = 0.850000023841858,
 							},
-							["version"] = 3,
+							["fadeoutalpha"] = 0,
 							["visibility"] = {
 								["always"] = false,
 							},
-							["fadeoutalpha"] = 0,
+							["fadeoutdelay"] = 0,
 						}, -- [4]
 						{
 							["version"] = 3,
@@ -842,6 +842,7 @@ Bartender4DB = {
 							},
 						}, -- [7]
 						{
+							["version"] = 3,
 							["visibility"] = {
 								["overridebar"] = false,
 								["stance"] = {
@@ -851,7 +852,6 @@ Bartender4DB = {
 								},
 								["vehicleui"] = false,
 							},
-							["version"] = 3,
 							["position"] = {
 								["y"] = -74.2130126953125,
 								["x"] = -2.99997091293335,
@@ -1008,6 +1008,120 @@ Bartender4DB = {
 						}, -- [8]
 						nil, -- [9]
 						{
+						}, -- [10]
+					},
+				},
+				["Ferns - Mirage Raceway"] = {
+					["actionbars"] = {
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 34,
+								["x"] = -215.900025939941,
+								["point"] = "BOTTOM",
+								["scale"] = 0.85,
+							},
+							["padding"] = 6,
+						}, -- [1]
+						{
+							["fadeoutdelay"] = 0,
+							["fadeoutalpha"] = 0,
+							["fadeout"] = true,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 33,
+								["x"] = 369,
+								["point"] = "BOTTOM",
+								["scale"] = 0.8500000238418579,
+							},
+						}, -- [2]
+						{
+							["rows"] = 12,
+							["fadeoutdelay"] = 0,
+							["fadeoutalpha"] = 0,
+							["fadeout"] = true,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -5,
+								["x"] = -34,
+								["point"] = "RIGHT",
+								["scale"] = 0.8500000238418579,
+							},
+						}, -- [3]
+						{
+							["fadeoutdelay"] = 0,
+							["fadeoutalpha"] = 0,
+							["position"] = {
+								["y"] = 170,
+								["x"] = -197,
+								["point"] = "BOTTOM",
+								["scale"] = 0.850000023841858,
+							},
+							["version"] = 3,
+							["visibility"] = {
+								["always"] = false,
+							},
+						}, -- [4]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 72.5783952089869,
+								["x"] = -196.774892690781,
+								["point"] = "BOTTOM",
+								["scale"] = 0.850000023841858,
+							},
+						}, -- [5]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 105,
+								["x"] = -196.7748926907807,
+								["point"] = "BOTTOM",
+								["scale"] = 0.8500000238418579,
+							},
+						}, -- [6]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -35.7213745117188,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [7]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -74.2130126953125,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+							["visibility"] = {
+								["overridebar"] = false,
+								["vehicleui"] = false,
+								["stance"] = {
+									false, -- [1]
+									false, -- [2]
+									false, -- [3]
+								},
+							},
+						}, -- [8]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -116.298583984375,
+								["x"] = 1.74078238010407,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [9]
+						{
+							["enabled"] = true,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 137.5,
+								["x"] = -197,
+								["point"] = "BOTTOM",
+								["scale"] = 0.85,
+							},
 						}, -- [10]
 					},
 				},
@@ -1340,6 +1454,72 @@ Bartender4DB = {
 						}, -- [10]
 					},
 				},
+				["Adsdawad - Pyrewood Village"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -205,
+								["x"] = -231.4999389648438,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						[10] = {
+						},
+					},
+				},
 				["Clothguy - Nethergarde Keep"] = {
 					["actionbars"] = {
 						{
@@ -1439,20 +1619,20 @@ Bartender4DB = {
 								["point"] = "RIGHT",
 								["scale"] = 0.850000023841858,
 							},
-							["fadeoutalpha"] = 0,
+							["version"] = 3,
 							["rows"] = 12,
 							["fadeout"] = true,
-							["version"] = 3,
+							["fadeoutalpha"] = 0,
 						}, -- [3]
 						{
-							["fadeoutdelay"] = 0,
+							["version"] = 3,
 							["position"] = {
 								["y"] = 170,
 								["x"] = -197,
 								["point"] = "BOTTOM",
 								["scale"] = 0.850000023841858,
 							},
-							["version"] = 3,
+							["fadeoutdelay"] = 0,
 							["visibility"] = {
 								["always"] = false,
 							},
@@ -1485,7 +1665,6 @@ Bartender4DB = {
 							},
 						}, -- [7]
 						{
-							["version"] = 3,
 							["visibility"] = {
 								["overridebar"] = false,
 								["vehicleui"] = false,
@@ -1495,6 +1674,7 @@ Bartender4DB = {
 									false, -- [3]
 								},
 							},
+							["version"] = 3,
 							["position"] = {
 								["y"] = -74.2130126953125,
 								["x"] = -2.99997091293335,
@@ -1518,140 +1698,6 @@ Bartender4DB = {
 								["point"] = "BOTTOM",
 								["scale"] = 0.85,
 							},
-						}, -- [10]
-					},
-				},
-				["Consooms - Mirage Raceway"] = {
-					["actionbars"] = {
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 41.75,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [1]
-						{
-							["enabled"] = false,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -205,
-								["x"] = -231.4999389648438,
-								["point"] = "CENTER",
-							},
-						}, -- [2]
-						{
-							["padding"] = 5,
-							["rows"] = 12,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
-						{
-							["padding"] = 5,
-							["rows"] = 12,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [4]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 110,
-								["x"] = 3,
-								["point"] = "BOTTOM",
-							},
-						}, -- [5]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 110,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						nil, -- [9]
-						{
-						}, -- [10]
-					},
-				},
-				["Ganado - Nethergarde Keep"] = {
-					["actionbars"] = {
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 41.75,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [1]
-						{
-							["enabled"] = false,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -205,
-								["x"] = -231.499938964844,
-								["point"] = "CENTER",
-							},
-						}, -- [2]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [4]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 110,
-								["x"] = 3,
-								["point"] = "BOTTOM",
-							},
-						}, -- [5]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 110,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						nil, -- [9]
-						{
 						}, -- [10]
 					},
 				},
@@ -1719,186 +1765,6 @@ Bartender4DB = {
 						}, -- [8]
 						nil, -- [9]
 						{
-						}, -- [10]
-					},
-				},
-				["Nahfan - Mirage Raceway"] = {
-					["actionbars"] = {
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 41.75,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [1]
-						{
-							["enabled"] = false,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -205,
-								["x"] = -231.4999389648438,
-								["point"] = "CENTER",
-							},
-						}, -- [2]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [4]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 110,
-								["x"] = 3,
-								["point"] = "BOTTOM",
-							},
-						}, -- [5]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 110,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						[10] = {
-						},
-					},
-				},
-				["Lanayria - Mirage Raceway"] = {
-					["actionbars"] = {
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 34,
-								["x"] = -215.900025939941,
-								["point"] = "BOTTOM",
-								["scale"] = 0.85,
-							},
-						}, -- [1]
-						{
-							["fadeoutdelay"] = 0,
-							["position"] = {
-								["y"] = 33,
-								["x"] = 337,
-								["point"] = "BOTTOM",
-								["scale"] = 0.850000023841858,
-							},
-							["version"] = 3,
-							["fadeoutalpha"] = 0,
-							["fadeout"] = true,
-						}, -- [2]
-						{
-							["fadeout"] = true,
-							["position"] = {
-								["y"] = -39,
-								["x"] = -34,
-								["point"] = "RIGHT",
-								["scale"] = 0.850000023841858,
-							},
-							["fadeoutalpha"] = 0,
-							["rows"] = 12,
-							["version"] = 3,
-							["fadeoutdelay"] = 0,
-						}, -- [3]
-						{
-							["fadeoutdelay"] = 0,
-							["position"] = {
-								["y"] = 170,
-								["x"] = -197,
-								["point"] = "BOTTOM",
-								["scale"] = 0.850000023841858,
-							},
-							["fadeoutalpha"] = 0,
-							["visibility"] = {
-								["always"] = false,
-							},
-							["version"] = 3,
-						}, -- [4]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = 72.5783952089869,
-								["x"] = -196.774892690781,
-								["point"] = "BOTTOM",
-								["scale"] = 0.850000023841858,
-							},
-						}, -- [5]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = 105,
-								["x"] = -196.7748926907807,
-								["point"] = "BOTTOM",
-								["scale"] = 0.8500000238418579,
-							},
-						}, -- [6]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -35.7213745117188,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
-						}, -- [7]
-						{
-							["visibility"] = {
-								["overridebar"] = false,
-								["vehicleui"] = false,
-								["stance"] = {
-									false, -- [1]
-									false, -- [2]
-									false, -- [3]
-								},
-							},
-							["version"] = 3,
-							["position"] = {
-								["y"] = -74.2130126953125,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
-						}, -- [8]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -116.298583984375,
-								["x"] = 1.74078238010407,
-								["point"] = "TOPLEFT",
-							},
-						}, -- [9]
-						{
-							["enabled"] = true,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 137.5,
-								["x"] = -197,
-								["point"] = "BOTTOM",
-								["scale"] = 0.85,
-							},
 						}, -- [10]
 					},
 				},
@@ -2007,6 +1873,500 @@ Bartender4DB = {
 								["x"] = -226.869979887037,
 								["point"] = "BOTTOM",
 								["scale"] = 0.980000019073486,
+							},
+						}, -- [10]
+					},
+				},
+				["Consooms - Mirage Raceway"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -205,
+								["x"] = -231.4999389648438,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						nil, -- [9]
+						{
+						}, -- [10]
+					},
+				},
+				["Nahfan - Mirage Raceway"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -205,
+								["x"] = -231.4999389648438,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						[10] = {
+						},
+					},
+				},
+				["Ganado - Nethergarde Keep"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -205,
+								["x"] = -231.499938964844,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						nil, -- [9]
+						{
+						}, -- [10]
+					},
+				},
+				["Sadsadaddsa - Pyrewood Village"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -205,
+								["x"] = -231.4999389648438,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 110,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						[10] = {
+						},
+					},
+				},
+				["Lanayria - Mirage Raceway"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 34,
+								["x"] = -215.900025939941,
+								["point"] = "BOTTOM",
+								["scale"] = 0.85,
+							},
+						}, -- [1]
+						{
+							["fadeoutdelay"] = 0,
+							["position"] = {
+								["y"] = 33,
+								["x"] = 369,
+								["point"] = "BOTTOM",
+								["scale"] = 0.8500000238418579,
+							},
+							["version"] = 3,
+							["fadeoutalpha"] = 0,
+							["fadeout"] = true,
+						}, -- [2]
+						{
+							["fadeoutdelay"] = 0,
+							["position"] = {
+								["y"] = -5,
+								["x"] = -34,
+								["point"] = "RIGHT",
+								["scale"] = 0.8500000238418579,
+							},
+							["fadeoutalpha"] = 0,
+							["rows"] = 12,
+							["version"] = 3,
+							["fadeout"] = true,
+						}, -- [3]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 170,
+								["x"] = -197,
+								["point"] = "BOTTOM",
+								["scale"] = 0.850000023841858,
+							},
+							["fadeoutdelay"] = 0,
+							["visibility"] = {
+								["always"] = false,
+							},
+							["fadeoutalpha"] = 0,
+						}, -- [4]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 72.5783952089869,
+								["x"] = -196.774892690781,
+								["point"] = "BOTTOM",
+								["scale"] = 0.850000023841858,
+							},
+						}, -- [5]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 105,
+								["x"] = -196.7748926907807,
+								["point"] = "BOTTOM",
+								["scale"] = 0.8500000238418579,
+							},
+						}, -- [6]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -35.7213745117188,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [7]
+						{
+							["visibility"] = {
+								["overridebar"] = false,
+								["vehicleui"] = false,
+								["stance"] = {
+									false, -- [1]
+									false, -- [2]
+									false, -- [3]
+								},
+							},
+							["version"] = 3,
+							["position"] = {
+								["y"] = -74.2130126953125,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [8]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -116.298583984375,
+								["x"] = 1.74078238010407,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [9]
+						{
+							["enabled"] = true,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 137.5,
+								["x"] = -197,
+								["point"] = "BOTTOM",
+								["scale"] = 0.85,
+							},
+						}, -- [10]
+					},
+				},
+				["Baeldemos - Pyrewood Village"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 34,
+								["x"] = -215.900025939941,
+								["point"] = "BOTTOM",
+								["scale"] = 0.85,
+							},
+						}, -- [1]
+						{
+							["fadeoutdelay"] = 0,
+							["position"] = {
+								["y"] = 32,
+								["x"] = 370,
+								["point"] = "BOTTOM",
+								["scale"] = 0.8500000238418579,
+							},
+							["fadeoutalpha"] = 0,
+							["fadeout"] = true,
+							["version"] = 3,
+						}, -- [2]
+						{
+							["fadeoutdelay"] = 0,
+							["position"] = {
+								["y"] = -7,
+								["x"] = -33,
+								["point"] = "RIGHT",
+								["scale"] = 0.8500000238418579,
+							},
+							["version"] = 3,
+							["rows"] = 12,
+							["fadeout"] = true,
+							["fadeoutalpha"] = 0,
+						}, -- [3]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 170,
+								["x"] = -197,
+								["point"] = "BOTTOM",
+								["scale"] = 0.850000023841858,
+							},
+							["fadeoutdelay"] = 0,
+							["visibility"] = {
+								["always"] = false,
+							},
+							["fadeoutalpha"] = 0,
+						}, -- [4]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 72.5783952089869,
+								["x"] = -196.774892690781,
+								["point"] = "BOTTOM",
+								["scale"] = 0.850000023841858,
+							},
+						}, -- [5]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = 105,
+								["x"] = -196.7748926907807,
+								["point"] = "BOTTOM",
+								["scale"] = 0.8500000238418579,
+							},
+						}, -- [6]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -35.7213745117188,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [7]
+						{
+							["visibility"] = {
+								["overridebar"] = false,
+								["vehicleui"] = false,
+								["stance"] = {
+									false, -- [1]
+									false, -- [2]
+									false, -- [3]
+								},
+							},
+							["version"] = 3,
+							["position"] = {
+								["y"] = -74.2130126953125,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [8]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -116.298583984375,
+								["x"] = 1.74078238010407,
+								["point"] = "TOPLEFT",
+							},
+						}, -- [9]
+						{
+							["enabled"] = true,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 137.5,
+								["x"] = -197,
+								["point"] = "BOTTOM",
+								["scale"] = 0.85,
 							},
 						}, -- [10]
 					},
@@ -2622,9 +2982,9 @@ Bartender4DB = {
 							},
 						}, -- [1]
 						{
-							["fadeoutdelay"] = 0,
-							["fadeoutalpha"] = 0,
 							["version"] = 3,
+							["fadeoutalpha"] = 0,
+							["fadeoutdelay"] = 0,
 							["position"] = {
 								["y"] = 33,
 								["x"] = 337,
@@ -2645,18 +3005,18 @@ Bartender4DB = {
 							["fadeoutalpha"] = 0,
 						}, -- [3]
 						{
-							["fadeoutdelay"] = 0,
+							["fadeoutalpha"] = 0,
 							["position"] = {
 								["y"] = 167,
 								["x"] = -197,
 								["point"] = "BOTTOM",
 								["scale"] = 0.850000023841858,
 							},
-							["fadeoutalpha"] = 0,
+							["version"] = 3,
 							["visibility"] = {
 								["always"] = false,
 							},
-							["version"] = 3,
+							["fadeoutdelay"] = 0,
 						}, -- [4]
 						{
 							["version"] = 3,
@@ -2724,6 +3084,7 @@ Bartender4DB = {
 				["Default"] = {
 					["actionbars"] = {
 						{
+							["padding"] = 6,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 34,
@@ -2731,36 +3092,34 @@ Bartender4DB = {
 								["point"] = "BOTTOM",
 								["scale"] = 0.85,
 							},
-							["padding"] = 6,
 						}, -- [1]
 						{
 							["fadeoutdelay"] = 0,
-							["version"] = 3,
-							["fadeout"] = true,
-							["fadeoutalpha"] = 0,
 							["position"] = {
 								["y"] = 33,
-								["x"] = 337,
+								["x"] = 369,
 								["point"] = "BOTTOM",
-								["scale"] = 0.850000023841858,
+								["scale"] = 0.8500000238418579,
 							},
-						}, -- [2]
-						{
-							["rows"] = 12,
-							["fadeoutdelay"] = 0,
 							["version"] = 3,
 							["fadeout"] = true,
 							["fadeoutalpha"] = 0,
+						}, -- [2]
+						{
+							["fadeoutdelay"] = 0,
 							["position"] = {
-								["y"] = -39,
+								["y"] = -5,
 								["x"] = -34,
 								["point"] = "RIGHT",
-								["scale"] = 0.850000023841858,
+								["scale"] = 0.8500000238418579,
 							},
+							["version"] = 3,
+							["rows"] = 12,
+							["fadeout"] = true,
+							["fadeoutalpha"] = 0,
 						}, -- [3]
 						{
 							["fadeoutdelay"] = 0,
-							["fadeoutalpha"] = 0,
 							["position"] = {
 								["y"] = 170,
 								["x"] = -197,
@@ -2771,6 +3130,7 @@ Bartender4DB = {
 							["visibility"] = {
 								["always"] = false,
 							},
+							["fadeoutalpha"] = 0,
 						}, -- [4]
 						{
 							["version"] = 3,
@@ -2800,11 +3160,6 @@ Bartender4DB = {
 						}, -- [7]
 						{
 							["version"] = 3,
-							["position"] = {
-								["y"] = -74.2130126953125,
-								["x"] = -2.99997091293335,
-								["point"] = "TOPLEFT",
-							},
 							["visibility"] = {
 								["overridebar"] = false,
 								["stance"] = {
@@ -2813,6 +3168,11 @@ Bartender4DB = {
 									false, -- [3]
 								},
 								["vehicleui"] = false,
+							},
+							["position"] = {
+								["y"] = -74.2130126953125,
+								["x"] = -2.99997091293335,
+								["point"] = "TOPLEFT",
 							},
 						}, -- [8]
 						{
@@ -3426,11 +3786,11 @@ Bartender4DB = {
 				},
 				["Zanjee - Mirage Raceway"] = {
 					["enabled"] = false,
-					["visibility"] = {
-						["vehicleui"] = false,
-						["overridebar"] = false,
-					},
 					["version"] = 3,
+					["visibility"] = {
+						["overridebar"] = false,
+						["vehicleui"] = false,
+					},
 					["position"] = {
 						["y"] = 5.21009580110695,
 						["x"] = -173,
@@ -3456,6 +3816,20 @@ Bartender4DB = {
 						["x"] = 33,
 						["point"] = "BOTTOM",
 						["scale"] = 1,
+					},
+				},
+				["Ferns - Mirage Raceway"] = {
+					["enabled"] = false,
+					["version"] = 3,
+					["visibility"] = {
+						["overridebar"] = false,
+						["vehicleui"] = false,
+					},
+					["position"] = {
+						["y"] = 5.21009580110695,
+						["x"] = -173,
+						["point"] = "TOPRIGHT",
+						["scale"] = 0.800000011920929,
 					},
 				},
 				["Zabuji - Mirage Raceway"] = {
@@ -3498,6 +3872,16 @@ Bartender4DB = {
 						["scale"] = 0.95,
 					},
 				},
+				["Adsdawad - Pyrewood Village"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = 33,
+						["point"] = "BOTTOM",
+						["y"] = 42,
+					},
+				},
 				["Clothguy - Nethergarde Keep"] = {
 					["padding"] = -2,
 					["version"] = 3,
@@ -3510,13 +3894,36 @@ Bartender4DB = {
 				},
 				["Lionidas - Pyrewood Village"] = {
 					["enabled"] = false,
-					["version"] = 3,
 					["visibility"] = {
-						["overridebar"] = false,
 						["vehicleui"] = false,
+						["overridebar"] = false,
 					},
+					["version"] = 3,
 					["position"] = {
 						["y"] = 5.21009580110695,
+						["x"] = -173,
+						["point"] = "TOPRIGHT",
+						["scale"] = 0.800000011920929,
+					},
+				},
+				["WARRIOR"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 42,
+						["x"] = 33,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["classicwarrior"] = {
+					["visibility"] = {
+						["vehicleui"] = false,
+						["overridebar"] = false,
+					},
+					["version"] = 3,
+					["position"] = {
+						["y"] = 6,
 						["x"] = -173,
 						["point"] = "TOPRIGHT",
 						["scale"] = 0.800000011920929,
@@ -3532,6 +3939,16 @@ Bartender4DB = {
 						["scale"] = 1,
 					},
 				},
+				["Nahfan - Mirage Raceway"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = 33,
+						["point"] = "BOTTOM",
+						["y"] = 42,
+					},
+				},
 				["Ganado - Nethergarde Keep"] = {
 					["padding"] = -2,
 					["version"] = 3,
@@ -3542,17 +3959,7 @@ Bartender4DB = {
 						["scale"] = 1,
 					},
 				},
-				["WARRIOR"] = {
-					["padding"] = -2,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 42,
-						["x"] = 33,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Nahfan - Mirage Raceway"] = {
+				["Sadsadaddsa - Pyrewood Village"] = {
 					["padding"] = -2,
 					["version"] = 3,
 					["position"] = {
@@ -3576,14 +3983,15 @@ Bartender4DB = {
 						["scale"] = 0.800000011920929,
 					},
 				},
-				["classicwarrior"] = {
+				["Baeldemos - Pyrewood Village"] = {
+					["enabled"] = false,
 					["visibility"] = {
 						["vehicleui"] = false,
 						["overridebar"] = false,
 					},
 					["version"] = 3,
 					["position"] = {
-						["y"] = 6,
+						["y"] = 5.21009580110695,
 						["x"] = -173,
 						["point"] = "TOPRIGHT",
 						["scale"] = 0.800000011920929,
@@ -3875,8 +4283,7 @@ Bartender4DB = {
 								},
 								["ClearButton"] = {
 								},
-								["DragBottomLeft"] = {
-								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -3889,7 +4296,8 @@ Bartender4DB = {
 									["Text"] = {
 									},
 								},
-								["isLocked"] = false,
+								["DragBottomLeft"] = {
+								},
 							},
 							["firstTimeLoaded"] = 1,
 						},
@@ -4016,6 +4424,17 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Ferns - Mirage Raceway"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 40,
+						["x"] = -215,
+						["point"] = "BOTTOM",
+						["scale"] = 0.42,
+					},
+					["fadeoutalpha"] = 0.15,
+				},
 				["Zabuji - Mirage Raceway"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -4051,6 +4470,15 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Adsdawad - Pyrewood Village"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 54,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
+				},
 				["Clothguy - Nethergarde Keep"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -4071,7 +4499,35 @@ Bartender4DB = {
 						["scale"] = 0.42,
 					},
 				},
+				["WARRIOR"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 54,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
+				},
+				["classicwarrior"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 48,
+						["x"] = -256,
+						["point"] = "BOTTOM",
+						["scale"] = 0.1,
+					},
+				},
 				["Consooms - Mirage Raceway"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 54,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Nahfan - Mirage Raceway"] = {
 					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
@@ -4089,16 +4545,7 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["WARRIOR"] = {
-					["enabled"] = true,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 54,
-						["x"] = -514,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Nahfan - Mirage Raceway"] = {
+				["Sadsadaddsa - Pyrewood Village"] = {
 					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
@@ -4118,14 +4565,15 @@ Bartender4DB = {
 						["scale"] = 0.42,
 					},
 				},
-				["classicwarrior"] = {
+				["Baeldemos - Pyrewood Village"] = {
 					["enabled"] = true,
 					["version"] = 3,
+					["fadeoutalpha"] = 0.15,
 					["position"] = {
-						["y"] = 48,
-						["x"] = -256,
+						["y"] = 40,
+						["x"] = -215,
 						["point"] = "BOTTOM",
-						["scale"] = 0.1,
+						["scale"] = 0.42,
 					},
 				},
 				["warrior classic"] = {
@@ -4186,13 +4634,13 @@ Bartender4DB = {
 				["Default"] = {
 					["enabled"] = true,
 					["fadeoutalpha"] = 0.15,
+					["version"] = 3,
 					["position"] = {
 						["y"] = 40,
 						["x"] = -215,
 						["point"] = "BOTTOM",
 						["scale"] = 0.42,
 					},
-					["version"] = 3,
 				},
 				["Elunari - Firemaw"] = {
 					["enabled"] = true,
@@ -4334,14 +4782,14 @@ Bartender4DB = {
 				},
 				["Zanjee - Mirage Raceway"] = {
 					["enabled"] = true,
+					["artLayout"] = "ONEBAR",
+					["version"] = 3,
 					["position"] = {
 						["y"] = 38,
 						["x"] = -217.6,
 						["point"] = "BOTTOM",
 						["scale"] = 0.85,
 					},
-					["version"] = 3,
-					["artLayout"] = "ONEBAR",
 				},
 				["Shapeshifter - Skullflame"] = {
 					["enabled"] = true,
@@ -4360,6 +4808,17 @@ Bartender4DB = {
 						["x"] = -512,
 						["point"] = "BOTTOM",
 					},
+				},
+				["Ferns - Mirage Raceway"] = {
+					["enabled"] = true,
+					["artLayout"] = "ONEBAR",
+					["position"] = {
+						["y"] = 38,
+						["x"] = -217.6,
+						["point"] = "BOTTOM",
+						["scale"] = 0.85,
+					},
+					["version"] = 3,
 				},
 				["Zabuji - Mirage Raceway"] = {
 					["enabled"] = true,
@@ -4396,6 +4855,15 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Adsdawad - Pyrewood Village"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47,
+						["x"] = -512,
+						["point"] = "BOTTOM",
+					},
+				},
 				["Clothguy - Nethergarde Keep"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -4407,16 +4875,44 @@ Bartender4DB = {
 				},
 				["Lionidas - Pyrewood Village"] = {
 					["enabled"] = true,
-					["artLayout"] = "ONEBAR",
-					["version"] = 3,
 					["position"] = {
 						["y"] = 38,
 						["x"] = -217.6,
 						["point"] = "BOTTOM",
 						["scale"] = 0.85,
 					},
+					["version"] = 3,
+					["artLayout"] = "ONEBAR",
+				},
+				["WARRIOR"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47,
+						["x"] = -512,
+						["point"] = "BOTTOM",
+					},
+				},
+				["classicwarrior"] = {
+					["enabled"] = true,
+					["position"] = {
+						["y"] = 47,
+						["x"] = -256,
+						["point"] = "BOTTOM",
+					},
+					["version"] = 3,
+					["artLayout"] = "ONEBAR",
 				},
 				["Consooms - Mirage Raceway"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47,
+						["x"] = -512,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Nahfan - Mirage Raceway"] = {
 					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
@@ -4434,16 +4930,7 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["WARRIOR"] = {
-					["enabled"] = true,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47,
-						["x"] = -512,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Nahfan - Mirage Raceway"] = {
+				["Sadsadaddsa - Pyrewood Village"] = {
 					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
@@ -4463,12 +4950,13 @@ Bartender4DB = {
 					["version"] = 3,
 					["artLayout"] = "ONEBAR",
 				},
-				["classicwarrior"] = {
+				["Baeldemos - Pyrewood Village"] = {
 					["enabled"] = true,
 					["position"] = {
-						["y"] = 47,
-						["x"] = -256,
+						["y"] = 38,
+						["x"] = -217.6,
 						["point"] = "BOTTOM",
+						["scale"] = 0.85,
 					},
 					["version"] = 3,
 					["artLayout"] = "ONEBAR",
@@ -4535,13 +5023,13 @@ Bartender4DB = {
 				["Default"] = {
 					["enabled"] = true,
 					["artLayout"] = "ONEBAR",
+					["version"] = 3,
 					["position"] = {
 						["y"] = 38,
 						["x"] = -217.6,
 						["point"] = "BOTTOM",
 						["scale"] = 0.85,
 					},
-					["version"] = 3,
 				},
 				["Elunari - Firemaw"] = {
 					["enabled"] = true,
@@ -4596,8 +5084,8 @@ Bartender4DB = {
 			["profiles"] = {
 				["Bullsi - Mirage Raceway"] = {
 					["enabled"] = false,
+					["fadeoutdelay"] = 0,
 					["fadeoutalpha"] = 0,
-					["fadeout"] = true,
 					["position"] = {
 						["growHorizontal"] = "LEFT",
 						["x"] = 19,
@@ -4610,7 +5098,7 @@ Bartender4DB = {
 					["visibility"] = {
 						["nocombat"] = false,
 					},
-					["fadeoutdelay"] = 0,
+					["fadeout"] = true,
 				},
 				["warrior-classic-2"] = {
 					["onebag"] = true,
@@ -4694,8 +5182,8 @@ Bartender4DB = {
 				},
 				["Zanjee - Mirage Raceway"] = {
 					["enabled"] = false,
-					["fadeoutalpha"] = 0,
 					["fadeout"] = true,
+					["fadeoutdelay"] = 0,
 					["position"] = {
 						["growHorizontal"] = "LEFT",
 						["x"] = 19,
@@ -4708,7 +5196,7 @@ Bartender4DB = {
 					["visibility"] = {
 						["nocombat"] = false,
 					},
-					["fadeoutdelay"] = 0,
+					["fadeoutalpha"] = 0,
 				},
 				["Shapeshifter - Skullflame"] = {
 					["padding"] = 5,
@@ -4727,6 +5215,24 @@ Bartender4DB = {
 						["x"] = 296,
 						["point"] = "BOTTOM",
 					},
+				},
+				["Ferns - Mirage Raceway"] = {
+					["fadeoutdelay"] = 0,
+					["enabled"] = false,
+					["onebag"] = true,
+					["fadeout"] = true,
+					["version"] = 3,
+					["position"] = {
+						["growHorizontal"] = "LEFT",
+						["x"] = 19,
+						["point"] = "BOTTOMRIGHT",
+						["scale"] = 0.819999992847443,
+						["y"] = 32,
+					},
+					["visibility"] = {
+						["nocombat"] = false,
+					},
+					["fadeoutalpha"] = 0,
 				},
 				["Zabuji - Mirage Raceway"] = {
 					["padding"] = 5,
@@ -4769,6 +5275,15 @@ Bartender4DB = {
 					["padding"] = 0,
 					["keyring"] = false,
 				},
+				["Adsdawad - Pyrewood Village"] = {
+					["padding"] = 5,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41,
+						["x"] = 296,
+						["point"] = "BOTTOM",
+					},
+				},
 				["Clothguy - Nethergarde Keep"] = {
 					["padding"] = 5,
 					["version"] = 3,
@@ -4780,7 +5295,7 @@ Bartender4DB = {
 				},
 				["Lionidas - Pyrewood Village"] = {
 					["enabled"] = false,
-					["fadeoutdelay"] = 0,
+					["fadeout"] = true,
 					["version"] = 3,
 					["position"] = {
 						["growHorizontal"] = "LEFT",
@@ -4794,9 +5309,40 @@ Bartender4DB = {
 					["visibility"] = {
 						["nocombat"] = false,
 					},
-					["fadeout"] = true,
+					["fadeoutdelay"] = 0,
+				},
+				["WARRIOR"] = {
+					["padding"] = 5,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41,
+						["x"] = 296,
+						["point"] = "BOTTOM",
+					},
+				},
+				["classicwarrior"] = {
+					["fadeoutdelay"] = 0,
+					["position"] = {
+						["y"] = 32,
+						["x"] = -36,
+						["point"] = "BOTTOMRIGHT",
+						["scale"] = 0.82,
+					},
+					["version"] = 3,
+					["onebag"] = true,
+					["fadeoutalpha"] = 0,
+					["keyring"] = false,
 				},
 				["Consooms - Mirage Raceway"] = {
+					["padding"] = 5,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41,
+						["x"] = 296,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Nahfan - Mirage Raceway"] = {
 					["padding"] = 5,
 					["version"] = 3,
 					["position"] = {
@@ -4814,16 +5360,7 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["WARRIOR"] = {
-					["padding"] = 5,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 41,
-						["x"] = 296,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Nahfan - Mirage Raceway"] = {
+				["Sadsadaddsa - Pyrewood Village"] = {
 					["padding"] = 5,
 					["version"] = 3,
 					["position"] = {
@@ -4850,18 +5387,23 @@ Bartender4DB = {
 					},
 					["fadeout"] = true,
 				},
-				["classicwarrior"] = {
-					["fadeoutdelay"] = 0,
+				["Baeldemos - Pyrewood Village"] = {
+					["enabled"] = false,
+					["fadeout"] = true,
+					["fadeoutalpha"] = 0,
 					["position"] = {
-						["y"] = 32,
-						["x"] = -36,
+						["growHorizontal"] = "LEFT",
+						["x"] = 19,
 						["point"] = "BOTTOMRIGHT",
-						["scale"] = 0.82,
+						["scale"] = 0.819999992847443,
+						["y"] = 32,
 					},
 					["version"] = 3,
 					["onebag"] = true,
-					["fadeoutalpha"] = 0,
-					["keyring"] = false,
+					["visibility"] = {
+						["nocombat"] = false,
+					},
+					["fadeoutdelay"] = 0,
 				},
 				["warrior classic"] = {
 					["padding"] = 0,
@@ -4929,8 +5471,8 @@ Bartender4DB = {
 				},
 				["Equipment - Mirage Raceway"] = {
 					["enabled"] = false,
-					["fadeout"] = true,
 					["version"] = 3,
+					["fadeout"] = true,
 					["position"] = {
 						["growHorizontal"] = "LEFT",
 						["x"] = 19,
@@ -4946,11 +5488,9 @@ Bartender4DB = {
 					["fadeoutdelay"] = 0,
 				},
 				["Default"] = {
-					["fadeoutdelay"] = 0,
 					["enabled"] = false,
-					["onebag"] = true,
-					["fadeout"] = true,
-					["version"] = 3,
+					["fadeoutalpha"] = 0,
+					["fadeoutdelay"] = 0,
 					["position"] = {
 						["growHorizontal"] = "LEFT",
 						["x"] = 19,
@@ -4958,10 +5498,12 @@ Bartender4DB = {
 						["scale"] = 0.819999992847443,
 						["y"] = 32,
 					},
+					["version"] = 3,
+					["onebag"] = true,
 					["visibility"] = {
 						["nocombat"] = false,
 					},
-					["fadeoutalpha"] = 0,
+					["fadeout"] = true,
 				},
 				["Elunari - Firemaw"] = {
 					["padding"] = 5,
@@ -5167,8 +5709,7 @@ Bartender4DB = {
 								},
 								["ClearButton"] = {
 								},
-								["DragBottomLeft"] = {
-								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -5181,7 +5722,8 @@ Bartender4DB = {
 									["Text"] = {
 									},
 								},
-								["isLocked"] = false,
+								["DragBottomLeft"] = {
+								},
 							},
 							["firstTimeLoaded"] = 1,
 						},
@@ -5291,6 +5833,15 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
+				["Ferns - Mirage Raceway"] = {
+					["position"] = {
+						["y"] = 23,
+						["x"] = -29.53358432726236,
+						["point"] = "RIGHT",
+						["scale"] = 0.8999999761581421,
+					},
+					["version"] = 3,
+				},
 				["Zabuji - Mirage Raceway"] = {
 					["version"] = 3,
 					["position"] = {
@@ -5327,6 +5878,14 @@ Bartender4DB = {
 						["parent"] = "SUI_ActionBarPlate",
 					},
 				},
+				["Adsdawad - Pyrewood Village"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 42.49996948242188,
+						["x"] = 104.5001220703125,
+						["point"] = "CENTER",
+					},
+				},
 				["Clothguy - Nethergarde Keep"] = {
 					["version"] = 3,
 					["position"] = {
@@ -5344,7 +5903,32 @@ Bartender4DB = {
 						["scale"] = 0.8999999761581421,
 					},
 				},
+				["WARRIOR"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 42.4999694824219,
+						["x"] = 104.500122070313,
+						["point"] = "CENTER",
+					},
+				},
+				["classicwarrior"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = -0.331232459808234,
+						["x"] = -1.13948305837987,
+						["point"] = "TOPLEFT",
+						["scale"] = 1.29999995231628,
+					},
+				},
 				["Consooms - Mirage Raceway"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 42.49996948242188,
+						["x"] = 104.5001220703125,
+						["point"] = "CENTER",
+					},
+				},
+				["Nahfan - Mirage Raceway"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 42.49996948242188,
@@ -5360,15 +5944,7 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["WARRIOR"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 42.4999694824219,
-						["x"] = 104.500122070313,
-						["point"] = "CENTER",
-					},
-				},
-				["Nahfan - Mirage Raceway"] = {
+				["Sadsadaddsa - Pyrewood Village"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 42.49996948242188,
@@ -5379,19 +5955,19 @@ Bartender4DB = {
 				["Lanayria - Mirage Raceway"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = -177.5575923648357,
-						["x"] = -31.11319854322937,
+						["y"] = -212.3228380259025,
+						["x"] = -28.74267858649546,
 						["point"] = "TOPRIGHT",
 						["scale"] = 0.8999999761581421,
 					},
 				},
-				["classicwarrior"] = {
+				["Baeldemos - Pyrewood Village"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = -0.331232459808234,
-						["x"] = -1.13948305837987,
-						["point"] = "TOPLEFT",
-						["scale"] = 1.29999995231628,
+						["y"] = 46.23446623216296,
+						["x"] = -28.74377721927885,
+						["point"] = "RIGHT",
+						["scale"] = 0.8999999761581421,
 					},
 				},
 				["warrior classic"] = {
@@ -5458,13 +6034,13 @@ Bartender4DB = {
 					},
 				},
 				["Default"] = {
+					["version"] = 3,
 					["position"] = {
-						["y"] = -177.5575923648357,
-						["x"] = -31.11319854322937,
-						["point"] = "TOPRIGHT",
+						["y"] = 23,
+						["x"] = -29.53358432726236,
+						["point"] = "RIGHT",
 						["scale"] = 0.8999999761581421,
 					},
-					["version"] = 3,
 				},
 				["Elunari - Firemaw"] = {
 					["version"] = 3,
@@ -5626,6 +6202,16 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
+				["Ferns - Mirage Raceway"] = {
+					["position"] = {
+						["y"] = 212,
+						["x"] = -287,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+					["padding"] = 1,
+					["version"] = 3,
+				},
 				["Zabuji - Mirage Raceway"] = {
 					["version"] = 3,
 					["position"] = {
@@ -5665,6 +6251,14 @@ Bartender4DB = {
 						["parent"] = "SUI_ActionBarPlate",
 					},
 				},
+				["Adsdawad - Pyrewood Village"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = -15,
+						["x"] = -82.49993896484375,
+						["point"] = "CENTER",
+					},
+				},
 				["Clothguy - Nethergarde Keep"] = {
 					["version"] = 3,
 					["position"] = {
@@ -5683,7 +6277,34 @@ Bartender4DB = {
 						["scale"] = 0.75,
 					},
 				},
+				["WARRIOR"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 143,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["classicwarrior"] = {
+					["padding"] = 5,
+					["version"] = 3,
+					["position"] = {
+						["y"] = -175.419231878816,
+						["x"] = -198.28855629359,
+						["point"] = "CENTER",
+						["scale"] = 0.699999988079071,
+					},
+				},
 				["Consooms - Mirage Raceway"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = -15,
+						["x"] = -82.49993896484375,
+						["point"] = "CENTER",
+					},
+				},
+				["Nahfan - Mirage Raceway"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = -15,
@@ -5699,16 +6320,7 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["WARRIOR"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 143,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Nahfan - Mirage Raceway"] = {
+				["Sadsadaddsa - Pyrewood Village"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = -15,
@@ -5725,20 +6337,20 @@ Bartender4DB = {
 						},
 					},
 					["position"] = {
-						["y"] = -138,
+						["y"] = -214,
 						["x"] = -286,
 						["point"] = "CENTER",
-						["scale"] = 0.75,
+						["scale"] = 0.88,
 					},
 				},
-				["classicwarrior"] = {
-					["padding"] = 5,
+				["Baeldemos - Pyrewood Village"] = {
+					["padding"] = 1,
 					["version"] = 3,
 					["position"] = {
-						["y"] = -175.419231878816,
-						["x"] = -198.28855629359,
+						["y"] = -138,
+						["x"] = -285,
 						["point"] = "CENTER",
-						["scale"] = 0.699999988079071,
+						["scale"] = 0.75,
 					},
 				},
 				["warrior classic"] = {
@@ -5806,14 +6418,14 @@ Bartender4DB = {
 					},
 				},
 				["Default"] = {
+					["padding"] = 1,
+					["version"] = 3,
 					["position"] = {
 						["y"] = -138,
 						["x"] = -285,
 						["point"] = "CENTER",
 						["scale"] = 0.75,
 					},
-					["padding"] = 1,
-					["version"] = 3,
 				},
 				["Elunari - Firemaw"] = {
 					["version"] = 3,
@@ -6010,8 +6622,7 @@ Bartender4DB = {
 								},
 								["ClearButton"] = {
 								},
-								["DragBottomLeft"] = {
-								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -6024,7 +6635,8 @@ Bartender4DB = {
 									["Text"] = {
 									},
 								},
-								["isLocked"] = false,
+								["DragBottomLeft"] = {
+								},
 							},
 							["firstTimeLoaded"] = 1,
 						},
@@ -6108,12 +6720,13 @@ Bartender4DB = {
 					},
 				},
 				["Zanjee - Mirage Raceway"] = {
+					["padding"] = 1.5,
 					["version"] = 3,
 					["position"] = {
-						["y"] = 209,
-						["x"] = -115,
+						["y"] = 209.5,
+						["x"] = -117.5,
 						["point"] = "BOTTOM",
-						["scale"] = 0.699999988079071,
+						["scale"] = 0.73,
 					},
 				},
 				["Shapeshifter - Skullflame"] = {
@@ -6130,6 +6743,15 @@ Bartender4DB = {
 						["y"] = 143,
 						["x"] = -460,
 						["point"] = "BOTTOM",
+					},
+				},
+				["Ferns - Mirage Raceway"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 209,
+						["x"] = -115,
+						["point"] = "BOTTOM",
+						["scale"] = 0.699999988079071,
 					},
 				},
 				["Zabuji - Mirage Raceway"] = {
@@ -6170,6 +6792,14 @@ Bartender4DB = {
 						["Zoom"] = true,
 					},
 				},
+				["Adsdawad - Pyrewood Village"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 143,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+					},
+				},
 				["Clothguy - Nethergarde Keep"] = {
 					["version"] = 3,
 					["position"] = {
@@ -6187,7 +6817,31 @@ Bartender4DB = {
 						["scale"] = 0.699999988079071,
 					},
 				},
+				["WARRIOR"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 143,
+						["x"] = -120,
+						["point"] = "BOTTOM",
+					},
+				},
+				["classicwarrior"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 208.585296630859,
+						["x"] = -2.99999690055847,
+						["point"] = "BOTTOMLEFT",
+					},
+				},
 				["Consooms - Mirage Raceway"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 143,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Nahfan - Mirage Raceway"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 143,
@@ -6203,15 +6857,7 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["WARRIOR"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 143,
-						["x"] = -120,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Nahfan - Mirage Raceway"] = {
+				["Sadsadaddsa - Pyrewood Village"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 143,
@@ -6228,12 +6874,13 @@ Bartender4DB = {
 						["scale"] = 0.699999988079071,
 					},
 				},
-				["classicwarrior"] = {
+				["Baeldemos - Pyrewood Village"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 208.585296630859,
-						["x"] = -2.99999690055847,
-						["point"] = "BOTTOMLEFT",
+						["y"] = 209,
+						["x"] = -115,
+						["point"] = "BOTTOM",
+						["scale"] = 0.699999988079071,
 					},
 				},
 				["warrior classic"] = {
@@ -6505,8 +7152,7 @@ Bartender4DB = {
 								},
 								["ClearButton"] = {
 								},
-								["DragBottomLeft"] = {
-								},
+								["isLocked"] = false,
 								["Title"] = {
 								},
 								["TitleClick"] = {
@@ -6519,7 +7165,8 @@ Bartender4DB = {
 									["Text"] = {
 									},
 								},
-								["isLocked"] = false,
+								["DragBottomLeft"] = {
+								},
 							},
 							["firstTimeLoaded"] = 1,
 						},
@@ -6646,6 +7293,16 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Ferns - Mirage Raceway"] = {
+					["enabled"] = true,
+					["position"] = {
+						["y"] = 39,
+						["x"] = -214,
+						["point"] = "BOTTOM",
+						["scale"] = 0.42,
+					},
+					["version"] = 3,
+				},
 				["Zabuji - Mirage Raceway"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -6681,6 +7338,15 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Adsdawad - Pyrewood Village"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 61,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
+				},
 				["Clothguy - Nethergarde Keep"] = {
 					["enabled"] = true,
 					["version"] = 3,
@@ -6700,7 +7366,34 @@ Bartender4DB = {
 						["scale"] = 0.42,
 					},
 				},
+				["WARRIOR"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 61,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
+				},
+				["classicwarrior"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 51,
+						["x"] = -256,
+						["point"] = "BOTTOM",
+						["scale"] = 0.4,
+					},
+				},
 				["Consooms - Mirage Raceway"] = {
+					["enabled"] = true,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 61,
+						["x"] = -514,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Nahfan - Mirage Raceway"] = {
 					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
@@ -6718,16 +7411,7 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["WARRIOR"] = {
-					["enabled"] = true,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 61,
-						["x"] = -514,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Nahfan - Mirage Raceway"] = {
+				["Sadsadaddsa - Pyrewood Village"] = {
 					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
@@ -6746,13 +7430,14 @@ Bartender4DB = {
 						["scale"] = 0.42,
 					},
 				},
-				["classicwarrior"] = {
+				["Baeldemos - Pyrewood Village"] = {
+					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
-						["y"] = 51,
-						["x"] = -256,
+						["y"] = 39,
+						["x"] = -214,
 						["point"] = "BOTTOM",
-						["scale"] = 0.4,
+						["scale"] = 0.42,
 					},
 				},
 				["warrior classic"] = {
@@ -6810,13 +7495,13 @@ Bartender4DB = {
 				},
 				["Default"] = {
 					["enabled"] = true,
+					["version"] = 3,
 					["position"] = {
 						["y"] = 39,
 						["x"] = -214,
 						["point"] = "BOTTOM",
 						["scale"] = 0.42,
 					},
-					["version"] = 3,
 				},
 				["Elunari - Firemaw"] = {
 					["enabled"] = true,
@@ -6874,27 +7559,31 @@ Bartender4DB = {
 		["Hemos - Mirage Raceway"] = "Hemos - Mirage Raceway",
 		["Elunari - Firemaw"] = "Elunari - Firemaw",
 		["Craftmateria - Mirage Raceway"] = "Craftmateria - Mirage Raceway",
+		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
 		["Craftingmats - Nethergarde Keep"] = "Craftingmats - Nethergarde Keep",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
+		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 		["Zanjee - Mirage Raceway"] = "Zanjee - Mirage Raceway",
 		["Consooms - Mirage Raceway"] = "Consooms - Mirage Raceway",
-		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
+		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
+		["Baeldemos - Pyrewood Village"] = "Baeldemos - Pyrewood Village",
+		["Sadsadaddsa - Pyrewood Village"] = "Sadsadaddsa - Pyrewood Village",
 		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
 		["Fermion - Nethergarde Keep"] = "Default",
 		["Baeldemos - Nethergarde Keep"] = "Default",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
-		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
-		["Ferns - Skullflame"] = "Ferns - Skullflame",
-		["Equipment - Mirage Raceway"] = "Equipment - Mirage Raceway",
 		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
+		["Ferns - Skullflame"] = "Ferns - Skullflame",
+		["Ferns - Mirage Raceway"] = "Ferns - Mirage Raceway",
+		["Equipment - Mirage Raceway"] = "Equipment - Mirage Raceway",
 		["Zabuji - Mirage Raceway"] = "Default",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Korloc - Mirage Raceway"] = "Default",
-		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
+		["Adsdawad - Pyrewood Village"] = "Adsdawad - Pyrewood Village",
 	},
 	["profiles"] = {
 		["Bullsi - Mirage Raceway"] = {
@@ -6971,7 +7660,7 @@ Bartender4DB = {
 			["outofrange"] = "hotkey",
 		},
 		["Zanjee - Mirage Raceway"] = {
-			["snapping"] = false,
+			["focuscastmodifier"] = false,
 			["minimapIcon"] = {
 				["minimapPos"] = 198.597118460378,
 			},
@@ -6983,7 +7672,7 @@ Bartender4DB = {
 				},
 			},
 			["buttonlock"] = true,
-			["focuscastmodifier"] = false,
+			["snapping"] = false,
 		},
 		["Shapeshifter - Skullflame"] = {
 			["focuscastmodifier"] = false,
@@ -6994,6 +7683,21 @@ Bartender4DB = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
+		},
+		["Ferns - Mirage Raceway"] = {
+			["focuscastmodifier"] = false,
+			["minimapIcon"] = {
+				["minimapPos"] = 197.9719956333652,
+			},
+			["colors"] = {
+				["range"] = {
+					["b"] = 0.133333333333333,
+					["g"] = 0.149019607843137,
+					["r"] = 0.145098039215686,
+				},
+			},
+			["buttonlock"] = true,
+			["snapping"] = false,
 		},
 		["Zabuji - Mirage Raceway"] = {
 			["focuscastmodifier"] = false,
@@ -7020,13 +7724,18 @@ Bartender4DB = {
 			["snapping"] = false,
 			["outofrange"] = "hotkey",
 		},
+		["Adsdawad - Pyrewood Village"] = {
+			["focuscastmodifier"] = false,
+			["blizzardVehicle"] = true,
+			["outofrange"] = "hotkey",
+		},
 		["Clothguy - Nethergarde Keep"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
 		["Lionidas - Pyrewood Village"] = {
-			["focuscastmodifier"] = false,
+			["snapping"] = false,
 			["minimapIcon"] = {
 				["minimapPos"] = 198.597118460378,
 			},
@@ -7038,42 +7747,12 @@ Bartender4DB = {
 				},
 			},
 			["buttonlock"] = true,
-			["snapping"] = false,
-		},
-		["Consooms - Mirage Raceway"] = {
 			["focuscastmodifier"] = false,
-			["blizzardVehicle"] = true,
-			["outofrange"] = "hotkey",
-		},
-		["Ganado - Nethergarde Keep"] = {
-			["focuscastmodifier"] = false,
-			["blizzardVehicle"] = true,
-			["outofrange"] = "hotkey",
 		},
 		["WARRIOR"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
-		},
-		["Nahfan - Mirage Raceway"] = {
-			["focuscastmodifier"] = false,
-			["blizzardVehicle"] = true,
-			["outofrange"] = "hotkey",
-		},
-		["Lanayria - Mirage Raceway"] = {
-			["snapping"] = false,
-			["minimapIcon"] = {
-				["minimapPos"] = 198.597118460378,
-			},
-			["colors"] = {
-				["range"] = {
-					["b"] = 0.133333333333333,
-					["g"] = 0.149019607843137,
-					["r"] = 0.145098039215686,
-				},
-			},
-			["buttonlock"] = true,
-			["focuscastmodifier"] = false,
 		},
 		["classicwarrior"] = {
 			["focuscastmodifier"] = false,
@@ -7085,6 +7764,56 @@ Bartender4DB = {
 				},
 			},
 			["buttonlock"] = true,
+		},
+		["Consooms - Mirage Raceway"] = {
+			["focuscastmodifier"] = false,
+			["blizzardVehicle"] = true,
+			["outofrange"] = "hotkey",
+		},
+		["Nahfan - Mirage Raceway"] = {
+			["focuscastmodifier"] = false,
+			["blizzardVehicle"] = true,
+			["outofrange"] = "hotkey",
+		},
+		["Ganado - Nethergarde Keep"] = {
+			["focuscastmodifier"] = false,
+			["blizzardVehicle"] = true,
+			["outofrange"] = "hotkey",
+		},
+		["Sadsadaddsa - Pyrewood Village"] = {
+			["focuscastmodifier"] = false,
+			["blizzardVehicle"] = true,
+			["outofrange"] = "hotkey",
+		},
+		["Lanayria - Mirage Raceway"] = {
+			["focuscastmodifier"] = false,
+			["minimapIcon"] = {
+				["minimapPos"] = 198.597118460378,
+			},
+			["colors"] = {
+				["range"] = {
+					["b"] = 0.133333333333333,
+					["g"] = 0.149019607843137,
+					["r"] = 0.145098039215686,
+				},
+			},
+			["buttonlock"] = true,
+			["snapping"] = false,
+		},
+		["Baeldemos - Pyrewood Village"] = {
+			["snapping"] = false,
+			["minimapIcon"] = {
+				["minimapPos"] = 198.597118460378,
+			},
+			["colors"] = {
+				["range"] = {
+					["b"] = 0.133333333333333,
+					["g"] = 0.149019607843137,
+					["r"] = 0.145098039215686,
+				},
+			},
+			["buttonlock"] = true,
+			["focuscastmodifier"] = false,
 		},
 		["warrior classic"] = {
 			["focuscastmodifier"] = false,
@@ -7127,7 +7856,7 @@ Bartender4DB = {
 			["outofrange"] = "hotkey",
 		},
 		["Equipment - Mirage Raceway"] = {
-			["focuscastmodifier"] = false,
+			["snapping"] = false,
 			["minimapIcon"] = {
 				["minimapPos"] = 198.597118460378,
 			},
@@ -7139,7 +7868,7 @@ Bartender4DB = {
 				},
 			},
 			["buttonlock"] = true,
-			["snapping"] = false,
+			["focuscastmodifier"] = false,
 		},
 		["Default"] = {
 			["snapping"] = false,

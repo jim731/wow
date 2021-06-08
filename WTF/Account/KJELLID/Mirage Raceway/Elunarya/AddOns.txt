@@ -1,1 +1,0 @@
-OPie_Classic: disabled

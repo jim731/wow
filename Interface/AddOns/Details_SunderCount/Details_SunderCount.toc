@@ -1,6 +1,0 @@
-## Interface: 11303
-## Title: Details!: SunderCount (plugin)
-## Notes: Shows who uses Sunder Armor.
-## RequiredDeps: Details
-
-Details_SunderCount.lua

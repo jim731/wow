@@ -5,5 +5,5 @@ RXPCData = {
 		[3] = true,
 	},
 	["currentGuideGroup"] = "RestedXP Horde Boosted 58-60",
-	["currentStep"] = 13,
+	["currentStep"] = 14,
 }

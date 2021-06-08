@@ -5,22 +5,22 @@ OPie_Classic: disabled
 WeakAurasCompanion: enabled
 WeakAurasArchive: enabled
 Immersion: enabled
-WeaponSwingTimer: disabled
+WeaponSwingTimer: enabled
 Details: enabled
 AdvancedInterfaceOptions: disabled
-Atlas: disabled
-Atlas_ClassicWoW: disabled
-Atlas_Transportation: disabled
-AtlasLootClassic_Options: disabled
-AtlasLootClassic_Collections: disabled
-AtlasLootClassic_Crafting: disabled
-AtlasLootClassic_DungeonsAndRaids: disabled
-AtlasLootClassic_Factions: disabled
-AtlasLootClassic_PvP: disabled
-AtlasLootClassic: disabled
-AtlasLootClassic_Data: disabled
-AtlasQuest: disabled
-ATT-Classic: disabled
+Atlas: enabled
+Atlas_ClassicWoW: enabled
+Atlas_Transportation: enabled
+AtlasLootClassic_Options: enabled
+AtlasLootClassic_Collections: enabled
+AtlasLootClassic_Crafting: enabled
+AtlasLootClassic_DungeonsAndRaids: enabled
+AtlasLootClassic_Factions: enabled
+AtlasLootClassic_PvP: enabled
+AtlasLootClassic: enabled
+AtlasLootClassic_Data: enabled
+AtlasQuest: enabled
+ATT-Classic: enabled
 Attune: enabled
 Auctionator: enabled
 Auto Ammo: disabled
@@ -52,35 +52,35 @@ BlizzMove_Debug: enabled
 Classic Quest Log: disabled
 ClassicAuraDurations: enabled
 ClassicSpellActivations: enabled
-ClickLinks: disabled
+ClickLinks: enabled
 Details_SunderCount: enabled
 Details_TinyThreat: enabled
 DruidBarClassic: disabled
 GatherMate2: enabled
 GatherMate2MapButton: enabled
 GatherMate2_Data: enabled
-GTFO: disabled
-HandyNotes: disabled
+GTFO: enabled
+HandyNotes: enabled
 HandyNotes_DungeonLocations (Classic): disabled
 HandyNotes_FlightMasters (Classic): disabled
 HandyNotes_Guild: disabled
 HandyNotes_NPCs (Classic): disabled
 HandyNotes_WorldMapButton: disabled
 HideErrorText: enabled
-ItemRack: disabled
-ItemRackOptions: disabled
+ItemRack: enabled
+ItemRackOptions: enabled
 ItemTooltipProfessionIcons: enabled
 Leatrix_Maps: enabled
 Leatrix_Plus: enabled
 LFG: disabled
 LittleWigs: disabled
 LoseControl: enabled
-Masque: disabled
+Masque: enabled
 MikScrollingBattleText: enabled
 ModernTargetFrame: disabled
 MoveAnything: enabled
 MSBTOptions: enabled
-NauticusClassic: disabled
+NauticusClassic: enabled
 NeatPlates: enabled
 NeatPlatesHub: enabled
 NeatPlatesWidgets: enabled
@@ -120,3 +120,4 @@ Questie: enabled
 PallyPower: enabled
 !BugGrabber: disabled
 BugSack: disabled
+LFG113: enabled

@@ -6,27 +6,31 @@ HandyNotesDB = {
 		["Hemos - Mirage Raceway"] = "Hemos - Mirage Raceway",
 		["Elunari - Firemaw"] = "Elunari - Firemaw",
 		["Craftmateria - Mirage Raceway"] = "Craftmateria - Mirage Raceway",
+		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 		["Craftingmats - Nethergarde Keep"] = "Craftingmats - Nethergarde Keep",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
+		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 		["Zanjee - Mirage Raceway"] = "Zanjee - Mirage Raceway",
 		["Consooms - Mirage Raceway"] = "Consooms - Mirage Raceway",
-		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
+		["Baeldemos - Pyrewood Village"] = "Baeldemos - Pyrewood Village",
+		["Sadsadaddsa - Pyrewood Village"] = "Sadsadaddsa - Pyrewood Village",
 		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Baeldemos - Nethergarde Keep"] = "Baeldemos - Nethergarde Keep",
 		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
-		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
+		["Ferns - Mirage Raceway"] = "Ferns - Mirage Raceway",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Equipment - Mirage Raceway"] = "Equipment - Mirage Raceway",
 		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
 		["Zabuji - Mirage Raceway"] = "Zabuji - Mirage Raceway",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Korloc - Mirage Raceway"] = "Korloc - Mirage Raceway",
-		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
+		["Adsdawad - Pyrewood Village"] = "Adsdawad - Pyrewood Village",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -39,6 +43,8 @@ HandyNotesDB = {
 		},
 		["Craftmateria - Mirage Raceway"] = {
 		},
+		["Lanayria - Mirage Raceway"] = {
+		},
 		["Craftingmats - Nethergarde Keep"] = {
 		},
 		["Consumables - Nethergarde Keep"] = {
@@ -47,11 +53,17 @@ HandyNotesDB = {
 		},
 		["Garluk - Mirage Raceway"] = {
 		},
+		["Shapeshifter - Skullflame"] = {
+		},
 		["Zanjee - Mirage Raceway"] = {
 		},
 		["Consooms - Mirage Raceway"] = {
 		},
-		["Shapeshifter - Skullflame"] = {
+		["Nahfan - Mirage Raceway"] = {
+		},
+		["Baeldemos - Pyrewood Village"] = {
+		},
+		["Sadsadaddsa - Pyrewood Village"] = {
 		},
 		["Cowski - Mirage Raceway"] = {
 		},
@@ -63,7 +75,7 @@ HandyNotesDB = {
 		},
 		["Clothguy - Nethergarde Keep"] = {
 		},
-		["Nahfan - Mirage Raceway"] = {
+		["Ferns - Mirage Raceway"] = {
 		},
 		["Ferns - Skullflame"] = {
 		},
@@ -77,9 +89,9 @@ HandyNotesDB = {
 		},
 		["Korloc - Mirage Raceway"] = {
 		},
-		["Lanayria - Mirage Raceway"] = {
-		},
 		["Lionidas - Pyrewood Village"] = {
+		},
+		["Adsdawad - Pyrewood Village"] = {
 		},
 	},
 }
@@ -90,27 +102,31 @@ HandyNotes_HandyNotesDB = {
 		["Hemos - Mirage Raceway"] = "Hemos - Mirage Raceway",
 		["Elunari - Firemaw"] = "Elunari - Firemaw",
 		["Craftmateria - Mirage Raceway"] = "Craftmateria - Mirage Raceway",
+		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 		["Craftingmats - Nethergarde Keep"] = "Craftingmats - Nethergarde Keep",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
+		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
 		["Zanjee - Mirage Raceway"] = "Zanjee - Mirage Raceway",
 		["Consooms - Mirage Raceway"] = "Consooms - Mirage Raceway",
-		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
+		["Baeldemos - Pyrewood Village"] = "Baeldemos - Pyrewood Village",
+		["Sadsadaddsa - Pyrewood Village"] = "Sadsadaddsa - Pyrewood Village",
 		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Baeldemos - Nethergarde Keep"] = "Baeldemos - Nethergarde Keep",
 		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
-		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
+		["Ferns - Mirage Raceway"] = "Ferns - Mirage Raceway",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Equipment - Mirage Raceway"] = "Equipment - Mirage Raceway",
 		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
 		["Zabuji - Mirage Raceway"] = "Zabuji - Mirage Raceway",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Korloc - Mirage Raceway"] = "Korloc - Mirage Raceway",
-		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
+		["Adsdawad - Pyrewood Village"] = "Adsdawad - Pyrewood Village",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -123,6 +139,8 @@ HandyNotes_HandyNotesDB = {
 		},
 		["Craftmateria - Mirage Raceway"] = {
 		},
+		["Lanayria - Mirage Raceway"] = {
+		},
 		["Craftingmats - Nethergarde Keep"] = {
 		},
 		["Consumables - Nethergarde Keep"] = {
@@ -131,11 +149,17 @@ HandyNotes_HandyNotesDB = {
 		},
 		["Garluk - Mirage Raceway"] = {
 		},
+		["Shapeshifter - Skullflame"] = {
+		},
 		["Zanjee - Mirage Raceway"] = {
 		},
 		["Consooms - Mirage Raceway"] = {
 		},
-		["Shapeshifter - Skullflame"] = {
+		["Nahfan - Mirage Raceway"] = {
+		},
+		["Baeldemos - Pyrewood Village"] = {
+		},
+		["Sadsadaddsa - Pyrewood Village"] = {
 		},
 		["Cowski - Mirage Raceway"] = {
 		},
@@ -147,7 +171,7 @@ HandyNotes_HandyNotesDB = {
 		},
 		["Clothguy - Nethergarde Keep"] = {
 		},
-		["Nahfan - Mirage Raceway"] = {
+		["Ferns - Mirage Raceway"] = {
 		},
 		["Ferns - Skullflame"] = {
 		},
@@ -161,9 +185,9 @@ HandyNotes_HandyNotesDB = {
 		},
 		["Korloc - Mirage Raceway"] = {
 		},
-		["Lanayria - Mirage Raceway"] = {
-		},
 		["Lionidas - Pyrewood Village"] = {
+		},
+		["Adsdawad - Pyrewood Village"] = {
 		},
 	},
 }

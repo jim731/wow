@@ -1,0 +1,9 @@
+WeakAurasCompanion: enabled
+WeakAurasArchive: enabled
+PallyPower: disabled
+MoveAnything: disabled
+TellMeWhen: disabled
+TellMeWhen_Options: disabled
+NovaWorldBuffs: disabled
+BugSack: disabled
+!BugGrabber: disabled

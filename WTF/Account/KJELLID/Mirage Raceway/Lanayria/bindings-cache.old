@@ -16,8 +16,6 @@ bind 2 ACTIONBUTTON7
 bind 3 ACTIONBUTTON8
 bind 4 ACTIONBUTTON9
 bind 5 ACTIONBUTTON10
-bind 6 ACTIONBUTTON3
-bind 7 ACTIONBUTTON4
 bind 8 NONE
 bind 9 NONE
 bind 0 NONE
@@ -33,12 +31,12 @@ bind CTRL-F7 NONE
 bind CTRL-F8 NONE
 bind CTRL-F9 NONE
 bind CTRL-F10 NONE
-bind CTRL-1 NONE
-bind CTRL-2 NONE
-bind CTRL-3 NONE
-bind CTRL-4 NONE
-bind CTRL-5 NONE
-bind CTRL-6 NONE
+bind CTRL-1 CLICK BT4Button115:LeftButton
+bind CTRL-2 CLICK BT4Button116:LeftButton
+bind CTRL-3 CLICK BT4Button117:LeftButton
+bind CTRL-4 CLICK BT4Button118:LeftButton
+bind CTRL-5 CLICK BT4Button119:LeftButton
+bind CTRL-6 CLICK BT4Button120:LeftButton
 bind CTRL-7 NONE
 bind CTRL-8 NONE
 bind CTRL-9 NONE
@@ -76,25 +74,25 @@ bind CTRL-S NONE
 bind ALT-Z NONE
 bind MOUSEWHEELUP NONE
 bind MOUSEWHEELDOWN NONE
-bind CTRL-R CLICK BT4Button63:LeftButton
-bind CTRL-Q CLICK BT4Button61:LeftButton
-bind CTRL-E CLICK BT4Button62:LeftButton
-bind CTRL-T NONE
+bind CTRL-R CLICK BT4Button111:LeftButton
+bind CTRL-Q CLICK BT4Button109:LeftButton
+bind CTRL-E CLICK BT4Button110:LeftButton
+bind CTRL-T CLICK BT4Button113:LeftButton
 bind SHIFT-C STOPCASTING
 bind NUMPAD4 NONE
 bind NUMPAD6 NONE
 bind SHIFT-W NONE
-bind ALT-1 CLICK BT4Button69:LeftButton
-bind ALT-2 CLICK BT4Button70:LeftButton
-bind ALT-3 NONE
-bind ALT-4 NONE
-bind ALT-Q CLICK BT4Button65:LeftButton
-bind ALT-E CLICK BT4Button66:LeftButton
-bind ALT-R CLICK BT4Button67:LeftButton
-bind ALT-F CLICK BT4Button68:LeftButton
-bind ALT-T NONE
-bind | NONE
-bind ALT-| CLICK BT4Button72:LeftButton
+bind ALT-1 CLICK BT4Button66:LeftButton
+bind ALT-2 CLICK BT4Button67:LeftButton
+bind ALT-3 CLICK BT4Button68:LeftButton
+bind ALT-4 CLICK BT4Button69:LeftButton
+bind ALT-Q CLICK BT4Button61:LeftButton
+bind ALT-E CLICK BT4Button62:LeftButton
+bind ALT-R CLICK BT4Button63:LeftButton
+bind ALT-F CLICK BT4Button64:LeftButton
+bind ALT-T CLICK BT4Button65:LeftButton
+bind | ACTIONBUTTON12
+bind ALT-| CLICK BT4Button71:LeftButton
 bind SHIFT-A TURNLEFT
 bind SHIFT-S STOPATTACK
 bind SHIFT-+ NONE
@@ -145,7 +143,7 @@ bind ALT-MOUSEWHEELDOWN CAMERAZOOMOUT
 bind SHIFT-| CLICK BT4Button60:LeftButton
 bind SHIFT-Y NONE
 bind å NONE
-bind CTRL-F CLICK BT4Button64:LeftButton
+bind CTRL-F CLICK BT4Button112:LeftButton
 bind ä NONE
 bind NUMPAD1 NONE
 bind NUMPAD2 NONE
@@ -153,16 +151,21 @@ bind ALT-SHIFT-Z NONE
 bind CTRL-Z TOGGLEUI
 bind ALT-V NAMEPLATES
 bind < ACTIONBUTTON11
-bind SHIFT-< ACTIONBUTTON12
+bind SHIFT-< CLICK BT4Button59:LeftButton
 bind CTRL-C TOGGLEWORLDMAP
-bind ALT-5 NONE
-bind ALT-< NONE
+bind ALT-5 CLICK BT4Button70:LeftButton
+bind ALT-< CLICK BT4Button72:LeftButton
 bind CTRL-SPACE CLICK BT4Button33:LeftButton
 bind ALT-- CLICK ItemRackZabujiMirage RacewayTank:LeftButton
 bind ALT-+ CLICK ItemRackZabujiMirage RacewayDPS:LeftButton
-bind CTRL-< CLICK BT4Button71:LeftButton
+bind CTRL-< NONE
 bind SHIFT-D TURNRIGHT
 bind CTRL-SHIFT-F FOLLOWTARGET
 bind + STARTAUTORUN
 bind \ JUMP
+bind ALT-6 NONE
+bind CTRL-| CLICK BT4Button114:LeftButton
+bind CTRL-SHIFT-S SCREENSHOT
+bind CTRL-SHIFT-V TOGGLETALENTS
+bind CTRL-SHIFT-C TOGGLEQUESTLOG
 modifiedclick NONE SELFCAST

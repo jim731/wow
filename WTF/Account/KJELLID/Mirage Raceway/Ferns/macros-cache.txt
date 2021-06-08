@@ -1,0 +1,23 @@
+VER 3 0000000001000002 " " "136096"
+#showtooltip moonfire
+/startattack
+/cast moonfire
+END
+VER 3 0000000001000005 " " "132136"
+#showtooltip maul
+/startattack
+/cast maul
+END
+VER 3 0000000001000001 " " "136006"
+#showtooltip wrath
+/startattack
+/cast wrath
+END
+VER 3 0000000001000003 "   1  " "136096"
+#showtooltip moonfire(rank 1)
+/startattack
+/cast moonfire(rank 1)
+END
+VER 3 0000000001000004 "  ts" "INV_MISC_QUESTIONMARK"
+/ts
+END

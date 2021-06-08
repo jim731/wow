@@ -1,7 +1,7 @@
 
 BugGrabberDB = {
-	["session"] = 82,
 	["lastSanitation"] = 3,
+	["session"] = 141,
 	["errors"] = {
 		{
 			["message"] = "...rface\\AddOns\\Classic Quest Log\\Classic Quest Log-1.4.6-Classic.lua:140: Attempt to register unknown event \"QUEST_POI_UPDATE\"",
@@ -190,19 +190,13 @@ BugGrabberDB = {
 			["counter"] = 28,
 		}, -- [24]
 		{
-			["message"] = "(null)",
-			["session"] = 40,
-			["time"] = "2021/05/21 22:31:01",
-			["counter"] = 154,
-		}, -- [25]
-		{
 			["message"] = "Interface\\AddOns\\ItemRack\\ItemRack-3.66.nil.lua:1937: Usage: SaveBindings(1||2)",
 			["time"] = "2021/05/24 23:00:03",
 			["locals"] = "(*temporary) = 0\n",
 			["stack"] = "[string \"=[C]\"]: in function `SaveBindings'\n[string \"@Interface\\AddOns\\ItemRack\\ItemRack-3.66.nil.lua\"]:1937: in function `SetSetBindings'\n[string \"@Interface\\AddOns\\ItemRack\\ItemRack-3.66.nil.lua\"]:486: in function `InitCore'\n[string \"@Interface\\AddOns\\ItemRack\\ItemRack-3.66.nil.lua\"]:222: in function <Interface\\AddOns\\ItemRack\\ItemRack.lua:216>",
 			["session"] = 42,
 			["counter"] = 1,
-		}, -- [26]
+		}, -- [25]
 		{
 			["message"] = "Interface\\AddOns\\ItemRack\\ItemRackButtons.lua:645: bad argument #1 to 'pairs' (table expected, got nil)",
 			["time"] = "2021/05/24 23:00:04",
@@ -210,14 +204,7 @@ BugGrabberDB = {
 			["stack"] = "[string \"=[C]\"]: in function `pairs'\n[string \"@Interface\\AddOns\\ItemRack\\ItemRackButtons.lua\"]:645: in function `ReflectHideOOC'\n[string \"@Interface\\AddOns\\ItemRack\\ItemRack-3.66.nil.lua\"]:325: in function `ProcessCombatQueue'\n[string \"@Interface\\AddOns\\ItemRack\\ItemRack-3.66.nil.lua\"]:299: in function `?'\n[string \"@Interface\\AddOns\\ItemRack\\ItemRack-3.66.nil.lua\"]:193: in function `OnEvent'\n[string \"*:OnEvent\"]:1: in function <[string \"*:OnEvent\"]:1>",
 			["session"] = 42,
 			["counter"] = 1,
-		}, -- [27]
-		{
-			["message"] = "[ADDON_ACTION_BLOCKED] AddOn 'ItemRack' tried to call the protected function 'AutoEquipCursorItem()'.",
-			["time"] = "2021/05/25 19:07:57",
-			["stack"] = "[string \"@Interface\\AddOns\\!BugGrabber\\BugGrabber.lua\"]:519: in function <Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:519>\n[string \"=[C]\"]: in function `AutoEquipCursorItem'\n[string \"*:OnMouseUp\"]:4: in function `oldCharacterModelFrame_OnMouseUp'\n[string \"@Interface\\AddOns\\ItemRack\\ItemRackButtons.lua\"]:105: in function <Interface\\AddOns\\ItemRack\\ItemRackButtons.lua:101>\n[string \"=[C]\"]: ?",
-			["session"] = 44,
-			["counter"] = 1,
-		}, -- [28]
+		}, -- [26]
 		{
 			["message"] = "Interface\\AddOns\\WeakAuras\\WeakAuras-3.4.1.lua:2701: bad argument #1 to 'pairs' (table expected, got nil)",
 			["time"] = "2021/05/22 23:47:55",
@@ -225,36 +212,149 @@ BugGrabberDB = {
 			["stack"] = "[string \"=[C]\"]: in function `pairs'\n[string \"@Interface\\AddOns\\WeakAuras\\WeakAuras-3.4.1.lua\"]:2701: in function <Interface\\AddOns\\WeakAuras\\WeakAuras.lua:2681>\n[string \"@Interface\\AddOns\\WeakAuras\\WeakAuras-3.4.1.lua\"]:2813: in function `Add'\n[string \"@Interface\\AddOns\\WeakAurasOptions\\OptionsFrames\\MoverSizer.lua\"]:645: in function <...AddOns\\WeakAurasOptions\\OptionsFrames\\MoverSizer.lua:564>",
 			["session"] = 44,
 			["counter"] = 20,
-		}, -- [29]
+		}, -- [27]
 		{
 			["message"] = "[ADDON_ACTION_FORBIDDEN] AddOn 'Bagnon' tried to call the protected function 'RunBinding()'.",
 			["time"] = "2021/05/25 20:30:49",
 			["stack"] = "[string \"@Interface\\AddOns\\!BugGrabber\\BugGrabber.lua\"]:519: in function <Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:519>\n[string \"=[C]\"]: in function `RunBinding'\n[string \"@Interface\\FrameXML\\StackSplitFrame.lua\"]:182: in function <Interface\\FrameXML\\StackSplitFrame.lua:179>\n[string \"=[C]\"]: in function `Hide'\n[string \"@Interface\\FrameXML\\StackSplitFrame.lua\"]:168: in function `StackSplitFrameOkay_Click'\n[string \"@Interface\\FrameXML\\StackSplitFrame.lua\"]:113: in function <Interface\\FrameXML\\StackSplitFrame.lua:91>",
 			["session"] = 50,
 			["counter"] = 1,
-		}, -- [30]
-		{
-			["message"] = "[string \"MAOptions:OnLoad\"]:24: Attempt to register unknown event \"ACTIVE_TALENT_GROUP_CHANGED\"",
-			["time"] = "2021/05/21 22:30:07",
-			["locals"] = "(*temporary) = MAOptions {\n 0 = <userdata>\n background = <unnamed> {\n }\n}\n(*temporary) = \"ACTIVE_TALENT_GROUP_CHANGED\"\n",
-			["stack"] = "[string \"=[C]\"]: in function `RegisterEvent'\n[string \"*:OnLoad\"]:24: in function <[string \"*:OnLoad\"]:1>",
-			["session"] = 75,
-			["counter"] = 44,
-		}, -- [31]
+		}, -- [28]
 		{
 			["message"] = "[ADDON_ACTION_BLOCKED] AddOn 'Leatrix_Maps' tried to call the protected function 'CompactRaidFrame1:Show()'.",
 			["time"] = "2021/05/26 17:27:04",
 			["stack"] = "[string \"@Interface\\AddOns\\!BugGrabber\\BugGrabber.lua\"]:519: in function <Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:519>\n[string \"=[C]\"]: in function `Show'\n[string \"@Interface\\FrameXML\\CompactUnitFrame.lua\"]:359: in function `CompactUnitFrame_UpdateVisible'\n[string \"@Interface\\FrameXML\\CompactUnitFrame.lua\"]:292: in function `CompactUnitFrame_UpdateAll'\n[string \"@Interface\\FrameXML\\CompactUnitFrame.lua\"]:125: in function <Interface\\FrameXML\\CompactUnitFrame.lua:53>",
 			["session"] = 76,
 			["counter"] = 1,
+		}, -- [29]
+		{
+			["message"] = "[ADDON_ACTION_BLOCKED] AddOn 'HandyNotes' tried to call the protected function 'CompactRaidFrame1:ClearAllPoints()'.",
+			["time"] = "2021/05/27 19:25:56",
+			["stack"] = "[string \"@Interface\\AddOns\\!BugGrabber\\BugGrabber.lua\"]:519: in function <Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:519>\n[string \"=[C]\"]: in function `ClearAllPoints'\n[string \"@Interface\\FrameXML\\FlowContainer.lua\"]:157: in function `FlowContainer_DoLayout'\n[string \"@Interface\\FrameXML\\FlowContainer.lua\"]:17: in function `FlowContainer_ResumeUpdates'\n[string \"@Interface\\AddOns\\Blizzard_CompactRaidFrames\\Blizzard_CompactRaidFrameContainer.lua\"]:185: in function `CompactRaidFrameContainer_LayoutFrames'\n[string \"@Interface\\AddOns\\Blizzard_CompactRaidFrames\\Blizzard_CompactRaidFrameContainer.lua\"]:130: in function `CompactRaidFrameContainer_TryUpdate'\n[string \"@Interface\\AddOns\\Blizzard_CompactRaidFrames\\Blizzard_CompactRaidFrameContainer.lua\"]:57: in function `CompactRaidFrameContainer_OnEvent'\n[string \"*:OnEvent\"]:1: in function <[string \"*:OnEvent\"]:1>",
+			["session"] = 83,
+			["counter"] = 1,
+		}, -- [30]
+		{
+			["message"] = "Interface\\AddOns\\Questie\\Modules\\Libs\\QuestieLib.lua:256: bad argument #1 to 'unpack' (table expected, got nil)",
+			["time"] = "2021/06/01 20:12:16",
+			["locals"] = "(*temporary) = nil\n(*temporary) = \"table expected, got nil\"\n",
+			["stack"] = "[string \"=[C]\"]: in function `unpack'\n[string \"@Interface\\AddOns\\Questie\\Modules\\Libs\\QuestieLib.lua\"]:256: in function `GetTbcLevel'\n[string \"@Interface\\AddOns\\Questie\\Modules\\Tooltips\\ChatFilter.lua\"]:37: in function `filterFunc'\n[string \"@Interface\\FrameXML\\ChatFrame.lua\"]:3207: in function `ChatFrame_MessageEventHandler'\n[string \"@Interface\\FrameXML\\ChatFrame.lua\"]:2930: in function `ChatFrame_OnEvent'\n[string \"*:OnEvent\"]:1: in function <[string \"*:OnEvent\"]:1>",
+			["session"] = 88,
+			["counter"] = 1,
+		}, -- [31]
+		{
+			["message"] = "Interface\\AddOns\\WhatsTraining\\Cache.lua:13: attempt to call method 'CreateFromSpellID' (a nil value)",
+			["time"] = "2021/06/02 11:35:55",
+			["locals"] = "self = <table> {\n AddOverriddenSpells = <function> defined @Interface\\AddOns\\WhatsTraining\\Utils.lua:41\n CacheItem = <function> defined @Interface\\AddOns\\WhatsTraining\\Cache.lua:56\n Update = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTrainingUI.lua:98\n CacheSpell = <function> defined @Interface\\AddOns\\WhatsTraining\\Cache.lua:8\n spellInfoCache = <table> {\n }\n SpellInfo = <function> defined @Interface\\AddOns\\WhatsTraining\\Cache.lua:46\n itemInfoCache = <table> {\n }\n petAbilities = <table> {\n }\n RebuildData = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTraining.lua:219\n PetAbility = <function> defined @Interface\\AddOns\\WhatsTraining\\Cache.lua:48\n FactionFilter = <function> defined @Interface\\AddOns\\WhatsTraining\\Utils.lua:21\n IsPetAbility = <function> defined @Interface\\AddOns\\WhatsTraining\\Utils.lua:51\n L = <table> {\n }\n afterPetUpdate = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTraining.lua:226\n data = <table> {\n }\n CreateFrame = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTrainingUI.lua:113\n onSpellLearned = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTraining.lua:231\n SpellsByLevel = <table> {\n }\n RaceFilter = <function> defined @Interface\\AddOns\\WhatsTraining\\Utils.lua:27\n ItemInfo = <function> defined @Interface\\AddOns\\WhatsTraining\\Cache.lua:83\n currentClass = \"SHAMAN\"\n}\nspell = <table> {\n id = 10391\n requiredIds = <table> {\n }\n cost = 11000\n}\nlevel = 38\ndone = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTraining.lua:214\n(*temporary) = nil\n(*temporary) = <table> {\n MoltenArmor = \"Molten Armor\"\n WaterElemental = \"Summon Water Elemental\"\n RighteousFury = \"Righteous Fury\"\n EarthShield = \"Earth Shield\"\n VictoryRush = \"Victory Rush\"\n InstantPoison = \"Instant Poison\"\n CommandingShout = \"Commanding Shout\"\n WindfuryWeapon = \"Windfury Weapon\"\n Chakra = \"Inner Focus\"\n SealOfJustice = \"Seal of Justice\"\n LightningShield = \"Lightning Shield\"\n CallPet = \"Call Pet\"\n AspectOfTheWild = \"Aspect of the Wild\"\n BladeFlurry = \"Blade Flurry\"\n FrostArmor = \"Ice Armor\"\n MarkOfTheWild = \"Mark of the Wild\"\n SoulLink = \"Soul Link\"\n SealOfRighteousness = \"Seal of Righteousness\"\n BloodPact = \"Blood Pact\"\n CrusaderAura = \"Crusader Aura\"\n SummonImp = \"Summon Imp\"\n AspectOfThePack = \"Aspect of the Pack\"\n AspectOfTheCheetah = \"Aspect of the Cheetah\"\n MageArmor = \"Mage Armor\"\n AspectOfTheHawk = \"Aspect of the Hawk\"\n SealOfInsight = \"Seal of Light\"\n Victorious = \"Victorious\"\n FelArmor = \"Fel Armor\"\n SealOfTruth = \"Seal of Vengeance\"\n StrengthOfEarth = \"Strength of Earth\"\n DemonArmor = \"Demon Skin\"\n BattleShout = \"Battle Shout\"\n Fortitude = \"Prayer of Fortitude\"\n BlessingOfMight = \"Blessing of Might\"\n ArcaneBrilliance = \"Arcane Intellect\"\n BlessingOfKings = \"Blessing of Kings\"\n ShadowProt = \"Prayer of Shadow Protection\"\n Thorns = \"Thorns\"\n}\n(*temporary) = 10391\n(*temporary) = \"attempt to call method 'CreateFromSpellID' (a nil value)\"\nwt = <table> {\n AddOverriddenSpells = <function> defined @Interface\\AddOns\\WhatsTraining\\Utils.lua:41\n CacheItem = <function> defined @Interface\\AddOns\\WhatsTraining\\Cache.lua:56\n Update = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTrainingUI.lua:98\n CacheSpell = <function> defined @Interface\\AddOns\\WhatsTraining\\Cache.lua:8\n spellInfoCache = <table> {\n }\n SpellInfo = <function> defined @Interface\\AddOns\\WhatsTraining\\Cache.lua:46\n itemInfoCache = <table> {\n }\n petAbilities = <table> {\n }\n RebuildData = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTraining.lua:219\n PetAbility = <function> defined @Interface\\AddOns\\WhatsTraining\\Cache.lua:48\n FactionFilter = <function> defined @Interface\\AddOns\\WhatsTraining\\Utils.lua:21\n IsPetAbility = <function> defined @Interface\\AddOns\\WhatsTraining\\Utils.lua:51\n L = <table> {\n }\n afterPetUpdate = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTraining.lua:226\n data = <table> {\n }\n CreateFrame = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTrainingUI.lua:113\n onSpellLearned = <function> defined @Interface\\AddOns\\WhatsTraining\\WhatsTraining.lua:231\n SpellsByLevel = <table",
+			["stack"] = "[string \"@Interface\\AddOns\\WhatsTraining\\Cache.lua\"]:13: in function `CacheSpell'\n[string \"@Interface\\AddOns\\WhatsTraining\\WhatsTraining-3.0.0.lua\"]:254: in main chunk",
+			["session"] = 100,
+			["counter"] = 1,
 		}, -- [32]
+		{
+			["message"] = "Interface\\AddOns\\OmniBar\\Options-Options.lua:182: attempt to call method 'CreateFromSpellID' (a nil value)",
+			["time"] = "2021/06/02 11:35:58",
+			["stack"] = "[string \"@Interface\\AddOns\\OmniBar\\Options-Options.lua\"]:182: in function <Interface\\AddOns\\OmniBar\\Options.lua:109>\n[string \"@Interface\\AddOns\\OmniBar\\Options-Options.lua\"]:684: in function `AddBarToOptions'\n[string \"@Interface\\AddOns\\OmniBar\\OmniBar-v12.3.lua\"]:161: in function <Interface\\AddOns\\OmniBar\\OmniBar.lua:137>\n[string \"=[C]\"]: ?\n[string \"@Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0-13.lua\"]:70: in function <...face\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:65>\n[string \"@Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0-13.lua\"]:527: in function `EnableAddon'\n[string \"@Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0-13.lua\"]:630: in function <...face\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:615>",
+			["session"] = 100,
+			["counter"] = 1,
+		}, -- [33]
+		{
+			["message"] = "Interface\\AddOns\\BuffReminder\\Modules\\Prototype.lua:103: attempt to call global 'UnitInVehicle' (a nil value)",
+			["time"] = "2021/06/02 11:36:00",
+			["locals"] = "self = <table> {\n SetDefaultModuleLibraries = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:367\n Enable = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:294\n NewModule = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:235\n EnableModule = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:332\n modules = <table> {\n }\n GetModule = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:210\n IterateEmbeds = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:442\n IsModule = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:217\n db = <table> {\n }\n defaultModuleLibraries = <table> {\n }\n baseName = \"BuffReminder\"\n CanApplyEnchant = <function> defined @Interface\\AddOns\\BuffReminder\\Modules\\Shaman.lua:85\n SetEnabledState = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:424\n SetDefaultModulePrototype = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:409\n enabledState = true\n OnInitialize = <function> defined @Interface\\AddOns\\BuffReminder\\Modules\\Shaman.lua:47\n defaultModuleState = true\n moduleName = \"SHAMAN\"\n GetName = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:279\n GetOptions = <function> defined @Interface\\AddOns\\BuffReminder\\Modules\\Shaman.lua:10\n Disable = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:314\n IterateModules = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:437\n name = \"BuffReminder_SHAMAN\"\n CheckBuffs = <function> defined @Interface\\AddOns\\BuffReminder\\Modules\\Shaman.lua:53\n IsEnabled = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:451\n orderedModules = <table> {\n }\n SetDefaultModuleState = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:387\n DisableModule = <function> defined @Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:350\n}\nreminder = <table> {\n enabled = true\n flying = false\n combat = true\n resting = false\n mounted = false\n pvp = true\n}\n(*temporary) = nil\n(*temporary) = \"player\"\n(*temporary) = \"attempt to call global 'UnitInVehicle' (a nil value)\"\n",
+			["stack"] = "[string \"@Interface\\AddOns\\BuffReminder\\Modules\\Prototype.lua\"]:103: in function `ReminderEnabled'\n[string \"@Interface\\AddOns\\BuffReminder\\Modules\\Shaman.lua\"]:56: in function `CheckBuffs'\n[string \"@Interface\\AddOns\\BuffReminder\\BuffReminder-2.5.1.lua\"]:293: in function `?'\n[string \"@Interface\\AddOns\\Details\\Libs\\AceTimer-3.0\\AceTimer-3.0-17.lua\"]:55: in function <...ce\\AddOns\\Details\\Libs\\AceTimer-3.0\\AceTimer-3.0.lua:50>",
+			["session"] = 100,
+			["counter"] = 1,
+		}, -- [34]
+		{
+			["message"] = "Interface\\AddOns\\BuffReminder\\BuffReminder-2.5.1.lua:345: attempt to call method 'SetBackdrop' (a nil value)",
+			["time"] = "2021/06/02 11:35:53",
+			["stack"] = "[string \"@Interface\\AddOns\\BuffReminder\\BuffReminder-2.5.1.lua\"]:345: in function `UnlockFrame'\n[string \"@Interface\\AddOns\\BuffReminder\\BuffReminder-2.5.1.lua\"]:371: in function `SetupFrame'\n[string \"@Interface\\AddOns\\BuffReminder\\BuffReminder-2.5.1.lua\"]:202: in function <Interface\\AddOns\\BuffReminder\\BuffReminder.lua:171>\n[string \"=[C]\"]: ?\n[string \"@Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0-13.lua\"]:70: in function <...face\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:65>\n[string \"@Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0-13.lua\"]:498: in function `InitializeAddon'\n[string \"@Interface\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0-13.lua\"]:623: in function <...face\\AddOns\\Atlas\\Libs\\AceAddon-3.0\\AceAddon-3.0.lua:615>",
+			["session"] = 100,
+			["counter"] = 2,
+		}, -- [35]
+		{
+			["message"] = "...ace\\AddOns\\TellMeWhen\\Localization\\StaticFormats.lua:21: bad argument #2 to 'format' (string expected, got nil)",
+			["time"] = "2021/06/02 11:40:07",
+			["locals"] = "(*temporary) = \"You have used an icon type that uses the special duration syntax for the first time! Spells that are added to the %q editbox for certain icon types must define a duration immediately after each spell using the following syntax:\n\nSpell: Duration\n\nFor example:\n\n\"%s: 120\"\n\"%s: 10; %s: 24\"\n\"%s: 180\"\n\"%s: 3:00\"\n\"62618: 3:00\"\n\nInserting from the suggestion list automatically adds the duration from the tooltip.\"\n(*temporary) = \"What to track\"\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = \"Counterspell\"\n(*temporary) = nil\n(*temporary) = \"string expected, got nil\"\n",
+			["stack"] = "[string \"=[C]\"]: in function `format'\n[string \"@Interface\\AddOns\\TellMeWhen\\Localization\\StaticFormats.lua\"]:21: in main chunk",
+			["session"] = 102,
+			["counter"] = 2,
+		}, -- [36]
+		{
+			["message"] = "Interface\\AddOns\\TellMeWhen\\TellMeWhen-9.0.7.lua:22: attempt to perform arithmetic on a string value",
+			["time"] = "2021/06/02 11:40:07",
+			["locals"] = "(*temporary) = <table> {\n BFMGR_INVITED_TO_QUEUE_WARMUP = <table> {\n }\n CONFIRM_BUY_BANK_SLOT = <table> {\n }\n BACKPACK_INCREASE_SIZE = <table> {\n }\n CONFIRM_SURRENDER_ARENA = <table> {\n }\n BugSackSendBugs = <table> {\n }\n CONFIRM_REDOCK_CHAT = <table> {\n }\n CONFIRM_PET_UNLEARN = <table> {\n }\n CONFIRM_DESTROY_COMMUNITY = <table> {\n }\n REMOVE_GUILDMEMBER = <table> {\n }\n QUEST_ACCEPT_LOG_FULL = <table> {\n }\n CLIENT_LOGOUT_ALERT = <table> {\n }\n RENAME_ARENA_TEAM = <table> {\n }\n CONFIRM_LOOT_DISTRIBUTION = <table> {\n }\n RENAME_GUILD = <table> {\n }\n RESURRECT = <table> {\n }\n TRADE_POTENTIAL_BIND_ENCHANT = <table> {\n }\n INVITE_COMMUNITY_MEMBER = <table> {\n }\n CONFIRM_TEAM_PROMOTE = <table> {\n }\n SET_GUILDPLAYERNOTE = <table> {\n }\n CONFIRM_RESET_VIDEO_SETTINGS = <table> {\n }\n ABANDON_PET = <table> {\n }\n USE_NO_REFUND_CONFIRM = <table> {\n }\n DELETE_QUEST_ITEM = <table> {\n }\n QUESTIE_LANG_CHANGED_RELOAD = <table> {\n }\n CONFIRM_REMOVE_COMMUNITY_MEMBER = <table> {\n }\n LFG_OFFER_CONTINUE = <table> {\n }\n DELETE_ITEM = <table> {\n }\n ADD_RAIDMEMBER = <table> {\n }\n CONFIRM_WARGAME_ENTRY = <table> {\n }\n MAC_OPEN_UNIVERSAL_ACCESS = <table> {\n }\n BFMGR_PLAYER_NOT_WHILE_IN_RAID = <table> {\n }\n GOSSIP_CONFIRM = <table> {\n }\n CONFIRM_SAVE_EQUIPMENT_SET = <table> {\n }\n TRANSMOG_OUTFIT_SOME_INVALID_APPEARANCES = <table> {\n }\n XP_LOSS_NO_SICKNESS_NO_DURABILITY = <table> {\n }\n ARENA_TEAM_INVITE = <table> {\n }\n SET_BNFRIENDNOTE = <table> {\n }\n ADD_TEAMMEMBER = <table> {\n }\n CAMP = <table> {\n }\n CONFIRM_GUILD_CHARTER_PURCHASE = <table> {\n }\n RESURRECT_NO_TIMER = <table> {\n }\n NeatPlatesHUB_RESETCHECK = <table> {\n }\n GTFO_POPUP_MESSAGE = <table> {\n }\n CONFIRM_TEAM_KICK = <table> {\n }\n COD_CONFIRMATION_AUTO_LOOT = <table> {\n }\n CONVERT_TO_RAID = <table> {\n }\n CLIENT_INVENTORY_FULL_OVERFLOW = <table> {\n }\n CONFIRM_HIGH_COST_ITEM = <table> {\n }\n CLICK_LINK_CLICKURL = <table> {\n }\n ATR_RENAME_SHOPPING_LIST = <table> {\n }\n OMNIBAR_DELETE = <table> {\n }\n CHAT_CHANNEL_PASSWORD = <table> {\n }\n SET_FRIENDNOTE = <table> {\n }\n QUESTIE_WOWHEAD_URL = <table> {\n }\n CONFIRM_GLYPH_PLACEMENT = <table> {\n }\n GUILD_DEMOTE_CONFIRM = <table> {\n }\n GUILDBANK_WITHDRAW = <table> {\n }\n ATR_SL_REQUEST_DENIED = <table> {\n }\n UNLEARN_SKILL = <table> {\n }\n JOIN_CHANNEL = <table> {\n }\n BFMGR_INVITED_TO_QUEUE = <table> {\n }\n HELP_TICKET_QUEUE_DISABLED = <table> {\n }\n CONFIRM_SUMMON_SCENARIO = <table> {\n }\n ATR_NEW_SHOPPING_LIST = <table> {\n }\n EXTERNAL_LINK = <table> {\n }\n RAF_GRANT_LEVEL_ALLIED_RACE = <table> {\n }\n INVITE_COMMUNITY_MEMBER_WITH_INVITE_LINK = <table> {\n }\n AUCTION_HOUSE_DEPRECATED = <table> {\n }\n GARRISON_BOOT = <table> {\n }\n PREMADE_GROUP_INSECURE_SEARCH = <table> {\n }\n DELETE_MAIL = <table> {\n }\n CONFIRM_LAUNCH_URL = <table> {\n }\n PREMADE_GROUP_SEARCH_DELIST_WARNING = <table> {\n }\n QUIT = <table> {\n }\n DANGEROUS_SCRIPTS_WARNING = <table> {\n }\n CONFIRM_UNLOCK_TRIAL_CHARACTER = <table> {\n }\n BFMGR_CONFIRM_WORLD_PVP_QUEUED = <table> {\n }\n GOSSIP_ENTER_CODE = <table> {\n }\n LEVEL_GRANT_PROPOSED = <table> {\n }\n TRANSMOG_FAVORITE_WARNING = <table> {\n }\n SET_GUILDOFFICERNOTE = <table> {\n }\n TRANSMOG_APPLY_WARNING = <table> {\n }\n TRANSMOG_OUTFIT_ALL_INVALID_APPEARANCES = <table> {\n }\n ERR_SOR_STARTING_EXPERIENCE_INCOMPLETE = <table> {\n }\n CONFIRM_LOOT_ROLL = <table> {\n }\n CONFIRM_DELETE_TRANSMOG_OUTFIT = <table> {\n }\n CONFIRM_BUY_REAGENTBANK_TAB = <table> {\n }\n CONFIRM_OVERWRITE_TRANSMOG_OUTFIT = <table> {\n }\n EQUIP_BIND_TRADEABLE = <table> {\n }\n CONFIRM_LEAVE_AND_DESTROY_COMMUNITY = <table> {\n }\n REPLACE_ENCHANT = <table> {\n }\n LFG_LIST_ENTRY_EXPIRED_TIMEOUT = <table> {\n }\n NAME_TRANSMOG_OUTFIT = <table> {\n }\n BATTLEFIELD_BORDER_WARNING = <table> {\n }\n SPEC_INVOLUNTARILY_CHANGED = <table> {\n }\n CONFIRM_REPORT_BATTLEPET_NAME = <table> {\n }\n SAVED_VARIABLES_TOO_LARGE = <table> {\n }\n CONFIRM_LEAVE_BATTLEFIELD = <table> {\n }\n IGR_BILLING_NAG = <table> {\n }\n CONFIRM_LEAVE_INSTANCE_PARTY = <table> {\n }\n SPELL_CONFIRMATION_WARNING = <table> {\n }\n PET_BATTLE_PVP_DUEL_REQUESTED = <table> {\n }\n SPELL_CONFIRMATION_PROMPT = <table> {\n }\n GUILD_IMPEACH = <table> {\n }\n CONFIRM_OVERWRI",
+			["stack"] = "[string \"@Interface\\AddOns\\TellMeWhen\\TellMeWhen-9.0.7.lua\"]:22: in main chunk",
+			["session"] = 102,
+			["counter"] = 2,
+		}, -- [37]
+		{
+			["message"] = "[string \"<unnamed>:OnLoad\"]:6: attempt to index global 'TMW' (a nil value)",
+			["time"] = "2021/06/02 11:40:07",
+			["locals"] = "self = <unnamed> {\n 0 = <userdata>\n borderTop = <unnamed> {\n }\n size = 1\n SetBorderSize = <function> defined *:OnLoad:1\n borderLeft = <unnamed> {\n }\n borderBottom = <unnamed> {\n }\n borderRight = <unnamed> {\n }\n SetColor = <function> defined *:OnLoad:25\n}\npixels = 1\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = <userdata>\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = \"attempt to index global 'TMW' (a nil value)\"\n",
+			["stack"] = "[string \"*:OnLoad\"]:6: in function `SetBorderSize'\n[string \"*:OnLoad\"]:33: in function <[string \"*:OnLoad\"]:1>\n[string \"=[C]\"]: ?",
+			["session"] = 102,
+			["counter"] = 2,
+		}, -- [38]
+		{
+			["message"] = "[string \"<unnamed>:OnLoad\"]:1: attempt to index global 'TMW' (a nil value)",
+			["time"] = "2021/06/02 11:40:07",
+			["locals"] = "self = <unnamed> {\n 0 = <userdata>\n Background = <unnamed> {\n }\n border = <unnamed> {\n }\n}\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = \"attempt to index global 'TMW' (a nil value)\"\n",
+			["stack"] = "[string \"*:OnLoad\"]:1: in function <[string \"*:OnLoad\"]:1>",
+			["session"] = 102,
+			["counter"] = 2,
+		}, -- [39]
+		{
+			["message"] = "[string \"TellMeWhen_InterfaceOptionsPanel:OnLoad\"]:2: attempt to concatenate global 'TELLMEWHEN_VERSION_FULL' (a nil value)",
+			["time"] = "2021/06/02 11:40:07",
+			["locals"] = "self = TellMeWhen_InterfaceOptionsPanel {\n 0 = <userdata>\n name = \"TellMeWhen\"\n title = <unnamed> {\n }\n Button = <unnamed> {\n }\n}\n(*temporary) = <function> defined =[C]:-1\n(*temporary) = <unnamed> {\n 0 = <userdata>\n}\n(*temporary) = \"TellMeWhen v\"\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = \"attempt to concatenate global 'TELLMEWHEN_VERSION_FULL' (a nil value)\"\n",
+			["stack"] = "[string \"*:OnLoad\"]:2: in function <[string \"*:OnLoad\"]:1>",
+			["session"] = 102,
+			["counter"] = 2,
+		}, -- [40]
+		{
+			["message"] = "(null)",
+			["time"] = "2021/05/21 22:31:01",
+			["session"] = 102,
+			["counter"] = 169,
+		}, -- [41]
+		{
+			["message"] = "[ADDON_ACTION_BLOCKED] AddOn 'ItemRack' tried to call the protected function 'AutoEquipCursorItem()'.",
+			["time"] = "2021/05/25 19:07:57",
+			["stack"] = "[string \"@Interface\\AddOns\\!BugGrabber\\BugGrabber.lua\"]:519: in function <Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:519>\n[string \"=[C]\"]: in function `AutoEquipCursorItem'\n[string \"*:OnMouseUp\"]:4: in function `oldCharacterModelFrame_OnMouseUp'\n[string \"@Interface\\AddOns\\ItemRack\\ItemRackButtons.lua\"]:105: in function <Interface\\AddOns\\ItemRack\\ItemRackButtons.lua:101>\n[string \"=[C]\"]: ?",
+			["session"] = 104,
+			["counter"] = 3,
+		}, -- [42]
 		{
 			["message"] = "...rface\\AddOns\\Blizzard_WorldMap\\Blizzard_WorldMap.lua:333: bad argument #1 to 'format' (string expected, got no value)",
 			["time"] = "2021/05/21 22:29:12",
 			["locals"] = "(*temporary) = \"Toggle on/off the in game Zone Map. Shortcut: %s\"\n(*temporary) = \"string expected, got no value\"\n",
 			["stack"] = "[string \"=[C]\"]: in function `format'\n[string \"@Interface\\AddOns\\Blizzard_WorldMap\\Blizzard_WorldMap.lua\"]:333: in function <...rface\\AddOns\\Blizzard_WorldMap\\Blizzard_WorldMap.lua:331>",
-			["session"] = 76,
-			["counter"] = 19,
-		}, -- [33]
+			["session"] = 104,
+			["counter"] = 22,
+		}, -- [43]
+		{
+			["message"] = "[string \"Error in: AutoOpen Flight Master\"]:8: attempt to index local 'pString' (a nil value)",
+			["time"] = "2021/06/02 21:30:15",
+			["stack"] = "[string \"Error in: AutoOpen Flight Master\"]:33: in function <[string \"Error in: AutoOpen Flight Master\"]:1>\n[string \"=[C]\"]: in function `xpcall'\n[string \"@Interface\\AddOns\\WeakAuras\\GenericTrigger.lua\"]:604: in function <Interface\\AddOns\\WeakAuras\\GenericTrigger.lua:537>\n[string \"@Interface\\AddOns\\WeakAuras\\GenericTrigger.lua\"]:740: in function `ScanEventsInternal'\n[string \"@Interface\\AddOns\\WeakAuras\\GenericTrigger.lua\"]:701: in function `ScanEvents'\n[string \"@Interface\\AddOns\\WeakAuras\\GenericTrigger.lua\"]:847: in function <Interface\\AddOns\\WeakAuras\\GenericTrigger.lua:832>",
+			["session"] = 110,
+			["counter"] = 1,
+		}, -- [44]
+		{
+			["message"] = "[string \"MAOptions:OnLoad\"]:24: Attempt to register unknown event \"ACTIVE_TALENT_GROUP_CHANGED\"",
+			["time"] = "2021/05/21 22:30:07",
+			["locals"] = "(*temporary) = MAOptions {\n 0 = <userdata>\n background = <unnamed> {\n }\n}\n(*temporary) = \"ACTIVE_TALENT_GROUP_CHANGED\"\n",
+			["stack"] = "[string \"=[C]\"]: in function `RegisterEvent'\n[string \"*:OnLoad\"]:24: in function <[string \"*:OnLoad\"]:1>",
+			["session"] = 116,
+			["counter"] = 51,
+		}, -- [45]
+		{
+			["message"] = "Interface\\AddOns\\TotemTimers\\Settings-Settings.lua:723: attempt to index local 'bar' (a number value)",
+			["time"] = "2021/06/04 12:13:04",
+			["locals"] = "value = 0.800000\nTimers = <table> {\n 1 = <table> {\n }\n 2 = <table> {\n }\n 3 = <table> {\n }\n 4 = <table> {\n }\n 5 = <table> {\n }\n 6 = <table> {\n }\n 7 = <table> {\n }\n 8 = <table> {\n }\n}\n(for index) = 2\n(for limit) = 8\n(for step) = 1\ni = 2\nbar = 3\n(*temporary) = 1\n(*temporary) = 0.800000\n(*temporary) = <userdata>\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = nil\n(*temporary) = \"attempt to index local 'bar' (a number value)\"\n",
+			["stack"] = "[string \"@Interface\\AddOns\\TotemTimers\\Settings-Settings.lua\"]:723: in function `?'\n[string \"@Interface\\AddOns\\TotemTimers\\Settings-Settings.lua\"]:31: in function `ProcessSetting'\n[string \"@Interface\\AddOns\\TotemTimers\\Settings-Settings.lua\"]:38: in function `ProcessAllSettings'\n[string \"@Interface\\AddOns\\TotemTimers\\DefaultSettings.lua\"]:397: in function `ExecuteProfile'\n[string \"@Interface\\AddOns\\TotemTimers\\Spells-Spells.lua\"]:69: in function `ChangedTalents'\n[string \"@Interface\\AddOns\\TotemTimers\\TotemTimers-1.13.lua\"]:47: in function <Interface\\AddOns\\TotemTimers\\TotemTimers.lua:29>",
+			["session"] = 125,
+			["counter"] = 2,
+		}, -- [46]
 	},
 }

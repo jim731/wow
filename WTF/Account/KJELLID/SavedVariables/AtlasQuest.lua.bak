@@ -4,7 +4,15 @@ AtlasQuest_Options = {
 		["ShownSide"] = "Left",
 		["AtlasAutoShow"] = 1,
 	},
+	["Ferns"] = {
+		["ShownSide"] = "Left",
+		["AtlasAutoShow"] = 1,
+	},
 	["Consumables"] = {
+		["ShownSide"] = "Left",
+		["AtlasAutoShow"] = 1,
+	},
+	["Craftmateria"] = {
 		["ShownSide"] = "Left",
 		["AtlasAutoShow"] = 1,
 	},
@@ -13,6 +21,10 @@ AtlasQuest_Options = {
 		["AtlasAutoShow"] = 1,
 	},
 	["Bullsi"] = {
+		["ShownSide"] = "Left",
+		["AtlasAutoShow"] = 1,
+	},
+	["Consooms"] = {
 		["ShownSide"] = "Left",
 		["AtlasAutoShow"] = 1,
 	},
@@ -48,7 +60,7 @@ AtlasQuest_Options = {
 		["ShownSide"] = "Left",
 		["AtlasAutoShow"] = 1,
 	},
-	["Version"] = "4.11.67",
+	["Version"] = "4.12.80",
 	["Korloc"] = {
 		["ShownSide"] = "Left",
 		["AtlasAutoShow"] = 1,

@@ -3,3 +3,5 @@ BigWigs_Options: enabled
 BigWigs_Plugins: enabled
 WeakAurasCompanion: enabled
 WeakAurasArchive: enabled
+AtlasQuest: enabled
+LFG113: enabled

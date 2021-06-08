@@ -1,2 +1,4 @@
 WeakAurasCompanion: enabled
 WeakAurasArchive: enabled
+PallyPower: disabled
+MoveAnything: disabled

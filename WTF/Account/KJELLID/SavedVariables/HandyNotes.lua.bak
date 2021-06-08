@@ -6,27 +6,31 @@ HandyNotesDB = {
 		["Hemos - Mirage Raceway"] = "Hemos - Mirage Raceway",
 		["Elunari - Firemaw"] = "Elunari - Firemaw",
 		["Craftmateria - Mirage Raceway"] = "Craftmateria - Mirage Raceway",
+		["Adsdawad - Pyrewood Village"] = "Adsdawad - Pyrewood Village",
 		["Craftingmats - Nethergarde Keep"] = "Craftingmats - Nethergarde Keep",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
+		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
 		["Zanjee - Mirage Raceway"] = "Zanjee - Mirage Raceway",
 		["Consooms - Mirage Raceway"] = "Consooms - Mirage Raceway",
-		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
-		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
+		["Korloc - Mirage Raceway"] = "Korloc - Mirage Raceway",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
+		["Sadsadaddsa - Pyrewood Village"] = "Sadsadaddsa - Pyrewood Village",
+		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
+		["Baeldemos - Pyrewood Village"] = "Baeldemos - Pyrewood Village",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Baeldemos - Nethergarde Keep"] = "Baeldemos - Nethergarde Keep",
-		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
-		["Korloc - Mirage Raceway"] = "Korloc - Mirage Raceway",
+		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
+		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Equipment - Mirage Raceway"] = "Equipment - Mirage Raceway",
-		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
+		["Ferns - Mirage Raceway"] = "Ferns - Mirage Raceway",
 		["Zabuji - Mirage Raceway"] = "Zabuji - Mirage Raceway",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
-		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -39,6 +43,8 @@ HandyNotesDB = {
 		},
 		["Craftmateria - Mirage Raceway"] = {
 		},
+		["Adsdawad - Pyrewood Village"] = {
+		},
 		["Craftingmats - Nethergarde Keep"] = {
 		},
 		["Consumables - Nethergarde Keep"] = {
@@ -47,29 +53,35 @@ HandyNotesDB = {
 		},
 		["Garluk - Mirage Raceway"] = {
 		},
+		["Lionidas - Pyrewood Village"] = {
+		},
 		["Zanjee - Mirage Raceway"] = {
 		},
 		["Consooms - Mirage Raceway"] = {
 		},
-		["Lionidas - Pyrewood Village"] = {
+		["Korloc - Mirage Raceway"] = {
+		},
+		["Various - Nethergarde Keep"] = {
+		},
+		["Sadsadaddsa - Pyrewood Village"] = {
 		},
 		["Cowski - Mirage Raceway"] = {
 		},
-		["Various - Nethergarde Keep"] = {
+		["Baeldemos - Pyrewood Village"] = {
 		},
 		["Fermion - Nethergarde Keep"] = {
 		},
 		["Baeldemos - Nethergarde Keep"] = {
 		},
-		["Lanayria - Mirage Raceway"] = {
+		["Clothguy - Nethergarde Keep"] = {
 		},
-		["Korloc - Mirage Raceway"] = {
+		["Bankmoomoo - Mirage Raceway"] = {
 		},
 		["Ferns - Skullflame"] = {
 		},
 		["Equipment - Mirage Raceway"] = {
 		},
-		["Bankmoomoo - Mirage Raceway"] = {
+		["Ferns - Mirage Raceway"] = {
 		},
 		["Zabuji - Mirage Raceway"] = {
 		},
@@ -77,9 +89,9 @@ HandyNotesDB = {
 		},
 		["Nahfan - Mirage Raceway"] = {
 		},
-		["Clothguy - Nethergarde Keep"] = {
-		},
 		["Shapeshifter - Skullflame"] = {
+		},
+		["Lanayria - Mirage Raceway"] = {
 		},
 	},
 }
@@ -90,27 +102,31 @@ HandyNotes_HandyNotesDB = {
 		["Hemos - Mirage Raceway"] = "Hemos - Mirage Raceway",
 		["Elunari - Firemaw"] = "Elunari - Firemaw",
 		["Craftmateria - Mirage Raceway"] = "Craftmateria - Mirage Raceway",
+		["Adsdawad - Pyrewood Village"] = "Adsdawad - Pyrewood Village",
 		["Craftingmats - Nethergarde Keep"] = "Craftingmats - Nethergarde Keep",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
+		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
 		["Zanjee - Mirage Raceway"] = "Zanjee - Mirage Raceway",
 		["Consooms - Mirage Raceway"] = "Consooms - Mirage Raceway",
-		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
-		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
+		["Korloc - Mirage Raceway"] = "Korloc - Mirage Raceway",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
+		["Sadsadaddsa - Pyrewood Village"] = "Sadsadaddsa - Pyrewood Village",
+		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
+		["Baeldemos - Pyrewood Village"] = "Baeldemos - Pyrewood Village",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Baeldemos - Nethergarde Keep"] = "Baeldemos - Nethergarde Keep",
-		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
-		["Korloc - Mirage Raceway"] = "Korloc - Mirage Raceway",
+		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
+		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Equipment - Mirage Raceway"] = "Equipment - Mirage Raceway",
-		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
+		["Ferns - Mirage Raceway"] = "Ferns - Mirage Raceway",
 		["Zabuji - Mirage Raceway"] = "Zabuji - Mirage Raceway",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
-		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
 		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -123,6 +139,8 @@ HandyNotes_HandyNotesDB = {
 		},
 		["Craftmateria - Mirage Raceway"] = {
 		},
+		["Adsdawad - Pyrewood Village"] = {
+		},
 		["Craftingmats - Nethergarde Keep"] = {
 		},
 		["Consumables - Nethergarde Keep"] = {
@@ -131,29 +149,35 @@ HandyNotes_HandyNotesDB = {
 		},
 		["Garluk - Mirage Raceway"] = {
 		},
+		["Lionidas - Pyrewood Village"] = {
+		},
 		["Zanjee - Mirage Raceway"] = {
 		},
 		["Consooms - Mirage Raceway"] = {
 		},
-		["Lionidas - Pyrewood Village"] = {
+		["Korloc - Mirage Raceway"] = {
+		},
+		["Various - Nethergarde Keep"] = {
+		},
+		["Sadsadaddsa - Pyrewood Village"] = {
 		},
 		["Cowski - Mirage Raceway"] = {
 		},
-		["Various - Nethergarde Keep"] = {
+		["Baeldemos - Pyrewood Village"] = {
 		},
 		["Fermion - Nethergarde Keep"] = {
 		},
 		["Baeldemos - Nethergarde Keep"] = {
 		},
-		["Lanayria - Mirage Raceway"] = {
+		["Clothguy - Nethergarde Keep"] = {
 		},
-		["Korloc - Mirage Raceway"] = {
+		["Bankmoomoo - Mirage Raceway"] = {
 		},
 		["Ferns - Skullflame"] = {
 		},
 		["Equipment - Mirage Raceway"] = {
 		},
-		["Bankmoomoo - Mirage Raceway"] = {
+		["Ferns - Mirage Raceway"] = {
 		},
 		["Zabuji - Mirage Raceway"] = {
 		},
@@ -161,9 +185,9 @@ HandyNotes_HandyNotesDB = {
 		},
 		["Nahfan - Mirage Raceway"] = {
 		},
-		["Clothguy - Nethergarde Keep"] = {
-		},
 		["Shapeshifter - Skullflame"] = {
+		},
+		["Lanayria - Mirage Raceway"] = {
 		},
 	},
 }

@@ -1,9 +1,13 @@
 
 RXPCData = {
 	["hideWindow"] = false,
-	["currentStep"] = 17,
-	["currentGuideName"] = "20-23 Stonetalon / The Barrens",
+	["currentStep"] = 27,
+	["currentGuideName"] = "23-27 Hillsbrad / Ashenvale",
 	["stepSkip"] = {
+		[17] = true,
+		[18] = true,
+		[16] = true,
+		[2] = true,
 	},
 	["currentGuideGroup"] = "RestedXP Horde 1-30",
 }

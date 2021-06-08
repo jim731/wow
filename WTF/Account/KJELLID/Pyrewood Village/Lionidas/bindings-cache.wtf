@@ -166,4 +166,5 @@ bind ALT-6 CLICK BT4Button72:LeftButton
 bind CTRL-| CLICK BT4Button114:LeftButton
 bind \ JUMP
 bind + STARTAUTORUN
+bind CTRL-SHIFT-S SCREENSHOT
 modifiedclick NONE SELFCAST

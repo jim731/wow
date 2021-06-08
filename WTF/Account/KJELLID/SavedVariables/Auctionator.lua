@@ -15,6 +15,11 @@ AUCTIONATOR_PRICING_HISTORY = {
 		["is"] = "2751:0:0:0:0",
 		["6695606"] = "4400:1",
 	},
+	["Greater Magic Wand"] = {
+		["6750347"] = "1730:1",
+		["6750643"] = "1710:1",
+		["is"] = "11288:0:0:0:0",
+	},
 	["Green Hills of Stranglethorn - Page 18"] = {
 		["is"] = "2742:0:0:0:0",
 		["6695606"] = "3000:1",
@@ -28,12 +33,16 @@ AUCTIONATOR_PRICING_HISTORY = {
 AUCTIONATOR_SHOPPING_LISTS = {
 	{
 		["items"] = {
-			"soul", -- [1]
-			"greater magic wand", -- [2]
-			"lesser magic wand", -- [3]
-			"traveler", -- [4]
-			"morrowgrain", -- [5]
-			"runecloth bag", -- [6]
+			"eviate", -- [1]
+			"Deviate", -- [2]
+			"bronze tube", -- [3]
+			"silver rod", -- [4]
+			"soul", -- [5]
+			"greater magic wand", -- [6]
+			"lesser magic wand", -- [7]
+			"traveler", -- [8]
+			"morrowgrain", -- [9]
+			"runecloth bag", -- [10]
 		},
 		["isRecents"] = 1,
 		["name"] = "Recent Searches",
@@ -144,22 +153,11 @@ AUCTIONATOR_PRICE_DATABASE = {
 	["Skullflame_Horde"] = {
 	},
 	["Mirage Raceway_Horde"] = {
-		["Lesser Magic Wand"] = {
-			["L3845"] = 490,
-			["H3832"] = 1499,
-			["id"] = "11287:0:0:0:0",
-			["mr"] = 490,
-			["sc"] = 19,
-			["H3844"] = 555,
-			["H3845"] = 545,
-			["cc"] = 2,
-			["L3832"] = 1369,
-		},
-		["Pattern: Enchanted Runecloth Bag"] = {
-			["mr"] = 257548,
+		["Pattern: Soul Pouch"] = {
+			["H3844"] = 77999,
 			["cc"] = 9,
-			["id"] = "22308:0:0:0:0",
-			["H3842"] = 257548,
+			["id"] = "21358:0:0:0:0",
+			["mr"] = 77999,
 			["sc"] = 2,
 		},
 		["Darksoul Leggings"] = {
@@ -169,43 +167,6 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 704250,
 			["sc"] = 4,
 		},
-		["Soul Pouch"] = {
-			["H3844"] = 204500,
-			["cc"] = 1,
-			["id"] = "21340:0:0:0:0",
-			["mr"] = 204500,
-			["sc"] = 1,
-		},
-		["Souldarite"] = {
-			["H3844"] = 15397,
-			["cc"] = 3,
-			["id"] = "19774:0:0:0:0",
-			["mr"] = 15397,
-			["sc"] = 7,
-		},
-		["Greater Magic Wand"] = {
-			["mr"] = 1595,
-			["cc"] = 2,
-			["H3832"] = 5000,
-			["id"] = "11288:0:0:0:0",
-			["H3841"] = 1895,
-			["sc"] = 19,
-			["H3844"] = 1595,
-		},
-		["Moonsoul Crown"] = {
-			["H3844"] = 49999,
-			["cc"] = 4,
-			["id"] = "20832:0:0:0:0",
-			["mr"] = 49999,
-			["sc"] = 1,
-		},
-		["Darksoul Shoulders"] = {
-			["H3844"] = 609500,
-			["cc"] = 4,
-			["id"] = "19695:0:0:0:0",
-			["mr"] = 609500,
-			["sc"] = 4,
-		},
 		["Soul Dust"] = {
 			["H3844"] = 2453,
 			["cc"] = 7,
@@ -213,12 +174,33 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 2453,
 			["sc"] = 12,
 		},
-		["Whitesoul Helm"] = {
-			["H3844"] = 700000,
+		["Pattern: Deviate Scale Belt"] = {
+			["mr"] = 12500,
+			["cc"] = 9,
+			["id"] = "6476:0:0:0:0",
+			["H3853"] = 12500,
+			["sc"] = 1,
+		},
+		["Deviate Scale Belt"] = {
+			["mr"] = 150000,
 			["cc"] = 4,
-			["id"] = "12633:0:0:0:0",
-			["mr"] = 700000,
-			["sc"] = 4,
+			["id"] = "6468:0:0:0:0",
+			["H3853"] = 150000,
+			["sc"] = 2,
+		},
+		["Deviate Fish"] = {
+			["mr"] = 1939,
+			["cc"] = 0,
+			["id"] = "6522:0:0:0:0",
+			["H3853"] = 1939,
+			["sc"] = 5,
+		},
+		["Deviate Scale Gloves"] = {
+			["mr"] = 4500,
+			["cc"] = 4,
+			["id"] = "6467:0:0:0:0",
+			["H3853"] = 4500,
+			["sc"] = 2,
 		},
 		["Runecloth Bag"] = {
 			["mr"] = 49800,
@@ -234,12 +216,132 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 703278,
 			["sc"] = 4,
 		},
-		["Pattern: Soul Pouch"] = {
-			["H3844"] = 77999,
+		["Lesser Magic Wand"] = {
+			["L3845"] = 490,
+			["H3832"] = 1499,
+			["id"] = "11287:0:0:0:0",
+			["mr"] = 490,
+			["sc"] = 19,
+			["H3844"] = 555,
+			["H3845"] = 545,
+			["cc"] = 2,
+			["L3832"] = 1369,
+		},
+		["Deviate Scale Cloak"] = {
+			["mr"] = 2999,
+			["cc"] = 4,
+			["id"] = "6466:0:0:0:0",
+			["H3853"] = 2999,
+			["sc"] = 1,
+		},
+		["Pattern: Deviate Scale Gloves"] = {
+			["mr"] = 3000,
 			["cc"] = 9,
-			["id"] = "21358:0:0:0:0",
-			["mr"] = 77999,
+			["id"] = "6475:0:0:0:0",
+			["H3853"] = 3000,
+			["sc"] = 1,
+		},
+		["Pattern: Bolt of Soulcloth"] = {
+			["H3844"] = 39300,
+			["cc"] = 9,
+			["id"] = "21894:0:0:0:0",
+			["mr"] = 39300,
 			["sc"] = 2,
+		},
+		["Souldarite"] = {
+			["H3844"] = 15397,
+			["cc"] = 3,
+			["id"] = "19774:0:0:0:0",
+			["mr"] = 15397,
+			["sc"] = 7,
+		},
+		["Savory Deviate Delight"] = {
+			["mr"] = 4000,
+			["cc"] = 0,
+			["id"] = "6657:0:0:0:0",
+			["H3853"] = 4000,
+			["sc"] = 5,
+		},
+		["Pattern: Deviate Scale Cloak"] = {
+			["mr"] = 4495,
+			["cc"] = 9,
+			["id"] = "6474:0:0:0:0",
+			["H3853"] = 4495,
+			["sc"] = 1,
+		},
+		["Soul Pouch"] = {
+			["H3844"] = 204500,
+			["cc"] = 1,
+			["id"] = "21340:0:0:0:0",
+			["mr"] = 204500,
+			["sc"] = 1,
+		},
+		["Darksoul Shoulders"] = {
+			["H3844"] = 609500,
+			["cc"] = 4,
+			["id"] = "19695:0:0:0:0",
+			["mr"] = 609500,
+			["sc"] = 4,
+		},
+		["Greater Magic Wand"] = {
+			["H3841"] = 1895,
+			["H3832"] = 5000,
+			["id"] = "11288:0:0:0:0",
+			["H3851"] = 1735,
+			["mr"] = 1715,
+			["sc"] = 19,
+			["L3851"] = 1715,
+			["H3844"] = 1595,
+			["cc"] = 2,
+		},
+		["Recipe: Savory Deviate Delight"] = {
+			["mr"] = 50000,
+			["cc"] = 9,
+			["id"] = "6661:0:0:0:0",
+			["H3853"] = 50000,
+			["sc"] = 5,
+		},
+		["Perfect Deviate Scale"] = {
+			["mr"] = 774,
+			["cc"] = 7,
+			["id"] = "6471:0:0:0:0",
+			["H3853"] = 774,
+			["sc"] = 6,
+		},
+		["Pattern: Enchanted Runecloth Bag"] = {
+			["mr"] = 257548,
+			["cc"] = 9,
+			["id"] = "22308:0:0:0:0",
+			["H3842"] = 257548,
+			["sc"] = 2,
+		},
+		["Silver Rod"] = {
+			["mr"] = 2900,
+			["cc"] = 7,
+			["id"] = "6338:0:0:0:0",
+			["sc"] = 12,
+			["H3851"] = 2900,
+		},
+		["Deviate Scale"] = {
+			["mr"] = 91,
+			["cc"] = 7,
+			["id"] = "6470:0:0:0:0",
+			["H3853"] = 91,
+			["sc"] = 6,
+		},
+		["Whitesoul Helm"] = {
+			["H3844"] = 700000,
+			["cc"] = 4,
+			["id"] = "12633:0:0:0:0",
+			["mr"] = 700000,
+			["sc"] = 4,
+		},
+		["Truesilver Rod"] = {
+			["mr"] = 18798,
+			["cc"] = 7,
+			["id"] = "11144:0:0:0:0",
+			["sc"] = 12,
+			["H3851"] = 18798,
 		},
 		["Craftsman's Writ - Runecloth Bag"] = {
 			["mr"] = 104500,
@@ -255,15 +357,22 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["mr"] = 381312,
 			["sc"] = 4,
 		},
-		["Pattern: Bolt of Soulcloth"] = {
-			["H3844"] = 39300,
-			["cc"] = 9,
-			["id"] = "21894:0:0:0:0",
-			["mr"] = 39300,
-			["sc"] = 2,
+		["Moonsoul Crown"] = {
+			["H3844"] = 49999,
+			["cc"] = 4,
+			["id"] = "20832:0:0:0:0",
+			["mr"] = 49999,
+			["sc"] = 1,
 		},
 	},
 	["Pyrewood Village_Alliance"] = {
+		["Bronze Tube"] = {
+			["mr"] = 1890,
+			["cc"] = 7,
+			["id"] = "4371:0:0:0:0",
+			["H3852"] = 1890,
+			["sc"] = 1,
+		},
 	},
 }
 AUCTIONATOR_LAST_SCAN_TIME = nil
@@ -276,17 +385,27 @@ AUCTIONATOR_TOONS = {
 	["Ferns"] = {
 		["firstSeen"] = 1616226408,
 		["firstVersion"] = "100.0.9",
-		["guid"] = "Player-4743-014F7A64",
+		["guid"] = "Player-4454-034456D5",
+	},
+	["Lionidas"] = {
+		["firstSeen"] = 1621893605,
+		["firstVersion"] = "100.0.11",
+		["guid"] = "Player-4453-0342B2E0",
+	},
+	["Ganado"] = {
+		["firstSeen"] = 1616345995,
+		["firstVersion"] = "100.0.9",
+		["guid"] = "Player-4456-0307E71F",
 	},
 	["Consumables"] = {
 		["firstSeen"] = 1619545935,
 		["firstVersion"] = "100.0.9",
 		["guid"] = "Player-4456-02089FE7",
 	},
-	["Lionidas"] = {
-		["firstSeen"] = 1621893605,
+	["Adsdawad"] = {
+		["firstSeen"] = 1622628747,
 		["firstVersion"] = "100.0.11",
-		["guid"] = "Player-4453-0342B2E0",
+		["guid"] = "Player-4453-034EA6DD",
 	},
 	["Craftmateria"] = {
 		["firstSeen"] = 1621789034,
@@ -308,10 +427,10 @@ AUCTIONATOR_TOONS = {
 		["guid"] = "Player-4454-0316309D",
 		["firstVersion"] = "100.0.9",
 	},
-	["Ganado"] = {
-		["firstSeen"] = 1616345995,
-		["firstVersion"] = "100.0.9",
-		["guid"] = "Player-4456-0307E71F",
+	["Sadsadaddsa"] = {
+		["firstSeen"] = 1622628826,
+		["guid"] = "Player-4453-034EA75A",
+		["firstVersion"] = "100.0.11",
 	},
 	["Bullsi"] = {
 		["firstSeen"] = 1621439943,
@@ -391,7 +510,7 @@ AUCTIONATOR_TOONS = {
 	["Baeldemos"] = {
 		["firstSeen"] = 1621543869,
 		["firstVersion"] = "100.0.10",
-		["guid"] = "Player-4456-0339FDDF",
+		["guid"] = "Player-4453-034EA7CD",
 	},
 	["Fermion"] = {
 		["firstSeen"] = 1616091869,

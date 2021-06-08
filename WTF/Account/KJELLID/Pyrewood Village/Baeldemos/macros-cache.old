@@ -1,0 +1,33 @@
+VER 3 0000000001000005 " " "136051"
+#showtooltip lightning shield
+/cast lightning shield
+/startattack
+END
+VER 3 0000000001000006 " " "136048"
+#showtooltip lightning bolt
+/cast lightning bolt
+/startattack
+END
+VER 3 0000000001000004 " " "135813"
+#showtooltip flame shock
+/cast flame shock
+/startattack
+END
+VER 3 0000000001000001 " " "136026"
+#showtooltip earth shock
+/cast earth shock
+/startattack
+END
+VER 3 0000000001000003 "   1   " "136026"
+#showtooltip earth shock(rank 1)
+/cast earth shock(rank 1)
+/startattack
+END
+VER 3 0000000001000007 "  1  " "136048"
+#showtooltip lightning bolt(rank 1)
+/cast lightning bolt(rank 1)
+/startattack
+END
+VER 3 0000000001000002 "TT Cast" "INV_MISC_QUESTIONMARK"
+/castsequence reset=combat/15  Searing Totem, Strength of Earth Totem, Healing Stream Totem
+END

@@ -63,18 +63,19 @@ Bagnon_Sets = {
 				false, -- [1]
 				[0] = false,
 				[4] = false,
-				[-2] = true,
+				[-2] = false,
 			},
 			["color"] = {
 			},
+			["brokerObject"] = "Attune_Broker",
 			["hiddenRules"] = {
 			},
-			["brokerObject"] = "Attune_Broker",
-			["y"] = 48.34553146362305,
-			["x"] = -181.7283935546875,
+			["y"] = 46.6171989440918,
 			["bagBreak"] = false,
+			["x"] = -45.8270263671875,
 			["borderColor"] = {
 			},
+			["showBags"] = true,
 			["spacing"] = 1,
 			["broker"] = true,
 			["bagToggle"] = true,

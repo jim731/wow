@@ -12,7 +12,7 @@ VER 3 0000000000000054 " " "136013"
 #showtooltip shoot
 /castsequence reset=2 !Shoot, null
 END
-VER 3 0000000000000055 " " "136108"
+VER 3 0000000000000055 " " "132321"
 #showtooltip attack
 /startattack
 END
@@ -83,8 +83,7 @@ VER 3 0000000000000047 "SUF" "INV_MISC_QUESTIONMARK"
 /suf
 END
 VER 3 0000000000000057 "target" "INV_MISC_QUESTIONMARK"
-/target thurman
-w
+/target Farmer
 END
 VER 3 000000000000005A "tfocus" "INV_MISC_QUESTIONMARK"
 /target focus

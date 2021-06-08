@@ -5,7 +5,7 @@ AutoCarrotDB = {
 	["buttonScale"] = 1,
 	["mithrilSpurs"] = true,
 	["button"] = false,
-	["beltId"] = 9775,
-	["swimHelm"] = true,
+	["beltId"] = 4249,
 	["swimBelt"] = true,
+	["swimHelm"] = true,
 }

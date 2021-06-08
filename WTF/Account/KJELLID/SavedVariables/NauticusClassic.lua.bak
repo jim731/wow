@@ -1,16 +1,22 @@
 
 NauticusClassic5DB = {
 	["char"] = {
+		["Lanayria - Mirage Raceway"] = {
+			["activeTransit"] = 1,
+		},
+		["Zabuji - Mirage Raceway"] = {
+			["activeTransit"] = 1,
+		},
 		["Fermion - Nethergarde Keep"] = {
 			["activeTransit"] = 9,
 		},
 		["Zanjee - Mirage Raceway"] = {
 			["activeTransit"] = 1,
 		},
-		["Korloc - Mirage Raceway"] = {
-			["activeTransit"] = 1,
+		["Baeldemos - Pyrewood Village"] = {
+			["activeTransit"] = 7,
 		},
-		["Zabuji - Mirage Raceway"] = {
+		["Korloc - Mirage Raceway"] = {
 			["activeTransit"] = 1,
 		},
 	},
@@ -20,83 +26,87 @@ NauticusClassic5DB = {
 		["Hemos - Mirage Raceway"] = "Hemos - Mirage Raceway",
 		["Elunari - Firemaw"] = "Elunari - Firemaw",
 		["Craftmateria - Mirage Raceway"] = "Craftmateria - Mirage Raceway",
+		["Adsdawad - Pyrewood Village"] = "Adsdawad - Pyrewood Village",
 		["Craftingmats - Nethergarde Keep"] = "Craftingmats - Nethergarde Keep",
 		["Consumables - Nethergarde Keep"] = "Consumables - Nethergarde Keep",
 		["Parisi - Nethergarde Keep"] = "Parisi - Nethergarde Keep",
 		["Garluk - Mirage Raceway"] = "Garluk - Mirage Raceway",
+		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
 		["Zanjee - Mirage Raceway"] = "Zanjee - Mirage Raceway",
 		["Consooms - Mirage Raceway"] = "Consooms - Mirage Raceway",
-		["Lionidas - Pyrewood Village"] = "Lionidas - Pyrewood Village",
-		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
+		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
 		["Various - Nethergarde Keep"] = "Various - Nethergarde Keep",
+		["Sadsadaddsa - Pyrewood Village"] = "Sadsadaddsa - Pyrewood Village",
+		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
+		["Baeldemos - Pyrewood Village"] = "Baeldemos - Pyrewood Village",
 		["Fermion - Nethergarde Keep"] = "Fermion - Nethergarde Keep",
 		["Baeldemos - Nethergarde Keep"] = "Baeldemos - Nethergarde Keep",
-		["Shapeshifter - Skullflame"] = "Shapeshifter - Skullflame",
-		["Nahfan - Mirage Raceway"] = "Nahfan - Mirage Raceway",
+		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
+		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
 		["Ferns - Skullflame"] = "Ferns - Skullflame",
 		["Equipment - Mirage Raceway"] = "Equipment - Mirage Raceway",
-		["Clothguy - Nethergarde Keep"] = "Clothguy - Nethergarde Keep",
+		["Ferns - Mirage Raceway"] = "Ferns - Mirage Raceway",
 		["Zabuji - Mirage Raceway"] = "Zabuji - Mirage Raceway",
 		["Bushwick - Nethergarde Keep"] = "Bushwick - Nethergarde Keep",
 		["Korloc - Mirage Raceway"] = "Korloc - Mirage Raceway",
-		["Bankmoomoo - Mirage Raceway"] = "Bankmoomoo - Mirage Raceway",
+		["Cowski - Mirage Raceway"] = "Cowski - Mirage Raceway",
 		["Lanayria - Mirage Raceway"] = "Lanayria - Mirage Raceway",
 	},
 	["global"] = {
 		["knownCycles"] = {
 			{
-				["swaps"] = 0,
+				["swaps"] = 2,
 				["boots"] = 0,
-				["since"] = 409309.231501295,
+				["since"] = -265787.895,
 			}, -- [1]
 			{
-				["swaps"] = 1,
+				["swaps"] = 2,
 				["boots"] = 0,
-				["since"] = 569499.4810000001,
+				["since"] = -281472.499,
 			}, -- [2]
 			{
-				["swaps"] = 1,
+				["swaps"] = 2,
 				["boots"] = 0,
-				["since"] = 397928.713,
+				["since"] = -287500.04,
 			}, -- [3]
 			{
-				["swaps"] = 1,
+				["swaps"] = 3,
 				["boots"] = 0,
-				["since"] = 681654.1130000001,
+				["since"] = -203480.543,
 			}, -- [4]
 			{
-				["swaps"] = 0,
+				["swaps"] = 3,
 				["boots"] = 0,
-				["since"] = 228103.00811672,
+				["since"] = -1120201.838,
 			}, -- [5]
 			{
-				["swaps"] = 1,
+				["swaps"] = 3,
 				["boots"] = 0,
-				["since"] = 225720.8,
+				["since"] = -256989.875,
 			}, -- [6]
 			{
-				["swaps"] = 2,
+				["swaps"] = 3,
 				["boots"] = 0,
-				["since"] = 664903.314,
+				["since"] = -391903.436,
 			}, -- [7]
 			{
-				["swaps"] = 1,
+				["swaps"] = 4,
 				["boots"] = 0,
-				["since"] = 924537.53,
+				["since"] = -314038.192,
 			}, -- [8]
 			{
-				["swaps"] = 0,
+				["swaps"] = 3,
 				["boots"] = 0,
-				["since"] = 408531.461837137,
+				["since"] = -276896.965,
 			}, -- [9]
 			{
-				["swaps"] = 2,
+				["swaps"] = 3,
 				["boots"] = 0,
-				["since"] = 594838.7640000001,
+				["since"] = -561101.969,
 			}, -- [10]
 		},
-		["timestamp"] = 1622139002,
-		["uptime"] = 1185766.87,
+		["timestamp"] = 1623156847,
+		["uptime"] = 82392.304,
 	},
 	["profiles"] = {
 		["Ganado - Nethergarde Keep"] = {
@@ -109,6 +119,8 @@ NauticusClassic5DB = {
 		},
 		["Craftmateria - Mirage Raceway"] = {
 		},
+		["Adsdawad - Pyrewood Village"] = {
+		},
 		["Craftingmats - Nethergarde Keep"] = {
 		},
 		["Consumables - Nethergarde Keep"] = {
@@ -117,30 +129,36 @@ NauticusClassic5DB = {
 		},
 		["Garluk - Mirage Raceway"] = {
 		},
+		["Lionidas - Pyrewood Village"] = {
+		},
 		["Zanjee - Mirage Raceway"] = {
 		},
 		["Consooms - Mirage Raceway"] = {
 		},
-		["Lionidas - Pyrewood Village"] = {
-		},
-		["Cowski - Mirage Raceway"] = {
+		["Nahfan - Mirage Raceway"] = {
 		},
 		["Various - Nethergarde Keep"] = {
+		},
+		["Sadsadaddsa - Pyrewood Village"] = {
+		},
+		["Shapeshifter - Skullflame"] = {
+		},
+		["Baeldemos - Pyrewood Village"] = {
 		},
 		["Fermion - Nethergarde Keep"] = {
 			["worldIconSize"] = 1.07,
 		},
 		["Baeldemos - Nethergarde Keep"] = {
 		},
-		["Shapeshifter - Skullflame"] = {
+		["Bankmoomoo - Mirage Raceway"] = {
 		},
-		["Nahfan - Mirage Raceway"] = {
+		["Clothguy - Nethergarde Keep"] = {
 		},
 		["Ferns - Skullflame"] = {
 		},
 		["Equipment - Mirage Raceway"] = {
 		},
-		["Clothguy - Nethergarde Keep"] = {
+		["Ferns - Mirage Raceway"] = {
 		},
 		["Zabuji - Mirage Raceway"] = {
 		},
@@ -148,7 +166,7 @@ NauticusClassic5DB = {
 		},
 		["Korloc - Mirage Raceway"] = {
 		},
-		["Bankmoomoo - Mirage Raceway"] = {
+		["Cowski - Mirage Raceway"] = {
 		},
 		["Lanayria - Mirage Raceway"] = {
 		},

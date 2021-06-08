@@ -1,9 +1,8 @@
 
 RXPCData = {
-	["currentGuideName"] = "23-27 Hillsbrad / Ashenvale",
+	["currentGuideName"] = "27-30 Lower Barrens / Thousand Needles",
 	["stepSkip"] = {
-		[2] = true,
 	},
 	["currentGuideGroup"] = "RestedXP Horde 1-30",
-	["currentStep"] = 16,
+	["currentStep"] = 2,
 }

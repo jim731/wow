@@ -16,8 +16,9 @@ VER 3 0000000001000002 " " "132204"
 END
 VER 3 0000000001000003 " " "132185"
 #showtooltip hunter's mark
-/petattack
-/cast Hunter's Mark
+/cast [target=mouseover, harm, exists] [harm, exists] Hunter's Mark
+/petattack [@mouseover, exists, nodead, nomod][@target, exists, nodead, nomod]
+/petdefensive
 END
 VER 3 0000000001000004 " " "132208"
 END
@@ -33,4 +34,8 @@ END
 VER 3 000000000100000A " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /castsequence !Aspect of the hawk, !Aspect of the cheetah
+END
+VER 3 000000000100000B " " "132296"
+/petfollow
+/petpassive
 END

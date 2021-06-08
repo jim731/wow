@@ -1,10 +1,10 @@
 
 AutoCarrotDB = {
-	["swimHelm"] = true,
-	["ridingGloves"] = true,
 	["enabled"] = true,
+	["mithrilSpurs"] = true,
+	["swimHelm"] = true,
 	["button"] = false,
 	["swimBelt"] = true,
-	["mithrilSpurs"] = true,
+	["ridingGloves"] = true,
 	["buttonScale"] = 1,
 }

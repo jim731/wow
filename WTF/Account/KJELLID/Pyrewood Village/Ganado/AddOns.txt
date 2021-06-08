@@ -1,0 +1,2 @@
+PallyPower: disabled
+MoveAnything: disabled

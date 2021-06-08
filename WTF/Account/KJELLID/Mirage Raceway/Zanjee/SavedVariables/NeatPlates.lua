@@ -17,9 +17,9 @@ NeatPlatesOptions = {
 	["NameplateClickableHeight"] = 1,
 	["WelcomeShown"] = true,
 	["EnforceRequiredCVars"] = true,
-	["ForceBlizzardFont"] = false,
-	["BlizzardNameVisibility"] = false,
 	["BlizzardScaling"] = false,
+	["BlizzardNameVisibility"] = false,
+	["ForceBlizzardFont"] = false,
 	["NameplateClickableWidth"] = 1,
 	["FirstSpecProfile"] = "Default",
 }

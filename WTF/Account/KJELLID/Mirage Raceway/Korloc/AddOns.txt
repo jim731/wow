@@ -9,3 +9,5 @@ Details: disabled
 DruidBarClassic: disabled
 NovaWorldBuffs: disabled
 MoveAnything: disabled
+AtlasQuest: enabled
+LFG113: enabled

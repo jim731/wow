@@ -1,4 +1,12 @@
+VER 3 0000000001000003 " " "132295"
+/petattack [target=mouseover,harm] [harm]
+/petdefensive
+END
 VER 3 0000000001000001 " " "132223"
 #showtooltip attack
 /startattack
+END
+VER 3 0000000001000002 " " "132307"
+/petfollow
+/petpassive
 END

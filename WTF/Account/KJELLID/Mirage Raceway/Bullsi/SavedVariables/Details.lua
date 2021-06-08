@@ -7,13 +7,12 @@ _detalhes_database = {
 		["tabelas"] = {
 			{
 				{
-					["combatId"] = 21,
 					["tipo"] = 2,
+					["combatId"] = 21,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1297,
 							["totalabsorbed"] = 0.003678,
-							["on_hold"] = false,
 							["damage_from"] = {
 								["Invading Felguard"] = true,
 							},
@@ -22,20 +21,20 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
-							["friendlyfire"] = {
-							},
+							["classe"] = "WARRIOR",
+							["tipo"] = 1,
 							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 1431.003678,
-							["aID"] = "4454-0333729B",
+							["serial"] = "Player-4454-0333729B",
 							["dps_started"] = false,
 							["total"] = 1431.003678,
-							["classe"] = "WARRIOR",
-							["serial"] = "Player-4454-0333729B",
+							["damage_taken"] = 167.003678,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 1,
@@ -122,16 +121,17 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
 							["grupo"] = true,
 							["end_time"] = 1622045360,
 							["last_dps"] = 0,
 							["custom"] = 0,
-							["tipo"] = 1,
-							["damage_taken"] = 167.003678,
+							["last_event"] = 1622045360,
+							["on_hold"] = false,
 							["start_time"] = 1622045356,
 							["delay"] = 0,
-							["last_event"] = 1622045360,
+							["aID"] = "4454-0333729B",
 						}, -- [1]
 						{
 							["flag_original"] = 68168,
@@ -152,24 +152,22 @@ _detalhes_database = {
 								["Argent Protector"] = 840,
 								["Argent Hunter"] = 33,
 							},
-							["aID"] = "19284",
+							["serial"] = "Creature-0-4480-0-11375-19284-00002E724F",
 							["pets"] = {
 							},
-							["friendlyfire"] = {
-							},
+							["on_hold"] = true,
 							["classe"] = "UNKNOW",
+							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 3400.004213,
-							["fight_component"] = true,
-							["timeMachine"] = 77,
-							["dps_started"] = true,
-							["total"] = 3400.004213,
 							["monster"] = true,
-							["on_hold"] = true,
+							["fight_component"] = true,
+							["total"] = 3400.004213,
+							["damage_taken"] = 5052.004213,
+							["last_event"] = 1622045387,
 							["nome"] = "Invading Felguard",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 4,
@@ -239,53 +237,56 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
-							["friendlyfire_total"] = 0,
-							["serial"] = "Creature-0-4480-0-11375-19284-00002E724F",
-							["last_dps"] = 0,
+							["timeMachine"] = 1,
+							["dps_started"] = true,
+							["friendlyfire"] = {
+							},
 							["custom"] = 0,
-							["last_event"] = 1622045387,
-							["damage_taken"] = 5052.004213,
+							["tipo"] = 1,
+							["last_dps"] = 0,
 							["start_time"] = 1622045370,
 							["delay"] = 1622045387,
-							["tipo"] = 1,
+							["aID"] = "19284",
 						}, -- [2]
 					},
 				}, -- [1]
 				{
-					["combatId"] = 21,
 					["tipo"] = 3,
+					["combatId"] = 21,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1297,
-							["totalabsorb"] = 0.004184,
-							["last_hps"] = 0,
 							["targets_overheal"] = {
-							},
-							["healing_from"] = {
-								["Bullsi"] = true,
-							},
-							["targets"] = {
-								["Bullsi"] = 68,
-							},
-							["targets_absorbs"] = {
 							},
 							["pets"] = {
 							},
 							["iniciar_hps"] = false,
-							["totalover_without_pet"] = 0.004184,
 							["heal_enemy_amt"] = 0,
 							["totalover"] = 0.004184,
 							["total_without_pet"] = 68.004184,
-							["end_time"] = 1622045360,
-							["classe"] = "WARRIOR",
-							["fight_component"] = true,
 							["total"] = 68.004184,
-							["aID"] = "4454-0333729B",
+							["targets_absorbs"] = {
+							},
+							["heal_enemy"] = {
+							},
+							["on_hold"] = false,
+							["serial"] = "Player-4454-0333729B",
+							["totalabsorb"] = 0.004184,
+							["last_hps"] = 0,
+							["targets"] = {
+								["Bullsi"] = 68,
+							},
+							["totalover_without_pet"] = 0.004184,
 							["healing_taken"] = 68.004184,
+							["fight_component"] = true,
+							["end_time"] = 1622045360,
+							["healing_from"] = {
+								["Bullsi"] = true,
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 3,
 								["_ActorTable"] = {
 									[23890] = {
 										["c_amt"] = 0,
@@ -306,21 +307,20 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 4,
 										["n_curado"] = 68,
 										["totaldenied"] = 0,
-										["n_amt"] = 4,
 										["absorbed"] = 0,
 									},
 								},
+								["tipo"] = 3,
 							},
 							["grupo"] = true,
-							["start_time"] = 1622045357,
-							["heal_enemy"] = {
-							},
-							["serial"] = "Player-4454-0333729B",
+							["classe"] = "WARRIOR",
+							["aID"] = "4454-0333729B",
 							["custom"] = 0,
 							["tipo"] = 2,
-							["on_hold"] = false,
+							["start_time"] = 1622045357,
 							["totaldenied"] = 0.004184,
 							["delay"] = 0,
 							["last_event"] = 1622045360,
@@ -328,8 +328,8 @@ _detalhes_database = {
 					},
 				}, -- [2]
 				{
-					["combatId"] = 21,
 					["tipo"] = 7,
+					["combatId"] = 21,
 					["_ActorTable"] = {
 						{
 							["received"] = 20.005078,
@@ -346,7 +346,6 @@ _detalhes_database = {
 							["total"] = 20.005078,
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 7,
 								["_ActorTable"] = {
 									[2687] = {
 										["total"] = 10,
@@ -367,6 +366,7 @@ _detalhes_database = {
 										["counter"] = 10,
 									},
 								},
+								["tipo"] = 7,
 							},
 							["grupo"] = true,
 							["flag_original"] = 1297,
@@ -380,99 +380,99 @@ _detalhes_database = {
 					},
 				}, -- [3]
 				{
-					["combatId"] = 21,
 					["tipo"] = 9,
+					["combatId"] = 21,
 					["_ActorTable"] = {
 						{
 							["fight_component"] = true,
-							["spell_cast"] = {
-								[23893] = 1,
-								[2687] = 1,
-							},
+							["buff_uptime"] = 12,
 							["flag_original"] = 1047,
 							["buff_uptime_targets"] = {
 							},
 							["grupo"] = true,
 							["nome"] = "Bullsi",
-							["buff_uptime"] = 12,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 1,
+								[2687] = 1,
 							},
 							["classe"] = "WARRIOR",
 							["tipo"] = 4,
 							["aID"] = "4454-0333729B",
 							["buff_uptime_spells"] = {
-								["tipo"] = 9,
 								["_ActorTable"] = {
 									[186403] = {
-										["activedamt"] = 1,
-										["id"] = 186403,
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
+										["activedamt"] = 1,
 										["uptime"] = 4,
+										["id"] = 186403,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[23887] = {
 										["appliedamt"] = 1,
+										["targets"] = {
+										},
+										["activedamt"] = 1,
+										["uptime"] = 3,
+										["id"] = 23887,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 									[29131] = {
-										["activedamt"] = 1,
-										["id"] = 29131,
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
+										["activedamt"] = 1,
 										["uptime"] = 1,
-										["appliedamt"] = 1,
+										["id"] = 29131,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 									[12970] = {
-										["activedamt"] = 1,
-										["id"] = 12970,
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
+										["activedamt"] = 1,
 										["uptime"] = 4,
-										["appliedamt"] = 1,
+										["id"] = 12970,
 										["refreshamt"] = 2,
 										["actived"] = false,
 										["counter"] = 0,
 									},
-									[23887] = {
-										["activedamt"] = 1,
-										["id"] = 23887,
-										["targets"] = {
-										},
-										["uptime"] = 3,
-										["appliedamt"] = 1,
-										["refreshamt"] = 0,
-										["actived"] = false,
-										["counter"] = 0,
-									},
 								},
+								["tipo"] = 9,
 							},
 							["serial"] = "Player-4454-0333729B",
 							["last_event"] = 1622045360,
 						}, -- [1]
 						{
 							["monster"] = true,
+							["classe"] = "UNKNOW",
 							["nome"] = "Invading Felguard",
 							["flag_original"] = 2632,
+							["pets"] = {
+							},
+							["fight_component"] = true,
+							["last_event"] = 0,
+							["aID"] = "19284",
+							["tipo"] = 4,
+							["serial"] = "Creature-0-4480-0-11375-19284-0000AE723A",
 							["spell_cast"] = {
 								[11977] = 3,
 							},
-							["classe"] = "UNKNOW",
-							["fight_component"] = true,
-							["last_event"] = 0,
-							["pets"] = {
-							},
-							["tipo"] = 4,
-							["serial"] = "Creature-0-4480-0-11375-19284-0000AE723A",
-							["aID"] = "19284",
 						}, -- [2]
 					},
 				}, -- [4]
 				{
-					["combatId"] = 21,
 					["tipo"] = 2,
+					["combatId"] = 21,
 					["_ActorTable"] = {
 					},
 				}, -- [5]
@@ -502,76 +502,15 @@ _detalhes_database = {
 					{
 						["buff_uptime"] = 0,
 						["ress"] = 0,
-						["debuff_uptime"] = 0,
 						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
 						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
 						["cc_break"] = 0,
 						["dead"] = 0,
 					}, -- [4]
 					["frags_total"] = 0,
 					["voidzone_damage"] = 0,
-				},
-				["totals_grupo"] = {
-					1431, -- [1]
-					68, -- [2]
-					{
-						20, -- [1]
-						[0] = 0,
-						["alternatepower"] = 0,
-						[3] = 0,
-						[6] = 0,
-					}, -- [3]
-					{
-						["buff_uptime"] = 0,
-						["ress"] = 0,
-						["debuff_uptime"] = 0,
-						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
-						["dispell"] = 0,
-						["cc_break"] = 0,
-						["dead"] = 0,
-					}, -- [4]
-				},
-				["frags_need_refresh"] = true,
-				["instance_type"] = "none",
-				["data_fim"] = "17:09:21",
-				["cleu_timeline"] = {
-				},
-				["enemy"] = "Invading Felguard",
-				["TotalElapsedCombatTime"] = 1092130.571,
-				["CombatEndedAt"] = 1092130.571,
-				["aura_timeline"] = {
-				},
-				["__call"] = {
-				},
-				["PhaseData"] = {
-					{
-						1, -- [1]
-						1, -- [2]
-					}, -- [1]
-					["heal_section"] = {
-					},
-					["heal"] = {
-						{
-							["Bullsi"] = 68.004184,
-						}, -- [1]
-					},
-					["damage_section"] = {
-					},
-					["damage"] = {
-						{
-							["Bullsi"] = 1431.003678,
-						}, -- [1]
-					},
-				},
-				["end_time"] = 1092130.571,
-				["combat_id"] = 21,
-				["cleu_events"] = {
-					["n"] = 1,
-				},
-				["overall_added"] = true,
-				["spells_cast_timeline"] = {
 				},
 				["player_last_events"] = {
 					["Bullsi"] = {
@@ -692,21 +631,83 @@ _detalhes_database = {
 						["n"] = 6,
 					},
 				},
-				["data_inicio"] = "17:09:17",
-				["CombatSkillCache"] = {
+				["frags_need_refresh"] = true,
+				["instance_type"] = "none",
+				["hasSaved"] = true,
+				["data_fim"] = "17:09:21",
+				["cleu_timeline"] = {
 				},
+				["enemy"] = "Invading Felguard",
+				["TotalElapsedCombatTime"] = 1092130.571,
+				["CombatEndedAt"] = 1092130.571,
+				["aura_timeline"] = {
+				},
+				["__call"] = {
+				},
+				["data_inicio"] = "17:09:17",
+				["end_time"] = 1092130.571,
+				["combat_id"] = 21,
 				["frags"] = {
 					["Invading Felguard"] = 1,
 				},
-				["start_time"] = 1092126.081,
+				["overall_added"] = true,
+				["spells_cast_timeline"] = {
+				},
 				["TimeData"] = {
 				},
+				["cleu_events"] = {
+					["n"] = 1,
+				},
+				["CombatSkillCache"] = {
+				},
+				["totals_grupo"] = {
+					1431, -- [1]
+					68, -- [2]
+					{
+						20, -- [1]
+						[0] = 0,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["cooldowns_defensive"] = 0,
+						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["start_time"] = 1092126.081,
 				["contra"] = "Invading Felguard",
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["damage_section"] = {
+					},
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Bullsi"] = 68.004184,
+						}, -- [1]
+					},
+					["damage"] = {
+						{
+							["Bullsi"] = 1431.003678,
+						}, -- [1]
+					},
+				},
 			}, -- [1]
 			{
 				{
-					["combatId"] = 20,
 					["tipo"] = 2,
+					["combatId"] = 20,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1297,
@@ -718,20 +719,20 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "4454-0333729B",
+							["last_event"] = 1622045341,
 							["classe"] = "WARRIOR",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 1192.006496,
-							["on_hold"] = false,
-							["friendlyfire"] = {
-							},
+							["serial"] = "Player-4454-0333729B",
 							["dps_started"] = false,
 							["end_time"] = 1622045343,
-							["friendlyfire_total"] = 0,
-							["aID"] = "4454-0333729B",
+							["damage_taken"] = 0.006496,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 0,
@@ -790,22 +791,21 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
 							["grupo"] = true,
-							["total"] = 1192.006496,
-							["serial"] = "Player-4454-0333729B",
+							["friendlyfire_total"] = 0,
 							["last_dps"] = 0,
 							["custom"] = 0,
-							["last_event"] = 1622045341,
-							["damage_taken"] = 0.006496,
+							["tipo"] = 1,
+							["on_hold"] = false,
 							["start_time"] = 1622045341,
 							["delay"] = 0,
-							["tipo"] = 1,
+							["total"] = 1192.006496,
 						}, -- [1]
 						{
 							["flag_original"] = 68168,
 							["totalabsorbed"] = 0.003183,
-							["aID"] = "19284",
 							["damage_from"] = {
 								["Argent Bowman"] = true,
 								["Argent Guardian"] = true,
@@ -821,22 +821,23 @@ _detalhes_database = {
 								["Argent Bowman"] = 313,
 								["Argent Hunter"] = 847,
 							},
-							["fight_component"] = true,
+							["serial"] = "Creature-0-4480-0-11375-19284-00002E7226",
 							["pets"] = {
 							},
-							["end_time"] = 1622045356,
-							["classe"] = "UNKNOW",
+							["total"] = 4024.003183,
+							["aID"] = "19284",
+							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 4024.003183,
-							["monster"] = true,
 							["dps_started"] = false,
-							["total"] = 4024.003183,
-							["on_hold"] = false,
-							["friendlyfire_total"] = 0,
+							["fight_component"] = true,
+							["end_time"] = 1622045356,
+							["friendlyfire"] = {
+							},
+							["last_event"] = 1622045356,
 							["nome"] = "Invading Felguard",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 4,
@@ -902,35 +903,35 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
-							["friendlyfire"] = {
-							},
-							["serial"] = "Creature-0-4480-0-11375-19284-00002E7226",
 							["last_dps"] = 0,
+							["monster"] = true,
+							["on_hold"] = false,
 							["custom"] = 0,
-							["last_event"] = 1622045356,
+							["tipo"] = 1,
 							["damage_taken"] = 4757.003183,
 							["start_time"] = 1622045342,
 							["delay"] = 0,
-							["tipo"] = 1,
+							["classe"] = "UNKNOW",
 						}, -- [2]
 					},
 				}, -- [1]
 				{
-					["combatId"] = 20,
 					["tipo"] = 3,
+					["combatId"] = 20,
 					["_ActorTable"] = {
 					},
 				}, -- [2]
 				{
-					["combatId"] = 20,
 					["tipo"] = 7,
+					["combatId"] = 20,
 					["_ActorTable"] = {
 					},
 				}, -- [3]
 				{
-					["combatId"] = 20,
 					["tipo"] = 9,
+					["combatId"] = 20,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
@@ -939,62 +940,62 @@ _detalhes_database = {
 							["grupo"] = true,
 							["nome"] = "Bullsi",
 							["buff_uptime"] = 4,
+							["classe"] = "WARRIOR",
 							["pets"] = {
 							},
-							["classe"] = "WARRIOR",
 							["last_event"] = 1622045343,
 							["tipo"] = 4,
 							["buff_uptime_spells"] = {
-								["tipo"] = 9,
 								["_ActorTable"] = {
 									[186403] = {
-										["activedamt"] = 1,
-										["id"] = 186403,
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
+										["activedamt"] = 1,
 										["uptime"] = 2,
-										["appliedamt"] = 1,
+										["id"] = 186403,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 									[12970] = {
-										["activedamt"] = 1,
-										["id"] = 12970,
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
+										["activedamt"] = 1,
 										["uptime"] = 2,
-										["appliedamt"] = 1,
+										["id"] = 12970,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 								},
+								["tipo"] = 9,
 							},
 							["serial"] = "Player-4454-0333729B",
 							["aID"] = "4454-0333729B",
 						}, -- [1]
 						{
 							["monster"] = true,
+							["classe"] = "UNKNOW",
 							["nome"] = "Invading Felguard",
 							["flag_original"] = 2632,
+							["pets"] = {
+							},
+							["fight_component"] = true,
+							["last_event"] = 0,
+							["aID"] = "19284",
+							["tipo"] = 4,
+							["serial"] = "Creature-0-4480-0-11375-19284-00002E725F",
 							["spell_cast"] = {
 								[11977] = 2,
 							},
-							["classe"] = "UNKNOW",
-							["fight_component"] = true,
-							["last_event"] = 0,
-							["pets"] = {
-							},
-							["tipo"] = 4,
-							["serial"] = "Creature-0-4480-0-11375-19284-00002E725F",
-							["aID"] = "19284",
 						}, -- [2]
 					},
 				}, -- [4]
 				{
-					["combatId"] = 20,
 					["tipo"] = 2,
+					["combatId"] = 20,
 					["_ActorTable"] = {
 					},
 				}, -- [5]
@@ -1005,12 +1006,14 @@ _detalhes_database = {
 					"Bullsi", -- [1]
 				},
 				["CombatStartedAt"] = 1092125.083,
-				["overall_added"] = true,
+				["tempo_start"] = 1622045341,
 				["last_events_tables"] = {
 				},
 				["alternate_power"] = {
 				},
-				["combat_counter"] = 52,
+				["cleu_events"] = {
+					["n"] = 1,
+				},
 				["playing_solo"] = true,
 				["totals"] = {
 					5215.978216, -- [1]
@@ -1025,39 +1028,15 @@ _detalhes_database = {
 					{
 						["buff_uptime"] = 0,
 						["ress"] = 0,
-						["debuff_uptime"] = 0,
 						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
 						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
 						["cc_break"] = 0,
 						["dead"] = 0,
 					}, -- [4]
 					["frags_total"] = 0,
 					["voidzone_damage"] = 0,
-				},
-				["player_last_events"] = {
-				},
-				["frags_need_refresh"] = true,
-				["instance_type"] = "none",
-				["data_fim"] = "17:09:04",
-				["cleu_timeline"] = {
-				},
-				["enemy"] = "Invading Felguard",
-				["TotalElapsedCombatTime"] = 1092113.143,
-				["CombatEndedAt"] = 1092113.143,
-				["aura_timeline"] = {
-				},
-				["__call"] = {
-				},
-				["data_inicio"] = "17:09:02",
-				["end_time"] = 1092113.143,
-				["combat_id"] = 20,
-				["tempo_start"] = 1622045341,
-				["cleu_events"] = {
-					["n"] = 1,
-				},
-				["frags"] = {
-					["Invading Felguard"] = 1,
 				},
 				["totals_grupo"] = {
 					1192, -- [1]
@@ -1072,26 +1051,39 @@ _detalhes_database = {
 					{
 						["buff_uptime"] = 0,
 						["ress"] = 0,
-						["debuff_uptime"] = 0,
 						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
 						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
 						["cc_break"] = 0,
 						["dead"] = 0,
 					}, -- [4]
+				},
+				["frags_need_refresh"] = true,
+				["instance_type"] = "none",
+				["hasSaved"] = true,
+				["data_fim"] = "17:09:04",
+				["cleu_timeline"] = {
+				},
+				["enemy"] = "Invading Felguard",
+				["TotalElapsedCombatTime"] = 1092113.143,
+				["CombatEndedAt"] = 1092113.143,
+				["aura_timeline"] = {
+				},
+				["__call"] = {
 				},
 				["PhaseData"] = {
 					{
 						1, -- [1]
 						1, -- [2]
 					}, -- [1]
+					["damage_section"] = {
+					},
 					["heal_section"] = {
 					},
 					["heal"] = {
 						{
 						}, -- [1]
-					},
-					["damage_section"] = {
 					},
 					["damage"] = {
 						{
@@ -1099,19 +1091,29 @@ _detalhes_database = {
 						}, -- [1]
 					},
 				},
-				["CombatSkillCache"] = {
+				["end_time"] = 1092113.143,
+				["combat_id"] = 20,
+				["frags"] = {
+					["Invading Felguard"] = 1,
 				},
+				["contra"] = "Invading Felguard",
 				["spells_cast_timeline"] = {
 				},
+				["combat_counter"] = 52,
+				["data_inicio"] = "17:09:02",
+				["CombatSkillCache"] = {
+				},
+				["player_last_events"] = {
+				},
 				["start_time"] = 1092111.592,
-				["contra"] = "Invading Felguard",
 				["TimeData"] = {
 				},
+				["overall_added"] = true,
 			}, -- [2]
 			{
 				{
-					["combatId"] = 19,
 					["tipo"] = 2,
+					["combatId"] = 19,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 2632,
@@ -1132,22 +1134,23 @@ _detalhes_database = {
 								["Nethergarde Advisor"] = 713,
 								["Argent Hunter"] = 732,
 							},
+							["serial"] = "Creature-0-4480-0-11375-19284-00002E7226",
 							["pets"] = {
 							},
-							["monster"] = true,
-							["aID"] = "19284",
+							["classe"] = "UNKNOW",
+							["damage_taken"] = 10050.006051,
+							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 5700.006051,
-							["end_time"] = 1622045341,
 							["fight_component"] = true,
-							["dps_started"] = false,
-							["total"] = 5700.006051,
-							["classe"] = "UNKNOW",
-							["on_hold"] = false,
+							["monster"] = true,
+							["end_time"] = 1622045341,
+							["friendlyfire"] = {
+							},
+							["tipo"] = 1,
 							["nome"] = "Invading Felguard",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 3,
@@ -1219,18 +1222,17 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
-							["friendlyfire_total"] = 0,
-							["friendlyfire"] = {
-							},
-							["serial"] = "Creature-0-4480-0-11375-19284-00002E7226",
-							["last_dps"] = 0,
+							["total"] = 5700.006051,
+							["dps_started"] = false,
+							["on_hold"] = false,
 							["custom"] = 0,
-							["tipo"] = 1,
-							["damage_taken"] = 10050.006051,
+							["last_event"] = 1622045341,
+							["last_dps"] = 0,
 							["start_time"] = 1622045306,
 							["delay"] = 1622045269,
-							["last_event"] = 1622045341,
+							["aID"] = "19284",
 						}, -- [1]
 						{
 							["flag_original"] = 1297,
@@ -1244,21 +1246,20 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["friendlyfire_total"] = 0,
+							["last_event"] = 1622045255,
 							["aID"] = "4454-0333729B",
-							["classe"] = "WARRIOR",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 1821.007211,
-							["on_hold"] = false,
-							["end_time"] = 1622045268,
+							["serial"] = "Player-4454-0333729B",
 							["dps_started"] = false,
-							["total"] = 1821.007211,
+							["end_time"] = 1622045268,
 							["friendlyfire"] = {
 							},
-							["friendlyfire_total"] = 0,
+							["damage_taken"] = 1627.007211,
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 1,
@@ -1345,21 +1346,21 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
 							["grupo"] = true,
-							["serial"] = "Player-4454-0333729B",
+							["total"] = 1821.007211,
 							["last_dps"] = 0,
 							["custom"] = 0,
-							["last_event"] = 1622045255,
-							["damage_taken"] = 1627.007211,
+							["tipo"] = 1,
+							["on_hold"] = false,
 							["start_time"] = 1622045255,
 							["delay"] = 1622045255,
-							["tipo"] = 1,
+							["classe"] = "WARRIOR",
 						}, -- [2]
 						{
 							["flag_original"] = 2632,
 							["totalabsorbed"] = 0.003235,
-							["aID"] = "19287",
 							["damage_from"] = {
 								["Argent Protector"] = true,
 								["Argent Guardian"] = true,
@@ -1370,22 +1371,23 @@ _detalhes_database = {
 								["Argent Protector"] = 1820,
 								["Argent Guardian"] = 61,
 							},
-							["end_time"] = 1622045341,
+							["serial"] = "Creature-0-4480-0-11375-19287-00002E6F1D",
 							["pets"] = {
 							},
-							["fight_component"] = true,
-							["classe"] = "UNKNOW",
+							["total"] = 2562.003235,
+							["aID"] = "19287",
+							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 2562.003235,
-							["monster"] = true,
 							["dps_started"] = false,
-							["total"] = 2562.003235,
-							["on_hold"] = false,
-							["friendlyfire_total"] = 0,
+							["fight_component"] = true,
+							["end_time"] = 1622045341,
+							["friendlyfire"] = {
+							},
+							["last_event"] = 1622045341,
 							["nome"] = "Invading Voidwalker",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 0,
@@ -1446,23 +1448,23 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
-							["friendlyfire"] = {
-							},
-							["serial"] = "Creature-0-4480-0-11375-19287-00002E6F1D",
 							["last_dps"] = 0,
+							["monster"] = true,
+							["on_hold"] = false,
 							["custom"] = 0,
-							["last_event"] = 1622045341,
+							["tipo"] = 1,
 							["damage_taken"] = 1914.003235,
 							["start_time"] = 1622045259,
 							["delay"] = 1622045253,
-							["tipo"] = 1,
+							["classe"] = "UNKNOW",
 						}, -- [3]
 					},
 				}, -- [1]
 				{
-					["combatId"] = 19,
 					["tipo"] = 3,
+					["combatId"] = 19,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1297,
@@ -1495,7 +1497,6 @@ _detalhes_database = {
 							},
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 3,
 								["_ActorTable"] = {
 									[23890] = {
 										["c_amt"] = 1,
@@ -1516,12 +1517,13 @@ _detalhes_database = {
 										},
 										["c_min"] = 25,
 										["c_curado"] = 25,
+										["n_amt"] = 6,
 										["n_curado"] = 102,
 										["totaldenied"] = 0,
-										["n_amt"] = 6,
 										["absorbed"] = 0,
 									},
 								},
+								["tipo"] = 3,
 							},
 							["grupo"] = true,
 							["heal_enemy_amt"] = 0,
@@ -1536,19 +1538,18 @@ _detalhes_database = {
 					},
 				}, -- [2]
 				{
-					["combatId"] = 19,
 					["tipo"] = 7,
+					["combatId"] = 19,
 					["_ActorTable"] = {
 					},
 				}, -- [3]
 				{
-					["combatId"] = 19,
 					["tipo"] = 9,
+					["combatId"] = 19,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
 							["debuff_uptime_spells"] = {
-								["tipo"] = 9,
 								["_ActorTable"] = {
 									[7922] = {
 										["activedamt"] = -1,
@@ -1563,68 +1564,69 @@ _detalhes_database = {
 										["counter"] = 0,
 									},
 									[7373] = {
-										["activedamt"] = 0,
-										["id"] = 7373,
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
+										["activedamt"] = 0,
 										["uptime"] = 12,
-										["appliedamt"] = 1,
+										["id"] = 7373,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 								},
+								["tipo"] = 9,
 							},
 							["buff_uptime"] = 88,
 							["aID"] = "4454-0333729B",
 							["buff_uptime_spells"] = {
-								["tipo"] = 9,
 								["_ActorTable"] = {
 									[186403] = {
+										["appliedamt"] = 1,
+										["targets"] = {
+										},
 										["activedamt"] = 1,
+										["uptime"] = 25,
 										["id"] = 186403,
-										["targets"] = {
-										},
-										["uptime"] = 25,
-										["appliedamt"] = 1,
-										["refreshamt"] = 0,
-										["actived"] = false,
-										["counter"] = 0,
-									},
-									[12970] = {
-										["activedamt"] = 1,
-										["id"] = 12970,
-										["targets"] = {
-										},
-										["uptime"] = 23,
-										["appliedamt"] = 1,
-										["refreshamt"] = 2,
-										["actived"] = false,
-										["counter"] = 0,
-									},
-									[11551] = {
-										["activedamt"] = 1,
-										["id"] = 11551,
-										["targets"] = {
-										},
-										["uptime"] = 25,
-										["appliedamt"] = 1,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 									[23887] = {
-										["activedamt"] = 1,
-										["id"] = 23887,
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
+										["activedamt"] = 1,
 										["uptime"] = 15,
-										["appliedamt"] = 1,
+										["id"] = 23887,
 										["refreshamt"] = 2,
 										["actived"] = false,
 										["counter"] = 0,
 									},
+									[12970] = {
+										["appliedamt"] = 1,
+										["targets"] = {
+										},
+										["activedamt"] = 1,
+										["uptime"] = 23,
+										["id"] = 12970,
+										["refreshamt"] = 2,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[11551] = {
+										["appliedamt"] = 1,
+										["targets"] = {
+										},
+										["activedamt"] = 1,
+										["uptime"] = 25,
+										["id"] = 11551,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
 								},
+								["tipo"] = 9,
 							},
 							["fight_component"] = true,
 							["debuff_uptime"] = 12,
@@ -1637,51 +1639,51 @@ _detalhes_database = {
 							},
 							["debuff_uptime_targets"] = {
 							},
-							["nome"] = "Bullsi",
 							["last_event"] = 1622045268,
+							["tipo"] = 4,
 							["pets"] = {
 							},
 							["classe"] = "WARRIOR",
 							["serial"] = "Player-4454-0333729B",
-							["tipo"] = 4,
+							["nome"] = "Bullsi",
 						}, -- [1]
 						{
 							["monster"] = true,
+							["classe"] = "UNKNOW",
 							["nome"] = "Invading Felguard",
 							["flag_original"] = 2632,
+							["pets"] = {
+							},
+							["fight_component"] = true,
+							["last_event"] = 0,
+							["aID"] = "19284",
+							["tipo"] = 4,
+							["serial"] = "Creature-0-4480-0-11375-19284-00002E7211",
 							["spell_cast"] = {
 								[11977] = 4,
 							},
-							["classe"] = "UNKNOW",
-							["fight_component"] = true,
-							["last_event"] = 0,
-							["pets"] = {
-							},
-							["tipo"] = 4,
-							["serial"] = "Creature-0-4480-0-11375-19284-00002E7211",
-							["aID"] = "19284",
 						}, -- [2]
 						{
 							["monster"] = true,
+							["classe"] = "UNKNOW",
 							["nome"] = "Invading Voidwalker",
 							["flag_original"] = 2632,
+							["pets"] = {
+							},
+							["fight_component"] = true,
+							["last_event"] = 0,
+							["aID"] = "19287",
+							["tipo"] = 4,
+							["serial"] = "Creature-0-4480-0-11375-19287-00002E7235",
 							["spell_cast"] = {
 								[20825] = 3,
 							},
-							["classe"] = "UNKNOW",
-							["fight_component"] = true,
-							["last_event"] = 0,
-							["pets"] = {
-							},
-							["tipo"] = 4,
-							["serial"] = "Creature-0-4480-0-11375-19287-00002E7235",
-							["aID"] = "19287",
 						}, -- [3]
 					},
 				}, -- [4]
 				{
-					["combatId"] = 19,
 					["tipo"] = 2,
+					["combatId"] = 19,
 					["_ActorTable"] = {
 					},
 				}, -- [5]
@@ -1692,12 +1694,14 @@ _detalhes_database = {
 					"Bullsi", -- [1]
 				},
 				["CombatStartedAt"] = 1092110.081,
-				["overall_added"] = true,
+				["tempo_start"] = 1622045243,
 				["last_events_tables"] = {
 				},
 				["alternate_power"] = {
 				},
-				["combat_counter"] = 51,
+				["cleu_events"] = {
+					["n"] = 1,
+				},
 				["playing_solo"] = true,
 				["totals"] = {
 					10082.968125, -- [1]
@@ -1712,15 +1716,81 @@ _detalhes_database = {
 					{
 						["buff_uptime"] = 0,
 						["ress"] = 0,
-						["debuff_uptime"] = 0,
 						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
 						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
 						["cc_break"] = 0,
 						["dead"] = 0,
 					}, -- [4]
 					["frags_total"] = 0,
 					["voidzone_damage"] = 0,
+				},
+				["totals_grupo"] = {
+					1821, -- [1]
+					127, -- [2]
+					{
+						0, -- [1]
+						[0] = 0,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["cooldowns_defensive"] = 0,
+						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["frags_need_refresh"] = true,
+				["instance_type"] = "none",
+				["hasSaved"] = true,
+				["data_fim"] = "17:07:49",
+				["cleu_timeline"] = {
+				},
+				["enemy"] = "Invading Felguard",
+				["TotalElapsedCombatTime"] = 1092038.414,
+				["CombatEndedAt"] = 1092038.414,
+				["aura_timeline"] = {
+				},
+				["__call"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["damage_section"] = {
+					},
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Bullsi"] = 127.004491,
+						}, -- [1]
+					},
+					["damage"] = {
+						{
+							["Bullsi"] = 1821.007211,
+						}, -- [1]
+					},
+				},
+				["end_time"] = 1092038.414,
+				["combat_id"] = 19,
+				["frags"] = {
+					["Invading Felguard"] = 1,
+				},
+				["contra"] = "Invading Felguard",
+				["spells_cast_timeline"] = {
+				},
+				["combat_counter"] = 51,
+				["data_inicio"] = "17:07:24",
+				["CombatSkillCache"] = {
 				},
 				["player_last_events"] = {
 					["Bullsi"] = {
@@ -1801,82 +1871,15 @@ _detalhes_database = {
 						["n"] = 2,
 					},
 				},
-				["frags_need_refresh"] = true,
-				["instance_type"] = "none",
-				["data_fim"] = "17:07:49",
-				["cleu_timeline"] = {
-				},
-				["enemy"] = "Invading Felguard",
-				["TotalElapsedCombatTime"] = 1092038.414,
-				["CombatEndedAt"] = 1092038.414,
-				["aura_timeline"] = {
-				},
-				["__call"] = {
-				},
-				["data_inicio"] = "17:07:24",
-				["end_time"] = 1092038.414,
-				["combat_id"] = 19,
-				["tempo_start"] = 1622045243,
-				["cleu_events"] = {
-					["n"] = 1,
-				},
-				["frags"] = {
-					["Invading Felguard"] = 1,
-				},
-				["totals_grupo"] = {
-					1821, -- [1]
-					127, -- [2]
-					{
-						0, -- [1]
-						[0] = 0,
-						["alternatepower"] = 0,
-						[3] = 0,
-						[6] = 0,
-					}, -- [3]
-					{
-						["buff_uptime"] = 0,
-						["ress"] = 0,
-						["debuff_uptime"] = 0,
-						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
-						["dispell"] = 0,
-						["cc_break"] = 0,
-						["dead"] = 0,
-					}, -- [4]
-				},
-				["PhaseData"] = {
-					{
-						1, -- [1]
-						1, -- [2]
-					}, -- [1]
-					["heal_section"] = {
-					},
-					["heal"] = {
-						{
-							["Bullsi"] = 127.004491,
-						}, -- [1]
-					},
-					["damage_section"] = {
-					},
-					["damage"] = {
-						{
-							["Bullsi"] = 1821.007211,
-						}, -- [1]
-					},
-				},
-				["CombatSkillCache"] = {
-				},
-				["spells_cast_timeline"] = {
-				},
 				["start_time"] = 1092013.348,
-				["contra"] = "Invading Felguard",
 				["TimeData"] = {
 				},
+				["overall_added"] = true,
 			}, -- [3]
 			{
 				{
-					["combatId"] = 18,
 					["tipo"] = 2,
+					["combatId"] = 18,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1297,
@@ -1889,21 +1892,20 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["friendlyfire_total"] = 0,
+							["last_event"] = 1622045232,
 							["aID"] = "4454-0333729B",
-							["classe"] = "WARRIOR",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 4243.007137000001,
-							["on_hold"] = false,
-							["end_time"] = 1622045233,
+							["serial"] = "Player-4454-0333729B",
 							["dps_started"] = false,
-							["total"] = 4243.007137000001,
+							["end_time"] = 1622045233,
 							["friendlyfire"] = {
 							},
-							["friendlyfire_total"] = 0,
+							["damage_taken"] = 1019.007137,
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 3,
@@ -1963,55 +1965,56 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
 							["grupo"] = true,
-							["serial"] = "Player-4454-0333729B",
+							["total"] = 4243.007137000001,
 							["last_dps"] = 0,
 							["custom"] = 0,
-							["last_event"] = 1622045232,
-							["damage_taken"] = 1019.007137,
+							["tipo"] = 1,
+							["on_hold"] = false,
 							["start_time"] = 1622045206,
 							["delay"] = 0,
-							["tipo"] = 1,
+							["classe"] = "WARRIOR",
 						}, -- [1]
 						{
 							["flag_original"] = 68168,
 							["totalabsorbed"] = 0.002866,
-							["aID"] = "19284",
 							["damage_from"] = {
 								["Argent Protector"] = true,
 								["Argent Guardian"] = true,
-								["Nethergarde Advisor"] = true,
-								["Bullsi"] = true,
-								["Argent Bowman"] = true,
 								["Argent Hunter"] = true,
+								["Nethergarde Advisor"] = true,
+								["Argent Bowman"] = true,
+								["Bullsi"] = true,
 								["Dabdoob"] = true,
 							},
 							["targets"] = {
 								["Argent Protector"] = 2060,
 								["Argent Guardian"] = 546,
-								["Nethergarde Advisor"] = 230,
-								["Bullsi"] = 1019,
-								["Argent Bowman"] = 1238,
 								["Argent Hunter"] = 412,
+								["Nethergarde Advisor"] = 230,
+								["Argent Bowman"] = 1238,
+								["Bullsi"] = 1019,
 								["Dabdoob"] = 125,
 							},
-							["end_time"] = 1622045243,
+							["serial"] = "Creature-0-4480-0-11375-19284-0000AE7206",
 							["pets"] = {
 							},
-							["fight_component"] = true,
-							["classe"] = "UNKNOW",
+							["total"] = 5630.002866,
+							["aID"] = "19284",
+							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 5630.002866,
-							["monster"] = true,
 							["dps_started"] = false,
-							["total"] = 5630.002866,
-							["on_hold"] = false,
-							["friendlyfire_total"] = 0,
+							["fight_component"] = true,
+							["end_time"] = 1622045243,
+							["friendlyfire"] = {
+							},
+							["last_event"] = 1622045243,
 							["nome"] = "Invading Felguard",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 2,
@@ -2022,10 +2025,10 @@ _detalhes_database = {
 										["targets"] = {
 											["Argent Protector"] = 1859,
 											["Argent Guardian"] = 447,
-											["Nethergarde Advisor"] = 230,
-											["Bullsi"] = 850,
-											["Argent Bowman"] = 939,
 											["Argent Hunter"] = 345,
+											["Nethergarde Advisor"] = 230,
+											["Argent Bowman"] = 939,
+											["Bullsi"] = 850,
 											["Dabdoob"] = 125,
 										},
 										["n_dmg"] = 4461,
@@ -2083,23 +2086,23 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
-							["friendlyfire"] = {
-							},
-							["serial"] = "Creature-0-4480-0-11375-19284-0000AE7206",
 							["last_dps"] = 0,
+							["monster"] = true,
+							["on_hold"] = false,
 							["custom"] = 0,
-							["last_event"] = 1622045243,
+							["tipo"] = 1,
 							["damage_taken"] = 15781.002866,
 							["start_time"] = 1622045207,
 							["delay"] = 0,
-							["tipo"] = 1,
+							["classe"] = "UNKNOW",
 						}, -- [2]
 					},
 				}, -- [1]
 				{
-					["combatId"] = 18,
 					["tipo"] = 3,
+					["combatId"] = 18,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1297,
@@ -2132,7 +2135,6 @@ _detalhes_database = {
 							},
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 3,
 								["_ActorTable"] = {
 									[23890] = {
 										["c_amt"] = 1,
@@ -2153,12 +2155,13 @@ _detalhes_database = {
 										},
 										["c_min"] = 26,
 										["c_curado"] = 26,
+										["n_amt"] = 14,
 										["n_curado"] = 238,
 										["totaldenied"] = 0,
-										["n_amt"] = 14,
 										["absorbed"] = 0,
 									},
 								},
+								["tipo"] = 3,
 							},
 							["grupo"] = true,
 							["heal_enemy_amt"] = 0,
@@ -2173,104 +2176,104 @@ _detalhes_database = {
 					},
 				}, -- [2]
 				{
-					["combatId"] = 18,
 					["tipo"] = 7,
+					["combatId"] = 18,
 					["_ActorTable"] = {
 					},
 				}, -- [3]
 				{
-					["combatId"] = 18,
 					["tipo"] = 9,
+					["combatId"] = 18,
 					["_ActorTable"] = {
 						{
 							["fight_component"] = true,
-							["spell_cast"] = {
-								[23893] = 4,
-							},
+							["buff_uptime"] = 90,
 							["flag_original"] = 1047,
 							["buff_uptime_targets"] = {
 							},
 							["grupo"] = true,
 							["nome"] = "Bullsi",
-							["buff_uptime"] = 90,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 4,
 							},
 							["classe"] = "WARRIOR",
 							["tipo"] = 4,
 							["aID"] = "4454-0333729B",
 							["buff_uptime_spells"] = {
-								["tipo"] = 9,
 								["_ActorTable"] = {
 									[186403] = {
+										["appliedamt"] = 1,
+										["targets"] = {
+										},
 										["activedamt"] = 1,
+										["uptime"] = 27,
 										["id"] = 186403,
-										["targets"] = {
-										},
-										["uptime"] = 27,
-										["appliedamt"] = 1,
-										["refreshamt"] = 0,
-										["actived"] = false,
-										["counter"] = 0,
-									},
-									[12970] = {
-										["activedamt"] = 1,
-										["id"] = 12970,
-										["targets"] = {
-										},
-										["uptime"] = 14,
-										["appliedamt"] = 1,
-										["refreshamt"] = 4,
-										["actived"] = false,
-										["counter"] = 0,
-									},
-									[11551] = {
-										["activedamt"] = 1,
-										["id"] = 11551,
-										["targets"] = {
-										},
-										["uptime"] = 27,
-										["appliedamt"] = 1,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 									[23887] = {
-										["activedamt"] = 3,
-										["id"] = 23887,
+										["appliedamt"] = 3,
 										["targets"] = {
 										},
+										["activedamt"] = 3,
 										["uptime"] = 22,
-										["appliedamt"] = 3,
+										["id"] = 23887,
 										["refreshamt"] = 2,
 										["actived"] = false,
 										["counter"] = 0,
 									},
+									[12970] = {
+										["appliedamt"] = 1,
+										["targets"] = {
+										},
+										["activedamt"] = 1,
+										["uptime"] = 14,
+										["id"] = 12970,
+										["refreshamt"] = 4,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[11551] = {
+										["appliedamt"] = 1,
+										["targets"] = {
+										},
+										["activedamt"] = 1,
+										["uptime"] = 27,
+										["id"] = 11551,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
 								},
+								["tipo"] = 9,
 							},
 							["serial"] = "Player-4454-0333729B",
 							["last_event"] = 1622045233,
 						}, -- [1]
 						{
 							["monster"] = true,
+							["classe"] = "UNKNOW",
 							["nome"] = "Invading Felguard",
 							["flag_original"] = 2632,
+							["pets"] = {
+							},
+							["fight_component"] = true,
+							["last_event"] = 0,
+							["aID"] = "19284",
+							["tipo"] = 4,
+							["serial"] = "Creature-0-4480-0-11375-19284-00002E7216",
 							["spell_cast"] = {
 								[11977] = 4,
 							},
-							["classe"] = "UNKNOW",
-							["fight_component"] = true,
-							["last_event"] = 0,
-							["pets"] = {
-							},
-							["tipo"] = 4,
-							["serial"] = "Creature-0-4480-0-11375-19284-00002E7216",
-							["aID"] = "19284",
 						}, -- [2]
 					},
 				}, -- [4]
 				{
-					["combatId"] = 18,
 					["tipo"] = 2,
+					["combatId"] = 18,
 					["_ActorTable"] = {
 					},
 				}, -- [5]
@@ -2281,12 +2284,14 @@ _detalhes_database = {
 					"Bullsi", -- [1]
 				},
 				["CombatStartedAt"] = 1092012.31,
-				["overall_added"] = true,
+				["tempo_start"] = 1622045206,
 				["last_events_tables"] = {
 				},
 				["alternate_power"] = {
 				},
-				["combat_counter"] = 50,
+				["cleu_events"] = {
+					["n"] = 1,
+				},
 				["playing_solo"] = true,
 				["totals"] = {
 					9872.968716, -- [1]
@@ -2301,15 +2306,82 @@ _detalhes_database = {
 					{
 						["buff_uptime"] = 0,
 						["ress"] = 0,
-						["debuff_uptime"] = 0,
 						["cooldowns_defensive"] = 0,
-						["interrupt"] = -0.004124000000000017,
 						["dispell"] = 0,
+						["interrupt"] = -0.004124000000000017,
+						["debuff_uptime"] = 0,
 						["cc_break"] = 0,
 						["dead"] = 0,
 					}, -- [4]
 					["frags_total"] = 0,
 					["voidzone_damage"] = 0,
+				},
+				["totals_grupo"] = {
+					4243, -- [1]
+					264, -- [2]
+					{
+						0, -- [1]
+						[0] = 0,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["cooldowns_defensive"] = 0,
+						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["frags_need_refresh"] = true,
+				["instance_type"] = "none",
+				["hasSaved"] = true,
+				["data_fim"] = "17:07:13",
+				["cleu_timeline"] = {
+				},
+				["enemy"] = "Invading Felguard",
+				["TotalElapsedCombatTime"] = 1092002.856,
+				["CombatEndedAt"] = 1092002.856,
+				["aura_timeline"] = {
+				},
+				["__call"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["damage_section"] = {
+					},
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Bullsi"] = 264.001068,
+						}, -- [1]
+					},
+					["damage"] = {
+						{
+							["Bullsi"] = 4243.007137000001,
+						}, -- [1]
+					},
+				},
+				["end_time"] = 1092002.856,
+				["combat_id"] = 18,
+				["frags"] = {
+					["Invading Felguard"] = 2,
+					["Invading Voidwalker"] = 1,
+				},
+				["contra"] = "Invading Felguard",
+				["spells_cast_timeline"] = {
+				},
+				["combat_counter"] = 50,
+				["data_inicio"] = "17:06:47",
+				["CombatSkillCache"] = {
 				},
 				["player_last_events"] = {
 					["Bullsi"] = {
@@ -2400,94 +2472,25 @@ _detalhes_database = {
 						["n"] = 3,
 					},
 				},
-				["frags_need_refresh"] = true,
-				["instance_type"] = "none",
-				["data_fim"] = "17:07:13",
-				["cleu_timeline"] = {
-				},
-				["enemy"] = "Invading Felguard",
-				["TotalElapsedCombatTime"] = 1092002.856,
-				["CombatEndedAt"] = 1092002.856,
-				["aura_timeline"] = {
-				},
-				["__call"] = {
-				},
-				["data_inicio"] = "17:06:47",
-				["end_time"] = 1092002.856,
-				["combat_id"] = 18,
-				["tempo_start"] = 1622045206,
-				["cleu_events"] = {
-					["n"] = 1,
-				},
-				["frags"] = {
-					["Invading Felguard"] = 2,
-					["Invading Voidwalker"] = 1,
-				},
-				["totals_grupo"] = {
-					4243, -- [1]
-					264, -- [2]
-					{
-						0, -- [1]
-						[0] = 0,
-						["alternatepower"] = 0,
-						[3] = 0,
-						[6] = 0,
-					}, -- [3]
-					{
-						["buff_uptime"] = 0,
-						["ress"] = 0,
-						["debuff_uptime"] = 0,
-						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
-						["dispell"] = 0,
-						["cc_break"] = 0,
-						["dead"] = 0,
-					}, -- [4]
-				},
-				["PhaseData"] = {
-					{
-						1, -- [1]
-						1, -- [2]
-					}, -- [1]
-					["heal_section"] = {
-					},
-					["heal"] = {
-						{
-							["Bullsi"] = 264.001068,
-						}, -- [1]
-					},
-					["damage_section"] = {
-					},
-					["damage"] = {
-						{
-							["Bullsi"] = 4243.007137000001,
-						}, -- [1]
-					},
-				},
-				["CombatSkillCache"] = {
-				},
-				["spells_cast_timeline"] = {
-				},
 				["start_time"] = 1091976.536,
-				["contra"] = "Invading Felguard",
 				["TimeData"] = {
 				},
+				["overall_added"] = true,
 			}, -- [4]
 			{
 				{
-					["combatId"] = 17,
 					["tipo"] = 2,
+					["combatId"] = 17,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 68168,
 							["totalabsorbed"] = 0.00754,
-							["total"] = 2204.00754,
 							["damage_from"] = {
 								["Argent Protector"] = true,
 								["Argent Guardian"] = true,
+								["Argent Hunter"] = true,
 								["Nethergarde Advisor"] = true,
 								["Bullsi"] = true,
-								["Argent Hunter"] = true,
 								["Argent Bowman"] = true,
 								["Dabdoob"] = true,
 							},
@@ -2495,27 +2498,26 @@ _detalhes_database = {
 								["Argent Bowman"] = 357,
 								["Argent Guardian"] = 150,
 								["Bullsi"] = 844,
-								["Argent Protector"] = 34,
 								["Argent Hunter"] = 100,
+								["Argent Protector"] = 34,
 								["Dabdoob"] = 719,
 							},
+							["serial"] = "Creature-0-4480-0-11375-19284-00002E71B8",
 							["pets"] = {
 							},
-							["monster"] = true,
-							["fight_component"] = true,
+							["friendlyfire_total"] = 0,
 							["classe"] = "UNKNOW",
+							["aID"] = "19284",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 2204.00754,
-							["on_hold"] = false,
-							["dps_started"] = false,
 							["end_time"] = 1622045206,
-							["friendlyfire_total"] = 0,
-							["friendlyfire"] = {
-							},
+							["monster"] = true,
+							["total"] = 2204.00754,
+							["damage_taken"] = 11929.00754,
+							["last_event"] = 1622045206,
 							["nome"] = "Invading Felguard",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 0,
@@ -2560,8 +2562,8 @@ _detalhes_database = {
 										["targets"] = {
 											["Argent Bowman"] = 134,
 											["Bullsi"] = 166,
-											["Argent Protector"] = 34,
 											["Dabdoob"] = 100,
+											["Argent Protector"] = 34,
 											["Argent Hunter"] = 100,
 										},
 										["n_dmg"] = 534,
@@ -2584,16 +2586,18 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
-							["aID"] = "19284",
-							["serial"] = "Creature-0-4480-0-11375-19284-00002E71B8",
 							["last_dps"] = 0,
+							["dps_started"] = false,
+							["on_hold"] = false,
 							["custom"] = 0,
-							["last_event"] = 1622045206,
-							["damage_taken"] = 11929.00754,
+							["tipo"] = 1,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1622045133,
 							["delay"] = 1622045144,
-							["tipo"] = 1,
+							["fight_component"] = true,
 						}, -- [1]
 						{
 							["flag_original"] = 1297,
@@ -2607,20 +2611,20 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "4454-0333729B",
+							["last_event"] = 1622045142,
 							["classe"] = "WARRIOR",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 3486.006357,
-							["on_hold"] = false,
-							["friendlyfire"] = {
-							},
+							["serial"] = "Player-4454-0333729B",
 							["dps_started"] = false,
 							["end_time"] = 1622045157,
-							["friendlyfire_total"] = 0,
-							["aID"] = "4454-0333729B",
+							["damage_taken"] = 2348.006357,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 2,
@@ -2680,22 +2684,21 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
 							["grupo"] = true,
-							["total"] = 3486.006357,
-							["serial"] = "Player-4454-0333729B",
+							["friendlyfire_total"] = 0,
 							["last_dps"] = 0,
 							["custom"] = 0,
-							["last_event"] = 1622045142,
-							["damage_taken"] = 2348.006357,
+							["tipo"] = 1,
+							["on_hold"] = false,
 							["start_time"] = 1622045135,
 							["delay"] = 1622045142,
-							["tipo"] = 1,
+							["total"] = 3486.006357,
 						}, -- [2]
 						{
 							["flag_original"] = 2632,
 							["totalabsorbed"] = 0.004834,
-							["total"] = 2065.004834,
 							["damage_from"] = {
 								["Nethergarde Advisor"] = true,
 								["Argent Protector"] = true,
@@ -2708,23 +2711,22 @@ _detalhes_database = {
 								["Argent Guardian"] = 75,
 								["Argent Hunter"] = 418,
 							},
+							["serial"] = "Creature-0-4480-0-11375-19287-00002E7056",
 							["pets"] = {
 							},
-							["monster"] = true,
-							["fight_component"] = true,
+							["friendlyfire_total"] = 0,
 							["classe"] = "UNKNOW",
+							["aID"] = "19287",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 2065.004834,
-							["on_hold"] = false,
-							["dps_started"] = false,
 							["end_time"] = 1622045206,
-							["friendlyfire_total"] = 0,
-							["friendlyfire"] = {
-							},
+							["monster"] = true,
+							["total"] = 2065.004834,
+							["damage_taken"] = 1023.004834,
+							["last_event"] = 1622045205,
 							["nome"] = "Invading Voidwalker",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 0,
@@ -2787,22 +2789,24 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
-							["aID"] = "19287",
-							["serial"] = "Creature-0-4480-0-11375-19287-00002E7056",
 							["last_dps"] = 0,
+							["dps_started"] = false,
+							["on_hold"] = false,
 							["custom"] = 0,
-							["last_event"] = 1622045205,
-							["damage_taken"] = 1023.004834,
+							["tipo"] = 1,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1622045148,
 							["delay"] = 1622045146,
-							["tipo"] = 1,
+							["fight_component"] = true,
 						}, -- [3]
 					},
 				}, -- [1]
 				{
-					["combatId"] = 17,
 					["tipo"] = 3,
+					["combatId"] = 17,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1297,
@@ -2835,7 +2839,6 @@ _detalhes_database = {
 							},
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 3,
 								["_ActorTable"] = {
 									[23890] = {
 										["c_amt"] = 0,
@@ -2856,12 +2859,13 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 12,
 										["n_curado"] = 204,
 										["totaldenied"] = 0,
-										["n_amt"] = 12,
 										["absorbed"] = 0,
 									},
 								},
+								["tipo"] = 3,
 							},
 							["grupo"] = true,
 							["heal_enemy_amt"] = 0,
@@ -2876,120 +2880,120 @@ _detalhes_database = {
 					},
 				}, -- [2]
 				{
-					["combatId"] = 17,
 					["tipo"] = 7,
+					["combatId"] = 17,
 					["_ActorTable"] = {
 					},
 				}, -- [3]
 				{
-					["combatId"] = 17,
 					["tipo"] = 9,
+					["combatId"] = 17,
 					["_ActorTable"] = {
 						{
 							["fight_component"] = true,
-							["spell_cast"] = {
-								[23893] = 4,
-							},
+							["buff_uptime"] = 120,
 							["flag_original"] = 1047,
 							["buff_uptime_targets"] = {
 							},
 							["grupo"] = true,
 							["nome"] = "Bullsi",
-							["buff_uptime"] = 120,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 4,
 							},
 							["classe"] = "WARRIOR",
 							["tipo"] = 4,
 							["aID"] = "4454-0333729B",
 							["buff_uptime_spells"] = {
-								["tipo"] = 9,
 								["_ActorTable"] = {
 									[186403] = {
+										["appliedamt"] = 1,
+										["targets"] = {
+										},
 										["activedamt"] = 1,
+										["uptime"] = 36,
 										["id"] = 186403,
-										["targets"] = {
-										},
-										["uptime"] = 36,
-										["appliedamt"] = 1,
-										["refreshamt"] = 0,
-										["actived"] = false,
-										["counter"] = 0,
-									},
-									[23887] = {
-										["activedamt"] = 1,
-										["id"] = 23887,
-										["targets"] = {
-										},
-										["uptime"] = 26,
-										["appliedamt"] = 1,
-										["refreshamt"] = 6,
-										["actived"] = false,
-										["counter"] = 0,
-									},
-									[11551] = {
-										["activedamt"] = 1,
-										["id"] = 11551,
-										["targets"] = {
-										},
-										["uptime"] = 36,
-										["appliedamt"] = 1,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 									[12970] = {
-										["activedamt"] = 2,
-										["id"] = 12970,
+										["appliedamt"] = 2,
 										["targets"] = {
 										},
+										["activedamt"] = 2,
 										["uptime"] = 22,
-										["appliedamt"] = 2,
+										["id"] = 12970,
 										["refreshamt"] = 2,
 										["actived"] = false,
 										["counter"] = 0,
 									},
+									[23887] = {
+										["appliedamt"] = 1,
+										["targets"] = {
+										},
+										["activedamt"] = 1,
+										["uptime"] = 26,
+										["id"] = 23887,
+										["refreshamt"] = 6,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[11551] = {
+										["appliedamt"] = 1,
+										["targets"] = {
+										},
+										["activedamt"] = 1,
+										["uptime"] = 36,
+										["id"] = 11551,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
 								},
+								["tipo"] = 9,
 							},
 							["serial"] = "Player-4454-0333729B",
 							["last_event"] = 1622045157,
 						}, -- [1]
 						{
 							["monster"] = true,
+							["classe"] = "UNKNOW",
 							["nome"] = "Invading Voidwalker",
 							["flag_original"] = 2632,
+							["pets"] = {
+							},
+							["fight_component"] = true,
+							["last_event"] = 0,
+							["aID"] = "19287",
+							["tipo"] = 4,
+							["serial"] = "Creature-0-4480-0-11375-19287-00002E6FC4",
 							["spell_cast"] = {
 								[20825] = 4,
 							},
-							["classe"] = "UNKNOW",
-							["fight_component"] = true,
-							["last_event"] = 0,
-							["pets"] = {
-							},
-							["tipo"] = 4,
-							["serial"] = "Creature-0-4480-0-11375-19287-00002E6FC4",
-							["aID"] = "19287",
 						}, -- [2]
 						{
 							["monster"] = true,
+							["classe"] = "UNKNOW",
 							["nome"] = "Invading Felguard",
 							["flag_original"] = 2632,
+							["pets"] = {
+							},
+							["fight_component"] = true,
+							["last_event"] = 0,
+							["aID"] = "19284",
+							["tipo"] = 4,
+							["serial"] = "Creature-0-4480-0-11375-19284-00002E7041",
 							["spell_cast"] = {
 								[11977] = 2,
 							},
-							["classe"] = "UNKNOW",
-							["fight_component"] = true,
-							["last_event"] = 0,
-							["pets"] = {
-							},
-							["tipo"] = 4,
-							["serial"] = "Creature-0-4480-0-11375-19284-00002E7041",
-							["aID"] = "19284",
 						}, -- [3]
 					},
 				}, -- [4]
 				{
-					["combatId"] = 17,
 					["tipo"] = 2,
+					["combatId"] = 17,
 					["_ActorTable"] = {
 					},
 				}, -- [5]
@@ -3000,12 +3004,14 @@ _detalhes_database = {
 					"Bullsi", -- [1]
 				},
 				["CombatStartedAt"] = 1091975.296,
-				["overall_added"] = true,
+				["tempo_start"] = 1622045121,
 				["last_events_tables"] = {
 				},
 				["alternate_power"] = {
 				},
-				["combat_counter"] = 49,
+				["cleu_events"] = {
+					["n"] = 1,
+				},
 				["playing_solo"] = true,
 				["totals"] = {
 					7754.972972999998, -- [1]
@@ -3020,39 +3026,15 @@ _detalhes_database = {
 					{
 						["buff_uptime"] = 0,
 						["ress"] = 0,
-						["debuff_uptime"] = 0,
 						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
 						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
 						["cc_break"] = 0,
 						["dead"] = 0,
 					}, -- [4]
 					["frags_total"] = 0,
 					["voidzone_damage"] = 0,
-				},
-				["player_last_events"] = {
-				},
-				["frags_need_refresh"] = true,
-				["instance_type"] = "none",
-				["data_fim"] = "17:05:58",
-				["cleu_timeline"] = {
-				},
-				["enemy"] = "Invading Felguard",
-				["TotalElapsedCombatTime"] = 1.085999999893829,
-				["CombatEndedAt"] = 1091974.545,
-				["aura_timeline"] = {
-				},
-				["__call"] = {
-				},
-				["data_inicio"] = "17:05:22",
-				["end_time"] = 1091927.253,
-				["combat_id"] = 17,
-				["tempo_start"] = 1622045121,
-				["cleu_events"] = {
-					["n"] = 1,
-				},
-				["frags"] = {
-					["Invading Felguard"] = 4,
 				},
 				["totals_grupo"] = {
 					3486, -- [1]
@@ -3067,19 +3049,34 @@ _detalhes_database = {
 					{
 						["buff_uptime"] = 0,
 						["ress"] = 0,
-						["debuff_uptime"] = 0,
 						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
 						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
 						["cc_break"] = 0,
 						["dead"] = 0,
 					}, -- [4]
+				},
+				["frags_need_refresh"] = true,
+				["instance_type"] = "none",
+				["hasSaved"] = true,
+				["data_fim"] = "17:05:58",
+				["cleu_timeline"] = {
+				},
+				["enemy"] = "Invading Felguard",
+				["TotalElapsedCombatTime"] = 1.085999999893829,
+				["CombatEndedAt"] = 1091974.545,
+				["aura_timeline"] = {
+				},
+				["__call"] = {
 				},
 				["PhaseData"] = {
 					{
 						1, -- [1]
 						1, -- [2]
 					}, -- [1]
+					["damage_section"] = {
+					},
 					["heal_section"] = {
 					},
 					["heal"] = {
@@ -3087,27 +3084,35 @@ _detalhes_database = {
 							["Bullsi"] = 204.007788,
 						}, -- [1]
 					},
-					["damage_section"] = {
-					},
 					["damage"] = {
 						{
 							["Bullsi"] = 3486.006357,
 						}, -- [1]
 					},
 				},
-				["CombatSkillCache"] = {
+				["end_time"] = 1091927.253,
+				["combat_id"] = 17,
+				["frags"] = {
+					["Invading Felguard"] = 4,
 				},
+				["contra"] = "Invading Felguard",
 				["spells_cast_timeline"] = {
 				},
+				["combat_counter"] = 49,
+				["data_inicio"] = "17:05:22",
+				["CombatSkillCache"] = {
+				},
+				["player_last_events"] = {
+				},
 				["start_time"] = 1091891.021,
-				["contra"] = "Invading Felguard",
 				["TimeData"] = {
 				},
+				["overall_added"] = true,
 			}, -- [5]
 			{
 				{
-					["combatId"] = 16,
 					["tipo"] = 2,
+					["combatId"] = 16,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1297,
@@ -3120,20 +3125,20 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "4454-0333729B",
+							["last_event"] = 1622045110,
 							["classe"] = "WARRIOR",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 3500.005833,
-							["on_hold"] = false,
-							["friendlyfire"] = {
-							},
+							["serial"] = "Player-4454-0333729B",
 							["dps_started"] = false,
 							["end_time"] = 1622045111,
-							["friendlyfire_total"] = 0,
-							["aID"] = "4454-0333729B",
+							["damage_taken"] = 1185.005833,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 2,
@@ -3194,22 +3199,21 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
 							["grupo"] = true,
-							["total"] = 3500.005833,
-							["serial"] = "Player-4454-0333729B",
+							["friendlyfire_total"] = 0,
 							["last_dps"] = 0,
 							["custom"] = 0,
-							["last_event"] = 1622045110,
-							["damage_taken"] = 1185.005833,
+							["tipo"] = 1,
+							["on_hold"] = false,
 							["start_time"] = 1622045086,
 							["delay"] = 0,
-							["tipo"] = 1,
+							["total"] = 3500.005833,
 						}, -- [1]
 						{
 							["flag_original"] = 68168,
 							["totalabsorbed"] = 0.003772,
-							["aID"] = "19284",
 							["damage_from"] = {
 								["Argent Bowman"] = true,
 								["Argent Guardian"] = true,
@@ -3226,22 +3230,23 @@ _detalhes_database = {
 								["Argent Protector"] = 727,
 								["Dabdoob"] = 1293,
 							},
-							["fight_component"] = true,
+							["serial"] = "Creature-0-4480-0-11375-19284-0000AE7065",
 							["pets"] = {
 							},
-							["end_time"] = 1622045121,
-							["classe"] = "UNKNOW",
+							["total"] = 6954.003772,
+							["aID"] = "19284",
+							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 6954.003772,
-							["monster"] = true,
 							["dps_started"] = false,
-							["total"] = 6954.003772,
-							["on_hold"] = false,
-							["friendlyfire_total"] = 0,
+							["fight_component"] = true,
+							["end_time"] = 1622045121,
+							["friendlyfire"] = {
+							},
+							["last_event"] = 1622045120,
 							["nome"] = "Invading Felguard",
 							["spells"] = {
-								["tipo"] = 2,
 								["_ActorTable"] = {
 									{
 										["c_amt"] = 7,
@@ -3313,23 +3318,23 @@ _detalhes_database = {
 										["r_amt"] = 0,
 									},
 								},
+								["tipo"] = 2,
 							},
-							["friendlyfire"] = {
-							},
-							["serial"] = "Creature-0-4480-0-11375-19284-0000AE7065",
 							["last_dps"] = 0,
+							["monster"] = true,
+							["on_hold"] = false,
 							["custom"] = 0,
-							["last_event"] = 1622045120,
+							["tipo"] = 1,
 							["damage_taken"] = 18510.003772,
 							["start_time"] = 1622045086,
 							["delay"] = 0,
-							["tipo"] = 1,
+							["classe"] = "UNKNOW",
 						}, -- [2]
 					},
 				}, -- [1]
 				{
-					["combatId"] = 16,
 					["tipo"] = 3,
+					["combatId"] = 16,
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1297,
@@ -3362,7 +3367,6 @@ _detalhes_database = {
 							},
 							["nome"] = "Bullsi",
 							["spells"] = {
-								["tipo"] = 3,
 								["_ActorTable"] = {
 									[23890] = {
 										["c_amt"] = 0,
@@ -3383,9 +3387,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 10,
 										["n_curado"] = 170,
 										["totaldenied"] = 0,
-										["n_amt"] = 10,
 										["absorbed"] = 0,
 									},
 									[16491] = {
@@ -3407,12 +3411,13 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 3,
 										["n_curado"] = 126,
 										["totaldenied"] = 0,
-										["n_amt"] = 3,
 										["absorbed"] = 0,
 									},
 								},
+								["tipo"] = 3,
 							},
 							["grupo"] = true,
 							["heal_enemy_amt"] = 0,
@@ -3427,127 +3432,127 @@ _detalhes_database = {
 					},
 				}, -- [2]
 				{
-					["combatId"] = 16,
 					["tipo"] = 7,
+					["combatId"] = 16,
 					["_ActorTable"] = {
 					},
 				}, -- [3]
 				{
-					["combatId"] = 16,
 					["tipo"] = 9,
+					["combatId"] = 16,
 					["_ActorTable"] = {
 						{
 							["fight_component"] = true,
-							["spell_cast"] = {
-								[23893] = 3,
-								[11551] = 1,
-							},
+							["buff_uptime"] = 94,
 							["flag_original"] = 1047,
 							["buff_uptime_targets"] = {
 							},
 							["grupo"] = true,
 							["nome"] = "Bullsi",
-							["buff_uptime"] = 94,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 3,
+								[11551] = 1,
 							},
 							["classe"] = "WARRIOR",
 							["tipo"] = 4,
 							["aID"] = "4454-0333729B",
 							["buff_uptime_spells"] = {
-								["tipo"] = 9,
 								["_ActorTable"] = {
 									[12970] = {
-										["activedamt"] = 2,
-										["id"] = 12970,
+										["appliedamt"] = 2,
 										["targets"] = {
 										},
+										["activedamt"] = 2,
 										["uptime"] = 8,
-										["appliedamt"] = 2,
+										["id"] = 12970,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 									[23887] = {
-										["activedamt"] = 2,
-										["id"] = 23887,
+										["appliedamt"] = 2,
 										["targets"] = {
 										},
+										["activedamt"] = 2,
 										["uptime"] = 22,
-										["appliedamt"] = 2,
+										["id"] = 23887,
 										["refreshamt"] = 2,
 										["actived"] = false,
 										["counter"] = 0,
 									},
-									[14204] = {
-										["activedamt"] = 1,
-										["id"] = 14204,
+									[186403] = {
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
-										["uptime"] = 11,
-										["appliedamt"] = 1,
+										["activedamt"] = 1,
+										["uptime"] = 25,
+										["id"] = 186403,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
-									[11551] = {
-										["activedamt"] = 1,
-										["id"] = 11551,
+									[14204] = {
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
-										["uptime"] = 22,
-										["appliedamt"] = 1,
+										["activedamt"] = 1,
+										["uptime"] = 11,
+										["id"] = 14204,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 									[16491] = {
-										["activedamt"] = 1,
-										["id"] = 16491,
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
+										["activedamt"] = 1,
 										["uptime"] = 6,
-										["appliedamt"] = 1,
+										["id"] = 16491,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
-									[186403] = {
-										["activedamt"] = 1,
-										["id"] = 186403,
+									[11551] = {
+										["appliedamt"] = 1,
 										["targets"] = {
 										},
-										["uptime"] = 25,
-										["appliedamt"] = 1,
+										["activedamt"] = 1,
+										["uptime"] = 22,
+										["id"] = 11551,
 										["refreshamt"] = 0,
 										["actived"] = false,
 										["counter"] = 0,
 									},
 								},
+								["tipo"] = 9,
 							},
 							["serial"] = "Player-4454-0333729B",
 							["last_event"] = 1622045111,
 						}, -- [1]
 						{
 							["monster"] = true,
+							["classe"] = "UNKNOW",
 							["nome"] = "Invading Felguard",
 							["flag_original"] = 2632,
+							["pets"] = {
+							},
+							["fight_component"] = true,
+							["last_event"] = 0,
+							["aID"] = "19284",
+							["tipo"] = 4,
+							["serial"] = "Creature-0-4480-0-11375-19284-00002E703C",
 							["spell_cast"] = {
 								[11977] = 10,
 							},
-							["classe"] = "UNKNOW",
-							["fight_component"] = true,
-							["last_event"] = 0,
-							["pets"] = {
-							},
-							["tipo"] = 4,
-							["serial"] = "Creature-0-4480-0-11375-19284-00002E703C",
-							["aID"] = "19284",
 						}, -- [2]
 					},
 				}, -- [4]
 				{
-					["combatId"] = 16,
 					["tipo"] = 2,
+					["combatId"] = 16,
 					["_ActorTable"] = {
 					},
 				}, -- [5]
@@ -3558,12 +3563,14 @@ _detalhes_database = {
 					"Bullsi", -- [1]
 				},
 				["CombatStartedAt"] = 1091883.622,
-				["overall_added"] = true,
+				["tempo_start"] = 1622045086,
 				["last_events_tables"] = {
 				},
 				["alternate_power"] = {
 				},
-				["combat_counter"] = 48,
+				["cleu_events"] = {
+					["n"] = 1,
+				},
 				["playing_solo"] = true,
 				["totals"] = {
 					10453.974484, -- [1]
@@ -3578,15 +3585,83 @@ _detalhes_database = {
 					{
 						["buff_uptime"] = 0,
 						["ress"] = 0,
-						["debuff_uptime"] = 0,
 						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
 						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
 						["cc_break"] = 0,
 						["dead"] = 0,
 					}, -- [4]
 					["frags_total"] = 0,
 					["voidzone_damage"] = 0,
+				},
+				["totals_grupo"] = {
+					3500, -- [1]
+					296, -- [2]
+					{
+						0, -- [1]
+						[0] = 0,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["cooldowns_defensive"] = 0,
+						["dispell"] = 0,
+						["interrupt"] = 0,
+						["debuff_uptime"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["frags_need_refresh"] = true,
+				["instance_type"] = "none",
+				["hasSaved"] = true,
+				["data_fim"] = "17:05:12",
+				["cleu_timeline"] = {
+				},
+				["enemy"] = "Invading Felguard",
+				["TotalElapsedCombatTime"] = 1091881.633,
+				["CombatEndedAt"] = 1091881.633,
+				["aura_timeline"] = {
+				},
+				["__call"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["damage_section"] = {
+					},
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Bullsi"] = 296.005207,
+						}, -- [1]
+					},
+					["damage"] = {
+						{
+							["Bullsi"] = 3500.005833,
+						}, -- [1]
+					},
+				},
+				["end_time"] = 1091881.633,
+				["combat_id"] = 16,
+				["frags"] = {
+					["Invading Felguard"] = 4,
+					["Argent Protector"] = 1,
+					["Argent Guardian"] = 2,
+				},
+				["contra"] = "Invading Felguard",
+				["spells_cast_timeline"] = {
+				},
+				["combat_counter"] = 48,
+				["data_inicio"] = "17:04:47",
+				["CombatSkillCache"] = {
 				},
 				["player_last_events"] = {
 					["Bullsi"] = {
@@ -3667,79 +3742,10 @@ _detalhes_database = {
 						["n"] = 2,
 					},
 				},
-				["frags_need_refresh"] = true,
-				["instance_type"] = "none",
-				["data_fim"] = "17:05:12",
-				["cleu_timeline"] = {
-				},
-				["enemy"] = "Invading Felguard",
-				["TotalElapsedCombatTime"] = 1091881.633,
-				["CombatEndedAt"] = 1091881.633,
-				["aura_timeline"] = {
-				},
-				["__call"] = {
-				},
-				["data_inicio"] = "17:04:47",
-				["end_time"] = 1091881.633,
-				["combat_id"] = 16,
-				["tempo_start"] = 1622045086,
-				["cleu_events"] = {
-					["n"] = 1,
-				},
-				["frags"] = {
-					["Invading Felguard"] = 4,
-					["Argent Protector"] = 1,
-					["Argent Guardian"] = 2,
-				},
-				["totals_grupo"] = {
-					3500, -- [1]
-					296, -- [2]
-					{
-						0, -- [1]
-						[0] = 0,
-						["alternatepower"] = 0,
-						[3] = 0,
-						[6] = 0,
-					}, -- [3]
-					{
-						["buff_uptime"] = 0,
-						["ress"] = 0,
-						["debuff_uptime"] = 0,
-						["cooldowns_defensive"] = 0,
-						["interrupt"] = 0,
-						["dispell"] = 0,
-						["cc_break"] = 0,
-						["dead"] = 0,
-					}, -- [4]
-				},
-				["PhaseData"] = {
-					{
-						1, -- [1]
-						1, -- [2]
-					}, -- [1]
-					["heal_section"] = {
-					},
-					["heal"] = {
-						{
-							["Bullsi"] = 296.005207,
-						}, -- [1]
-					},
-					["damage_section"] = {
-					},
-					["damage"] = {
-						{
-							["Bullsi"] = 3500.005833,
-						}, -- [1]
-					},
-				},
-				["CombatSkillCache"] = {
-				},
-				["spells_cast_timeline"] = {
-				},
 				["start_time"] = 1091855.98,
-				["contra"] = "Invading Felguard",
 				["TimeData"] = {
 				},
+				["overall_added"] = true,
 			}, -- [6]
 			{
 				{
@@ -3801,6 +3807,34 @@ _detalhes_database = {
 										},
 										["spellschool"] = 1,
 									}, -- [1]
+									[23893] = {
+										["c_amt"] = 0,
+										["b_amt"] = 0,
+										["c_dmg"] = 0,
+										["g_amt"] = 0,
+										["n_max"] = 242,
+										["targets"] = {
+											["Saltwater Snapjaw"] = 484,
+										},
+										["n_dmg"] = 484,
+										["n_min"] = 242,
+										["g_dmg"] = 0,
+										["counter"] = 2,
+										["total"] = 484,
+										["c_max"] = 0,
+										["id"] = 23893,
+										["r_dmg"] = 0,
+										["r_amt"] = 0,
+										["b_dmg"] = 0,
+										["a_dmg"] = 0,
+										["c_min"] = 0,
+										["successful_casted"] = 0,
+										["a_amt"] = 0,
+										["n_amt"] = 2,
+										["extra"] = {
+										},
+										["spellschool"] = 1,
+									},
 									[11578] = {
 										["c_amt"] = 0,
 										["b_amt"] = 0,
@@ -3858,34 +3892,6 @@ _detalhes_database = {
 										},
 										["spellschool"] = 1,
 									},
-									[23893] = {
-										["c_amt"] = 0,
-										["b_amt"] = 0,
-										["c_dmg"] = 0,
-										["g_amt"] = 0,
-										["n_max"] = 242,
-										["targets"] = {
-											["Saltwater Snapjaw"] = 484,
-										},
-										["n_dmg"] = 484,
-										["n_min"] = 242,
-										["g_dmg"] = 0,
-										["counter"] = 2,
-										["total"] = 484,
-										["c_max"] = 0,
-										["id"] = 23893,
-										["r_dmg"] = 0,
-										["r_amt"] = 0,
-										["b_dmg"] = 0,
-										["a_dmg"] = 0,
-										["c_min"] = 0,
-										["successful_casted"] = 0,
-										["a_amt"] = 0,
-										["n_amt"] = 2,
-										["extra"] = {
-										},
-										["spellschool"] = 1,
-									},
 								},
 								["tipo"] = 2,
 							},
@@ -3911,9 +3917,9 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
-							["friendlyfire_total"] = 0,
+							["classe"] = "UNKNOW",
 							["total"] = 290.007874,
-							["aID"] = "2505",
+							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 290.007874,
@@ -3966,7 +3972,7 @@ _detalhes_database = {
 							},
 							["start_time"] = 1621724392,
 							["serial"] = "Creature-0-4457-0-1401-2505-0000298207",
-							["classe"] = "UNKNOW",
+							["aID"] = "2505",
 						}, -- [2]
 					},
 				}, -- [1]
@@ -4024,9 +4030,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 8,
 										["n_curado"] = 136,
 										["totaldenied"] = 0,
-										["n_amt"] = 8,
 										["absorbed"] = 0,
 									},
 								},
@@ -4057,16 +4063,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-							},
+							["buff_uptime"] = 47,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 47,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 2,
 							},
 							["last_event"] = 1621724403,
 							["aID"] = "4454-0333729B",
@@ -4080,6 +4086,17 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 186403,
 										["uptime"] = 13,
+										["targets"] = {
+										},
+										["appliedamt"] = 1,
+									},
+									[12970] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 1,
+										["refreshamt"] = 2,
+										["id"] = 12970,
+										["uptime"] = 11,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -4102,17 +4119,6 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 11551,
 										["uptime"] = 13,
-										["targets"] = {
-										},
-										["appliedamt"] = 1,
-									},
-									[12970] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 1,
-										["refreshamt"] = 2,
-										["id"] = 12970,
-										["uptime"] = 11,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -4375,8 +4381,9 @@ _detalhes_database = {
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724375,
-							["on_hold"] = false,
 							["damage_taken"] = 337.008133,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -4472,8 +4479,7 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724375,
-							["friendlyfire"] = {
-							},
+							["on_hold"] = false,
 							["start_time"] = 1621724359,
 							["serial"] = "Player-4454-0333729B",
 							["classe"] = "WARRIOR",
@@ -4489,10 +4495,9 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "2505",
+							["on_hold"] = false,
 							["classe"] = "UNKNOW",
-							["friendlyfire"] = {
-							},
-							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 337.001246,
@@ -4500,7 +4505,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["total"] = 337.001246,
 							["fight_component"] = true,
-							["on_hold"] = false,
+							["damage_taken"] = 3751.001246,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -4542,10 +4547,11 @@ _detalhes_database = {
 							["end_time"] = 1621724375,
 							["custom"] = 0,
 							["last_event"] = 1621724373,
-							["damage_taken"] = 3751.001246,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1621724359,
 							["serial"] = "Creature-0-4457-0-1401-2505-000028F672",
-							["aID"] = "2505",
+							["friendlyfire_total"] = 0,
 						}, -- [2]
 					},
 				}, -- [1]
@@ -4602,9 +4608,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 9,
 										["n_curado"] = 153,
 										["totaldenied"] = 0,
-										["n_amt"] = 9,
 										["absorbed"] = 0,
 									},
 								},
@@ -4682,18 +4688,18 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-								[2687] = 1,
-								[11551] = 1,
-							},
+							["buff_uptime"] = 61,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 61,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[11551] = 1,
+								[23893] = 2,
+								[2687] = 1,
 							},
 							["last_event"] = 1621724375,
 							["aID"] = "4454-0333729B",
@@ -4906,8 +4912,9 @@ _detalhes_database = {
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724347,
-							["on_hold"] = false,
 							["damage_taken"] = 255.005631,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -5003,8 +5010,7 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724347,
-							["friendlyfire"] = {
-							},
+							["on_hold"] = false,
 							["start_time"] = 1621724331,
 							["serial"] = "Player-4454-0333729B",
 							["classe"] = "WARRIOR",
@@ -5020,10 +5026,9 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "2505",
+							["on_hold"] = false,
 							["classe"] = "UNKNOW",
-							["friendlyfire"] = {
-							},
-							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 255.004387,
@@ -5031,7 +5036,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["total"] = 255.004387,
 							["fight_component"] = true,
-							["on_hold"] = false,
+							["damage_taken"] = 2728.004387,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -5074,10 +5079,11 @@ _detalhes_database = {
 							["end_time"] = 1621724347,
 							["custom"] = 0,
 							["last_event"] = 1621724345,
-							["damage_taken"] = 2728.004387,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1621724331,
 							["serial"] = "Creature-0-4457-0-1401-2505-0001A8ED3D",
-							["aID"] = "2505",
+							["friendlyfire_total"] = 0,
 						}, -- [2]
 					},
 				}, -- [1]
@@ -5134,9 +5140,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 9,
 										["n_curado"] = 153,
 										["totaldenied"] = 0,
-										["n_amt"] = 9,
 										["absorbed"] = 0,
 									},
 								},
@@ -5168,16 +5174,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-							},
+							["buff_uptime"] = 50,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 50,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 2,
 							},
 							["last_event"] = 1621724347,
 							["aID"] = "4454-0333729B",
@@ -5191,6 +5197,17 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 186403,
 										["uptime"] = 16,
+										["targets"] = {
+										},
+										["appliedamt"] = 1,
+									},
+									[23887] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 1,
+										["refreshamt"] = 2,
+										["id"] = 23887,
+										["uptime"] = 13,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -5213,17 +5230,6 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 11551,
 										["uptime"] = 16,
-										["targets"] = {
-										},
-										["appliedamt"] = 1,
-									},
-									[23887] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 1,
-										["refreshamt"] = 2,
-										["id"] = 23887,
-										["uptime"] = 13,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -5370,18 +5376,18 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
-							["aID"] = "4454-0333729B",
+							["friendlyfire_total"] = 0,
 							["tipo"] = 1,
-							["classe"] = "WARRIOR",
+							["aID"] = "4454-0333729B",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 2816.003212,
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724319,
-							["on_hold"] = false,
 							["friendlyfire"] = {
 							},
+							["damage_taken"] = 229.003212,
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -5477,10 +5483,10 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724319,
-							["damage_taken"] = 229.003212,
+							["on_hold"] = false,
 							["start_time"] = 1621724303,
 							["serial"] = "Player-4454-0333729B",
-							["friendlyfire_total"] = 0,
+							["classe"] = "WARRIOR",
 						}, -- [1]
 						{
 							["flag_original"] = 68136,
@@ -5494,7 +5500,8 @@ _detalhes_database = {
 							["pets"] = {
 							},
 							["end_time"] = 1621724319,
-							["on_hold"] = false,
+							["friendlyfire"] = {
+							},
 							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
@@ -5503,8 +5510,7 @@ _detalhes_database = {
 							["fight_component"] = true,
 							["total"] = 229.006116,
 							["aID"] = "2505",
-							["friendlyfire"] = {
-							},
+							["damage_taken"] = 2816.006116,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -5546,7 +5552,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["custom"] = 0,
 							["last_event"] = 1621724317,
-							["damage_taken"] = 2816.006116,
+							["on_hold"] = false,
 							["start_time"] = 1621724303,
 							["serial"] = "Creature-0-4457-0-1401-2505-000028ED3F",
 							["classe"] = "UNKNOW",
@@ -5606,9 +5612,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 25,
 										["c_curado"] = 25,
+										["n_amt"] = 8,
 										["n_curado"] = 136,
 										["totaldenied"] = 0,
-										["n_amt"] = 8,
 										["absorbed"] = 0,
 									},
 								},
@@ -5640,16 +5646,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-							},
+							["buff_uptime"] = 50,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 50,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 2,
 							},
 							["last_event"] = 1621724319,
 							["aID"] = "4454-0333729B",
@@ -5663,6 +5669,17 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 186403,
 										["uptime"] = 16,
+										["targets"] = {
+										},
+										["appliedamt"] = 1,
+									},
+									[23887] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 1,
+										["refreshamt"] = 2,
+										["id"] = 23887,
+										["uptime"] = 13,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -5685,17 +5702,6 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 11551,
 										["uptime"] = 16,
-										["targets"] = {
-										},
-										["appliedamt"] = 1,
-									},
-									[23887] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 1,
-										["refreshamt"] = 2,
-										["id"] = 23887,
-										["uptime"] = 13,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -5843,18 +5849,18 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
-							["aID"] = "4454-0333729B",
+							["friendlyfire_total"] = 0,
 							["tipo"] = 1,
-							["classe"] = "WARRIOR",
+							["aID"] = "4454-0333729B",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 2850.001095,
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724281,
-							["on_hold"] = false,
 							["friendlyfire"] = {
 							},
+							["damage_taken"] = 1692.001095,
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -5950,10 +5956,10 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724281,
-							["damage_taken"] = 1692.001095,
+							["on_hold"] = false,
 							["start_time"] = 1621724262,
 							["serial"] = "Player-4454-0333729B",
-							["friendlyfire_total"] = 0,
+							["classe"] = "WARRIOR",
 						}, -- [1]
 						{
 							["flag_original"] = 68136,
@@ -5967,7 +5973,8 @@ _detalhes_database = {
 							["pets"] = {
 							},
 							["end_time"] = 1621724281,
-							["on_hold"] = false,
+							["friendlyfire"] = {
+							},
 							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
@@ -5976,8 +5983,7 @@ _detalhes_database = {
 							["fight_component"] = true,
 							["total"] = 351.006161,
 							["aID"] = "2505",
-							["friendlyfire"] = {
-							},
+							["damage_taken"] = 2850.006161,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -6020,7 +6026,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["custom"] = 0,
 							["last_event"] = 1621724280,
-							["damage_taken"] = 2850.006161,
+							["on_hold"] = false,
 							["start_time"] = 1621724262,
 							["serial"] = "Creature-0-4457-0-1401-2505-000128ED3F",
 							["classe"] = "UNKNOW",
@@ -6080,9 +6086,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 25,
 										["c_curado"] = 51,
+										["n_amt"] = 6,
 										["n_curado"] = 102,
 										["totaldenied"] = 0,
-										["n_amt"] = 6,
 										["absorbed"] = 0,
 									},
 								},
@@ -6114,16 +6120,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-							},
+							["buff_uptime"] = 54,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 54,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 2,
 							},
 							["last_event"] = 1621724281,
 							["aID"] = "4454-0333729B",
@@ -6137,6 +6143,17 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 186403,
 										["uptime"] = 19,
+										["targets"] = {
+										},
+										["appliedamt"] = 1,
+									},
+									[12970] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 1,
+										["refreshamt"] = 0,
+										["id"] = 12970,
+										["uptime"] = 1,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -6159,17 +6176,6 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 11551,
 										["uptime"] = 19,
-										["targets"] = {
-										},
-										["appliedamt"] = 1,
-									},
-									[12970] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 1,
-										["refreshamt"] = 0,
-										["id"] = 12970,
-										["uptime"] = 1,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -6412,8 +6418,9 @@ _detalhes_database = {
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724250,
-							["on_hold"] = false,
 							["damage_taken"] = 302.005028,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -6509,8 +6516,7 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724249,
-							["friendlyfire"] = {
-							},
+							["on_hold"] = false,
 							["start_time"] = 1621724237,
 							["serial"] = "Player-4454-0333729B",
 							["classe"] = "WARRIOR",
@@ -6526,10 +6532,9 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "2505",
+							["on_hold"] = false,
 							["classe"] = "UNKNOW",
-							["friendlyfire"] = {
-							},
-							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 302.003039,
@@ -6537,7 +6542,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["total"] = 302.003039,
 							["fight_component"] = true,
-							["on_hold"] = false,
+							["damage_taken"] = 3074.003039,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -6579,10 +6584,11 @@ _detalhes_database = {
 							["end_time"] = 1621724250,
 							["custom"] = 0,
 							["last_event"] = 1621724249,
-							["damage_taken"] = 3074.003039,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1621724237,
 							["serial"] = "Creature-0-4457-0-1401-2505-000228ED3C",
-							["aID"] = "2505",
+							["friendlyfire_total"] = 0,
 						}, -- [2]
 					},
 				}, -- [1]
@@ -6639,9 +6645,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 8,
 										["n_curado"] = 136,
 										["totaldenied"] = 0,
-										["n_amt"] = 8,
 										["absorbed"] = 0,
 									},
 								},
@@ -6673,16 +6679,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-							},
+							["buff_uptime"] = 45,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 45,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 2,
 							},
 							["last_event"] = 1621724250,
 							["aID"] = "4454-0333729B",
@@ -6699,6 +6705,17 @@ _detalhes_database = {
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
+									},
+									[12970] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 2,
+										["refreshamt"] = 2,
+										["id"] = 12970,
+										["uptime"] = 9,
+										["targets"] = {
+										},
+										["appliedamt"] = 2,
 									},
 									[23887] = {
 										["counter"] = 0,
@@ -6721,17 +6738,6 @@ _detalhes_database = {
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
-									},
-									[12970] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 2,
-										["refreshamt"] = 2,
-										["id"] = 12970,
-										["uptime"] = 9,
-										["targets"] = {
-										},
-										["appliedamt"] = 2,
 									},
 								},
 								["tipo"] = 9,
@@ -6884,8 +6890,9 @@ _detalhes_database = {
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724208,
-							["on_hold"] = false,
 							["damage_taken"] = 214.006977,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -6981,8 +6988,7 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724207,
-							["friendlyfire"] = {
-							},
+							["on_hold"] = false,
 							["start_time"] = 1621724197,
 							["serial"] = "Player-4454-0333729B",
 							["classe"] = "WARRIOR",
@@ -6998,10 +7004,9 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "2505",
+							["on_hold"] = false,
 							["classe"] = "UNKNOW",
-							["friendlyfire"] = {
-							},
-							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 214.007916,
@@ -7009,7 +7014,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["total"] = 214.007916,
 							["fight_component"] = true,
-							["on_hold"] = false,
+							["damage_taken"] = 2760.007916,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -7050,10 +7055,11 @@ _detalhes_database = {
 							["end_time"] = 1621724208,
 							["custom"] = 0,
 							["last_event"] = 1621724206,
-							["damage_taken"] = 2760.007916,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1621724198,
 							["serial"] = "Creature-0-4457-0-1401-2505-0009A8ED3F",
-							["aID"] = "2505",
+							["friendlyfire_total"] = 0,
 						}, -- [2]
 					},
 				}, -- [1]
@@ -7110,9 +7116,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 8,
 										["n_curado"] = 136,
 										["totaldenied"] = 0,
-										["n_amt"] = 8,
 										["absorbed"] = 0,
 									},
 								},
@@ -7144,16 +7150,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-							},
+							["buff_uptime"] = 42,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 42,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 2,
 							},
 							["last_event"] = 1621724208,
 							["aID"] = "4454-0333729B",
@@ -7170,6 +7176,17 @@ _detalhes_database = {
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
+									},
+									[12970] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 2,
+										["refreshamt"] = 1,
+										["id"] = 12970,
+										["uptime"] = 10,
+										["targets"] = {
+										},
+										["appliedamt"] = 2,
 									},
 									[23887] = {
 										["counter"] = 0,
@@ -7192,17 +7209,6 @@ _detalhes_database = {
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
-									},
-									[12970] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 2,
-										["refreshamt"] = 1,
-										["id"] = 12970,
-										["uptime"] = 10,
-										["targets"] = {
-										},
-										["appliedamt"] = 2,
 									},
 								},
 								["tipo"] = 9,
@@ -7346,10 +7352,9 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "2505",
+							["on_hold"] = false,
 							["classe"] = "UNKNOW",
-							["friendlyfire"] = {
-							},
-							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 337.008634,
@@ -7357,7 +7362,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["total"] = 337.008634,
 							["fight_component"] = true,
-							["on_hold"] = false,
+							["damage_taken"] = 3511.008634,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -7399,10 +7404,11 @@ _detalhes_database = {
 							["end_time"] = 1621724182,
 							["custom"] = 0,
 							["last_event"] = 1621724180,
-							["damage_taken"] = 3511.008634,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1621724168,
 							["serial"] = "Creature-0-4457-0-1401-2505-000628ED3F",
-							["aID"] = "2505",
+							["friendlyfire_total"] = 0,
 						}, -- [1]
 						{
 							["flag_original"] = 1297,
@@ -7424,8 +7430,9 @@ _detalhes_database = {
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724182,
-							["on_hold"] = false,
 							["damage_taken"] = 337.008665,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -7521,8 +7528,7 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724181,
-							["friendlyfire"] = {
-							},
+							["on_hold"] = false,
 							["start_time"] = 1621724168,
 							["serial"] = "Player-4454-0333729B",
 							["classe"] = "WARRIOR",
@@ -7582,9 +7588,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 8,
 										["n_curado"] = 136,
 										["totaldenied"] = 0,
-										["n_amt"] = 8,
 										["absorbed"] = 0,
 									},
 									[16491] = {
@@ -7606,9 +7612,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 1,
 										["n_curado"] = 42,
 										["totaldenied"] = 0,
-										["n_amt"] = 1,
 										["absorbed"] = 0,
 									},
 								},
@@ -7640,16 +7646,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-							},
+							["buff_uptime"] = 52,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 52,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 2,
 							},
 							["last_event"] = 1621724182,
 							["aID"] = "4454-0333729B",
@@ -7678,6 +7684,17 @@ _detalhes_database = {
 										},
 										["appliedamt"] = 2,
 									},
+									[186403] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 1,
+										["refreshamt"] = 0,
+										["id"] = 186403,
+										["uptime"] = 14,
+										["targets"] = {
+										},
+										["appliedamt"] = 1,
+									},
 									[14204] = {
 										["counter"] = 0,
 										["actived"] = false,
@@ -7685,17 +7702,6 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 14204,
 										["uptime"] = 4,
-										["targets"] = {
-										},
-										["appliedamt"] = 1,
-									},
-									[11551] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 1,
-										["refreshamt"] = 0,
-										["id"] = 11551,
-										["uptime"] = 14,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -7711,12 +7717,12 @@ _detalhes_database = {
 										},
 										["appliedamt"] = 1,
 									},
-									[186403] = {
+									[11551] = {
 										["counter"] = 0,
 										["actived"] = false,
 										["activedamt"] = 1,
 										["refreshamt"] = 0,
-										["id"] = 186403,
+										["id"] = 11551,
 										["uptime"] = 14,
 										["targets"] = {
 										},
@@ -7864,18 +7870,18 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
-							["aID"] = "4454-0333729B",
+							["friendlyfire_total"] = 0,
 							["tipo"] = 1,
-							["classe"] = "WARRIOR",
+							["aID"] = "4454-0333729B",
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 2704.008487,
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724157,
-							["on_hold"] = false,
 							["friendlyfire"] = {
 							},
+							["damage_taken"] = 158.008487,
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -7971,10 +7977,10 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724154,
-							["damage_taken"] = 158.008487,
+							["on_hold"] = false,
 							["start_time"] = 1621724144,
 							["serial"] = "Player-4454-0333729B",
-							["friendlyfire_total"] = 0,
+							["classe"] = "WARRIOR",
 						}, -- [1]
 						{
 							["flag_original"] = 68136,
@@ -7988,7 +7994,8 @@ _detalhes_database = {
 							["pets"] = {
 							},
 							["end_time"] = 1621724157,
-							["on_hold"] = false,
+							["friendlyfire"] = {
+							},
 							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
@@ -7997,8 +8004,7 @@ _detalhes_database = {
 							["fight_component"] = true,
 							["total"] = 158.002038,
 							["aID"] = "2505",
-							["friendlyfire"] = {
-							},
+							["damage_taken"] = 2704.002038,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -8040,7 +8046,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["custom"] = 0,
 							["last_event"] = 1621724154,
-							["damage_taken"] = 2704.002038,
+							["on_hold"] = false,
 							["start_time"] = 1621724144,
 							["serial"] = "Creature-0-4457-0-1401-2505-0000A8ED3F",
 							["classe"] = "UNKNOW",
@@ -8102,9 +8108,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 26,
 										["c_curado"] = 26,
+										["n_amt"] = 7,
 										["n_curado"] = 116,
 										["totaldenied"] = 0,
-										["n_amt"] = 7,
 										["absorbed"] = 0,
 									},
 								},
@@ -8136,16 +8142,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-							},
+							["buff_uptime"] = 42,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 42,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 2,
 							},
 							["last_event"] = 1621724157,
 							["aID"] = "4454-0333729B",
@@ -8162,6 +8168,17 @@ _detalhes_database = {
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
+									},
+									[12970] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 2,
+										["refreshamt"] = 1,
+										["id"] = 12970,
+										["uptime"] = 9,
+										["targets"] = {
+										},
+										["appliedamt"] = 2,
 									},
 									[23887] = {
 										["counter"] = 0,
@@ -8184,17 +8201,6 @@ _detalhes_database = {
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
-									},
-									[12970] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 2,
-										["refreshamt"] = 1,
-										["id"] = 12970,
-										["uptime"] = 9,
-										["targets"] = {
-										},
-										["appliedamt"] = 2,
 									},
 								},
 								["tipo"] = 9,
@@ -8347,8 +8353,9 @@ _detalhes_database = {
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724127,
-							["on_hold"] = false,
 							["damage_taken"] = 235.003607,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -8444,8 +8451,7 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724126,
-							["friendlyfire"] = {
-							},
+							["on_hold"] = false,
 							["start_time"] = 1621724110,
 							["serial"] = "Player-4454-0333729B",
 							["classe"] = "WARRIOR",
@@ -8461,10 +8467,9 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "2505",
+							["on_hold"] = false,
 							["classe"] = "UNKNOW",
-							["friendlyfire"] = {
-							},
-							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 235.00719,
@@ -8472,7 +8477,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["total"] = 235.00719,
 							["fight_component"] = true,
-							["on_hold"] = false,
+							["damage_taken"] = 2719.00719,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -8515,10 +8520,11 @@ _detalhes_database = {
 							["end_time"] = 1621724127,
 							["custom"] = 0,
 							["last_event"] = 1621724125,
-							["damage_taken"] = 2719.00719,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1621724111,
 							["serial"] = "Creature-0-4457-0-1401-2505-000828ED3D",
-							["aID"] = "2505",
+							["friendlyfire_total"] = 0,
 						}, -- [2]
 					},
 				}, -- [1]
@@ -8575,9 +8581,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 25,
 										["c_curado"] = 25,
+										["n_amt"] = 10,
 										["n_curado"] = 170,
 										["totaldenied"] = 0,
-										["n_amt"] = 10,
 										["absorbed"] = 0,
 									},
 								},
@@ -8609,16 +8615,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 3,
-							},
+							["buff_uptime"] = 54,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 54,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 3,
 							},
 							["last_event"] = 1621724127,
 							["aID"] = "4454-0333729B",
@@ -8632,6 +8638,17 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 186403,
 										["uptime"] = 17,
+										["targets"] = {
+										},
+										["appliedamt"] = 1,
+									},
+									[12970] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 1,
+										["refreshamt"] = 0,
+										["id"] = 12970,
+										["uptime"] = 4,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -8654,17 +8671,6 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 11551,
 										["uptime"] = 17,
-										["targets"] = {
-										},
-										["appliedamt"] = 1,
-									},
-									[12970] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 1,
-										["refreshamt"] = 0,
-										["id"] = 12970,
-										["uptime"] = 4,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -8820,8 +8826,9 @@ _detalhes_database = {
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724100,
-							["on_hold"] = false,
 							["damage_taken"] = 354.002743,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -8889,8 +8896,7 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724099,
-							["friendlyfire"] = {
-							},
+							["on_hold"] = false,
 							["start_time"] = 1621724084,
 							["serial"] = "Player-4454-0333729B",
 							["classe"] = "WARRIOR",
@@ -8906,10 +8912,9 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "2505",
+							["on_hold"] = false,
 							["classe"] = "UNKNOW",
-							["friendlyfire"] = {
-							},
-							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 354.004543,
@@ -8917,7 +8922,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["total"] = 354.004543,
 							["fight_component"] = true,
-							["on_hold"] = false,
+							["damage_taken"] = 3102.004543,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -8959,10 +8964,11 @@ _detalhes_database = {
 							["end_time"] = 1621724100,
 							["custom"] = 0,
 							["last_event"] = 1621724098,
-							["damage_taken"] = 3102.004543,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1621724084,
 							["serial"] = "Creature-0-4457-0-1401-2505-000428ED3D",
-							["aID"] = "2505",
+							["friendlyfire_total"] = 0,
 						}, -- [2]
 					},
 				}, -- [1]
@@ -9019,9 +9025,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 25,
 										["c_curado"] = 25,
+										["n_amt"] = 10,
 										["n_curado"] = 170,
 										["totaldenied"] = 0,
-										["n_amt"] = 10,
 										["absorbed"] = 0,
 									},
 								},
@@ -9085,6 +9091,17 @@ _detalhes_database = {
 										},
 										["appliedamt"] = 1,
 									},
+									[12970] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 2,
+										["refreshamt"] = 2,
+										["id"] = 12970,
+										["uptime"] = 9,
+										["targets"] = {
+										},
+										["appliedamt"] = 2,
+									},
 									[23887] = {
 										["counter"] = 0,
 										["actived"] = false,
@@ -9106,17 +9123,6 @@ _detalhes_database = {
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
-									},
-									[12970] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 2,
-										["refreshamt"] = 2,
-										["id"] = 12970,
-										["uptime"] = 9,
-										["targets"] = {
-										},
-										["appliedamt"] = 2,
 									},
 								},
 								["tipo"] = 9,
@@ -9284,8 +9290,9 @@ _detalhes_database = {
 							["delay"] = 0,
 							["dps_started"] = false,
 							["end_time"] = 1621724073,
-							["on_hold"] = false,
 							["damage_taken"] = 179.008535,
+							["friendlyfire"] = {
+							},
 							["nome"] = "Bullsi",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -9381,8 +9388,7 @@ _detalhes_database = {
 							["last_dps"] = 0,
 							["custom"] = 0,
 							["last_event"] = 1621724071,
-							["friendlyfire"] = {
-							},
+							["on_hold"] = false,
 							["start_time"] = 1621724060,
 							["serial"] = "Player-4454-0333729B",
 							["classe"] = "WARRIOR",
@@ -9398,10 +9404,9 @@ _detalhes_database = {
 							},
 							["pets"] = {
 							},
+							["aID"] = "2505",
+							["on_hold"] = false,
 							["classe"] = "UNKNOW",
-							["friendlyfire"] = {
-							},
-							["friendlyfire_total"] = 0,
 							["raid_targets"] = {
 							},
 							["total_without_pet"] = 179.007038,
@@ -9409,7 +9414,7 @@ _detalhes_database = {
 							["dps_started"] = false,
 							["total"] = 179.007038,
 							["fight_component"] = true,
-							["on_hold"] = false,
+							["damage_taken"] = 2789.007038,
 							["nome"] = "Saltwater Snapjaw",
 							["spells"] = {
 								["_ActorTable"] = {
@@ -9452,10 +9457,11 @@ _detalhes_database = {
 							["end_time"] = 1621724073,
 							["custom"] = 0,
 							["last_event"] = 1621724071,
-							["damage_taken"] = 2789.007038,
+							["friendlyfire"] = {
+							},
 							["start_time"] = 1621724069,
 							["serial"] = "Creature-0-4457-0-1401-2505-0000294625",
-							["aID"] = "2505",
+							["friendlyfire_total"] = 0,
 						}, -- [2]
 					},
 				}, -- [1]
@@ -9514,9 +9520,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 8,
 										["n_curado"] = 134,
 										["totaldenied"] = 0,
-										["n_amt"] = 8,
 										["absorbed"] = 0,
 									},
 									[16491] = {
@@ -9538,9 +9544,9 @@ _detalhes_database = {
 										},
 										["c_min"] = 0,
 										["c_curado"] = 0,
+										["n_amt"] = 2,
 										["n_curado"] = 85,
 										["totaldenied"] = 0,
-										["n_amt"] = 2,
 										["absorbed"] = 0,
 									},
 								},
@@ -9572,16 +9578,16 @@ _detalhes_database = {
 					["_ActorTable"] = {
 						{
 							["flag_original"] = 1047,
-							["spell_cast"] = {
-								[23893] = 2,
-							},
+							["buff_uptime"] = 54,
 							["fight_component"] = true,
 							["nome"] = "Bullsi",
 							["grupo"] = true,
 							["buff_uptime_targets"] = {
 							},
-							["buff_uptime"] = 54,
 							["pets"] = {
+							},
+							["spell_cast"] = {
+								[23893] = 2,
 							},
 							["last_event"] = 1621724073,
 							["aID"] = "4454-0333729B",
@@ -9610,6 +9616,17 @@ _detalhes_database = {
 										},
 										["appliedamt"] = 2,
 									},
+									[186403] = {
+										["counter"] = 0,
+										["actived"] = false,
+										["activedamt"] = 1,
+										["refreshamt"] = 0,
+										["id"] = 186403,
+										["uptime"] = 13,
+										["targets"] = {
+										},
+										["appliedamt"] = 1,
+									},
 									[14204] = {
 										["counter"] = 0,
 										["actived"] = false,
@@ -9617,17 +9634,6 @@ _detalhes_database = {
 										["refreshamt"] = 0,
 										["id"] = 14204,
 										["uptime"] = 4,
-										["targets"] = {
-										},
-										["appliedamt"] = 1,
-									},
-									[11551] = {
-										["counter"] = 0,
-										["actived"] = false,
-										["activedamt"] = 1,
-										["refreshamt"] = 0,
-										["id"] = 11551,
-										["uptime"] = 13,
 										["targets"] = {
 										},
 										["appliedamt"] = 1,
@@ -9643,12 +9649,12 @@ _detalhes_database = {
 										},
 										["appliedamt"] = 1,
 									},
-									[186403] = {
+									[11551] = {
 										["counter"] = 0,
 										["actived"] = false,
 										["activedamt"] = 1,
 										["refreshamt"] = 0,
-										["id"] = 186403,
+										["id"] = 11551,
 										["uptime"] = 13,
 										["targets"] = {
 										},
@@ -9796,9 +9802,9 @@ _detalhes_database = {
 		["pos"] = {
 		},
 	},
-	["last_version"] = "2.5.18514",
+	["last_version"] = "2.5.18516",
 	["character_data"] = {
-		["logons"] = 18,
+		["logons"] = 22,
 	},
 	["tabela_instancias"] = {
 	},
@@ -9810,7 +9816,7 @@ _detalhes_database = {
 	},
 	["on_death_menu"] = true,
 	["nick_tag_cache"] = {
-		["nextreset"] = 1622741339,
+		["nextreset"] = 1624049701,
 		["last_version"] = 14,
 	},
 	["last_instance_id"] = 0,
@@ -9856,12 +9862,81 @@ _detalhes_database = {
 			["author"] = "Details! Team",
 			["alwaysshowme"] = true,
 		},
+		["DETAILS_PLUGIN_STREAM_OVERLAY"] = {
+			["use_square_mode"] = false,
+			["is_first_run"] = false,
+			["grow_direction"] = "right",
+			["arrow_color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				0.5, -- [4]
+			},
+			["main_frame_size"] = {
+				300, -- [1]
+				500.000030517578, -- [2]
+			},
+			["minimap"] = {
+				["minimapPos"] = 160,
+				["radius"] = 160,
+				["hide"] = true,
+			},
+			["arrow_anchor_y"] = 0,
+			["arrow_anchor_x"] = 0,
+			["main_frame_locked"] = false,
+			["row_texture"] = "Details Serenity",
+			["use_spark"] = true,
+			["row_color"] = {
+				0.1, -- [1]
+				0.1, -- [2]
+				0.1, -- [3]
+				0.4, -- [4]
+			},
+			["author"] = "Details! Team",
+			["square_amount"] = 5,
+			["enabled"] = false,
+			["arrow_size"] = 10,
+			["y"] = -1.52587890625e-05,
+			["row_spacement"] = 21,
+			["main_frame_color"] = {
+				0, -- [1]
+				0, -- [2]
+				0, -- [3]
+				0.2, -- [4]
+			},
+			["main_frame_strata"] = "LOW",
+			["arrow_texture"] = "Interface\\CHATFRAME\\ChatFrameExpandArrow",
+			["font_size"] = 10,
+			["per_second"] = {
+				["enabled"] = false,
+				["point"] = "CENTER",
+				["scale"] = 1,
+				["font_shadow"] = true,
+				["y"] = -1.52587890625e-05,
+				["x"] = -3.0517578125e-05,
+				["attribute_type"] = 1,
+				["update_speed"] = 0.05,
+				["size"] = 32,
+			},
+			["x"] = 3.0517578125e-05,
+			["font_face"] = "Friz Quadrata TT",
+			["square_size"] = 32,
+			["point"] = "CENTER",
+			["font_color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["row_height"] = 20,
+			["scale"] = 1,
+		},
 	},
-	["last_realversion"] = 144,
-	["ignore_nicktag"] = false,
 	["SoloTablesSaved"] = {
 		["Mode"] = 1,
 	},
+	["last_realversion"] = 144,
+	["ignore_nicktag"] = false,
 	["force_font_outline"] = "",
 	["local_instances_config"] = {
 		{
@@ -9932,15 +10007,16 @@ _detalhes_database = {
 					["pets"] = {
 					},
 					["aID"] = "4454-0333729B",
+					["tipo"] = 1,
+					["classe"] = "WARRIOR",
 					["raid_targets"] = {
 					},
 					["total_without_pet"] = 61258.12768500002,
-					["classe"] = "WARRIOR",
-					["tipo"] = 1,
+					["delay"] = 0,
 					["dps_started"] = false,
-					["total"] = 61258.12768500002,
-					["friendlyfire_total"] = 0,
 					["end_time"] = 1621723990,
+					["damage_taken"] = 10419.127685,
+					["on_hold"] = false,
 					["nome"] = "Bullsi",
 					["spells"] = {
 						["_ActorTable"] = {
@@ -9975,6 +10051,33 @@ _detalhes_database = {
 								["extra"] = {
 								},
 							}, -- [1]
+							[11578] = {
+								["c_amt"] = 0,
+								["b_amt"] = 0,
+								["c_dmg"] = 0,
+								["g_amt"] = 0,
+								["n_max"] = 0,
+								["targets"] = {
+									["Invading Felguard"] = 0,
+								},
+								["n_dmg"] = 0,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 0,
+								["total"] = 0,
+								["c_max"] = 0,
+								["id"] = 11578,
+								["r_dmg"] = 0,
+								["r_amt"] = 0,
+								["b_dmg"] = 0,
+								["c_min"] = 0,
+								["successful_casted"] = 0,
+								["a_amt"] = 0,
+								["n_amt"] = 0,
+								["a_dmg"] = 0,
+								["extra"] = {
+								},
+							},
 							[7373] = {
 								["c_amt"] = 1,
 								["b_amt"] = 0,
@@ -10062,16 +10165,15 @@ _detalhes_database = {
 						["tipo"] = 2,
 					},
 					["grupo"] = true,
-					["delay"] = 0,
-					["friendlyfire"] = {
-					},
+					["friendlyfire_total"] = 0,
 					["last_dps"] = 0,
 					["custom"] = 0,
 					["last_event"] = 0,
-					["on_hold"] = false,
+					["friendlyfire"] = {
+					},
 					["start_time"] = 1621723667,
 					["serial"] = "Player-4454-0333729B",
-					["damage_taken"] = 10419.127685,
+					["total"] = 61258.12768500002,
 				}, -- [1]
 				{
 					["flag_original"] = 68136,
@@ -10084,9 +10186,9 @@ _detalhes_database = {
 					},
 					["pets"] = {
 					},
+					["classe"] = "UNKNOW",
+					["damage_taken"] = 45585.079465,
 					["aID"] = "2505",
-					["on_hold"] = false,
-					["friendlyfire_total"] = 0,
 					["raid_targets"] = {
 					},
 					["total_without_pet"] = 4373.079465,
@@ -10094,7 +10196,7 @@ _detalhes_database = {
 					["fight_component"] = true,
 					["end_time"] = 1621723990,
 					["total"] = 4373.079465,
-					["damage_taken"] = 45585.079465,
+					["last_dps"] = 0,
 					["nome"] = "Saltwater Snapjaw",
 					["spells"] = {
 						["_ActorTable"] = {
@@ -10137,10 +10239,10 @@ _detalhes_database = {
 					},
 					["custom"] = 0,
 					["last_event"] = 0,
-					["last_dps"] = 0,
+					["on_hold"] = false,
 					["start_time"] = 1621723773,
 					["serial"] = "Creature-0-4457-0-1401-2505-000028ED3D",
-					["classe"] = "UNKNOW",
+					["friendlyfire_total"] = 0,
 				}, -- [2]
 				{
 					["flag_original"] = 68168,
@@ -10148,39 +10250,37 @@ _detalhes_database = {
 					["damage_from"] = {
 						["Argent Bowman"] = true,
 						["Argent Guardian"] = true,
+						["Dabdoob"] = true,
 						["Nethergarde Advisor"] = true,
 						["Bullsi"] = true,
-						["Dabdoob"] = true,
 						["Argent Protector"] = true,
 						["Argent Hunter"] = true,
 					},
 					["targets"] = {
 						["Argent Protector"] = 3737,
 						["Argent Guardian"] = 3109,
+						["Argent Hunter"] = 830,
 						["Nethergarde Advisor"] = 1054,
 						["Bullsi"] = 3861,
-						["Argent Hunter"] = 830,
 						["Argent Bowman"] = 3027,
 						["Dabdoob"] = 1545,
 					},
-					["dps_started"] = false,
+					["serial"] = "Creature-0-4480-0-11375-19284-0000AE7065",
 					["pets"] = {
 					},
-					["fight_component"] = true,
+					["damage_taken"] = 46659.03193700001,
 					["friendlyfire_total"] = 0,
+					["aID"] = "19284",
 					["raid_targets"] = {
 					},
 					["total_without_pet"] = 17163.031937,
-					["on_hold"] = false,
-					["friendlyfire"] = {
-					},
-					["monster"] = true,
+					["fight_component"] = true,
+					["dps_started"] = false,
 					["total"] = 17163.031937,
-					["end_time"] = 1622045112,
-					["aID"] = "19284",
+					["on_hold"] = false,
+					["last_event"] = 0,
 					["nome"] = "Invading Felguard",
 					["spells"] = {
-						["tipo"] = 2,
 						["_ActorTable"] = {
 							{
 								["c_amt"] = 12,
@@ -10191,9 +10291,9 @@ _detalhes_database = {
 								["targets"] = {
 									["Argent Bowman"] = 2390,
 									["Argent Guardian"] = 2809,
+									["Argent Hunter"] = 566,
 									["Nethergarde Advisor"] = 820,
 									["Bullsi"] = 3325,
-									["Argent Hunter"] = 566,
 									["Argent Protector"] = 3201,
 									["Dabdoob"] = 1245,
 								},
@@ -10227,9 +10327,9 @@ _detalhes_database = {
 								["targets"] = {
 									["Argent Bowman"] = 637,
 									["Argent Guardian"] = 300,
+									["Argent Hunter"] = 264,
 									["Nethergarde Advisor"] = 234,
 									["Bullsi"] = 536,
-									["Argent Hunter"] = 264,
 									["Argent Protector"] = 536,
 									["Dabdoob"] = 300,
 								},
@@ -10254,21 +10354,22 @@ _detalhes_database = {
 								["r_amt"] = 0,
 							},
 						},
+						["tipo"] = 2,
 					},
-					["classe"] = "UNKNOW",
-					["last_event"] = 0,
-					["serial"] = "Creature-0-4480-0-11375-19284-0000AE7065",
+					["friendlyfire"] = {
+					},
+					["end_time"] = 1622045112,
+					["monster"] = true,
 					["custom"] = 0,
 					["tipo"] = 1,
-					["damage_taken"] = 46659.03193700001,
+					["last_dps"] = 0,
 					["start_time"] = 1622045004,
 					["delay"] = 0,
-					["last_dps"] = 0,
+					["classe"] = "UNKNOW",
 				}, -- [3]
 				{
 					["flag_original"] = 2632,
 					["totalabsorbed"] = 0.016396,
-					["on_hold"] = false,
 					["damage_from"] = {
 						["Argent Protector"] = true,
 						["Argent Guardian"] = true,
@@ -10282,23 +10383,23 @@ _detalhes_database = {
 						["Argent Guardian"] = 135,
 						["Argent Hunter"] = 418,
 					},
-					["end_time"] = 1622045158,
+					["serial"] = "Creature-0-4480-0-11375-19287-00002E7056",
 					["pets"] = {
 					},
-					["friendlyfire"] = {
-					},
+					["last_dps"] = 0,
 					["aID"] = "19287",
+					["classe"] = "UNKNOW",
 					["raid_targets"] = {
 					},
 					["total_without_pet"] = 5811.016396,
-					["fight_component"] = true,
 					["dps_started"] = false,
-					["total"] = 5811.016396,
-					["classe"] = "UNKNOW",
 					["monster"] = true,
+					["total"] = 5811.016396,
+					["friendlyfire"] = {
+					},
+					["last_event"] = 0,
 					["nome"] = "Invading Voidwalker",
 					["spells"] = {
-						["tipo"] = 2,
 						["_ActorTable"] = {
 							{
 								["c_amt"] = 1,
@@ -10362,16 +10463,17 @@ _detalhes_database = {
 								["r_amt"] = 0,
 							},
 						},
+						["tipo"] = 2,
 					},
-					["last_event"] = 0,
+					["end_time"] = 1622045158,
 					["friendlyfire_total"] = 0,
-					["serial"] = "Creature-0-4480-0-11375-19287-00002E7056",
+					["on_hold"] = false,
 					["custom"] = 0,
 					["tipo"] = 1,
-					["last_dps"] = 0,
+					["damage_taken"] = 6282.016396000001,
 					["start_time"] = 1622045120,
 					["delay"] = 0,
-					["damage_taken"] = 6282.016396000001,
+					["fight_component"] = true,
 				}, -- [4]
 			},
 		}, -- [1]
@@ -10399,7 +10501,7 @@ _detalhes_database = {
 					["totalabsorb"] = 0.09851100000000002,
 					["last_hps"] = 0,
 					["targets"] = {
-						["Bullsi"] = 959,
+						["Bullsi"] = 0,
 					},
 					["totalover_without_pet"] = 0.09851100000000002,
 					["healing_taken"] = 3308.098511,
@@ -10429,9 +10531,9 @@ _detalhes_database = {
 								},
 								["c_min"] = 0,
 								["c_curado"] = 255,
+								["n_amt"] = 165,
 								["n_curado"] = 2800,
 								["totaldenied"] = 0,
-								["n_amt"] = 165,
 								["absorbed"] = 0,
 							},
 							[16491] = {
@@ -10453,9 +10555,9 @@ _detalhes_database = {
 								},
 								["c_min"] = 0,
 								["c_curado"] = 0,
+								["n_amt"] = 6,
 								["n_curado"] = 253,
 								["totaldenied"] = 0,
-								["n_amt"] = 6,
 								["absorbed"] = 0,
 							},
 						},
@@ -10480,9 +10582,9 @@ _detalhes_database = {
 			["_ActorTable"] = {
 				{
 					["received"] = 31.017938,
-					["resource"] = 0.06499,
+					["resource"] = 0.106214,
 					["targets"] = {
-						["Bullsi"] = 11,
+						["Bullsi"] = 0,
 					},
 					["pets"] = {
 					},
@@ -10499,7 +10601,7 @@ _detalhes_database = {
 								["id"] = 2687,
 								["totalover"] = 0,
 								["targets"] = {
-									["Bullsi"] = 10,
+									["Bullsi"] = 0,
 								},
 								["counter"] = 2,
 							},
@@ -10508,7 +10610,7 @@ _detalhes_database = {
 								["id"] = 29131,
 								["totalover"] = 0,
 								["targets"] = {
-									["Bullsi"] = 1,
+									["Bullsi"] = 0,
 								},
 								["counter"] = 11,
 							},
@@ -10572,12 +10674,12 @@ _detalhes_database = {
 								},
 								["refreshamt"] = 27,
 							},
-							[14204] = {
+							[186403] = {
 								["counter"] = 0,
-								["activedamt"] = 3,
-								["appliedamt"] = 3,
-								["id"] = 14204,
-								["uptime"] = 19,
+								["activedamt"] = 21,
+								["appliedamt"] = 21,
+								["id"] = 186403,
+								["uptime"] = 346,
 								["targets"] = {
 								},
 								["refreshamt"] = 0,
@@ -10602,12 +10704,12 @@ _detalhes_database = {
 								},
 								["refreshamt"] = 0,
 							},
-							[11551] = {
+							[14204] = {
 								["counter"] = 0,
-								["activedamt"] = 19,
-								["appliedamt"] = 19,
-								["id"] = 11551,
-								["uptime"] = 330,
+								["activedamt"] = 3,
+								["appliedamt"] = 3,
+								["id"] = 14204,
+								["uptime"] = 19,
 								["targets"] = {
 								},
 								["refreshamt"] = 0,
@@ -10622,12 +10724,12 @@ _detalhes_database = {
 								},
 								["refreshamt"] = 0,
 							},
-							[186403] = {
+							[11551] = {
 								["counter"] = 0,
-								["activedamt"] = 21,
-								["appliedamt"] = 21,
-								["id"] = 186403,
-								["uptime"] = 346,
+								["activedamt"] = 19,
+								["appliedamt"] = 19,
+								["id"] = 11551,
+								["uptime"] = 330,
 								["targets"] = {
 								},
 								["refreshamt"] = 0,
@@ -10641,10 +10743,10 @@ _detalhes_database = {
 					},
 					["grupo"] = true,
 					["spell_cast"] = {
-						[2687] = 2,
-						[7373] = 1,
-						[23893] = 45,
 						[11551] = 3,
+						[7373] = 1,
+						[2687] = 2,
+						[23893] = 45,
 					},
 					["aID"] = "4454-0333729B",
 					["tipo"] = 4,
@@ -10658,34 +10760,34 @@ _detalhes_database = {
 				{
 					["flag_original"] = 2632,
 					["last_event"] = 0,
-					["monster"] = true,
 					["nome"] = "Invading Felguard",
+					["monster"] = true,
 					["pets"] = {
 					},
 					["spell_cast"] = {
 						[11977] = 25,
 					},
-					["fight_component"] = true,
+					["classe"] = "UNKNOW",
 					["tipo"] = 4,
 					["aID"] = "19284",
 					["serial"] = "Creature-0-4480-0-11375-19284-00002E703C",
-					["classe"] = "UNKNOW",
+					["fight_component"] = true,
 				}, -- [2]
 				{
 					["flag_original"] = 2632,
-					["monster"] = true,
-					["nome"] = "Invading Voidwalker",
 					["last_event"] = 0,
+					["nome"] = "Invading Voidwalker",
+					["monster"] = true,
 					["pets"] = {
 					},
 					["spell_cast"] = {
 						[20825] = 12,
 					},
-					["fight_component"] = true,
+					["classe"] = "UNKNOW",
 					["tipo"] = 4,
 					["aID"] = "19287",
 					["serial"] = "Creature-0-4480-0-11375-19287-00002E6FC4",
-					["classe"] = "UNKNOW",
+					["fight_component"] = true,
 				}, -- [3]
 			},
 		}, -- [4]
@@ -10918,8 +11020,8 @@ _detalhes_database = {
 			["n"] = 1,
 		},
 	},
-	["last_day"] = "26",
-	["combat_counter"] = 53,
+	["last_day"] = "08",
+	["combat_counter"] = 57,
 	["announce_prepots"] = {
 		["enabled"] = false,
 		["channel"] = "SELF",

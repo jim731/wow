@@ -1,0 +1,53 @@
+Todo:
+
+- Add ANYONE doing a LFG without an instance in chat to automatically enroll in all instances by level Eg: 28 Shaman LFG (Excluding RAIDS and PVP)
+
+- If group has reached 5 on a world quest/raid/pvp ask if you want to expand to 40 or quit
+
+- NEED to make it so when your looking for a group and ADD someone to make a group, your Searching for a group changes to Looking for more.
+
+ -- creating test data structure
+ local Test1_Data = {
+   ["level1_test_1"] = {
+     [1] = { ["name"] = "sublevel 1"; },
+     [2] = {	["name"] = "sublevel 2"; },
+   },
+   ["level1_test_2"] = {
+     [1] = {	["name"] = "sublevel A"; },
+     [2] = {	["name"] = "sublevel B"; },
+   }
+ }
+ -- menu create function
+ function Test1_DropDown_Initialize(self,level)
+   level = level or 1;
+   if (level == 1) then
+     for key, subarray in pairs(Test1_Data) do
+       local info = UIDropDownMenu_CreateInfo();
+       info.hasArrow = true; -- creates submenu
+       info.notCheckable = true;
+       info.text = key;
+       info.value = {
+         ["Level1_Key"] = key;
+       };
+       UIDropDownMenu_AddButton(info, level);
+     end -- for key, subarray
+   end -- if level 1
+
+   if (level == 2) then
+     -- getting values of first menu
+     local Level1_Key = UIDROPDOWNMENU_MENU_VALUE["Level1_Key"];
+     subarray = Test1_Data[Level1_Key];
+     for key, subsubarray in pairs(subarray) do
+       local info = UIDropDownMenu_CreateInfo();
+       info.hasArrow = false; -- no submenues this time
+       info.notCheckable = true;
+       info.text = subsubarray["name"];
+       -- use info.func to set a function to be called at "click"
+       info.value = {
+         ["Level1_Key"] = Level1_Key;
+         ["Sublevel_Key"] = key;
+       };
+       UIDropDownMenu_AddButton(info, level);
+     end -- for key,subsubarray
+   end -- if level 2
+ end -- function Test1_DropDown_Initialize

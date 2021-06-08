@@ -12,8 +12,8 @@ Questie: enabled
 TradeSkillMaster: disabled
 CharacterStatsClassic: disabled
 RXPGuides: enabled
-WeaponSwingTimer: disabled
-PallyPower: enabled
+WeaponSwingTimer: enabled
+PallyPower: disabled
 Pawn: disabled
 NauticusClassic: enabled
 NovaWorldBuffs: disabled
@@ -34,7 +34,7 @@ AtlasLootClassic_Factions: enabled
 AtlasLootClassic_PvP: enabled
 AtlasLootClassic: enabled
 AtlasLootClassic_Data: enabled
-AtlasQuest: disabled
+AtlasQuest: enabled
 ATT-Classic: enabled
 Attune: enabled
 Auctionator: enabled
@@ -126,3 +126,4 @@ WeakAurasTemplates: enabled
 WhatsTraining: enabled
 WideQuestLog: enabled
 BagBrother: enabled
+LFG113: enabled

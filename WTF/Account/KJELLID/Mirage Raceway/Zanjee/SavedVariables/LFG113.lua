@@ -4,8 +4,8 @@ LFG113BlackList = {
 LFG113Searches = {
 	["ST"] = {
 		["Roles"] = "",
-		["Custom"] = "",
 		["TAB"] = 12,
+		["Custom"] = "",
 		["Searches"] = {
 			{
 				"1", -- [1]

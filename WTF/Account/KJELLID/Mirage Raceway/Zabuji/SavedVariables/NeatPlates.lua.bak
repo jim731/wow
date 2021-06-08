@@ -3,6 +3,7 @@ NeatPlatesOptions = {
 	["SecondSpecProfile"] = "Default",
 	["EnemyAutomation"] = {
 	},
+	["ForceHealthUpdates"] = false,
 	["ActiveTheme"] = "Roth",
 	["EmulatedTargetPlate"] = false,
 	["OverrideOutline"] = 1,

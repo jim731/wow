@@ -1,14 +1,9 @@
 
 RXPCData = {
-	["currentGuideName"] = "10-20 Eversong Woods / Ghostlands",
+	["currentGuideName"] = "20-23 Stonetalon / The Barrens",
 	["stepSkip"] = {
-		[36] = true,
-		[75] = true,
-		[53] = true,
-		[65] = true,
-		[4] = true,
-		[35] = true,
+		[5] = true,
 	},
 	["currentGuideGroup"] = "RestedXP Horde 1-30",
-	["currentStep"] = 88,
+	["currentStep"] = 21,
 }

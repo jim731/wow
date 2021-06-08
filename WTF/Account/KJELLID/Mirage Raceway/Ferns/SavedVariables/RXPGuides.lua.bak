@@ -1,0 +1,20 @@
+
+RXPCData = {
+	["currentGuideName"] = "01-10 Mulgore",
+	["stepSkip"] = {
+		[46] = true,
+		[63] = true,
+		[112] = true,
+		[48] = true,
+		[75] = true,
+		[64] = true,
+		[10] = true,
+		[20] = true,
+		[3] = true,
+		[51] = true,
+		[59] = true,
+		[44] = true,
+	},
+	["currentGuideGroup"] = "RestedXP Horde 1-30",
+	["currentStep"] = 128,
+}

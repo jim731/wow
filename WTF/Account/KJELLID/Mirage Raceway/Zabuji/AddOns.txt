@@ -21,3 +21,5 @@ NovaWorldBuffs: disabled
 Auctionator: enabled
 Bagnon: enabled
 Details: disabled
+AtlasQuest: enabled
+LFG113: enabled
